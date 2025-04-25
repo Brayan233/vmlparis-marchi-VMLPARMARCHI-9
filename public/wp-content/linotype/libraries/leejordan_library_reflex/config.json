@@ -1,0 +1,25 @@
+{
+    "type": "library",
+    "author": "leejordan",
+    "version": "1.0",
+    "update": "",
+    "sync": "push",
+    "title": "Reflex Grid",
+    "desc": "A lightweight responsive flexbox grid with cross browser support, an inline-block fallback and no polyfills.",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [],
+    "styles": [
+        {
+            "id": "leejordan_library_reflex",
+            "version": "2.0.3",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "\/style.css",
+            "cdn": ""
+        }
+    ]
+}

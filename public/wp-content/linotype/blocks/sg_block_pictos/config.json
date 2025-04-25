@@ -1,0 +1,21 @@
+{
+    "type": "block",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Pictos",
+    "desc": "",
+    "icon": "dashicons dashicons-star-filled",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [
+        "sg_block_pictos_item"
+    ],
+    "libraries": [
+    ]
+}

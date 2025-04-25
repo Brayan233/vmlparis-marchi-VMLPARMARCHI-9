@@ -1,0 +1,26 @@
+{
+  "type": "library",
+  "author": "Ahmed Bouhuolia",
+  "version": "2.1.0",
+  "update": "",
+  "sync": "",
+  "title": "sticky-sidebar",
+  "desc": "Pure JavaScript plugin for making smart and high performance sticky sidebars.",
+  "icon": "dashicons dashicons-category",
+  "color": "",
+  "category": "",
+  "tags": [],
+  "scripts": [
+      {
+          "id": "abouolia_library_stickysidebar",
+          "version": "2.1.0",
+          "dependencies": [
+            
+          ],
+          "footer": "true",
+          "full": "/script.js",
+          "min": "/script.js",
+          "cdn": ""
+      }
+  ]
+}

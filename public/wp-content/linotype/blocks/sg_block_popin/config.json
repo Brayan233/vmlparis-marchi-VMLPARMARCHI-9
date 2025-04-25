@@ -1,0 +1,18 @@
+{
+    "type": "block",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "PopIn",
+    "desc": "display pop in",
+    "icon": "dashicons dashicons-minus",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": []
+}

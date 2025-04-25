@@ -1,0 +1,23 @@
+[
+    {
+        "type": "linotype_block_composer",
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "content",
+                    "overwrite_target": "post_content",
+                    "meta_id_strict": "yes",
+                    "meta_id": "content",
+                    "type": "linotype_field_composer",
+                    "options": null,
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "0px",
+                    "tab": "",
+                    "group": "Template"
+                }
+            ]
+        }
+    }
+]

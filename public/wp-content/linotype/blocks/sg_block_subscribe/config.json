@@ -1,0 +1,21 @@
+{
+    "type": "block",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Subscribe",
+    "desc": "Simple newsletter provider form",
+    "icon": "dashicons dashicons-admin-links",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [
+        "jquery_library_form",
+        "jquery_library_validation"
+    ]
+}

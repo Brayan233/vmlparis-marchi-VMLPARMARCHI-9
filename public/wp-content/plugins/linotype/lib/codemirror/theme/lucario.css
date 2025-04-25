@@ -1,0 +1,43 @@
+/*
+  Name:       lucario
+  Author:     Raphael Amorim
+
+  Original Lucario color scheme (https://github.com/raphamorim/lucario)
+*/
+
+.cm-s-lucario.CodeMirror, .cm-s-lucario .CodeMirror-gutters {
+  background-color: #2b3e50 !important;
+  color: #f8f8f2 !important;
+  border: none;
+}
+.cm-s-lucario .CodeMirror-gutters { color: #2b3e50; }
+.cm-s-lucario .CodeMirror-cursor { border-left: solid thin #E6C845; }
+.cm-s-lucario .CodeMirror-linenumber { color: #4e7498; }
+.cm-s-lucario .CodeMirror-selected { background: #243443; }
+.cm-s-lucario .CodeMirror-line::selection, .cm-s-lucario .CodeMirror-line > span::selection, .cm-s-lucario .CodeMirror-line > span > span::selection { background: #243443; }
+.cm-s-lucario .CodeMirror-line::-moz-selection, .cm-s-lucario .CodeMirror-line > span::-moz-selection, .cm-s-lucario .CodeMirror-line > span > span::-moz-selection { background: #243443; }
+.cm-s-lucario span.cm-comment { color: #5c98cd; }
+.cm-s-lucario span.cm-string, .cm-s-lucario span.cm-string-2 { color: #d8d8d8; }
+.cm-s-lucario span.cm-number { color: #ca94ff; }
+.cm-s-lucario span.cm-variable { color: #0ecfff; }
+.cm-s-lucario span.cm-variable-2 { color: #7ea9d2; }
+.cm-s-lucario span.cm-def { color: #fff; }
+.cm-s-lucario span.cm-operator { color: #66D9EF; }
+.cm-s-lucario span.cm-keyword { color: #ff8989; }
+.cm-s-lucario span.cm-atom { color: #bd93f9; }
+.cm-s-lucario span.cm-meta { color: #487082; }
+.cm-s-lucario span.cm-tag { color: #ff6541; }
+.cm-s-lucario span.cm-attribute { color: #66D9EF; }
+.cm-s-lucario span.cm-qualifier { color: #ff7070; }
+.cm-s-lucario span.cm-property { color: #f8f8f2; }
+.cm-s-lucario span.cm-builtin { color: #72C05D; }
+.cm-s-lucario span.cm-variable-3, .cm-s-lucario span.cm-type { color: #ffb86c; }
+
+.cm-s-lucario .CodeMirror-activeline-background { background: #243443; }
+.cm-s-lucario .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+
+.cm-searching {
+  background: rgb(255, 255, 0);
+  color: #28290e!important;
+  padding: 0px 2px;
+}

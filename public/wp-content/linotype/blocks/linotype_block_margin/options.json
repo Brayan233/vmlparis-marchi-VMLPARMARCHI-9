@@ -1,0 +1,14 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "height",
+            "title": "Taille de la marge",
+            "default":"50",
+            "options": {
+                "placeholder": "50"
+            }
+        },
+        "contents": []
+    }
+]

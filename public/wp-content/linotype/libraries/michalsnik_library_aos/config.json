@@ -1,0 +1,37 @@
+{
+    "type": "library",
+    "author": "Michał Sajnóg",
+    "version": "1.0",
+    "update": "2019-04-29T17:04:42+00:00",
+    "sync": "",
+    "title": "AOS",
+    "desc": "Animate On Scroll",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "Animation",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "aos",
+            "version": "2.1.1",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "\/script.js",
+            "cdn": "https:\/\/cdn.rawgit.com\/michalsnik\/aos\/2.1.1\/dist\/aos.js"
+        }
+    ],
+    "styles": [
+        {
+            "id": "aos",
+            "version": "2.1.1",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "\/style.css",
+            "cdn": "https:\/\/cdn.rawgit.com\/michalsnik\/aos\/2.1.1\/dist\/aos.css"
+        }
+    ]
+}

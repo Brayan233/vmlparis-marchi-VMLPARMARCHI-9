@@ -1,0 +1,7 @@
+input.parsley-error,
+textarea.parsley-error {
+  border:1px solid #dc3232!important;
+}
+.parsley-errors-list {
+  margin:5px 0px;
+}

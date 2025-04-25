@@ -1,0 +1,6510 @@
+"use strict";
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var engine = { "lang": { "utility": {}, "type": {} }, "react": {}, "web": { "utility": {}, "component": {} }, "fileManager": { "component": { "client": { "observer": {} } }, "value": {}, "entity": { "factory": {} }, "template": { "icon": {}, "control": { "uploadProgress": {} }, "fileList": { "breadcrumbs": {}, "item": {} } }, "view": { "icon": {}, "control": { "uploadProgress": {} }, "fileList": { "breadcrumbs": {}, "item": {}, "trigger": {}, "observer": {} } }, "model": {}, "controller": { "fileList": { "observer": {}, "action": {} } }, "setting": {} }, "gui": { "utility": {}, "component": {}, "trigger": {} } };
+{
+    var self = engine.lang.utility.Object = function () {
+        function _class() {
+            _classCallCheck(this, _class);
+        }
+
+        _createClass(_class, null, [{
+            key: "forEach",
+            value: function forEach(object, callback) {
+                for (var property in object) {
+                    if (object.hasOwnProperty(property)) {
+                        callback(property, object[property]);
+                    }
+                }
+            }
+        }, {
+            key: "merge",
+            value: function merge(result) {
+                for (var _len = arguments.length, objects = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                    objects[_key - 1] = arguments[_key];
+                }
+
+                objects.forEach(function (object) {
+                    self.forEach(object, function (property, value) {
+                        result[property] = value;
+                    });
+                });
+
+                return result;
+            }
+        }]);
+
+        return _class;
+    }();
+}
+{
+    var _self = engine.lang.utility.Type = function () {
+        function _class2() {
+            _classCallCheck(this, _class2);
+        }
+
+        _createClass(_class2, null, [{
+            key: "isString",
+            value: function isString(value) {
+                return typeof value === 'string';
+            }
+        }, {
+            key: "isNumber",
+            value: function isNumber(value) {
+                return typeof value === 'number';
+            }
+        }, {
+            key: "isObject",
+            value: function isObject(value) {
+                var strict = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+                return (typeof value === "undefined" ? "undefined" : _typeof(value)) === 'object' && (!strict || !_self.isArray(value));
+            }
+        }, {
+            key: "isFunction",
+            value: function isFunction(value) {
+                return typeof value === 'function';
+            }
+        }, {
+            key: "isArray",
+            value: function isArray(value) {
+                return value instanceof Array;
+            }
+        }, {
+            key: "arrayToObject",
+            value: function arrayToObject(value, recursively) {
+                var result = {};
+
+                for (var i = 0; i < value.length; ++i) {
+                    result[i] = recursively && _self.isArray(value[i]) ? _self.arrayToObject(value[i], recursively) : value[i];
+                }
+
+                return result;
+            }
+        }]);
+
+        return _class2;
+    }();
+}
+{
+    var Obj = engine.lang.utility.Object,
+        Type = engine.lang.utility.Type;
+
+    engine.lang.type.Object = function () {
+        function _class3() {
+            var properties = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+            var context = arguments[1];
+
+            _classCallCheck(this, _class3);
+
+            this._constructor(properties, context);
+        }
+
+        _createClass(_class3, [{
+            key: "_constructor",
+            value: function _constructor(properties, context) {
+                this.set(Obj.merge(this.defaults || {}, properties), context);
+                this.use.apply(this, _toConsumableArray(this.traits || []));
+                this.initialize && this.initialize();
+            }
+        }, {
+            key: "set",
+            value: function set(property, value, context) {
+                var _this = this;
+
+                if (Type.isObject(property)) {
+                    context = value;
+                    Obj.forEach(property, function (name, value) {
+                        _this.set(name, value, context);
+                    });
+                } else if (Type.isFunction(value) && context) {
+                    this[property] = function () {
+                        for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                            args[_key2] = arguments[_key2];
+                        }
+
+                        return value.call.apply(value, [context].concat(args));
+                    };
+                } else {
+                    this[property] = value;
+                }
+
+                return this;
+            }
+        }, {
+            key: "use",
+            value: function use() {
+                var _this2 = this;
+
+                for (var _len3 = arguments.length, traits = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+                    traits[_key3] = arguments[_key3];
+                }
+
+                traits.forEach(function (trait) {
+                    //todo: check if trait have used already
+                    if (!Type.isObject(trait)) {
+                        trait = new trait({ owner: _this2 });
+                    }
+                    trait.properties && _this2.set(trait.properties, trait);
+                });
+
+                return this;
+            }
+        }]);
+
+        return _class3;
+    }();
+}
+{
+    var _self2 = engine.lang.utility.String = function () {
+        function _class4() {
+            _classCallCheck(this, _class4);
+        }
+
+        _createClass(_class4, null, [{
+            key: "capitalize",
+            value: function capitalize(string) {
+                return _self2.upperCaseFirst(string);
+            }
+        }, {
+            key: "format",
+            value: function format(string) {
+                for (var _len4 = arguments.length, args = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+                    args[_key4 - 1] = arguments[_key4];
+                }
+
+                return string.replace(/{(\d+)}/g, function (match, number) {
+                    return typeof args[number] !== 'undefined' ? args[number] : match;
+                });
+            }
+        }, {
+            key: "contains",
+            value: function contains(string, substring) {
+                var caseSensitive = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+                return caseSensitive ? string.indexOf(substring) >= 0 : string.toLocaleLowerCase().indexOf(substring.toLocaleLowerCase()) >= 0;
+            }
+        }, {
+            key: "lowerCaseFirst",
+            value: function lowerCaseFirst(string) {
+                return string.charAt(0).toLocaleLowerCase() + string.slice(1);
+            }
+        }, {
+            key: "upperCaseFirst",
+            value: function upperCaseFirst(string) {
+                return string.charAt(0).toLocaleUpperCase() + string.slice(1);
+            }
+        }]);
+
+        return _class4;
+    }();
+}
+{
+    var Str = engine.lang.utility.String;
+
+    engine.react.Observable = function () {
+        function _class5() {
+            _classCallCheck(this, _class5);
+
+            this.observers = [];
+            this.addObservers.apply(this, arguments);
+        }
+
+        _createClass(_class5, [{
+            key: "addObserver",
+            value: function addObserver(observer, callback) {
+                if (callback) {
+                    var onEvent = 'on' + Str.capitalize(observer);
+                    observer = {};
+                    observer[onEvent] = callback;
+                }
+                this.observers.push(observer);
+
+                return this;
+            }
+        }, {
+            key: "removeObserver",
+            value: function removeObserver(observer) {
+                this.observers = this.observers.filter(function (element) {
+                    return element !== observer;
+                });
+
+                return this;
+            }
+        }, {
+            key: "addObservers",
+            value: function addObservers() {
+                var _this3 = this;
+
+                for (var _len5 = arguments.length, observers = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+                    observers[_key5] = arguments[_key5];
+                }
+
+                observers.forEach(function (observer) {
+                    _this3.addObserver(observer);
+                });
+
+                return this;
+            }
+        }, {
+            key: "trigger",
+            value: function trigger(eventName) {
+                for (var _len6 = arguments.length, args = Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
+                    args[_key6 - 1] = arguments[_key6];
+                }
+
+                var onEvent = 'on' + Str.capitalize(eventName);
+                try {
+                    this.observers.forEach(function (observer) {
+                        observer[onEvent] && observer[onEvent].apply(observer, args);
+                    });
+                    this.observers.forEach(function (observer) {
+                        observer[onEvent + 'Complete'] && observer[onEvent + 'Complete'].apply(observer, args);
+                    });
+                } catch (throwable) {
+                    this.observers.forEach(function (observer) {
+                        // todo: remove temporary solution;
+                        console.error(throwable);
+                        observer['onError'] && observer['onError'].apply(observer, [throwable].concat(args));
+                    });
+                }
+            }
+        }]);
+
+        return _class5;
+    }();
+}
+{
+    var _Object = engine.lang.type.Object,
+        _Obj = engine.lang.utility.Object,
+        Observable = engine.react.Observable,
+        _Str = engine.lang.utility.String,
+        _Type = engine.lang.utility.Type;
+
+    var _self3 = engine.react.Component = function (_Object2) {
+        _inherits(_class6, _Object2);
+
+        function _class6() {
+            _classCallCheck(this, _class6);
+
+            return _possibleConstructorReturn(this, (_class6.__proto__ || Object.getPrototypeOf(_class6)).apply(this, arguments));
+        }
+
+        _createClass(_class6, [{
+            key: "_constructor",
+            value: function _constructor() {
+                var _get2;
+
+                for (var _len7 = arguments.length, args = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+                    args[_key7] = arguments[_key7];
+                }
+
+                (_get2 = _get(_class6.prototype.__proto__ || Object.getPrototypeOf(_class6.prototype), "_constructor", this)).call.apply(_get2, [this].concat(args));
+                this.mapEvents(this.events || {});
+                this.on(this);
+            }
+        }, {
+            key: "on",
+            value: function on() {
+                var _eventResource;
+
+                (_eventResource = this.eventResource).addObserver.apply(_eventResource, arguments);
+
+                return this;
+            }
+        }, {
+            key: "trigger",
+            value: function trigger(eventName, event, context) {
+                this.eventResource.trigger(eventName, event, context || this);
+            }
+        }, {
+            key: "mapEvent",
+            value: function mapEvent(property, fromEventName, toEventName) {
+                var _this5 = this;
+
+                if (property instanceof _self3) {
+                    property.on(fromEventName, function (event) {
+                        _this5.trigger(toEventName, event, _this5);
+                    });
+                } else {
+                    property.addEventListener(fromEventName, function (event) {
+                        _this5.trigger(toEventName, event, _this5);
+                    });
+                }
+            }
+        }, {
+            key: "mapEvents",
+            value: function mapEvents(events) {
+                var _this6 = this;
+
+                _Obj.forEach(events, function (toEventName, properties) {
+                    _Obj.forEach(properties, function (property, fromEventName) {
+                        if (_Type.isArray(_this6[property])) {
+                            _this6[property].forEach(function (item) {
+                                _this6.mapEvent(item, fromEventName, toEventName);
+                            });
+                        } else {
+                            _this6.mapEvent(_this6[property], fromEventName, toEventName);
+                        }
+                    });
+                });
+            }
+        }, {
+            key: "set",
+            value: function set(property, value, context) {
+                if (property.length > 2 && property.substr(0, 2) === 'on' && property.charAt(2) === property.charAt(2).toUpperCase()) {
+                    var eventName = _Str.lowerCaseFirst(property.substr(2));
+
+                    return this.on(eventName, value);
+                }
+
+                return _get(_class6.prototype.__proto__ || Object.getPrototypeOf(_class6.prototype), "set", this).call(this, property, value, context);
+            }
+        }, {
+            key: "eventResource",
+            get: function get() {
+                if (!this._observable) {
+                    this._observable = new Observable();
+                }
+
+                return this._observable;
+            }
+        }]);
+
+        return _class6;
+    }(_Object);
+}
+{
+    var _self4 = engine.web.utility.Cookie = function () {
+        function _class7() {
+            _classCallCheck(this, _class7);
+        }
+
+        _createClass(_class7, null, [{
+            key: "enabled",
+            value: function enabled() {
+                return navigator.cookieEnabled;
+            }
+        }, {
+            key: "set",
+            value: function set(name, value) {
+                var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+                if (!_self4.enabled()) {
+                    return;
+                }
+
+                if (options.expires) {
+                    options.expires = options.expires.toUTCString();
+                }
+
+                var cookie = name + '=' + encodeURIComponent(value);
+                for (var key in options) {
+                    cookie += ';' + (key !== 'secure' ? key + '=' + options[key] : key);
+                }
+
+                document.cookie = cookie;
+            }
+        }, {
+            key: "get",
+            value: function get(name) {
+                var byDefault = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+                if (!_self4.enabled()) {
+                    return byDefault;
+                }
+
+                var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+
+                return matches ? decodeURIComponent(matches[1]) : byDefault;
+            }
+        }, {
+            key: "remove",
+            value: function remove(name) {
+                if (!_self4.enabled()) {
+                    return;
+                }
+
+                _self4.set(name, '', {
+                    expires: new Date(Date.now() - 1000)
+                });
+            }
+        }]);
+
+        return _class7;
+    }();
+}
+{
+    var _Object3 = engine.lang.type.Object,
+        Cookie = engine.web.utility.Cookie;
+
+    engine.web.component.User = function (_Object4) {
+        _inherits(_class8, _Object4);
+
+        function _class8() {
+            _classCallCheck(this, _class8);
+
+            return _possibleConstructorReturn(this, (_class8.__proto__ || Object.getPrototypeOf(_class8)).apply(this, arguments));
+        }
+
+        _createClass(_class8, [{
+            key: "read",
+            value: function read(name) {
+                var byDefault = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+                return this.load()[name] || byDefault;
+            }
+        }, {
+            key: "write",
+            value: function write(name, value) {
+                var data = this.load();
+                data[name] = value;
+                this.store(data);
+            }
+        }, {
+            key: "load",
+            value: function load() {
+                if (!this.applicationId) {
+                    return {};
+                }
+
+                var cookie = Cookie.get(this.applicationId);
+
+                return cookie !== null ? JSON.parse(cookie) : {};
+            }
+        }, {
+            key: "store",
+            value: function store(data) {
+                Cookie.set(this.applicationId, JSON.stringify(data), {
+                    expires: new Date(Date.now() + this.expires)
+                });
+            }
+        }]);
+
+        return _class8;
+    }(_Object3);
+}
+{
+    var Component = engine.react.Component,
+        _Observable = engine.react.Observable,
+        _Obj2 = engine.lang.utility.Object;
+
+    engine.web.component.Client = function (_Component) {
+        _inherits(_class9, _Component);
+
+        function _class9() {
+            _classCallCheck(this, _class9);
+
+            return _possibleConstructorReturn(this, (_class9.__proto__ || Object.getPrototypeOf(_class9)).apply(this, arguments));
+        }
+
+        _createClass(_class9, [{
+            key: "exchange",
+            value: function exchange(request) {
+                for (var _len8 = arguments.length, observers = Array(_len8 > 1 ? _len8 - 1 : 0), _key8 = 1; _key8 < _len8; _key8++) {
+                    observers[_key8 - 1] = arguments[_key8];
+                }
+
+                var client = new XMLHttpRequest(),
+                    eventResource = this.mergeObservers.apply(this, observers);
+
+                client.onload = client.onerror = function () {
+                    var event = {
+                        request: request,
+                        response: {
+                            status: {
+                                code: client.status,
+                                text: client.statusText
+                            },
+                            body: client.responseText
+                        }
+                    };
+
+                    eventResource.trigger('close', event);
+
+                    switch (String(client.status).charAt(0)) {
+                        case '1':
+                            eventResource.trigger('information', event);
+                            break;
+                        case '2':
+                            eventResource.trigger('success', event);
+                            break;
+                        case '3':
+                            eventResource.trigger('redirection', event);
+                            break;
+                        case '4':
+                            eventResource.trigger('clientError', event);
+                            break;
+                        case '5':
+                            eventResource.trigger('serverError', event);
+                            break;
+                    }
+
+                    eventResource.trigger('statusCode' + client.status, event);
+                };
+
+                client.upload.onprogress = function (progress) {
+                    if (progress.lengthComputable) {
+                        request.prevProgress = request.progress || null;
+                        request.progress = progress;
+
+                        eventResource.trigger('progress', {
+                            request: request
+                        });
+                    }
+                };
+
+                eventResource.trigger('before', {
+                    request: request
+                });
+
+                client.open(request.method, request.url, true);
+
+                request.abort = function () {
+                    client.abort();
+                    eventResource.trigger('abort', {
+                        request: request
+                    });
+                };
+
+                eventResource.trigger('open', {
+                    request: request
+                });
+
+                request.headers && _Obj2.forEach(request.headers, function (name, value) {
+                    client.setRequestHeader(name, value);
+                });
+
+                client.send(request.body);
+            }
+        }, {
+            key: "mergeObservers",
+            value: function mergeObservers() {
+                var eventResource = new (Function.prototype.bind.apply(_Observable, [null].concat(_toConsumableArray(this.eventResource.observers))))();
+
+                return eventResource.addObservers.apply(eventResource, arguments);
+            }
+        }]);
+
+        return _class9;
+    }(Component);
+}
+{
+    var _Object5 = engine.lang.type.Object;
+
+    engine.react.Observer = function (_Object6) {
+        _inherits(_class10, _Object6);
+
+        function _class10() {
+            _classCallCheck(this, _class10);
+
+            return _possibleConstructorReturn(this, (_class10.__proto__ || Object.getPrototypeOf(_class10)).apply(this, arguments));
+        }
+
+        _createClass(_class10, [{
+            key: "initialize",
+            value: function initialize() {
+                this.owner.on(this);
+            }
+        }]);
+
+        return _class10;
+    }(_Object5);
+}
+{
+    var Observer = engine.react.Observer;
+
+    engine.fileManager.component.client.observer.MakeRequestURL = function (_Observer) {
+        _inherits(_class11, _Observer);
+
+        function _class11() {
+            _classCallCheck(this, _class11);
+
+            return _possibleConstructorReturn(this, (_class11.__proto__ || Object.getPrototypeOf(_class11)).apply(this, arguments));
+        }
+
+        _createClass(_class11, [{
+            key: "onBefore",
+            value: function onBefore(event) {
+                if (event.request.target) {
+                    event.request.url = this.owner.createUrl(event.request.target, event.request.queryParams);
+                }
+            }
+        }]);
+
+        return _class11;
+    }(Observer);
+}
+{
+    var _Observer2 = engine.react.Observer;
+
+    engine.fileManager.component.client.observer.AddCSRFToken = function (_Observer3) {
+        _inherits(_class12, _Observer3);
+
+        function _class12() {
+            _classCallCheck(this, _class12);
+
+            return _possibleConstructorReturn(this, (_class12.__proto__ || Object.getPrototypeOf(_class12)).apply(this, arguments));
+        }
+
+        _createClass(_class12, [{
+            key: "onBefore",
+            value: function onBefore(event) {
+                event.request.headers = event.request.headers || {};
+                event.request.headers[this.owner.csrfTokenName] = this.owner.csrfToken;
+            }
+        }]);
+
+        return _class12;
+    }(_Observer2);
+}
+{
+    var _Observer4 = engine.react.Observer;
+
+    engine.fileManager.component.client.observer.MakeJSONRequest = function (_Observer5) {
+        _inherits(_class13, _Observer5);
+
+        function _class13() {
+            _classCallCheck(this, _class13);
+
+            return _possibleConstructorReturn(this, (_class13.__proto__ || Object.getPrototypeOf(_class13)).apply(this, arguments));
+        }
+
+        _createClass(_class13, [{
+            key: "onBefore",
+            value: function onBefore(event) {
+                if (event.request.bodyParams) {
+                    event.request.body = JSON.stringify(event.request.bodyParams);
+                }
+            }
+        }]);
+
+        return _class13;
+    }(_Observer4);
+}
+{
+    engine.fileManager.value.Size = function () {
+        function _class14(value) {
+            _classCallCheck(this, _class14);
+
+            this._value = value;
+        }
+
+        _createClass(_class14, [{
+            key: "toHumanString",
+            value: function toHumanString() {
+                var bytes = this.value,
+                    thresh = 1024;
+
+                if (Math.abs(bytes) < thresh) {
+                    return bytes + ' B';
+                }
+
+                var units = ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                    u = -1;
+                do {
+                    bytes /= thresh;
+                    ++u;
+                } while (Math.abs(bytes) >= thresh && u < units.length - 1);
+
+                return bytes.toFixed(1) + ' ' + units[u];
+            }
+        }, {
+            key: "value",
+            get: function get() {
+                return this._value;
+            }
+        }]);
+
+        return _class14;
+    }();
+}
+{
+    var Size = engine.fileManager.value.Size;
+
+    engine.fileManager.entity.File = function () {
+        function _class15(data) {
+            _classCallCheck(this, _class15);
+
+            this._data = data;
+        }
+
+        _createClass(_class15, [{
+            key: "inBreadcrumbs",
+            value: function inBreadcrumbs(id) {
+                for (var i = 0; this.breadcrumbs[i]; i++) {
+                    if (this.breadcrumbs[i].id === id) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }, {
+            key: "id",
+            get: function get() {
+                return this._data.id;
+            }
+        }, {
+            key: "prevId",
+            get: function get() {
+                return this._data.prevId;
+            }
+        }, {
+            key: "parentId",
+            get: function get() {
+                return this._data.parentId;
+            }
+        }, {
+            key: "class",
+            get: function get() {
+                return this._data.class;
+            }
+        }, {
+            key: "breadcrumbs",
+            get: function get() {
+                return this._data.breadcrumbs;
+            }
+        }, {
+            key: "baseName",
+            get: function get() {
+                return this._data.baseName;
+            }
+        }, {
+            key: "name",
+            get: function get() {
+                return this._data.name;
+            },
+            set: function set(value) {
+                this._data.name = value;
+            }
+        }, {
+            key: "type",
+            get: function get() {
+                return this._data.type;
+            }
+        }, {
+            key: "extension",
+            get: function get() {
+                return this._data.extension;
+            }
+        }, {
+            key: "permissions",
+            get: function get() {
+                return this._data.permissions;
+            }
+        }, {
+            key: "size",
+            get: function get() {
+                if (!this._size) {
+                    this._size = new Size(this._data.size);
+                }
+
+                return this._size;
+            }
+        }, {
+            key: "lastModified",
+            get: function get() {
+                if (!this._lastModified) {
+                    this._lastModified = new Date(this._data.lastModified * 1000);
+                }
+
+                return this._lastModified;
+            }
+        }, {
+            key: "isTrash",
+            get: function get() {
+                return '$trash' === this.name;
+            }
+        }]);
+
+        return _class15;
+    }();
+}
+{
+    var File = engine.fileManager.entity.File;
+
+    var _self5 = engine.fileManager.entity.Hyperlink = function (_File) {
+        _inherits(_class16, _File);
+
+        function _class16() {
+            _classCallCheck(this, _class16);
+
+            return _possibleConstructorReturn(this, (_class16.__proto__ || Object.getPrototypeOf(_class16)).apply(this, arguments));
+        }
+
+        _createClass(_class16, [{
+            key: "url",
+            get: function get() {
+                return this._data.url;
+            }
+        }]);
+
+        return _class16;
+    }(File);
+}
+{
+    var _File2 = engine.fileManager.entity.File,
+        Hyperlink = engine.fileManager.entity.Hyperlink;
+
+    var _self6 = engine.fileManager.entity.Directory = function (_File3) {
+        _inherits(_class17, _File3);
+
+        function _class17() {
+            _classCallCheck(this, _class17);
+
+            return _possibleConstructorReturn(this, (_class17.__proto__ || Object.getPrototypeOf(_class17)).apply(this, arguments));
+        }
+
+        _createClass(_class17, [{
+            key: "hasChildren",
+            value: function hasChildren() {
+                return !!this.children.length;
+            }
+        }, {
+            key: "containsName",
+            value: function containsName(name) {
+                return this.names.indexOf(name) > -1;
+            }
+        }, {
+            key: "pattern",
+            get: function get() {
+                return this._data.pattern;
+            }
+        }, {
+            key: "names",
+            get: function get() {
+                var _this15 = this;
+
+                if (!this._names) {
+                    this._names = [];
+                    this._data.children && this._data.children.forEach(function (childRaw) {
+                        _this15._names.push(childRaw.name);
+                    });
+                }
+
+                return this._names;
+            }
+        }, {
+            key: "children",
+            get: function get() {
+                var _this16 = this;
+
+                if (!this._children) {
+                    this._children = [];
+                    this._data.children && this._data.children.forEach(function (childRaw) {
+                        switch (childRaw.class) {
+                            case 'file':
+                                _this16._children.push(new _File2(childRaw));
+                                break;
+                            case 'hyperlink':
+                                _this16._children.push(new Hyperlink(childRaw));
+                                break;
+                            case 'directory':
+                                _this16._children.push(new _self6(childRaw));
+                                break;
+                        }
+                    });
+                }
+
+                return this._children;
+            }
+        }]);
+
+        return _class17;
+    }(_File2);
+}
+{
+    var DirectoryEntity = engine.fileManager.entity.Directory;
+
+    engine.fileManager.entity.factory.Directory = function () {
+        function _class18() {
+            _classCallCheck(this, _class18);
+        }
+
+        _createClass(_class18, [{
+            key: "createEntity",
+            value: function createEntity(raw) {
+                return new DirectoryEntity(raw);
+            }
+        }, {
+            key: "createCollection",
+            value: function createCollection(collectionRaw) {
+                var _this17 = this;
+
+                var collection = [];
+                collectionRaw.forEach(function (raw) {
+                    collection.push(_this17.createEntity(raw));
+                });
+
+                return collection;
+            }
+        }]);
+
+        return _class18;
+    }();
+}
+{
+    var _Observer6 = engine.react.Observer,
+        _Type2 = engine.lang.utility.Type,
+        DirectoryFactory = engine.fileManager.entity.factory.Directory;
+
+    engine.fileManager.component.client.observer.HandleJSONResponse = function (_Observer7) {
+        _inherits(_class19, _Observer7);
+
+        function _class19() {
+            _classCallCheck(this, _class19);
+
+            return _possibleConstructorReturn(this, (_class19.__proto__ || Object.getPrototypeOf(_class19)).apply(this, arguments));
+        }
+
+        _createClass(_class19, [{
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var parsedBody = JSON.parse(event.response.body);
+
+                if (_Type2.isArray(parsedBody)) {
+                    event.collection = this.factory.createCollection(parsedBody);
+                } else {
+                    event.entity = this.factory.createEntity(parsedBody);
+                }
+            }
+        }, {
+            key: "factory",
+            get: function get() {
+                if (!this._factory) {
+                    this._factory = new DirectoryFactory();
+                }
+
+                return this._factory;
+            }
+        }]);
+
+        return _class19;
+    }(_Observer6);
+}
+{
+    var _Observer8 = engine.react.Observer;
+
+    engine.fileManager.component.client.observer.ManageRequestProgress = function (_Observer9) {
+        _inherits(_class20, _Observer9);
+
+        function _class20() {
+            _classCallCheck(this, _class20);
+
+            return _possibleConstructorReturn(this, (_class20.__proto__ || Object.getPrototypeOf(_class20)).apply(this, arguments));
+        }
+
+        _createClass(_class20, [{
+            key: "onOpen",
+            value: function onOpen() {
+                this.requestProgress.show();
+            }
+        }, {
+            key: "onProgress",
+            value: function onProgress() {
+                this.requestProgress.show();
+            }
+        }, {
+            key: "onClose",
+            value: function onClose() {
+                this.requestProgress.hide();
+            }
+        }, {
+            key: "requestProgress",
+            get: function get() {
+                return this.owner.requestProgress;
+            }
+        }]);
+
+        return _class20;
+    }(_Observer8);
+}
+{
+    var _Observer10 = engine.react.Observer;
+
+    engine.fileManager.component.client.observer.ErrorMessenger = function (_Observer11) {
+        _inherits(_class21, _Observer11);
+
+        function _class21() {
+            _classCallCheck(this, _class21);
+
+            return _possibleConstructorReturn(this, (_class21.__proto__ || Object.getPrototypeOf(_class21)).apply(this, arguments));
+        }
+
+        _createClass(_class21, [{
+            key: "onClientError",
+            value: function onClientError(event) {
+                this.errorManager.handleError(event.response.status.text);
+            }
+        }, {
+            key: "onServerError",
+            value: function onServerError(event) {
+                this.errorManager.handleError(event.response.status.text);
+            }
+        }, {
+            key: "onError",
+            value: function onError(throwable) {
+                this.errorManager.handleError(throwable);
+            }
+        }, {
+            key: "errorManager",
+            get: function get() {
+                return this.owner.errorManager;
+            }
+        }]);
+
+        return _class21;
+    }(_Observer10);
+}
+{
+    var _Type3 = engine.lang.utility.Type,
+        _Obj3 = engine.lang.utility.Object;
+
+    var _self7 = engine.web.utility.Query = function () {
+        function _class22() {
+            _classCallCheck(this, _class22);
+        }
+
+        _createClass(_class22, null, [{
+            key: "stringify",
+            value: function stringify(object, prefix) {
+                var str = [];
+
+                _Obj3.forEach(object, function (property, value) {
+                    var key = prefix ? prefix + '[' + property + ']' : property;
+                    if (_Type3.isArray(value)) {
+                        value = _Type3.arrayToObject(value, true);
+                    }
+                    str.push(_Type3.isObject(value) ? _self7.stringify(value, key) : encodeURIComponent(key) + '=' + encodeURIComponent(value));
+                });
+
+                return str.join('&');
+            }
+        }, {
+            key: "parse",
+            value: function parse(str, array) {
+                var strArr = String(str).replace(/^&/, '').replace(/&$/, '').split('&'),
+                    sal = strArr.length,
+                    i = void 0,
+                    j = void 0,
+                    ct = void 0,
+                    p = void 0,
+                    lastObj = void 0,
+                    obj = void 0,
+                    undef = void 0,
+                    chr = void 0,
+                    tmp = void 0,
+                    key = void 0,
+                    value = void 0,
+                    postLeftBracketPos = void 0,
+                    keys = void 0,
+                    keysLen = void 0,
+                    _fixStr = function _fixStr(str) {
+                    return decodeURIComponent(str.replace(/\+/g, '%20'));
+                };
+
+                for (i = 0; i < sal; i++) {
+                    tmp = strArr[i].split('=');
+                    key = _fixStr(tmp[0]);
+                    value = tmp.length < 2 ? '' : _fixStr(tmp[1]);
+
+                    while (key.charAt(0) === ' ') {
+                        key = key.slice(1);
+                    }
+                    if (key.indexOf('\x00') > -1) {
+                        key = key.slice(0, key.indexOf('\x00'));
+                    }
+                    if (key && key.charAt(0) !== '[') {
+                        keys = [];
+                        postLeftBracketPos = 0;
+                        for (j = 0; j < key.length; j++) {
+                            if (key.charAt(j) === '[' && !postLeftBracketPos) {
+                                postLeftBracketPos = j + 1;
+                            } else if (key.charAt(j) === ']') {
+                                if (postLeftBracketPos) {
+                                    if (!keys.length) {
+                                        keys.push(key.slice(0, postLeftBracketPos - 1));
+                                    }
+                                    keys.push(key.substr(postLeftBracketPos, j - postLeftBracketPos));
+                                    postLeftBracketPos = 0;
+                                    if (key.charAt(j + 1) !== '[') {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (!keys.length) {
+                            keys = [key];
+                        }
+                        for (j = 0; j < keys[0].length; j++) {
+                            chr = keys[0].charAt(j);
+                            if (chr === ' ' || chr === '.' || chr === '[') {
+                                keys[0] = keys[0].substr(0, j) + '_' + keys[0].substr(j + 1);
+                            }
+                            if (chr === '[') {
+                                break;
+                            }
+                        }
+
+                        obj = array;
+                        for (j = 0, keysLen = keys.length; j < keysLen; j++) {
+                            key = keys[j].replace(/^['"]/, '').replace(/['"]$/, '');
+                            lastObj = obj;
+                            if (key !== '' && key !== ' ' || j === 0) {
+                                if (obj[key] === undef) {
+                                    obj[key] = {};
+                                }
+                                obj = obj[key];
+                            } else {
+                                ct = -1;
+                                for (p in obj) {
+                                    if (obj.hasOwnProperty(p)) {
+                                        if (+p > ct && p.match(/^\d+$/g)) {
+                                            ct = +p;
+                                        }
+                                    }
+                                }
+                                key = ct + 1;
+                            }
+                        }
+                        lastObj[key] = value;
+                    }
+                }
+            }
+        }]);
+
+        return _class22;
+    }();
+}
+{
+    var WebClient = engine.web.component.Client,
+        MakeRequestURL = engine.fileManager.component.client.observer.MakeRequestURL,
+        AddCSRFToken = engine.fileManager.component.client.observer.AddCSRFToken,
+        MakeJSONRequest = engine.fileManager.component.client.observer.MakeJSONRequest,
+        HandleJSONResponse = engine.fileManager.component.client.observer.HandleJSONResponse,
+        ManageRequestProgress = engine.fileManager.component.client.observer.ManageRequestProgress,
+        ErrorMessenger = engine.fileManager.component.client.observer.ErrorMessenger,
+        Query = engine.web.utility.Query;
+
+    engine.fileManager.component.Client = function (_WebClient) {
+        _inherits(_class23, _WebClient);
+
+        function _class23() {
+            _classCallCheck(this, _class23);
+
+            return _possibleConstructorReturn(this, (_class23.__proto__ || Object.getPrototypeOf(_class23)).apply(this, arguments));
+        }
+
+        _createClass(_class23, [{
+            key: "open",
+            value: function open(target, queryParams) {
+                var _window;
+
+                queryParams[this.csrfTokenName] = this.csrfToken;
+
+                for (var _len9 = arguments.length, args = Array(_len9 > 2 ? _len9 - 2 : 0), _key9 = 2; _key9 < _len9; _key9++) {
+                    args[_key9 - 2] = arguments[_key9];
+                }
+
+                (_window = window).open.apply(_window, [this.createUrl(target, queryParams)].concat(args));
+            }
+        }, {
+            key: "createUrl",
+            value: function createUrl(target) {
+                var queryParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+                var url = this.serverUrl;
+
+                queryParams.action = target;
+
+                url += '?' + Query.stringify(queryParams);
+
+                return url;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [MakeRequestURL, AddCSRFToken, MakeJSONRequest, HandleJSONResponse, ManageRequestProgress, ErrorMessenger];
+            }
+        }]);
+
+        return _class23;
+    }(WebClient);
+}
+{
+    engine.gui.utility.Element = function () {
+        function _class24() {
+            _classCallCheck(this, _class24);
+        }
+
+        _createClass(_class24, null, [{
+            key: "clear",
+            value: function clear(element) {
+                while (element.hasChildNodes()) {
+                    element.removeChild(element.firstChild);
+                }
+            }
+        }]);
+
+        return _class24;
+    }();
+}
+{
+    var _Object7 = engine.lang.type.Object;
+
+    engine.gui.component.Template = function (_Object8) {
+        _inherits(_class25, _Object8);
+
+        function _class25() {
+            _classCallCheck(this, _class25);
+
+            return _possibleConstructorReturn(this, (_class25.__proto__ || Object.getPrototypeOf(_class25)).apply(this, arguments));
+        }
+
+        _createClass(_class25, [{
+            key: "initialize",
+            value: function initialize() {
+                this.owner._element = document.createElement('div');
+            }
+        }]);
+
+        return _class25;
+    }(_Object7);
+}
+{
+    var _Component2 = engine.react.Component,
+        Element = engine.gui.utility.Element,
+        Template = engine.gui.component.Template;
+
+    var _self8 = engine.gui.component.View = function (_Component3) {
+        _inherits(_class26, _Component3);
+
+        function _class26() {
+            _classCallCheck(this, _class26);
+
+            return _possibleConstructorReturn(this, (_class26.__proto__ || Object.getPrototypeOf(_class26)).apply(this, arguments));
+        }
+
+        _createClass(_class26, [{
+            key: "_constructor",
+            value: function _constructor() {
+                var _get3;
+
+                this.use(this.template);
+
+                for (var _len10 = arguments.length, args = Array(_len10), _key10 = 0; _key10 < _len10; _key10++) {
+                    args[_key10] = arguments[_key10];
+                }
+
+                (_get3 = _get(_class26.prototype.__proto__ || Object.getPrototypeOf(_class26.prototype), "_constructor", this)).call.apply(_get3, [this].concat(args));
+                this.data = {};
+            }
+        }, {
+            key: "clear",
+            value: function clear() {
+                Element.clear(this.element);
+            }
+        }, {
+            key: "appendTo",
+            value: function appendTo(element) {
+                element.appendChild(this.element);
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return Template;
+            }
+        }, {
+            key: "element",
+            get: function get() {
+                return this._element;
+            }
+        }]);
+
+        return _class26;
+    }(_Component2);
+}
+{
+    var _self9 = engine.gui.utility.ClassName = function () {
+        function _class27() {
+            _classCallCheck(this, _class27);
+        }
+
+        _createClass(_class27, null, [{
+            key: "has",
+            value: function has(element, className) {
+                return !!element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+            }
+        }, {
+            key: "add",
+            value: function add(element, className) {
+                if (!_self9.has(element, className)) {
+                    element.className += element.className ? ' ' + className : className;
+                }
+            }
+        }, {
+            key: "set",
+            value: function set(element, className) {
+                element.className = className;
+            }
+        }, {
+            key: "remove",
+            value: function remove(element, className) {
+                if (_self9.has(element, className)) {
+                    element.className = element.className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'), '');
+                }
+            }
+        }]);
+
+        return _class27;
+    }();
+}
+{
+    var _Object9 = engine.lang.type.Object;
+
+    engine.fileManager.template.icon.Layout = function (_Object10) {
+        _inherits(_class28, _Object10);
+
+        function _class28() {
+            _classCallCheck(this, _class28);
+
+            return _possibleConstructorReturn(this, (_class28.__proto__ || Object.getPrototypeOf(_class28)).apply(this, arguments));
+        }
+
+        _createClass(_class28, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('i');element0.setAttribute('class', 'engine-fileManager__i');this.owner._element = element0;
+            }
+        }]);
+
+        return _class28;
+    }(_Object9);
+}
+{
+    var View = engine.gui.component.View,
+        _Template = engine.fileManager.template.icon.Layout;
+
+    engine.fileManager.view.icon.Layout = function (_View) {
+        _inherits(_class29, _View);
+
+        function _class29() {
+            _classCallCheck(this, _class29);
+
+            return _possibleConstructorReturn(this, (_class29.__proto__ || Object.getPrototypeOf(_class29)).apply(this, arguments));
+        }
+
+        _createClass(_class29, [{
+            key: "template",
+            get: function get() {
+                return _Template;
+            }
+        }]);
+
+        return _class29;
+    }(View);
+}
+{
+    var _Object11 = engine.lang.type.Object,
+        ClassName = engine.gui.utility.ClassName,
+        Icon = engine.fileManager.view.icon.Layout;
+
+    engine.fileManager.view.icon.Factory = function (_Object12) {
+        _inherits(_class30, _Object12);
+
+        function _class30() {
+            _classCallCheck(this, _class30);
+
+            return _possibleConstructorReturn(this, (_class30.__proto__ || Object.getPrototypeOf(_class30)).apply(this, arguments));
+        }
+
+        _createClass(_class30, [{
+            key: "create",
+            value: function create(key) {
+                var icon = new Icon();
+                ClassName.add(icon.element, key ? this.classByKey(key) : '');
+
+                return icon;
+            }
+        }, {
+            key: "classByKey",
+            value: function classByKey(key) {
+                return this.iconClasses[key] || this.defaultIconClass;
+            }
+        }]);
+
+        return _class30;
+    }(_Object11);
+}
+{
+    var _Object13 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.Button = function (_Object14) {
+        _inherits(_class31, _Object14);
+
+        function _class31() {
+            _classCallCheck(this, _class31);
+
+            return _possibleConstructorReturn(this, (_class31.__proto__ || Object.getPrototypeOf(_class31)).apply(this, arguments));
+        }
+
+        _createClass(_class31, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('button');element0.setAttribute('class', 'engine-fileManager__button');this.owner._element = element0;
+            }
+        }]);
+
+        return _class31;
+    }(_Object13);
+}
+{
+    var _View2 = engine.gui.component.View,
+        _Template2 = engine.fileManager.template.control.Button;
+
+    engine.fileManager.view.control.Button = function (_View3) {
+        _inherits(_class32, _View3);
+
+        function _class32() {
+            _classCallCheck(this, _class32);
+
+            return _possibleConstructorReturn(this, (_class32.__proto__ || Object.getPrototypeOf(_class32)).apply(this, arguments));
+        }
+
+        _createClass(_class32, [{
+            key: "disabled",
+            value: function disabled(value) {
+                this.element.disabled = value;
+            }
+        }, {
+            key: "blur",
+            value: function blur() {
+                this.element.blur();
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                this.clear();
+
+                this._icon && this.element.appendChild(this._icon.element);
+                this._caption && this.element.appendChild(document.createTextNode(this._caption));
+
+                if (this._title) {
+                    this.element.title = this._title;
+                }
+
+                return this.element;
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template2;
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    click: { element: 'click' }
+                };
+            }
+        }, {
+            key: "icon",
+            set: function set(value) {
+                this._icon = value;
+                this.render();
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption = value;
+                this.render();
+            }
+        }, {
+            key: "title",
+            set: function set(value) {
+                this._title = value;
+                this.render();
+            }
+        }]);
+
+        return _class32;
+    }(_View2);
+}
+{
+    var _Object15 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.UploadButton = function (_Object16) {
+        _inherits(_class33, _Object16);
+
+        function _class33() {
+            _classCallCheck(this, _class33);
+
+            return _possibleConstructorReturn(this, (_class33.__proto__ || Object.getPrototypeOf(_class33)).apply(this, arguments));
+        }
+
+        _createClass(_class33, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('span');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('input');element2.setAttribute('type', 'file');element2.setAttribute('multiple', 'multiple');element2.setAttribute('style', 'display: none;');this.owner.input = element2;element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);var element4 = document.createElement('button');element4.setAttribute('class', 'engine-fileManager__button');this.owner.button = element4;element0.appendChild(element4);var element5 = document.createTextNode('');element0.appendChild(element5);
+            }
+        }]);
+
+        return _class33;
+    }(_Object15);
+}
+{
+    var _View4 = engine.gui.component.View,
+        _Element = engine.gui.utility.Element,
+        _Template3 = engine.fileManager.template.control.UploadButton;
+
+    engine.fileManager.view.control.UploadButton = function (_View5) {
+        _inherits(_class34, _View5);
+
+        function _class34() {
+            _classCallCheck(this, _class34);
+
+            return _possibleConstructorReturn(this, (_class34.__proto__ || Object.getPrototypeOf(_class34)).apply(this, arguments));
+        }
+
+        _createClass(_class34, [{
+            key: "disabled",
+            value: function disabled(value) {
+                this.button.disabled = value;
+            }
+        }, {
+            key: "blur",
+            value: function blur() {
+                this.button.blur();
+            }
+        }, {
+            key: "reset",
+            value: function reset() {
+                this.input.value = null;
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                _Element.clear(this.button);
+
+                this._icon && this.button.appendChild(this._icon.element);
+                this._caption && this.button.appendChild(document.createTextNode(this._caption));
+
+                if (this._title) {
+                    this.element.title = this._title;
+                }
+
+                return this.element;
+            }
+        }, {
+            key: "onClick",
+            value: function onClick() {
+                this.blur();
+                this.input.click();
+            }
+        }, {
+            key: "onChange",
+            value: function onChange(event) {
+                var files = Array.prototype.slice.call(event.target.files || event.dataTransfer.files);
+                this.trigger('selectFiles', {
+                    files: files
+                });
+                this.reset();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template3;
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    click: { button: 'click' },
+                    change: { input: 'change' }
+                };
+            }
+        }, {
+            key: "icon",
+            set: function set(value) {
+                this._icon = value;
+                this.render();
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption = value;
+                this.render();
+            }
+        }, {
+            key: "title",
+            set: function set(value) {
+                this._title = value;
+                this.render();
+            }
+        }]);
+
+        return _class34;
+    }(_View4);
+}
+{
+    var _Object17 = engine.lang.type.Object;
+
+    engine.fileManager.template.Logo = function (_Object18) {
+        _inherits(_class35, _Object18);
+
+        function _class35() {
+            _classCallCheck(this, _class35);
+
+            return _possibleConstructorReturn(this, (_class35.__proto__ || Object.getPrototypeOf(_class35)).apply(this, arguments));
+        }
+
+        _createClass(_class35, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__logo');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('img');element2.setAttribute('src', './styles/logo.png');element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);
+            }
+        }]);
+
+        return _class35;
+    }(_Object17);
+}
+{
+    var _View6 = engine.gui.component.View,
+        _Template4 = engine.fileManager.template.Logo;
+
+    engine.fileManager.view.Logo = function (_View7) {
+        _inherits(_class36, _View7);
+
+        function _class36() {
+            _classCallCheck(this, _class36);
+
+            return _possibleConstructorReturn(this, (_class36.__proto__ || Object.getPrototypeOf(_class36)).apply(this, arguments));
+        }
+
+        _createClass(_class36, [{
+            key: "traits",
+            get: function get() {
+                return [_Template4];
+            }
+        }]);
+
+        return _class36;
+    }(_View6);
+}
+{
+    var _Object19 = engine.lang.type.Object;
+
+    engine.fileManager.template.Toolbar = function (_Object20) {
+        _inherits(_class37, _Object20);
+
+        function _class37() {
+            _classCallCheck(this, _class37);
+
+            return _possibleConstructorReturn(this, (_class37.__proto__ || Object.getPrototypeOf(_class37)).apply(this, arguments));
+        }
+
+        _createClass(_class37, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__toolbar');this.owner._element = element0;
+            }
+        }]);
+
+        return _class37;
+    }(_Object19);
+}
+{
+    var _View8 = engine.gui.component.View,
+        Button = engine.fileManager.view.control.Button,
+        UploadButton = engine.fileManager.view.control.UploadButton,
+        Logo = engine.fileManager.view.Logo,
+        _Template5 = engine.fileManager.template.Toolbar;
+
+    engine.fileManager.view.Toolbar = function (_View9) {
+        _inherits(_class38, _View9);
+
+        function _class38() {
+            _classCallCheck(this, _class38);
+
+            return _possibleConstructorReturn(this, (_class38.__proto__ || Object.getPrototypeOf(_class38)).apply(this, arguments));
+        }
+
+        _createClass(_class38, [{
+            key: "initialize",
+            value: function initialize() {
+
+                this.logo = new Logo();
+
+                this.open = new Button({
+                    icon: this.icon.create('folderOpen'),
+                    caption: 'Open',
+                    title: this.hotKeys.openKey
+                });
+
+                this.rename = new Button({
+                    icon: this.icon.create('edit'),
+                    caption: 'Rename',
+                    title: this.hotKeys.renameKey
+                });
+
+                this.permissions = new Button({
+                    icon: this.icon.create('permissions'),
+                    caption: 'Permissions',
+                    title: this.hotKeys.permissionsKey
+                });
+
+                this.copy = new Button({
+                    icon: this.icon.create('copy'),
+                    caption: 'Copy',
+                    title: this.hotKeys.copyKey
+                });
+
+                this.move = new Button({
+                    icon: this.icon.create('move'),
+                    caption: 'Move',
+                    title: this.hotKeys.moveKey
+                });
+
+                this.trash = new Button({
+                    icon: this.icon.create('trash'),
+                    caption: 'Trash',
+                    title: this.hotKeys.trashKey
+                });
+
+                this.remove = new Button({
+                    icon: this.icon.create('remove'),
+                    caption: 'Remove',
+                    title: this.hotKeys.removeKey
+                });
+
+                this.createDirectory = new Button({
+                    icon: this.icon.create('dir'),
+                    caption: 'Create Folder',
+                    title: this.hotKeys.createFolderKey
+                });
+
+                this.createHyperlink = new Button({
+                    icon: this.icon.create('hyperlink'),
+                    caption: 'Create Hyperlink',
+                    title: this.hotKeys.createHyperlinkKey
+                });
+
+                this.upload = new UploadButton({
+                    icon: this.icon.create('upload'),
+                    caption: 'Upload',
+                    title: this.hotKeys.uploadKey
+                });
+
+                this.download = new Button({
+                    icon: this.icon.create('download'),
+                    caption: 'Download',
+                    title: this.hotKeys.downloadKey
+                });
+
+                this.search = new Button({
+                    icon: this.icon.create('search'),
+                    caption: 'Search',
+                    title: this.hotKeys.searchKey
+                });
+
+                this.openTrash = new Button({
+                    icon: this.icon.create('trash'),
+                    caption: 'Open Trash'
+                });
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                this.clear();
+
+                this.element.appendChild(this.logo.element);
+                this.element.appendChild(this.open.element);
+                this.element.appendChild(this.rename.element);
+                this.element.appendChild(this.permissions.element);
+                this.element.appendChild(this.copy.element);
+                this.element.appendChild(this.move.element);
+                this.element.appendChild(this.trash.element);
+                this.element.appendChild(this.remove.element);
+                this.element.appendChild(this.createDirectory.element);
+                this.element.appendChild(this.createHyperlink.element);
+                this.element.appendChild(this.upload.element);
+                this.element.appendChild(this.download.element);
+                this.element.appendChild(this.search.element);
+                this.element.appendChild(this.openTrash.element);
+
+                return this.element;
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template5;
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    open: { open: 'click' },
+                    rename: { rename: 'click' },
+                    permissions: { permissions: 'click' },
+                    copy: { copy: 'click' },
+                    move: { move: 'click' },
+                    trash: { trash: 'click' },
+                    remove: { remove: 'click' },
+                    createDirectory: { createDirectory: 'click' },
+                    createHyperlink: { createHyperlink: 'click' },
+                    upload: { upload: 'selectFiles' },
+                    download: { download: 'click' },
+                    search: { search: 'click' },
+                    openTrash: { openTrash: 'click' }
+                };
+            }
+        }]);
+
+        return _class38;
+    }(_View8);
+}
+{
+    var _Object21 = engine.lang.type.Object;
+
+    var _self10 = engine.gui.trigger.Activity = function (_Object22) {
+        _inherits(_class39, _Object22);
+
+        function _class39() {
+            _classCallCheck(this, _class39);
+
+            return _possibleConstructorReturn(this, (_class39.__proto__ || Object.getPrototypeOf(_class39)).apply(this, arguments));
+        }
+
+        _createClass(_class39, [{
+            key: "initialize",
+            value: function initialize() {
+                var _this36 = this;
+
+                _self10.instances.push(this.owner);
+
+                this.owner.element.addEventListener('click', function () {
+                    _this36.owner.activate();
+                }, true);
+
+                document.addEventListener('click', function () {
+                    _this36.owner.deactivate();
+                }, true);
+            }
+        }, {
+            key: "activate",
+            value: function activate() {
+                var _this37 = this;
+
+                if (this.owner.isActive) {
+                    return;
+                }
+                this.owner.isActive = true;
+                this.owner.trigger('activate');
+
+                _self10.instances.forEach(function (instance) {
+                    instance !== _this37.owner && instance.deactivate();
+                });
+            }
+        }, {
+            key: "deactivate",
+            value: function deactivate() {
+                this.owner.isActive = false;
+                this.owner.trigger('deactivate');
+            }
+        }, {
+            key: "properties",
+            get: function get() {
+                return {
+                    activate: this.activate,
+                    deactivate: this.deactivate
+                };
+            }
+        }], [{
+            key: "instances",
+            get: function get() {
+                if (!_self10._instances) {
+                    _self10._instances = [];
+                }
+
+                return _self10._instances;
+            }
+        }]);
+
+        return _class39;
+    }(_Object21);
+}
+{
+    engine.lang.utility.Array = function () {
+        function _class40() {
+            _classCallCheck(this, _class40);
+        }
+
+        _createClass(_class40, null, [{
+            key: "contains",
+            value: function contains(list, value) {
+                return list.indexOf(value) > -1;
+            }
+        }]);
+
+        return _class40;
+    }();
+}
+{
+    var _Object23 = engine.lang.type.Object,
+        Arr = engine.lang.utility.Array,
+        _Type4 = engine.lang.utility.Type,
+        _Str2 = engine.lang.utility.String;
+
+    var _self11 = engine.gui.component.HotKey = function (_Object24) {
+        _inherits(_class41, _Object24);
+
+        function _class41() {
+            _classCallCheck(this, _class41);
+
+            return _possibleConstructorReturn(this, (_class41.__proto__ || Object.getPrototypeOf(_class41)).apply(this, arguments));
+        }
+
+        _createClass(_class41, [{
+            key: "isRecognized",
+            value: function isRecognized(keyboardEvent) {
+                for (var i = 0; this.keys[i]; i++) {
+                    var key = this.keys[i];
+
+                    if (_self11.isSpecialKey(key)) {
+                        if (!keyboardEvent[key.toLocaleLowerCase() + 'Key']) {
+                            return false;
+                        }
+                        continue;
+                    }
+
+                    if (_Str2.contains(key, '-')) {
+                        var exceptKeys = key.split('-');
+                        key = exceptKeys.shift();
+                        for (var j = 0; exceptKeys[j]; j++) {
+                            var exceptKey = exceptKeys[j];
+                            if (!_self11.isSpecialKey(exceptKey) || keyboardEvent[exceptKey.toLocaleLowerCase() + 'Key']) {
+                                return false;
+                            }
+                        }
+                    }
+
+                    if (keyboardEvent.keyCode !== _self11.codeFromKey(key)) {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }, {
+            key: "keys",
+            set: function set(value) {
+                if (_Type4.isNumber) {
+                    value = value.toString();
+                }
+
+                this._keys = value.split('+');
+            },
+            get: function get() {
+                return this._keys;
+            }
+        }], [{
+            key: "isSpecialKey",
+            value: function isSpecialKey(key) {
+                return Arr.contains(['alt', 'ctrl', 'shift', 'meta', 'access'], key.toLocaleLowerCase());
+            }
+        }, {
+            key: "codeFromKey",
+            value: function codeFromKey(key) {
+                if (parseInt(key) == key) {
+                    return parseInt(key);
+                }
+
+                switch (key.toLocaleLowerCase()) {
+                    case 'enter':
+                        return 13;
+                    case 'esc':
+                        return 27;
+                    case 'delete':
+                        return 46;
+                }
+
+                return key.toLocaleUpperCase().charCodeAt(0);
+            }
+        }]);
+
+        return _class41;
+    }(_Object23);
+}
+{
+    var _Obj4 = engine.lang.utility.Object,
+        HotKey = engine.gui.component.HotKey,
+        _Observer12 = engine.react.Observer;
+
+    engine.gui.trigger.HotKeys = function (_Observer13) {
+        _inherits(_class42, _Observer13);
+
+        function _class42() {
+            _classCallCheck(this, _class42);
+
+            return _possibleConstructorReturn(this, (_class42.__proto__ || Object.getPrototypeOf(_class42)).apply(this, arguments));
+        }
+
+        _createClass(_class42, [{
+            key: "initialize",
+            value: function initialize() {
+                var _this40 = this;
+
+                document.addEventListener('keydown', function (event) {
+                    if (_this40.owner.isActive) {
+                        _this40.hotKeys.forEach(function (hotKey) {
+                            if (hotKey.isRecognized(event)) {
+                                event.preventDefault();
+                                _this40.owner.trigger(hotKey.name, event);
+                            }
+                        });
+                    }
+                });
+            }
+        }, {
+            key: "hotKeys",
+            get: function get() {
+                var _this41 = this;
+
+                if (!this._hotKeys) {
+                    this._hotKeys = [];
+                    _Obj4.forEach(this.owner.hotKeys, function (name, value) {
+                        _this41._hotKeys.push(new HotKey({
+                            name: name,
+                            keys: value
+                        }));
+                    });
+                }
+
+                return this._hotKeys;
+            }
+        }]);
+
+        return _class42;
+    }(_Observer12);
+}
+{
+    var _Object25 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.breadcrumbs.Root = function (_Object26) {
+        _inherits(_class43, _Object26);
+
+        function _class43() {
+            _classCallCheck(this, _class43);
+
+            return _possibleConstructorReturn(this, (_class43.__proto__ || Object.getPrototypeOf(_class43)).apply(this, arguments));
+        }
+
+        _createClass(_class43, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('span');element0.setAttribute('class', 'item');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('i');element2.setAttribute('class', 'engine-fileManager__i icon-home');element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);
+            }
+        }]);
+
+        return _class43;
+    }(_Object25);
+}
+{
+    var _View10 = engine.gui.component.View,
+        _Template6 = engine.fileManager.template.fileList.breadcrumbs.Root;
+
+    engine.fileManager.view.fileList.breadcrumbs.Root = function (_View11) {
+        _inherits(_class44, _View11);
+
+        function _class44() {
+            _classCallCheck(this, _class44);
+
+            return _possibleConstructorReturn(this, (_class44.__proto__ || Object.getPrototypeOf(_class44)).apply(this, arguments));
+        }
+
+        _createClass(_class44, [{
+            key: "template",
+            get: function get() {
+                return _Template6;
+            }
+        }]);
+
+        return _class44;
+    }(_View10);
+}
+{
+    var _Object27 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.breadcrumbs.Item = function (_Object28) {
+        _inherits(_class45, _Object28);
+
+        function _class45() {
+            _classCallCheck(this, _class45);
+
+            return _possibleConstructorReturn(this, (_class45.__proto__ || Object.getPrototypeOf(_class45)).apply(this, arguments));
+        }
+
+        _createClass(_class45, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('span');element0.setAttribute('class', 'item');this.owner._element = element0;var element1 = document.createTextNode('');this.owner._caption = element1;element0.appendChild(element1);
+            }
+        }]);
+
+        return _class45;
+    }(_Object27);
+}
+{
+    var _View12 = engine.gui.component.View,
+        _Template7 = engine.fileManager.template.fileList.breadcrumbs.Item;
+
+    engine.fileManager.view.fileList.breadcrumbs.Item = function (_View13) {
+        _inherits(_class46, _View13);
+
+        function _class46() {
+            _classCallCheck(this, _class46);
+
+            return _possibleConstructorReturn(this, (_class46.__proto__ || Object.getPrototypeOf(_class46)).apply(this, arguments));
+        }
+
+        _createClass(_class46, [{
+            key: "template",
+            get: function get() {
+                return _Template7;
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption.nodeValue = value;
+            }
+        }]);
+
+        return _class46;
+    }(_View12);
+}
+{
+    var _Object29 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.breadcrumbs.Search = function (_Object30) {
+        _inherits(_class47, _Object30);
+
+        function _class47() {
+            _classCallCheck(this, _class47);
+
+            return _possibleConstructorReturn(this, (_class47.__proto__ || Object.getPrototypeOf(_class47)).apply(this, arguments));
+        }
+
+        _createClass(_class47, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('span');element0.setAttribute('class', 'item');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('i');element2.setAttribute('class', 'engine-fileManager__i icon-search');element0.appendChild(element2);var element3 = document.createTextNode('');this.owner._caption = element3;element0.appendChild(element3);
+            }
+        }]);
+
+        return _class47;
+    }(_Object29);
+}
+{
+    var _View14 = engine.gui.component.View,
+        _Template8 = engine.fileManager.template.fileList.breadcrumbs.Search;
+
+    engine.fileManager.view.fileList.breadcrumbs.Search = function (_View15) {
+        _inherits(_class48, _View15);
+
+        function _class48() {
+            _classCallCheck(this, _class48);
+
+            return _possibleConstructorReturn(this, (_class48.__proto__ || Object.getPrototypeOf(_class48)).apply(this, arguments));
+        }
+
+        _createClass(_class48, [{
+            key: "template",
+            get: function get() {
+                return _Template8;
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption.nodeValue = value;
+            }
+        }]);
+
+        return _class48;
+    }(_View14);
+}
+{
+    var _Object31 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.breadcrumbs.Separator = function (_Object32) {
+        _inherits(_class49, _Object32);
+
+        function _class49() {
+            _classCallCheck(this, _class49);
+
+            return _possibleConstructorReturn(this, (_class49.__proto__ || Object.getPrototypeOf(_class49)).apply(this, arguments));
+        }
+
+        _createClass(_class49, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('span');element0.setAttribute('class', 'engine-fileManager__list-breadcrumbs-separator');this.owner._element = element0;var element1 = document.createTextNode('/');element0.appendChild(element1);
+            }
+        }]);
+
+        return _class49;
+    }(_Object31);
+}
+{
+    var _View16 = engine.gui.component.View,
+        _Template9 = engine.fileManager.template.fileList.breadcrumbs.Separator;
+
+    engine.fileManager.view.fileList.breadcrumbs.Separator = function (_View17) {
+        _inherits(_class50, _View17);
+
+        function _class50() {
+            _classCallCheck(this, _class50);
+
+            return _possibleConstructorReturn(this, (_class50.__proto__ || Object.getPrototypeOf(_class50)).apply(this, arguments));
+        }
+
+        _createClass(_class50, [{
+            key: "template",
+            get: function get() {
+                return _Template9;
+            }
+        }]);
+
+        return _class50;
+    }(_View16);
+}
+{
+    var _Object33 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.breadcrumbs.Layout = function (_Object34) {
+        _inherits(_class51, _Object34);
+
+        function _class51() {
+            _classCallCheck(this, _class51);
+
+            return _possibleConstructorReturn(this, (_class51.__proto__ || Object.getPrototypeOf(_class51)).apply(this, arguments));
+        }
+
+        _createClass(_class51, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__list-breadcrumbs');this.owner._element = element0;
+            }
+        }]);
+
+        return _class51;
+    }(_Object33);
+}
+{
+    var _View18 = engine.gui.component.View,
+        Root = engine.fileManager.view.fileList.breadcrumbs.Root,
+        Item = engine.fileManager.view.fileList.breadcrumbs.Item,
+        Search = engine.fileManager.view.fileList.breadcrumbs.Search,
+        Separator = engine.fileManager.view.fileList.breadcrumbs.Separator,
+        _Template10 = engine.fileManager.template.fileList.breadcrumbs.Layout;
+
+    engine.fileManager.view.fileList.breadcrumbs.Layout = function (_View19) {
+        _inherits(_class52, _View19);
+
+        function _class52() {
+            _classCallCheck(this, _class52);
+
+            return _possibleConstructorReturn(this, (_class52.__proto__ || Object.getPrototypeOf(_class52)).apply(this, arguments));
+        }
+
+        _createClass(_class52, [{
+            key: "render",
+            value: function render() {
+                var _this52 = this;
+
+                this.clear();
+                this.items = [];
+
+                this.directory.breadcrumbs.forEach(function (pathItem, index) {
+                    var item = null;
+
+                    if (0 === index) {
+                        item = new Root({
+                            id: pathItem.id
+                        });
+                    } else {
+                        _this52.element.appendChild(new Separator().element);
+                        item = new Item({
+                            id: pathItem.id,
+                            caption: pathItem.name
+                        });
+                    }
+
+                    _this52.element.appendChild(item.element);
+                    _this52.items.push(item);
+                });
+
+                if (this.directory.pattern) {
+                    this.element.appendChild(new Separator().element);
+                    this.element.appendChild(new Search({ caption: this.directory.pattern }).element);
+                }
+
+                return this.element;
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template10;
+            }
+        }]);
+
+        return _class52;
+    }(_View18);
+}
+{
+    var _Object35 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.UploadProgress = function (_Object36) {
+        _inherits(_class53, _Object36);
+
+        function _class53() {
+            _classCallCheck(this, _class53);
+
+            return _possibleConstructorReturn(this, (_class53.__proto__ || Object.getPrototypeOf(_class53)).apply(this, arguments));
+        }
+
+        _createClass(_class53, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__upload-progress');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__progress total');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');element4.setAttribute('class', 'engine-fileManager__progress-bar');var element5 = document.createTextNode('');element4.appendChild(element5);var element6 = document.createElement('div');element6.setAttribute('class', 'engine-fileManager__progress-bar-line');this.owner.line = element6;element6.setAttribute('style', 'width: 0');element4.appendChild(element6);var element7 = document.createTextNode('');element4.appendChild(element7);var element8 = document.createElement('div');element8.setAttribute('class', 'engine-fileManager__progress-percent');var element9 = document.createTextNode('');this.owner.percent = element9;element8.appendChild(element9);element4.appendChild(element8);var element10 = document.createTextNode('');element4.appendChild(element10);element2.appendChild(element4);var element11 = document.createTextNode('');element2.appendChild(element11);var element12 = document.createElement('div');element12.setAttribute('class', 'engine-fileManager__progress-title');var element13 = document.createTextNode('');this.owner._title = element13;element12.appendChild(element13);element2.appendChild(element12);var element14 = document.createTextNode('');element2.appendChild(element14);element0.appendChild(element2);var element15 = document.createTextNode('');element0.appendChild(element15);
+            }
+        }]);
+
+        return _class53;
+    }(_Object35);
+}
+{
+    var _View20 = engine.gui.component.View,
+        _Template11 = engine.fileManager.template.fileList.UploadProgress;
+
+    engine.fileManager.view.fileList.UploadProgress = function (_View21) {
+        _inherits(_class54, _View21);
+
+        function _class54() {
+            _classCallCheck(this, _class54);
+
+            return _possibleConstructorReturn(this, (_class54.__proto__ || Object.getPrototypeOf(_class54)).apply(this, arguments));
+        }
+
+        _createClass(_class54, [{
+            key: "update",
+            value: function update(percent) {
+                this.value = percent;
+                this.line.style.width = percent + '%';
+                this.percent.nodeValue = percent > 0 ? percent + '%' : '';
+                this.element.style.cursor = percent ? 'pointer' : 'default';
+            }
+        }, {
+            key: "onShowDetails",
+            value: function onShowDetails() {
+                this.value && this.uploadProgressDialog.show();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template11;
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    showDetails: { element: 'click' }
+                };
+            }
+        }, {
+            key: "title",
+            set: function set(value) {
+                this._title.nodeValue = value;
+            }
+        }]);
+
+        return _class54;
+    }(_View20);
+}
+{
+    var _Object37 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.Header = function (_Object38) {
+        _inherits(_class55, _Object38);
+
+        function _class55() {
+            _classCallCheck(this, _class55);
+
+            return _possibleConstructorReturn(this, (_class55.__proto__ || Object.getPrototypeOf(_class55)).apply(this, arguments));
+        }
+
+        _createClass(_class55, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__list-header');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('table');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('tr');var element5 = document.createTextNode('');element4.appendChild(element5);var element6 = document.createElement('td');var element7 = document.createTextNode('');element6.appendChild(element7);var element8 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element8);var element9 = document.createTextNode('');element8.appendChild(element9);var element10 = document.createElement('input');element10.setAttribute('type', 'checkbox');this.owner.checkbox = element10;element8.appendChild(element10);var element11 = document.createTextNode('');element8.appendChild(element11);element6.appendChild(element8);var element12 = document.createTextNode('');element6.appendChild(element12);element4.appendChild(element6);var element13 = document.createTextNode('');element4.appendChild(element13);var element14 = document.createElement('td');this.owner.columns = this.owner.columns || {};this.owner.columns.name = element14;var element15 = document.createTextNode('');element14.appendChild(element15);var element16 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element16);var element17 = document.createTextNode('Name');element16.appendChild(element17);var element18 = document.createElement('i');this.owner.sortIcons = this.owner.sortIcons || {};this.owner.sortIcons.name = element18;element16.appendChild(element18);var element19 = document.createTextNode('');element16.appendChild(element19);element14.appendChild(element16);var element20 = document.createTextNode('');element14.appendChild(element20);element4.appendChild(element14);var element21 = document.createTextNode('');element4.appendChild(element21);var element22 = document.createElement('td');this.owner.columns = this.owner.columns || {};this.owner.columns.extension = element22;var element23 = document.createTextNode('');element22.appendChild(element23);var element24 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element24);var element25 = document.createTextNode('Type');element24.appendChild(element25);var element26 = document.createElement('i');this.owner.sortIcons = this.owner.sortIcons || {};this.owner.sortIcons.extension = element26;element24.appendChild(element26);var element27 = document.createTextNode('');element24.appendChild(element27);element22.appendChild(element24);var element28 = document.createTextNode('');element22.appendChild(element28);element4.appendChild(element22);var element29 = document.createTextNode('');element4.appendChild(element29);var element30 = document.createElement('td');this.owner.columns = this.owner.columns || {};this.owner.columns.size = element30;var element31 = document.createTextNode('');element30.appendChild(element31);var element32 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element32);var element33 = document.createTextNode('Size');element32.appendChild(element33);var element34 = document.createElement('i');this.owner.sortIcons = this.owner.sortIcons || {};this.owner.sortIcons.size = element34;element32.appendChild(element34);var element35 = document.createTextNode('');element32.appendChild(element35);element30.appendChild(element32);var element36 = document.createTextNode('');element30.appendChild(element36);element4.appendChild(element30);var element37 = document.createTextNode('');element4.appendChild(element37);var element38 = document.createElement('td');this.owner.columns = this.owner.columns || {};this.owner.columns.permissions = element38;var element39 = document.createTextNode('');element38.appendChild(element39);var element40 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element40);var element41 = document.createTextNode('Perm');element40.appendChild(element41);var element42 = document.createElement('i');this.owner.sortIcons = this.owner.sortIcons || {};this.owner.sortIcons.permissions = element42;element40.appendChild(element42);var element43 = document.createTextNode('');element40.appendChild(element43);element38.appendChild(element40);var element44 = document.createTextNode('');element38.appendChild(element44);element4.appendChild(element38);var element45 = document.createTextNode('');element4.appendChild(element45);var element46 = document.createElement('td');this.owner.columns = this.owner.columns || {};this.owner.columns.lastModified = element46;var element47 = document.createTextNode('');element46.appendChild(element47);var element48 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element48);var element49 = document.createTextNode('Modified');element48.appendChild(element49);var element50 = document.createElement('i');this.owner.sortIcons = this.owner.sortIcons || {};this.owner.sortIcons.lastModified = element50;element48.appendChild(element50);var element51 = document.createTextNode('');element48.appendChild(element51);element46.appendChild(element48);var element52 = document.createTextNode('');element46.appendChild(element52);element4.appendChild(element46);var element53 = document.createTextNode('');element4.appendChild(element53);element2.appendChild(element4);var element54 = document.createTextNode('');element2.appendChild(element54);element0.appendChild(element2);var element55 = document.createTextNode('');element0.appendChild(element55);
+            }
+        }]);
+
+        return _class55;
+    }(_Object37);
+}
+{
+    var _View22 = engine.gui.component.View,
+        _ClassName = engine.gui.utility.ClassName,
+        _Template12 = engine.fileManager.template.fileList.Header;
+
+    engine.fileManager.view.fileList.Header = function (_View23) {
+        _inherits(_class56, _View23);
+
+        function _class56() {
+            _classCallCheck(this, _class56);
+
+            return _possibleConstructorReturn(this, (_class56.__proto__ || Object.getPrototypeOf(_class56)).apply(this, arguments));
+        }
+
+        _createClass(_class56, [{
+            key: "sortBy",
+            value: function sortBy(field, desc) {
+                _ClassName.set(this.sortIcons[field], this.icon.classByKey(desc ? 'sortDesc' : 'sortAsc'));
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template12;
+            }
+        }]);
+
+        return _class56;
+    }(_View22);
+}
+{
+    var _Object39 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.Body = function (_Object40) {
+        _inherits(_class57, _Object40);
+
+        function _class57() {
+            _classCallCheck(this, _class57);
+
+            return _possibleConstructorReturn(this, (_class57.__proto__ || Object.getPrototypeOf(_class57)).apply(this, arguments));
+        }
+
+        _createClass(_class57, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__list-body');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('table');this.owner.table = element2;element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);
+            }
+        }]);
+
+        return _class57;
+    }(_Object39);
+}
+{
+    var _View24 = engine.gui.component.View,
+        _Template13 = engine.fileManager.template.fileList.Body;
+
+    engine.fileManager.view.fileList.Body = function (_View25) {
+        _inherits(_class58, _View25);
+
+        function _class58() {
+            _classCallCheck(this, _class58);
+
+            return _possibleConstructorReturn(this, (_class58.__proto__ || Object.getPrototypeOf(_class58)).apply(this, arguments));
+        }
+
+        _createClass(_class58, [{
+            key: "render",
+            value: function render() {
+                var _this59 = this;
+
+                this.clear();
+                this.element.appendChild(this.table);
+                this.items.forEach(function (item) {
+                    _this59.table.appendChild(item.element);
+                });
+
+                return this.element;
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template13;
+            }
+        }]);
+
+        return _class58;
+    }(_View24);
+}
+{
+    var _Object41 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.item.Parent = function (_Object42) {
+        _inherits(_class59, _Object42);
+
+        function _class59() {
+            _classCallCheck(this, _class59);
+
+            return _possibleConstructorReturn(this, (_class59.__proto__ || Object.getPrototypeOf(_class59)).apply(this, arguments));
+        }
+
+        _createClass(_class59, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('tr');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('td');element2.setAttribute('colspan', '6');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');var element5 = document.createTextNode('..');element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);element0.appendChild(element2);var element7 = document.createTextNode('');element0.appendChild(element7);
+            }
+        }]);
+
+        return _class59;
+    }(_Object41);
+}
+{
+    var _View26 = engine.gui.component.View,
+        _Template14 = engine.fileManager.template.fileList.item.Parent;
+
+    engine.fileManager.view.fileList.item.Parent = function (_View27) {
+        _inherits(_class60, _View27);
+
+        function _class60() {
+            _classCallCheck(this, _class60);
+
+            return _possibleConstructorReturn(this, (_class60.__proto__ || Object.getPrototypeOf(_class60)).apply(this, arguments));
+        }
+
+        _createClass(_class60, [{
+            key: "template",
+            get: function get() {
+                return _Template14;
+            }
+        }]);
+
+        return _class60;
+    }(_View26);
+}
+{
+    var _Object43 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.item.File = function (_Object44) {
+        _inherits(_class61, _Object44);
+
+        function _class61() {
+            _classCallCheck(this, _class61);
+
+            return _possibleConstructorReturn(this, (_class61.__proto__ || Object.getPrototypeOf(_class61)).apply(this, arguments));
+        }
+
+        _createClass(_class61, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('tr');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('td');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element4);var element5 = document.createElement('input');element5.setAttribute('type', 'checkbox');this.owner.checkbox = element5;element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);element0.appendChild(element2);var element7 = document.createTextNode('');element0.appendChild(element7);var element8 = document.createElement('td');var element9 = document.createTextNode('');element8.appendChild(element9);var element10 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element10);var element11 = document.createTextNode('');this.owner.name = element11;element10.appendChild(element11);element8.appendChild(element10);var element12 = document.createTextNode('');element8.appendChild(element12);element0.appendChild(element8);var element13 = document.createTextNode('');element0.appendChild(element13);var element14 = document.createElement('td');var element15 = document.createTextNode('');element14.appendChild(element15);var element16 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element16);var element17 = document.createTextNode('');this.owner.extension = element17;element16.appendChild(element17);element14.appendChild(element16);var element18 = document.createTextNode('');element14.appendChild(element18);element0.appendChild(element14);var element19 = document.createTextNode('');element0.appendChild(element19);var element20 = document.createElement('td');var element21 = document.createTextNode('');element20.appendChild(element21);var element22 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element22);var element23 = document.createTextNode('');this.owner.size = element23;element22.appendChild(element23);element20.appendChild(element22);var element24 = document.createTextNode('');element20.appendChild(element24);element0.appendChild(element20);var element25 = document.createTextNode('');element0.appendChild(element25);var element26 = document.createElement('td');var element27 = document.createTextNode('');element26.appendChild(element27);var element28 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element28);var element29 = document.createTextNode('');this.owner.permissions = element29;element28.appendChild(element29);element26.appendChild(element28);var element30 = document.createTextNode('');element26.appendChild(element30);element0.appendChild(element26);var element31 = document.createTextNode('');element0.appendChild(element31);var element32 = document.createElement('td');var element33 = document.createTextNode('');element32.appendChild(element33);var element34 = document.createElement('div');this.owner.contents = this.owner.contents || [];this.owner.contents.push(element34);var element35 = document.createTextNode('');this.owner.modified = element35;element34.appendChild(element35);element32.appendChild(element34);var element36 = document.createTextNode('');element32.appendChild(element36);element0.appendChild(element32);var element37 = document.createTextNode('');element0.appendChild(element37);
+            }
+        }]);
+
+        return _class61;
+    }(_Object43);
+}
+{
+    var _View28 = engine.gui.component.View,
+        _Template15 = engine.fileManager.template.fileList.item.File;
+
+    engine.fileManager.view.fileList.item.File = function (_View29) {
+        _inherits(_class62, _View29);
+
+        function _class62() {
+            _classCallCheck(this, _class62);
+
+            return _possibleConstructorReturn(this, (_class62.__proto__ || Object.getPrototypeOf(_class62)).apply(this, arguments));
+        }
+
+        _createClass(_class62, [{
+            key: "initialize",
+            value: function initialize() {
+                // icon
+                this.contents[1].insertBefore(this.icon.element, this.contents[1].firstChild);
+
+                // fields
+                this.name.nodeValue = this.entity.baseName;
+                this.extension.nodeValue = this.entity.extension.toLocaleLowerCase();
+                this.size.nodeValue = this.entity.size.toHumanString();
+                this.permissions.nodeValue = this.entity.permissions;
+                this.modified.nodeValue = this.entity.lastModified.toLocaleString();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template15;
+            }
+        }]);
+
+        return _class62;
+    }(_View28);
+}
+{
+    var _Object45 = engine.lang.type.Object,
+        Parent = engine.fileManager.view.fileList.item.Parent,
+        _File4 = engine.fileManager.view.fileList.item.File;
+
+    engine.fileManager.view.fileList.item.Factory = function (_Object46) {
+        _inherits(_class63, _Object46);
+
+        function _class63() {
+            _classCallCheck(this, _class63);
+
+            return _possibleConstructorReturn(this, (_class63.__proto__ || Object.getPrototypeOf(_class63)).apply(this, arguments));
+        }
+
+        _createClass(_class63, [{
+            key: "createFromDirectory",
+            value: function createFromDirectory(directory) {
+                var _this65 = this;
+
+                var items = [];
+
+                if (directory.pattern) {
+                    items.push(new Parent({
+                        entity: {
+                            id: directory.id,
+                            isParent: true
+                        }
+                    }));
+                } else if (directory.parentId) {
+                    items.push(new Parent({
+                        entity: {
+                            id: directory.parentId,
+                            isParent: true
+                        }
+                    }));
+                }
+
+                directory.children && directory.children.forEach(function (entity) {
+                    var icon = null;
+                    switch (entity.class) {
+                        case 'directory':
+                            icon = _this65.icon.create('dir');
+                            break;
+                        case 'file':
+                            icon = _this65.icon.create(entity.type);
+                            break;
+                        case 'hyperlink':
+                            icon = _this65.icon.create('hyperlink');
+                            break;
+                    }
+
+                    items.push(new _File4({
+                        icon: icon,
+                        entity: entity
+                    }));
+                });
+
+                return items;
+            }
+        }]);
+
+        return _class63;
+    }(_Object45);
+}
+{
+    var _Observer14 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Open = function (_Observer15) {
+        _inherits(_class64, _Observer15);
+
+        function _class64() {
+            _classCallCheck(this, _class64);
+
+            return _possibleConstructorReturn(this, (_class64.__proto__ || Object.getPrototypeOf(_class64)).apply(this, arguments));
+        }
+
+        _createClass(_class64, [{
+            key: "onOpenKey",
+            value: function onOpenKey() {
+                if (this.owner.hasActiveItem()) {
+                    this.owner.trigger('open');
+                }
+            }
+        }, {
+            key: "onRender",
+            value: function onRender() {
+                var _this67 = this;
+
+                this.owner.breadcrumbs.items.forEach(function (item) {
+                    item.element.addEventListener('click', function () {
+                        _this67.owner.trigger('open', {
+                            id: item.id
+                        });
+                    });
+                });
+
+                this.owner.items.forEach(function (item) {
+                    item.element.addEventListener('dblclick', function () {
+                        _this67.owner.trigger('open');
+                    });
+                });
+            }
+        }]);
+
+        return _class64;
+    }(_Observer14);
+}
+{
+    var _Observer16 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Select = function (_Observer17) {
+        _inherits(_class65, _Observer17);
+
+        function _class65() {
+            _classCallCheck(this, _class65);
+
+            return _possibleConstructorReturn(this, (_class65.__proto__ || Object.getPrototypeOf(_class65)).apply(this, arguments));
+        }
+
+        _createClass(_class65, [{
+            key: "initialize",
+            value: function initialize() {
+                _get(_class65.prototype.__proto__ || Object.getPrototypeOf(_class65.prototype), "initialize", this).call(this);
+                this.selectedIndexList = [];
+                this.clipboard = [];
+                this.indexById = {};
+            }
+        }, {
+            key: "onNextItemKey",
+            value: function onNextItemKey(event) {
+                this.activateNextItem(event.shiftKey);
+            }
+        }, {
+            key: "onPrevItemKey",
+            value: function onPrevItemKey(event) {
+                this.activatePrevItem(event.shiftKey);
+            }
+        }, {
+            key: "onFirstItemKey",
+            value: function onFirstItemKey(event) {
+                this.activateFirstItem(event.shiftKey);
+            }
+        }, {
+            key: "onLastItemKey",
+            value: function onLastItemKey(event) {
+                this.activateLastItem(event.shiftKey);
+            }
+        }, {
+            key: "onRender",
+            value: function onRender() {
+                var _this69 = this;
+
+                var clipboard = this.clipboard.slice(0);
+
+                this.selectedIndexList = [];
+                this.clipboard = [];
+                this.indexById = {};
+
+                this.view.items.forEach(function (item, index) {
+                    _this69.indexById[item.entity.id] = index;
+                    item.element.addEventListener('click', function () {
+                        _this69.activateItem(index);
+                    });
+
+                    // restore clipboard
+                    if (clipboard.indexOf(item.entity.id) !== -1) {
+                        _this69.selectItem(index);
+                    }
+                });
+            }
+        }, {
+            key: "getActiveIndex",
+            value: function getActiveIndex() {
+                return this.activeIndex;
+            }
+        }, {
+            key: "getActiveItem",
+            value: function getActiveItem() {
+                return this.view.items[this.activeIndex];
+            }
+        }, {
+            key: "hasActiveItem",
+            value: function hasActiveItem() {
+                return !isNaN(this.activeIndex);
+            }
+        }, {
+            key: "activateEntity",
+            value: function activateEntity(entity) {
+                return this.activateItem(this.indexById[entity && entity.id]);
+            }
+        }, {
+            key: "getClipboard",
+            value: function getClipboard() {
+                return this.clipboard;
+            }
+        }, {
+            key: "selectAll",
+            value: function selectAll() {
+                for (var index = 0; this.view.items[index]; index++) {
+                    if (this.selectedIndexList.indexOf(index) === -1) {
+                        this.selectItem(index);
+                    }
+                }
+            }
+        }, {
+            key: "deselectAll",
+            value: function deselectAll() {
+                var _this70 = this;
+
+                var selectedIndexList = this.selectedIndexList.slice(0);
+                selectedIndexList.forEach(function (index) {
+                    _this70.selectItem(index);
+                });
+            }
+        }, {
+            key: "selectItem",
+            value: function selectItem(index) {
+                if (!this.view.items.length || index < 0 || index >= this.view.items.length) {
+                    return;
+                }
+
+                if (this.view.items[index].entity.isParent) {
+                    return;
+                }
+
+                var indexOfIndex = this.selectedIndexList.indexOf(index),
+                    entity = this.view.items[index].entity;
+                if (indexOfIndex === -1) {
+                    this.selectedIndexList.push(index);
+                    this.clipboard.push(entity.id);
+
+                    this.view.trigger('selectItem', {
+                        index: index,
+                        entity: entity
+                    });
+                } else {
+                    this.selectedIndexList.splice(indexOfIndex, 1);
+                    this.clipboard.splice(this.clipboard.indexOf(entity.id), 1);
+
+                    this.view.trigger('deselectItem', {
+                        index: index,
+                        entity: entity
+                    });
+                }
+            }
+        }, {
+            key: "activateItem",
+            value: function activateItem() {
+                var index = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+                if (!this.view.items.length || index < 0 || index >= this.view.items.length) {
+                    return;
+                }
+
+                if (this.view.items[this.activeIndex]) {
+                    this.view.trigger('deactivateItem', {
+                        index: this.activeIndex,
+                        entity: this.view.items[this.activeIndex].entity
+                    });
+                }
+
+                this.activeIndex = index;
+                this.view.trigger('activateItem', {
+                    index: this.activeIndex,
+                    entity: this.view.items[this.activeIndex].entity
+                });
+            }
+        }, {
+            key: "activatePrevItem",
+            value: function activatePrevItem(shiftKey) {
+                shiftKey && this.selectItem(this.activeIndex);
+                this.activateItem(this.activeIndex - 1);
+            }
+        }, {
+            key: "activateNextItem",
+            value: function activateNextItem(shiftKey) {
+                shiftKey && this.selectItem(this.activeIndex);
+                this.activateItem(this.activeIndex + 1);
+            }
+        }, {
+            key: "activateFirstItem",
+            value: function activateFirstItem(shiftKey) {
+                if (shiftKey) {
+                    var index = 0;
+                    while (this.activeIndex >= index) {
+                        this.selectItem(index);
+                        index++;
+                    }
+                }
+                this.activateItem(0);
+            }
+        }, {
+            key: "activateLastItem",
+            value: function activateLastItem(shiftKey) {
+                if (shiftKey) {
+                    var index = this.view.items.length - 1;
+                    while (this.activeIndex <= index) {
+                        this.selectItem(index);
+                        index--;
+                    }
+                }
+                this.activateItem(this.view.items.length - 1);
+            }
+        }, {
+            key: "view",
+            get: function get() {
+                return this.owner;
+            }
+        }, {
+            key: "properties",
+            get: function get() {
+                return {
+                    getActiveIndex: this.getActiveIndex,
+                    hasActiveItem: this.hasActiveItem,
+                    getActiveItem: this.getActiveItem,
+                    activateEntity: this.activateEntity,
+                    getClipboard: this.getClipboard,
+                    selectAll: this.selectAll,
+                    deselectAll: this.deselectAll,
+                    selectItem: this.selectItem
+                };
+            }
+        }]);
+
+        return _class65;
+    }(_Observer16);
+}
+{
+    var _Observer18 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Trash = function (_Observer19) {
+        _inherits(_class66, _Observer19);
+
+        function _class66() {
+            _classCallCheck(this, _class66);
+
+            return _possibleConstructorReturn(this, (_class66.__proto__ || Object.getPrototypeOf(_class66)).apply(this, arguments));
+        }
+
+        _createClass(_class66, [{
+            key: "onTrashKey",
+            value: function onTrashKey(keyboardEvent, view) {
+                if (view.hasActiveItem()) {
+                    view.trigger(view.directory.isTrash ? 'remove' : 'trash', {
+                        index: view.getActiveIndex()
+                    });
+                }
+            }
+        }]);
+
+        return _class66;
+    }(_Observer18);
+}
+{
+    var _Observer20 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Remove = function (_Observer21) {
+        _inherits(_class67, _Observer21);
+
+        function _class67() {
+            _classCallCheck(this, _class67);
+
+            return _possibleConstructorReturn(this, (_class67.__proto__ || Object.getPrototypeOf(_class67)).apply(this, arguments));
+        }
+
+        _createClass(_class67, [{
+            key: "onRemoveKey",
+            value: function onRemoveKey(keyboardEvent, view) {
+                if (view.hasActiveItem()) {
+                    view.trigger('remove', {
+                        index: view.getActiveIndex()
+                    });
+                }
+            }
+        }]);
+
+        return _class67;
+    }(_Observer20);
+}
+{
+    var _Observer22 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Rename = function (_Observer23) {
+        _inherits(_class68, _Observer23);
+
+        function _class68() {
+            _classCallCheck(this, _class68);
+
+            return _possibleConstructorReturn(this, (_class68.__proto__ || Object.getPrototypeOf(_class68)).apply(this, arguments));
+        }
+
+        _createClass(_class68, [{
+            key: "onRenameKey",
+            value: function onRenameKey(keyboardEvent, view) {
+                if (view.hasActiveItem() && !view.getActiveItem().entity.isParent) {
+                    view.trigger('rename');
+                }
+            }
+        }]);
+
+        return _class68;
+    }(_Observer22);
+}
+{
+    var _Observer24 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Permissions = function (_Observer25) {
+        _inherits(_class69, _Observer25);
+
+        function _class69() {
+            _classCallCheck(this, _class69);
+
+            return _possibleConstructorReturn(this, (_class69.__proto__ || Object.getPrototypeOf(_class69)).apply(this, arguments));
+        }
+
+        _createClass(_class69, [{
+            key: "onPermissionsKey",
+            value: function onPermissionsKey(keyboardEvent, view) {
+                if (view.hasActiveItem()) {
+                    view.trigger('permissions');
+                }
+            }
+        }]);
+
+        return _class69;
+    }(_Observer24);
+}
+{
+    var _Observer26 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Copy = function (_Observer27) {
+        _inherits(_class70, _Observer27);
+
+        function _class70() {
+            _classCallCheck(this, _class70);
+
+            return _possibleConstructorReturn(this, (_class70.__proto__ || Object.getPrototypeOf(_class70)).apply(this, arguments));
+        }
+
+        _createClass(_class70, [{
+            key: "onCopyKey",
+            value: function onCopyKey(keyboardEvent, view) {
+                if (view.hasActiveItem()) {
+                    view.trigger('copy');
+                }
+            }
+        }]);
+
+        return _class70;
+    }(_Observer26);
+}
+{
+    var _Observer28 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Move = function (_Observer29) {
+        _inherits(_class71, _Observer29);
+
+        function _class71() {
+            _classCallCheck(this, _class71);
+
+            return _possibleConstructorReturn(this, (_class71.__proto__ || Object.getPrototypeOf(_class71)).apply(this, arguments));
+        }
+
+        _createClass(_class71, [{
+            key: "onMoveKey",
+            value: function onMoveKey(keyboardEvent, view) {
+                if (view.hasActiveItem()) {
+                    view.trigger('move');
+                }
+            }
+        }]);
+
+        return _class71;
+    }(_Observer28);
+}
+{
+    var _Observer30 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Upload = function (_Observer31) {
+        _inherits(_class72, _Observer31);
+
+        function _class72() {
+            _classCallCheck(this, _class72);
+
+            return _possibleConstructorReturn(this, (_class72.__proto__ || Object.getPrototypeOf(_class72)).apply(this, arguments));
+        }
+
+        _createClass(_class72, [{
+            key: "onUploadKey",
+            value: function onUploadKey() {
+                this.owner.uploadInput.click();
+            }
+        }]);
+
+        return _class72;
+    }(_Observer30);
+}
+{
+    var _Observer32 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Download = function (_Observer33) {
+        _inherits(_class73, _Observer33);
+
+        function _class73() {
+            _classCallCheck(this, _class73);
+
+            return _possibleConstructorReturn(this, (_class73.__proto__ || Object.getPrototypeOf(_class73)).apply(this, arguments));
+        }
+
+        _createClass(_class73, [{
+            key: "onDownloadKey",
+            value: function onDownloadKey() {
+                this.owner.trigger('download');
+            }
+        }]);
+
+        return _class73;
+    }(_Observer32);
+}
+{
+    var _Observer34 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.Search = function (_Observer35) {
+        _inherits(_class74, _Observer35);
+
+        function _class74() {
+            _classCallCheck(this, _class74);
+
+            return _possibleConstructorReturn(this, (_class74.__proto__ || Object.getPrototypeOf(_class74)).apply(this, arguments));
+        }
+
+        _createClass(_class74, [{
+            key: "onSearchKey",
+            value: function onSearchKey() {
+                this.owner.trigger('search');
+            }
+        }]);
+
+        return _class74;
+    }(_Observer34);
+}
+{
+    var _Observer36 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.CreateDirectory = function (_Observer37) {
+        _inherits(_class75, _Observer37);
+
+        function _class75() {
+            _classCallCheck(this, _class75);
+
+            return _possibleConstructorReturn(this, (_class75.__proto__ || Object.getPrototypeOf(_class75)).apply(this, arguments));
+        }
+
+        _createClass(_class75, [{
+            key: "onCreateFolderKey",
+            value: function onCreateFolderKey() {
+                this.owner.trigger('createDirectory');
+            }
+        }]);
+
+        return _class75;
+    }(_Observer36);
+}
+{
+    var _Observer38 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.CreateHyperlink = function (_Observer39) {
+        _inherits(_class76, _Observer39);
+
+        function _class76() {
+            _classCallCheck(this, _class76);
+
+            return _possibleConstructorReturn(this, (_class76.__proto__ || Object.getPrototypeOf(_class76)).apply(this, arguments));
+        }
+
+        _createClass(_class76, [{
+            key: "onCreateHyperlinkKey",
+            value: function onCreateHyperlinkKey() {
+                this.owner.trigger('createHyperlink');
+            }
+        }]);
+
+        return _class76;
+    }(_Observer38);
+}
+{
+    var _ClassName2 = engine.gui.utility.ClassName,
+        _Observer40 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.observer.ListStyle = function (_Observer41) {
+        _inherits(_class77, _Observer41);
+
+        function _class77() {
+            _classCallCheck(this, _class77);
+
+            return _possibleConstructorReturn(this, (_class77.__proto__ || Object.getPrototypeOf(_class77)).apply(this, arguments));
+        }
+
+        _createClass(_class77, [{
+            key: "onActivateItem",
+            value: function onActivateItem(event, view) {
+                _ClassName2.add(view.items[event.index].element, 'active');
+            }
+        }, {
+            key: "onDeactivateItem",
+            value: function onDeactivateItem(event, view) {
+                _ClassName2.remove(view.items[event.index].element, 'active');
+            }
+        }, {
+            key: "onSelectItem",
+            value: function onSelectItem(event, view) {
+                _ClassName2.add(view.items[event.index].element, 'selected');
+            }
+        }, {
+            key: "onDeselectItem",
+            value: function onDeselectItem(event, view) {
+                _ClassName2.remove(view.items[event.index].element, 'selected');
+            }
+        }]);
+
+        return _class77;
+    }(_Observer40);
+}
+{
+    var _Observer42 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.observer.ListScrolling = function (_Observer43) {
+        _inherits(_class78, _Observer43);
+
+        function _class78() {
+            _classCallCheck(this, _class78);
+
+            return _possibleConstructorReturn(this, (_class78.__proto__ || Object.getPrototypeOf(_class78)).apply(this, arguments));
+        }
+
+        _createClass(_class78, [{
+            key: "onActivateItem",
+            value: function onActivateItem(event) {
+                var body = this.owner.body,
+                    element = body.items[event.index].element,
+                    relativeTop = element.getBoundingClientRect().top - body.element.getBoundingClientRect().top,
+                    screenHeight = body.element.offsetHeight - element.offsetHeight;
+
+                if (relativeTop < 0 || relativeTop >= screenHeight) {
+                    body.element.scrollTop = element.offsetTop - screenHeight + 5;
+                }
+            }
+        }]);
+
+        return _class78;
+    }(_Observer42);
+}
+{
+    var _Obj5 = engine.lang.utility.Object,
+        _Observer44 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.observer.ListSorting = function (_Observer45) {
+        _inherits(_class79, _Observer45);
+
+        function _class79() {
+            _classCallCheck(this, _class79);
+
+            return _possibleConstructorReturn(this, (_class79.__proto__ || Object.getPrototypeOf(_class79)).apply(this, arguments));
+        }
+
+        _createClass(_class79, [{
+            key: "onBeforeRender",
+            value: function onBeforeRender(event, view) {
+                this.sort(view);
+            }
+        }, {
+            key: "onRender",
+            value: function onRender(event, view) {
+                var _this85 = this;
+
+                view.header.sortBy(this.field, this.desc);
+
+                _Obj5.forEach(view.header.columns, function (field, element) {
+                    element.addEventListener('click', function () {
+                        _this85.desc = _this85.field === field ? !_this85.desc : false;
+                        _this85.field = field;
+
+                        view.render();
+                    });
+                });
+            }
+        }, {
+            key: "sort",
+            value: function sort(view) {
+                var _this86 = this;
+
+                view.directory.children.sort(function (a, b) {
+                    var fieldA = a[_this86.field],
+                        fieldB = b[_this86.field];
+
+                    if ('size' === _this86.field) {
+                        fieldA = fieldA.value;
+                        fieldB = fieldB.value;
+                    } else if ('lastModified' === _this86.field) {
+                        fieldA = fieldA.getTime();
+                        fieldB = fieldB.getTime();
+                    }
+
+                    var result = 0;
+                    if (a.class === 'directory' && b.class === 'directory') {
+                        result = fieldA > fieldB ? 1 : fieldB > fieldA ? -1 : 0;
+                    } else if (a.class === 'directory') {
+                        return -1;
+                    } else if (b.class === 'directory') {
+                        return 1;
+                    } else {
+                        result = fieldA > fieldB ? 1 : fieldB > fieldA ? -1 : 0;
+                    }
+
+                    if (_this86.desc) {
+                        result = -result;
+                    }
+
+                    return result;
+                });
+            }
+        }, {
+            key: "field",
+            get: function get() {
+                if (!this._field) {
+                    this._field = 'name';
+                }
+
+                return this._field;
+            },
+            set: function set(value) {
+                this._field = value;
+            }
+        }, {
+            key: "desc",
+            get: function get() {
+                if (!this._desc) {
+                    this._desc = false;
+                }
+
+                return this._desc;
+            },
+            set: function set(value) {
+                this._desc = value;
+            }
+        }]);
+
+        return _class79;
+    }(_Observer44);
+}
+{
+    var _Object47 = engine.lang.type.Object;
+
+    engine.fileManager.view.fileList.observer.ResizeParent = function (_Object48) {
+        _inherits(_class80, _Object48);
+
+        function _class80() {
+            _classCallCheck(this, _class80);
+
+            return _possibleConstructorReturn(this, (_class80.__proto__ || Object.getPrototypeOf(_class80)).apply(this, arguments));
+        }
+
+        _createClass(_class80, [{
+            key: "initialize",
+            value: function initialize() {
+                var _this88 = this;
+
+                window.addEventListener('resize', function () {
+                    _this88.owner.setHeaderWidth();
+                });
+            }
+        }]);
+
+        return _class80;
+    }(_Object47);
+}
+{
+    var _Observer46 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.observer.CheckboxSelection = function (_Observer47) {
+        _inherits(_class81, _Observer47);
+
+        function _class81() {
+            _classCallCheck(this, _class81);
+
+            return _possibleConstructorReturn(this, (_class81.__proto__ || Object.getPrototypeOf(_class81)).apply(this, arguments));
+        }
+
+        _createClass(_class81, [{
+            key: "onSelectItem",
+            value: function onSelectItem(event, view) {
+                view.items[event.index].checkbox.checked = true;
+
+                var difference = view.directory.parentId ? 1 : 0;
+
+                if (view.getClipboard().length === view.items.length - difference) {
+                    view.header.checkbox.checked = true;
+                }
+            }
+        }, {
+            key: "onDeselectItem",
+            value: function onDeselectItem(event, view) {
+                view.items[event.index].checkbox.checked = false;
+
+                if (view.getClipboard().length !== view.items.length) {
+                    view.header.checkbox.checked = false;
+                }
+            }
+        }, {
+            key: "onRender",
+            value: function onRender(event, view) {
+                view.items.forEach(function (item, index) {
+                    item.checkbox && item.checkbox.addEventListener('change', function () {
+                        view.selectItem(index);
+                    });
+                });
+
+                view.header.checkbox.addEventListener('change', function () {
+                    if (view.header.checkbox.checked) {
+                        view.selectAll();
+                    } else {
+                        view.deselectAll();
+                    }
+                });
+            }
+        }]);
+
+        return _class81;
+    }(_Observer46);
+}
+{
+    var _Object49 = engine.lang.type.Object;
+
+    engine.fileManager.template.fileList.Layout = function (_Object50) {
+        _inherits(_class82, _Object50);
+
+        function _class82() {
+            _classCallCheck(this, _class82);
+
+            return _possibleConstructorReturn(this, (_class82.__proto__ || Object.getPrototypeOf(_class82)).apply(this, arguments));
+        }
+
+        _createClass(_class82, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__list');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('input');element2.setAttribute('type', 'file');element2.setAttribute('multiple', 'multiple');element2.setAttribute('style', 'display: none;');this.owner.uploadInput = element2;element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);
+            }
+        }]);
+
+        return _class82;
+    }(_Object49);
+}
+{
+    var _View30 = engine.gui.component.View,
+        Activity = engine.gui.trigger.Activity,
+        HotKeys = engine.gui.trigger.HotKeys,
+        Breadcrumbs = engine.fileManager.view.fileList.breadcrumbs.Layout,
+        UploadProgress = engine.fileManager.view.fileList.UploadProgress,
+        Header = engine.fileManager.view.fileList.Header,
+        Body = engine.fileManager.view.fileList.Body,
+        _Parent = engine.fileManager.view.fileList.item.Parent,
+        ItemsFactory = engine.fileManager.view.fileList.item.Factory,
+        Open = engine.fileManager.view.fileList.trigger.Open,
+        Select = engine.fileManager.view.fileList.trigger.Select,
+        Trash = engine.fileManager.view.fileList.trigger.Trash,
+        Remove = engine.fileManager.view.fileList.trigger.Remove,
+        Rename = engine.fileManager.view.fileList.trigger.Rename,
+        Permissions = engine.fileManager.view.fileList.trigger.Permissions,
+        Copy = engine.fileManager.view.fileList.trigger.Copy,
+        Move = engine.fileManager.view.fileList.trigger.Move,
+        Upload = engine.fileManager.view.fileList.trigger.Upload,
+        Download = engine.fileManager.view.fileList.trigger.Download,
+        _Search = engine.fileManager.view.fileList.trigger.Search,
+        CreateDirectory = engine.fileManager.view.fileList.trigger.CreateDirectory,
+        CreateHyperlink = engine.fileManager.view.fileList.trigger.CreateHyperlink,
+        ListStyle = engine.fileManager.view.fileList.observer.ListStyle,
+        ListScrolling = engine.fileManager.view.fileList.observer.ListScrolling,
+        ListSorting = engine.fileManager.view.fileList.observer.ListSorting,
+        ResizeParent = engine.fileManager.view.fileList.observer.ResizeParent,
+        CheckboxSelection = engine.fileManager.view.fileList.observer.CheckboxSelection,
+        _Template16 = engine.fileManager.template.fileList.Layout;
+
+    engine.fileManager.view.fileList.Layout = function (_View31) {
+        _inherits(_class83, _View31);
+
+        function _class83() {
+            _classCallCheck(this, _class83);
+
+            return _possibleConstructorReturn(this, (_class83.__proto__ || Object.getPrototypeOf(_class83)).apply(this, arguments));
+        }
+
+        _createClass(_class83, [{
+            key: "onSelectUploadedFiles",
+            value: function onSelectUploadedFiles(event) {
+                var files = Array.prototype.slice.call(event.target.files || event.dataTransfer.files);
+                this.trigger('upload', {
+                    files: files
+                });
+                this.uploadInput.value = null;
+            }
+        }, {
+            key: "initialize",
+            value: function initialize() {
+                this.itemsFactory = new ItemsFactory({
+                    icon: this.icon
+                });
+
+                this.uploadProgress = new UploadProgress({
+                    uploadProgressDialog: this.uploadProgressDialog
+                });
+            }
+        }, {
+            key: "render",
+            value: function render(directory) {
+                if (directory) {
+                    this.directory = directory;
+                }
+
+                this.clear();
+                this.trigger('beforeRender');
+
+                this.items = this.itemsFactory.createFromDirectory(this.directory);
+                this.breadcrumbs = new Breadcrumbs({
+                    directory: this.directory,
+                    icon: this.icon
+                });
+                this.header = new Header({
+                    icon: this.icon
+                });
+                this.body = new Body({
+                    icon: this.icon,
+                    items: this.items
+                });
+                this.element.appendChild(this.breadcrumbs.render());
+                this.element.appendChild(this.header.element);
+                this.element.appendChild(this.body.render());
+                this.element.appendChild(this.uploadProgress.element);
+
+                this.setHeaderWidth();
+                this.trigger('render');
+
+                return this.element;
+            }
+        }, {
+            key: "setHeaderWidth",
+            value: function setHeaderWidth() {
+                var _this92 = this;
+
+                if (this.body.element.clientWidth !== this.body.element.offsetWidth) {
+                    this.header.element.style.width = this.body.element.clientWidth + 'px';
+                }
+                if (!this.items.length || this.items[0] instanceof _Parent && 1 === this.items.length) {
+                    return;
+                }
+                var item = this.items[0] instanceof _Parent ? this.items[1] : this.items[0];
+                item.contents.forEach(function (content, index) {
+                    _this92.header.contents[index].style.width = content.offsetWidth + 'px';
+                });
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template16;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [Activity, HotKeys, Open, Select, Trash, Remove, Rename, Permissions, Copy, Move, Upload, Download, _Search, CreateDirectory, CreateHyperlink, ListStyle, ListScrolling, ListSorting, ResizeParent, CheckboxSelection];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    selectUploadedFiles: { uploadInput: 'change' }
+                };
+            }
+        }]);
+
+        return _class83;
+    }(_View30);
+}
+{
+    var _Observer48 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.SwitchLeft = function (_Observer49) {
+        _inherits(_class84, _Observer49);
+
+        function _class84() {
+            _classCallCheck(this, _class84);
+
+            return _possibleConstructorReturn(this, (_class84.__proto__ || Object.getPrototypeOf(_class84)).apply(this, arguments));
+        }
+
+        _createClass(_class84, [{
+            key: "onSwitchLeftKey",
+            value: function onSwitchLeftKey() {
+                this.owner.trigger('switch');
+            }
+        }]);
+
+        return _class84;
+    }(_Observer48);
+}
+{
+    var _Observer50 = engine.react.Observer;
+
+    engine.fileManager.view.fileList.trigger.SwitchRight = function (_Observer51) {
+        _inherits(_class85, _Observer51);
+
+        function _class85() {
+            _classCallCheck(this, _class85);
+
+            return _possibleConstructorReturn(this, (_class85.__proto__ || Object.getPrototypeOf(_class85)).apply(this, arguments));
+        }
+
+        _createClass(_class85, [{
+            key: "onSwitchRightKey",
+            value: function onSwitchRightKey() {
+                this.owner.trigger('switch');
+            }
+        }]);
+
+        return _class85;
+    }(_Observer50);
+}
+{
+    var _Object51 = engine.lang.type.Object;
+
+    engine.gui.trigger.Visibility = function (_Object52) {
+        _inherits(_class86, _Object52);
+
+        function _class86() {
+            _classCallCheck(this, _class86);
+
+            return _possibleConstructorReturn(this, (_class86.__proto__ || Object.getPrototypeOf(_class86)).apply(this, arguments));
+        }
+
+        _createClass(_class86, [{
+            key: "show",
+            value: function show(params) {
+                this.owner.element.style.display = 'block';
+                this.owner.trigger('show', params);
+            }
+        }, {
+            key: "hide",
+            value: function hide() {
+                this.owner.element.style.display = 'none';
+                this.owner.trigger('hide');
+            }
+        }, {
+            key: "properties",
+            get: function get() {
+                return {
+                    show: this.show,
+                    hide: this.hide
+                };
+            }
+        }]);
+
+        return _class86;
+    }(_Object51);
+}
+{
+    var _Object53 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.ModalConfirmDialog = function (_Object54) {
+        _inherits(_class87, _Object54);
+
+        function _class87() {
+            _classCallCheck(this, _class87);
+
+            return _possibleConstructorReturn(this, (_class87.__proto__ || Object.getPrototypeOf(_class87)).apply(this, arguments));
+        }
+
+        _createClass(_class87, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__modal');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__modal-header');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');var element5 = document.createTextNode('');this.owner._caption = element5;this.owner._caption.nodeValue = 'Confirm Dialog';element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);var element7 = document.createElement('a');element7.setAttribute('href', '#');element7.setAttribute('title', 'cancel');element7.setAttribute('class', 'engine-fileManager__a engine-fileManager__modal-header-btn close');this.owner.close = element7;element2.appendChild(element7);var element8 = document.createTextNode('');element2.appendChild(element8);element0.appendChild(element2);var element9 = document.createTextNode('');element0.appendChild(element9);var element10 = document.createElement('div');element10.setAttribute('class', 'engine-fileManager__modal-body');var element11 = document.createTextNode('');element10.appendChild(element11);var element12 = document.createElement('div');var element13 = document.createTextNode('');this.owner._message = element13;element12.appendChild(element13);element10.appendChild(element12);var element14 = document.createTextNode('');element10.appendChild(element14);element0.appendChild(element10);var element15 = document.createTextNode('');element0.appendChild(element15);var element16 = document.createElement('div');element16.setAttribute('class', 'engine-fileManager__modal-footer');var element17 = document.createTextNode('');element16.appendChild(element17);var element18 = document.createElement('a');element18.setAttribute('href', '#');element18.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-accent');this.owner.confirm = element18;var element19 = document.createTextNode('');this.owner._confirmCaption = element19;this.owner._confirmCaption.nodeValue = 'Yes';element18.appendChild(element19);element16.appendChild(element18);var element20 = document.createTextNode('');element16.appendChild(element20);var element21 = document.createElement('a');element21.setAttribute('href', '#');element21.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-compliment');this.owner.cancel = element21;var element22 = document.createTextNode('');this.owner._cancelCaption = element22;this.owner._cancelCaption.nodeValue = 'Cancel';element21.appendChild(element22);element16.appendChild(element21);var element23 = document.createTextNode('');element16.appendChild(element23);element0.appendChild(element16);var element24 = document.createTextNode('');element0.appendChild(element24);
+            }
+        }]);
+
+        return _class87;
+    }(_Object53);
+}
+{
+    var _View32 = engine.gui.component.View,
+        _Activity = engine.gui.trigger.Activity,
+        Visibility = engine.gui.trigger.Visibility,
+        _HotKeys = engine.gui.trigger.HotKeys,
+        _Template17 = engine.fileManager.template.control.ModalConfirmDialog;
+
+    engine.fileManager.view.control.ModalConfirmDialog = function (_View33) {
+        _inherits(_class88, _View33);
+
+        function _class88() {
+            _classCallCheck(this, _class88);
+
+            return _possibleConstructorReturn(this, (_class88.__proto__ || Object.getPrototypeOf(_class88)).apply(this, arguments));
+        }
+
+        _createClass(_class88, [{
+            key: "onShow",
+            value: function onShow(params) {
+                this.params = params;
+
+                this.caption = this.params.caption || '';
+                this.message = this.params.message || '';
+
+                this.activate();
+            }
+        }, {
+            key: "onConfirm",
+            value: function onConfirm() {
+                this.hide();
+                this.deactivate();
+                this.params.onConfirm && this.params.onConfirm();
+            }
+        }, {
+            key: "onCancel",
+            value: function onCancel() {
+                this.hide();
+                this.deactivate();
+                this.params.onCancel && this.params.onCancel();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template17;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [_Activity, Visibility, _HotKeys];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    confirm: { confirm: 'click' },
+                    cancel: { cancel: 'click', close: 'click' }
+                };
+            }
+        }, {
+            key: "hotKeys",
+            get: function get() {
+                return {
+                    confirm: 'Enter',
+                    cancel: 'Esc'
+                };
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption.nodeValue = value;
+            }
+        }, {
+            key: "message",
+            set: function set(value) {
+                this._message.nodeValue = value;
+            }
+        }]);
+
+        return _class88;
+    }(_View32);
+}
+{
+    var _Object55 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.ModalChooserDialog = function (_Object56) {
+        _inherits(_class89, _Object56);
+
+        function _class89() {
+            _classCallCheck(this, _class89);
+
+            return _possibleConstructorReturn(this, (_class89.__proto__ || Object.getPrototypeOf(_class89)).apply(this, arguments));
+        }
+
+        _createClass(_class89, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__modal');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__modal-header');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');var element5 = document.createTextNode('');this.owner._caption = element5;this.owner._caption.nodeValue = 'Caption';element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);var element7 = document.createElement('a');element7.setAttribute('href', '#');element7.setAttribute('title', 'cancel');element7.setAttribute('class', 'engine-fileManager__a engine-fileManager__modal-header-btn close');this.owner.close = element7;element2.appendChild(element7);var element8 = document.createTextNode('');element2.appendChild(element8);element0.appendChild(element2);var element9 = document.createTextNode('');element0.appendChild(element9);var element10 = document.createElement('div');element10.setAttribute('class', 'engine-fileManager__modal-body');var element11 = document.createTextNode('');element10.appendChild(element11);var element12 = document.createElement('div');var element13 = document.createTextNode('');this.owner._message = element13;element12.appendChild(element13);element10.appendChild(element12);var element14 = document.createTextNode('');element10.appendChild(element14);var element15 = document.createElement('form');element15.setAttribute('action', '#');this.owner.form = element15;element10.appendChild(element15);var element16 = document.createTextNode('');element10.appendChild(element16);element0.appendChild(element10);var element17 = document.createTextNode('');element0.appendChild(element17);var element18 = document.createElement('div');element18.setAttribute('class', 'engine-fileManager__modal-footer');var element19 = document.createTextNode('');element18.appendChild(element19);var element20 = document.createElement('a');element20.setAttribute('href', '#');element20.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-accent');this.owner.confirm = element20;var element21 = document.createTextNode('');this.owner._confirmCaption = element21;this.owner._confirmCaption.nodeValue = 'Ok';element20.appendChild(element21);element18.appendChild(element20);var element22 = document.createTextNode('');element18.appendChild(element22);var element23 = document.createElement('a');element23.setAttribute('href', '#');element23.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-compliment');this.owner.cancel = element23;var element24 = document.createTextNode('');this.owner._cancelCaption = element24;this.owner._cancelCaption.nodeValue = 'Cancel';element23.appendChild(element24);element18.appendChild(element23);var element25 = document.createTextNode('');element18.appendChild(element25);element0.appendChild(element18);var element26 = document.createTextNode('');element0.appendChild(element26);
+            }
+        }]);
+
+        return _class89;
+    }(_Object55);
+}
+{
+    var _Object57 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.Checkbox = function (_Object58) {
+        _inherits(_class90, _Object58);
+
+        function _class90() {
+            _classCallCheck(this, _class90);
+
+            return _possibleConstructorReturn(this, (_class90.__proto__ || Object.getPrototypeOf(_class90)).apply(this, arguments));
+        }
+
+        _createClass(_class90, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');this.owner._element = element0;element0.setAttribute('style', 'text-align: left');var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('input');element2.setAttribute('type', 'checkbox');element2.setAttribute('value', '');this.owner.input = element2;element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);var element4 = document.createElement('span');var element5 = document.createTextNode('');this.owner._label = element5;this.owner._label.nodeValue = 'Label';element4.appendChild(element5);element0.appendChild(element4);var element6 = document.createTextNode('');element0.appendChild(element6);
+            }
+        }]);
+
+        return _class90;
+    }(_Object57);
+}
+{
+    var _View34 = engine.gui.component.View,
+        _Template18 = engine.fileManager.template.control.Checkbox;
+
+    engine.fileManager.view.control.Checkbox = function (_View35) {
+        _inherits(_class91, _View35);
+
+        function _class91() {
+            _classCallCheck(this, _class91);
+
+            return _possibleConstructorReturn(this, (_class91.__proto__ || Object.getPrototypeOf(_class91)).apply(this, arguments));
+        }
+
+        _createClass(_class91, [{
+            key: "template",
+            get: function get() {
+                return _Template18;
+            }
+        }, {
+            key: "label",
+            set: function set(value) {
+                this._label.nodeValue = value;
+            }
+        }, {
+            key: "value",
+            set: function set(value) {
+                this.input.value = value;
+            },
+            get: function get() {
+                return this.input.value;
+            }
+        }, {
+            key: "checked",
+            set: function set(value) {
+                this.input.checked = value;
+            },
+            get: function get() {
+                return this.input.checked;
+            }
+        }]);
+
+        return _class91;
+    }(_View34);
+}
+{
+    var _View36 = engine.gui.component.View,
+        _Activity2 = engine.gui.trigger.Activity,
+        _Visibility = engine.gui.trigger.Visibility,
+        _HotKeys2 = engine.gui.trigger.HotKeys,
+        _Template19 = engine.fileManager.template.control.ModalChooserDialog,
+        Checkbox = engine.fileManager.view.control.Checkbox,
+        _Element2 = engine.gui.utility.Element;
+
+    engine.fileManager.view.control.ModalChooserDialog = function (_View37) {
+        _inherits(_class92, _View37);
+
+        function _class92() {
+            _classCallCheck(this, _class92);
+
+            return _possibleConstructorReturn(this, (_class92.__proto__ || Object.getPrototypeOf(_class92)).apply(this, arguments));
+        }
+
+        _createClass(_class92, [{
+            key: "onShow",
+            value: function onShow(params) {
+                var _this102 = this;
+
+                this.params = params;
+
+                this.caption = this.params.caption || '';
+                this.message = this.params.message || '';
+                this.checkboxes = [];
+
+                _Element2.clear(this.form);
+                this.params.fileList.forEach(function (name, index) {
+                    var checkbox = new Checkbox({
+                        label: name,
+                        value: index,
+                        checked: true
+                    });
+
+                    _this102.form.appendChild(checkbox.element);
+                    _this102.checkboxes.push(checkbox);
+                });
+
+                this.activate();
+            }
+        }, {
+            key: "onConfirm",
+            value: function onConfirm() {
+                this.hide();
+                this.deactivate();
+
+                var indexes = [];
+                this.checkboxes.forEach(function (checkbox) {
+                    indexes[checkbox.value] = checkbox.checked;
+                });
+
+                this.params.onConfirm && this.params.onConfirm({
+                    indexes: indexes
+                });
+            }
+        }, {
+            key: "onCancel",
+            value: function onCancel() {
+                this.hide();
+                this.deactivate();
+                this.params.onCancel && this.params.onCancel();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template19;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [_Activity2, _Visibility, _HotKeys2];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    confirm: { confirm: 'click' },
+                    cancel: { cancel: 'click', close: 'click' }
+                };
+            }
+        }, {
+            key: "hotKeys",
+            get: function get() {
+                return {
+                    confirm: 'Enter',
+                    cancel: 'Esc'
+                };
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption.nodeValue = value;
+            }
+        }, {
+            key: "message",
+            set: function set(value) {
+                this._message.nodeValue = value;
+            }
+        }]);
+
+        return _class92;
+    }(_View36);
+}
+{
+    var _Object59 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.ModalInputDialog = function (_Object60) {
+        _inherits(_class93, _Object60);
+
+        function _class93() {
+            _classCallCheck(this, _class93);
+
+            return _possibleConstructorReturn(this, (_class93.__proto__ || Object.getPrototypeOf(_class93)).apply(this, arguments));
+        }
+
+        _createClass(_class93, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__modal');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__modal-header');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');var element5 = document.createTextNode('');this.owner._caption = element5;this.owner._caption.nodeValue = 'Caption';element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);var element7 = document.createElement('a');element7.setAttribute('href', '#');element7.setAttribute('title', 'cancel');element7.setAttribute('class', 'engine-fileManager__a engine-fileManager__modal-header-btn close');this.owner.close = element7;element2.appendChild(element7);var element8 = document.createTextNode('');element2.appendChild(element8);element0.appendChild(element2);var element9 = document.createTextNode('');element0.appendChild(element9);var element10 = document.createElement('div');element10.setAttribute('class', 'engine-fileManager__modal-body');var element11 = document.createTextNode('');element10.appendChild(element11);var element12 = document.createElement('form');element12.setAttribute('action', '#');var element13 = document.createTextNode('');element12.appendChild(element13);var element14 = document.createElement('label');var element15 = document.createTextNode('');this.owner._label = element15;this.owner._label.nodeValue = 'Label';element14.appendChild(element15);element12.appendChild(element14);var element16 = document.createTextNode('');element12.appendChild(element16);var element17 = document.createElement('input');element17.setAttribute('type', 'text');element17.setAttribute('placeholder', '');this.owner.input = element17;element12.appendChild(element17);var element18 = document.createTextNode('');element12.appendChild(element18);element10.appendChild(element12);var element19 = document.createTextNode('');element10.appendChild(element19);element0.appendChild(element10);var element20 = document.createTextNode('');element0.appendChild(element20);var element21 = document.createElement('div');element21.setAttribute('class', 'engine-fileManager__modal-footer');var element22 = document.createTextNode('');element21.appendChild(element22);var element23 = document.createElement('a');element23.setAttribute('href', '#');element23.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-accent');this.owner.confirm = element23;var element24 = document.createTextNode('');this.owner._confirmCaption = element24;this.owner._confirmCaption.nodeValue = 'Ok';element23.appendChild(element24);element21.appendChild(element23);var element25 = document.createTextNode('');element21.appendChild(element25);var element26 = document.createElement('a');element26.setAttribute('href', '#');element26.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-compliment');this.owner.cancel = element26;var element27 = document.createTextNode('');this.owner._cancelCaption = element27;this.owner._cancelCaption.nodeValue = 'Cancel';element26.appendChild(element27);element21.appendChild(element26);var element28 = document.createTextNode('');element21.appendChild(element28);element0.appendChild(element21);var element29 = document.createTextNode('');element0.appendChild(element29);
+            }
+        }]);
+
+        return _class93;
+    }(_Object59);
+}
+{
+    var _View38 = engine.gui.component.View,
+        _Activity3 = engine.gui.trigger.Activity,
+        _Visibility2 = engine.gui.trigger.Visibility,
+        _HotKeys3 = engine.gui.trigger.HotKeys,
+        _Template20 = engine.fileManager.template.control.ModalInputDialog;
+
+    engine.fileManager.view.control.ModalInputDialog = function (_View39) {
+        _inherits(_class94, _View39);
+
+        function _class94() {
+            _classCallCheck(this, _class94);
+
+            return _possibleConstructorReturn(this, (_class94.__proto__ || Object.getPrototypeOf(_class94)).apply(this, arguments));
+        }
+
+        _createClass(_class94, [{
+            key: "onShow",
+            value: function onShow(params) {
+                this.params = params;
+
+                this.caption = this.params.caption || '';
+                this.label = this.params.label || '';
+                this.value = this.params.value || '';
+                this.placeholder = this.params.placeholder || '';
+
+                this.activate();
+                this.input.focus();
+            }
+        }, {
+            key: "onConfirm",
+            value: function onConfirm() {
+                this.hide();
+                this.deactivate();
+
+                if (this.input.value === this.params.value) {
+                    this.params.onCancel && this.params.onCancel();
+                } else {
+                    this.params.onConfirm && this.params.onConfirm({
+                        value: this.input.value
+                    });
+                }
+            }
+        }, {
+            key: "onCancel",
+            value: function onCancel() {
+                this.hide();
+                this.deactivate();
+                this.params.onCancel && this.params.onCancel();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template20;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [_Activity3, _Visibility2, _HotKeys3];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    confirm: { confirm: 'click' },
+                    cancel: { cancel: 'click', close: 'click' }
+                };
+            }
+        }, {
+            key: "hotKeys",
+            get: function get() {
+                return {
+                    confirm: 'Enter',
+                    cancel: 'Esc'
+                };
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption.nodeValue = value;
+            }
+        }, {
+            key: "label",
+            set: function set(value) {
+                this._label.nodeValue = value;
+            }
+        }, {
+            key: "value",
+            set: function set(value) {
+                this.input.value = value;
+            }
+        }, {
+            key: "placeholder",
+            set: function set(value) {
+                this.input.placeholder = value;
+            }
+        }]);
+
+        return _class94;
+    }(_View38);
+}
+{
+    var _Object61 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.ModalHyperlinkDialog = function (_Object62) {
+        _inherits(_class95, _Object62);
+
+        function _class95() {
+            _classCallCheck(this, _class95);
+
+            return _possibleConstructorReturn(this, (_class95.__proto__ || Object.getPrototypeOf(_class95)).apply(this, arguments));
+        }
+
+        _createClass(_class95, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__modal');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__modal-header');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');var element5 = document.createTextNode('');this.owner._caption = element5;this.owner._caption.nodeValue = 'Caption';element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);var element7 = document.createElement('a');element7.setAttribute('href', '#');element7.setAttribute('title', 'cancel');element7.setAttribute('class', 'engine-fileManager__a engine-fileManager__modal-header-btn close');this.owner.close = element7;element2.appendChild(element7);var element8 = document.createTextNode('');element2.appendChild(element8);element0.appendChild(element2);var element9 = document.createTextNode('');element0.appendChild(element9);var element10 = document.createElement('div');element10.setAttribute('class', 'engine-fileManager__modal-body');var element11 = document.createTextNode('');element10.appendChild(element11);var element12 = document.createElement('form');element12.setAttribute('action', '#');var element13 = document.createTextNode('');element12.appendChild(element13);var element14 = document.createElement('label');var element15 = document.createTextNode('Name');element14.appendChild(element15);element12.appendChild(element14);var element16 = document.createTextNode('');element12.appendChild(element16);var element17 = document.createElement('input');element17.setAttribute('type', 'text');element17.setAttribute('placeholder', '');this.owner.name = element17;element12.appendChild(element17);var element18 = document.createTextNode('');element12.appendChild(element18);var element19 = document.createElement('label');var element20 = document.createTextNode('Url');element19.appendChild(element20);element12.appendChild(element19);var element21 = document.createTextNode('');element12.appendChild(element21);var element22 = document.createElement('input');element22.setAttribute('type', 'text');element22.setAttribute('placeholder', '');this.owner.url = element22;element12.appendChild(element22);var element23 = document.createTextNode('');element12.appendChild(element23);element10.appendChild(element12);var element24 = document.createTextNode('');element10.appendChild(element24);element0.appendChild(element10);var element25 = document.createTextNode('');element0.appendChild(element25);var element26 = document.createElement('div');element26.setAttribute('class', 'engine-fileManager__modal-footer');var element27 = document.createTextNode('');element26.appendChild(element27);var element28 = document.createElement('a');element28.setAttribute('href', '#');element28.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-accent');this.owner.confirm = element28;var element29 = document.createTextNode('');this.owner._confirmCaption = element29;this.owner._confirmCaption.nodeValue = 'Ok';element28.appendChild(element29);element26.appendChild(element28);var element30 = document.createTextNode('');element26.appendChild(element30);var element31 = document.createElement('a');element31.setAttribute('href', '#');element31.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-compliment');this.owner.cancel = element31;var element32 = document.createTextNode('');this.owner._cancelCaption = element32;this.owner._cancelCaption.nodeValue = 'Cancel';element31.appendChild(element32);element26.appendChild(element31);var element33 = document.createTextNode('');element26.appendChild(element33);element0.appendChild(element26);var element34 = document.createTextNode('');element0.appendChild(element34);
+            }
+        }]);
+
+        return _class95;
+    }(_Object61);
+}
+{
+    var _View40 = engine.gui.component.View,
+        _Activity4 = engine.gui.trigger.Activity,
+        _Visibility3 = engine.gui.trigger.Visibility,
+        _HotKeys4 = engine.gui.trigger.HotKeys,
+        _Template21 = engine.fileManager.template.control.ModalHyperlinkDialog;
+
+    engine.fileManager.view.control.ModalHyperlinkDialog = function (_View41) {
+        _inherits(_class96, _View41);
+
+        function _class96() {
+            _classCallCheck(this, _class96);
+
+            return _possibleConstructorReturn(this, (_class96.__proto__ || Object.getPrototypeOf(_class96)).apply(this, arguments));
+        }
+
+        _createClass(_class96, [{
+            key: "onShow",
+            value: function onShow(params) {
+                this.params = params;
+
+                this.caption = this.params.caption || '';
+                this.name.value = this.params.name || '';
+                this.url.value = this.params.url || '';
+                this.placeholderName = this.params.placeholderName || '';
+                this.placeholderUrl = this.params.placeholderUrl || '';
+
+                this.activate();
+                this.name.focus();
+            }
+        }, {
+            key: "onConfirm",
+            value: function onConfirm() {
+                this.hide();
+                this.deactivate();
+
+                if (this.name.value === this.params.name && this.url.value === this.params.url) {
+                    this.params.onCancel && this.params.onCancel();
+                } else {
+                    this.params.onConfirm && this.params.onConfirm({
+                        name: this.name.value,
+                        url: this.url.value
+                    });
+                }
+            }
+        }, {
+            key: "onCancel",
+            value: function onCancel() {
+                this.hide();
+                this.deactivate();
+                this.params.onCancel && this.params.onCancel();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template21;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [_Activity4, _Visibility3, _HotKeys4];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    confirm: { confirm: 'click' },
+                    cancel: { cancel: 'click', close: 'click' }
+                };
+            }
+        }, {
+            key: "hotKeys",
+            get: function get() {
+                return {
+                    confirm: 'Enter',
+                    cancel: 'Esc'
+                };
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                this._caption.nodeValue = value;
+            }
+        }, {
+            key: "placeholderName",
+            set: function set(value) {
+                this.name.placeholder = value;
+            }
+        }, {
+            key: "placeholderUrl",
+            set: function set(value) {
+                this.url.placeholder = value;
+            }
+        }]);
+
+        return _class96;
+    }(_View40);
+}
+{
+    var _Object63 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.uploadProgress.Item = function (_Object64) {
+        _inherits(_class97, _Object64);
+
+        function _class97() {
+            _classCallCheck(this, _class97);
+
+            return _possibleConstructorReturn(this, (_class97.__proto__ || Object.getPrototypeOf(_class97)).apply(this, arguments));
+        }
+
+        _createClass(_class97, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__progress');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__progress-bar');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');element4.setAttribute('class', 'engine-fileManager__progress-bar-line');this.owner.line = element4;element4.setAttribute('style', 'width: 0');element2.appendChild(element4);var element5 = document.createTextNode('');element2.appendChild(element5);var element6 = document.createElement('div');element6.setAttribute('class', 'engine-fileManager__progress-percent');var element7 = document.createTextNode('');this.owner.percent = element7;this.owner.percent.nodeValue = '0%';element6.appendChild(element7);element2.appendChild(element6);var element8 = document.createTextNode('');element2.appendChild(element8);var element9 = document.createElement('a');element9.setAttribute('title', 'cancel');element9.setAttribute('class', 'engine-fileManager__a engine-fileManager__progress-remove');this.owner.marker = element9;element2.appendChild(element9);var element10 = document.createTextNode('');element2.appendChild(element10);element0.appendChild(element2);var element11 = document.createTextNode('');element0.appendChild(element11);var element12 = document.createElement('div');element12.setAttribute('class', 'engine-fileManager__progress-title');var element13 = document.createTextNode('');this.owner._title = element13;element12.appendChild(element13);element0.appendChild(element12);var element14 = document.createTextNode('');element0.appendChild(element14);
+            }
+        }]);
+
+        return _class97;
+    }(_Object63);
+}
+{
+    var _View42 = engine.gui.component.View,
+        _ClassName3 = engine.gui.utility.ClassName,
+        _Template22 = engine.fileManager.template.control.uploadProgress.Item;
+
+    engine.fileManager.view.control.uploadProgress.Item = function (_View43) {
+        _inherits(_class98, _View43);
+
+        function _class98() {
+            _classCallCheck(this, _class98);
+
+            return _possibleConstructorReturn(this, (_class98.__proto__ || Object.getPrototypeOf(_class98)).apply(this, arguments));
+        }
+
+        _createClass(_class98, [{
+            key: "update",
+            value: function update(percent) {
+                this.line.style.width = percent + '%';
+                this.percent.nodeValue = percent + '%';
+
+                if (100 === percent) {
+                    _ClassName3.set(this.marker, 'engineFM__progress-done done');
+                }
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template22;
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    abort: { marker: 'click' }
+                };
+            }
+        }, {
+            key: "title",
+            set: function set(value) {
+                this._title.nodeValue = value;
+            }
+        }]);
+
+        return _class98;
+    }(_View42);
+}
+{
+    var _Object65 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.uploadProgress.TotalItem = function (_Object66) {
+        _inherits(_class99, _Object66);
+
+        function _class99() {
+            _classCallCheck(this, _class99);
+
+            return _possibleConstructorReturn(this, (_class99.__proto__ || Object.getPrototypeOf(_class99)).apply(this, arguments));
+        }
+
+        _createClass(_class99, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__progress total');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__progress-bar');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');element4.setAttribute('class', 'engine-fileManager__progress-bar-line');this.owner.line = element4;element4.setAttribute('style', 'width: 0');element2.appendChild(element4);var element5 = document.createTextNode('');element2.appendChild(element5);var element6 = document.createElement('div');element6.setAttribute('class', 'engine-fileManager__progress-percent');var element7 = document.createTextNode('');this.owner.percent = element7;this.owner.percent.nodeValue = '0%';element6.appendChild(element7);element2.appendChild(element6);var element8 = document.createTextNode('');element2.appendChild(element8);var element9 = document.createElement('div');element9.setAttribute('class', 'engine-fileManager__progress-done');this.owner.marker = element9;element2.appendChild(element9);var element10 = document.createTextNode('');element2.appendChild(element10);element0.appendChild(element2);var element11 = document.createTextNode('');element0.appendChild(element11);var element12 = document.createElement('div');element12.setAttribute('class', 'engine-fileManager__progress-title');var element13 = document.createTextNode('');this.owner._title = element13;this.owner._title.nodeValue = 'Total';element12.appendChild(element13);element0.appendChild(element12);var element14 = document.createTextNode('');element0.appendChild(element14);
+            }
+        }]);
+
+        return _class99;
+    }(_Object65);
+}
+{
+    var _Item = engine.fileManager.view.control.uploadProgress.Item,
+        _Template23 = engine.fileManager.template.control.uploadProgress.TotalItem;
+
+    engine.fileManager.view.control.uploadProgress.TotalItem = function (_Item2) {
+        _inherits(_class100, _Item2);
+
+        function _class100() {
+            _classCallCheck(this, _class100);
+
+            return _possibleConstructorReturn(this, (_class100.__proto__ || Object.getPrototypeOf(_class100)).apply(this, arguments));
+        }
+
+        _createClass(_class100, [{
+            key: "template",
+            get: function get() {
+                return _Template23;
+            }
+        }]);
+
+        return _class100;
+    }(_Item);
+}
+{
+    var _Object67 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.uploadProgress.ModalDialog = function (_Object68) {
+        _inherits(_class101, _Object68);
+
+        function _class101() {
+            _classCallCheck(this, _class101);
+
+            return _possibleConstructorReturn(this, (_class101.__proto__ || Object.getPrototypeOf(_class101)).apply(this, arguments));
+        }
+
+        _createClass(_class101, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__modal');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('div');element2.setAttribute('class', 'engine-fileManager__modal-header');var element3 = document.createTextNode('');element2.appendChild(element3);var element4 = document.createElement('div');var element5 = document.createTextNode('');this.owner._caption = element5;this.owner._caption.nodeValue = 'Caption';element4.appendChild(element5);element2.appendChild(element4);var element6 = document.createTextNode('');element2.appendChild(element6);var element7 = document.createElement('a');element7.setAttribute('href', '#');element7.setAttribute('title', 'cancel');element7.setAttribute('class', 'engine-fileManager__a engine-fileManager__modal-header-btn close');this.owner.close = element7;element2.appendChild(element7);var element8 = document.createTextNode('');element2.appendChild(element8);element0.appendChild(element2);var element9 = document.createTextNode('');element0.appendChild(element9);var element10 = document.createElement('div');element10.setAttribute('class', 'engine-fileManager__modal-body');this.owner.body = element10;element0.appendChild(element10);var element11 = document.createTextNode('');element0.appendChild(element11);var element12 = document.createElement('div');element12.setAttribute('class', 'engine-fileManager__modal-footer');var element13 = document.createTextNode('');element12.appendChild(element13);var element14 = document.createElement('a');element14.setAttribute('href', '#');element14.setAttribute('class', 'engine-fileManager__a engine-fileManager__btn engine-fileManager__btn-accent');this.owner.toBackground = element14;var element15 = document.createTextNode('');this.owner._toBackgroundCaption = element15;this.owner._toBackgroundCaption.nodeValue = 'To Background';element14.appendChild(element15);element12.appendChild(element14);var element16 = document.createTextNode('');element12.appendChild(element16);element0.appendChild(element12);var element17 = document.createTextNode('');element0.appendChild(element17);
+            }
+        }]);
+
+        return _class101;
+    }(_Object67);
+}
+{
+    var _View44 = engine.gui.component.View,
+        _Activity5 = engine.gui.trigger.Activity,
+        _Visibility4 = engine.gui.trigger.Visibility,
+        _HotKeys5 = engine.gui.trigger.HotKeys,
+        _Item3 = engine.fileManager.view.control.uploadProgress.Item,
+        TotalItem = engine.fileManager.view.control.uploadProgress.TotalItem,
+        _Template24 = engine.fileManager.template.control.uploadProgress.ModalDialog;
+
+    engine.fileManager.view.control.uploadProgress.ModalDialog = function (_View45) {
+        _inherits(_class102, _View45);
+
+        function _class102() {
+            _classCallCheck(this, _class102);
+
+            return _possibleConstructorReturn(this, (_class102.__proto__ || Object.getPrototypeOf(_class102)).apply(this, arguments));
+        }
+
+        _createClass(_class102, [{
+            key: "initialize",
+            value: function initialize() {
+                this.total = new TotalItem({
+                    title: 'Total',
+                    icon: this.icon
+                });
+                this.body.appendChild(this.total.element);
+            }
+        }, {
+            key: "show",
+            value: function show() {
+                var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+                this.params = params;
+                this.caption = this.params.caption || null;
+
+                this.activate();
+                _get(_class102.prototype.__proto__ || Object.getPrototypeOf(_class102.prototype), "show", this).call(this);
+            }
+        }, {
+            key: "appendItem",
+            value: function appendItem(params) {
+                params.icon = this.icon;
+                var item = new _Item3(params);
+                this.body.appendChild(item.element);
+
+                return item;
+            }
+        }, {
+            key: "removeItem",
+            value: function removeItem(item) {
+                this.body.removeChild(item.element);
+            }
+        }, {
+            key: "hide",
+            value: function hide() {
+                _get(_class102.prototype.__proto__ || Object.getPrototypeOf(_class102.prototype), "hide", this).call(this);
+                this.deactivate();
+            }
+        }, {
+            key: "onToBackground",
+            value: function onToBackground() {
+                this.hide();
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template24;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [_Activity5, _Visibility4, _HotKeys5];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    toBackground: { toBackground: 'click', close: 'click' }
+                };
+            }
+        }, {
+            key: "hotKeys",
+            get: function get() {
+                return {
+                    toBackground: 'Enter'
+                };
+            }
+        }, {
+            key: "caption",
+            set: function set(value) {
+                if (null !== value) {
+                    this._caption.nodeValue = value;
+                }
+            }
+        }]);
+
+        return _class102;
+    }(_View44);
+}
+{
+    var _Object69 = engine.lang.type.Object;
+
+    engine.fileManager.template.control.RequestProgress = function (_Object70) {
+        _inherits(_class103, _Object70);
+
+        function _class103() {
+            _classCallCheck(this, _class103);
+
+            return _possibleConstructorReturn(this, (_class103.__proto__ || Object.getPrototypeOf(_class103)).apply(this, arguments));
+        }
+
+        _createClass(_class103, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager__request-progress');this.owner._element = element0;var element1 = document.createTextNode('');element0.appendChild(element1);var element2 = document.createElement('i');element2.setAttribute('class', 'icon-spin4 animate-spin');element0.appendChild(element2);var element3 = document.createTextNode('');element0.appendChild(element3);
+            }
+        }]);
+
+        return _class103;
+    }(_Object69);
+}
+{
+    var _View46 = engine.gui.component.View,
+        _Visibility5 = engine.gui.trigger.Visibility,
+        _Template25 = engine.fileManager.template.control.RequestProgress;
+
+    engine.fileManager.view.control.RequestProgress = function (_View47) {
+        _inherits(_class104, _View47);
+
+        function _class104() {
+            _classCallCheck(this, _class104);
+
+            return _possibleConstructorReturn(this, (_class104.__proto__ || Object.getPrototypeOf(_class104)).apply(this, arguments));
+        }
+
+        _createClass(_class104, [{
+            key: "template",
+            get: function get() {
+                return _Template25;
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [_Visibility5];
+            }
+        }]);
+
+        return _class104;
+    }(_View46);
+}
+{
+    var _Object71 = engine.lang.type.Object;
+
+    engine.fileManager.template.Layout = function (_Object72) {
+        _inherits(_class105, _Object72);
+
+        function _class105() {
+            _classCallCheck(this, _class105);
+
+            return _possibleConstructorReturn(this, (_class105.__proto__ || Object.getPrototypeOf(_class105)).apply(this, arguments));
+        }
+
+        _createClass(_class105, [{
+            key: "initialize",
+            value: function initialize() {
+                var element0 = document.createElement('div');element0.setAttribute('class', 'engine-fileManager');this.owner._element = element0;
+            }
+        }]);
+
+        return _class105;
+    }(_Object71);
+}
+{
+    var _View48 = engine.gui.component.View,
+        IconFactory = engine.fileManager.view.icon.Factory,
+        Toolbar = engine.fileManager.view.Toolbar,
+        List = engine.fileManager.view.fileList.Layout,
+        SwitchLeft = engine.fileManager.view.fileList.trigger.SwitchLeft,
+        SwitchRight = engine.fileManager.view.fileList.trigger.SwitchRight,
+        ConfirmDialog = engine.fileManager.view.control.ModalConfirmDialog,
+        ChooserDialog = engine.fileManager.view.control.ModalChooserDialog,
+        InputDialog = engine.fileManager.view.control.ModalInputDialog,
+        HyperlinkDialog = engine.fileManager.view.control.ModalHyperlinkDialog,
+        UploadProgressDialog = engine.fileManager.view.control.uploadProgress.ModalDialog,
+        RequestProgress = engine.fileManager.view.control.RequestProgress,
+        _Template26 = engine.fileManager.template.Layout;
+
+    engine.fileManager.view.Layout = function (_View49) {
+        _inherits(_class106, _View49);
+
+        function _class106() {
+            _classCallCheck(this, _class106);
+
+            return _possibleConstructorReturn(this, (_class106.__proto__ || Object.getPrototypeOf(_class106)).apply(this, arguments));
+        }
+
+        _createClass(_class106, [{
+            key: "initialize",
+            value: function initialize() {
+                var icon = new IconFactory({
+                    iconClasses: this.config.icons,
+                    defaultIconClass: this.config.defaultIcon
+                });
+
+                this.toolbar = new Toolbar({
+                    icon: icon,
+                    hotKeys: this.config.hotKeys
+                });
+
+                this.uploadProgressDialog = new UploadProgressDialog({
+                    icon: icon
+                });
+
+                this.leftList = new List({
+                    hotKeys: this.config.hotKeys,
+                    uploadProgressDialog: this.uploadProgressDialog,
+                    icon: icon
+                });
+                this.leftList.use(SwitchRight);
+
+                this.rightList = new List({
+                    hotKeys: this.config.hotKeys,
+                    uploadProgressDialog: this.uploadProgressDialog,
+                    icon: icon
+                });
+                this.rightList.use(SwitchLeft);
+
+                this.confirmDialog = new ConfirmDialog({
+                    icon: icon
+                });
+
+                this.inputDialog = new InputDialog({
+                    icon: icon
+                });
+
+                this.hyperlinkDialog = new HyperlinkDialog({
+                    icon: icon
+                });
+
+                this.chooserDialog = new ChooserDialog({
+                    icon: icon
+                });
+
+                this.requestProgress = new RequestProgress();
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                this.clear();
+
+                this.element.appendChild(this.toolbar.render());
+                this.element.appendChild(this.leftList.element);
+                this.element.appendChild(this.rightList.element);
+                this.element.appendChild(this.inputDialog.element);
+                this.element.appendChild(this.hyperlinkDialog.element);
+                this.element.appendChild(this.confirmDialog.element);
+                this.element.appendChild(this.chooserDialog.element);
+                this.element.appendChild(this.uploadProgressDialog.element);
+                this.element.appendChild(this.requestProgress.element);
+
+                this.appendTo(this.wrapper);
+            }
+        }, {
+            key: "template",
+            get: function get() {
+                return _Template26;
+            }
+        }]);
+
+        return _class106;
+    }(_View48);
+}
+{
+    var _Object73 = engine.lang.type.Object;
+
+    engine.web.component.Model = function (_Object74) {
+        _inherits(_class107, _Object74);
+
+        function _class107() {
+            _classCallCheck(this, _class107);
+
+            return _possibleConstructorReturn(this, (_class107.__proto__ || Object.getPrototypeOf(_class107)).apply(this, arguments));
+        }
+
+        _createClass(_class107, [{
+            key: "request",
+            value: function request(_request) {
+                var _client;
+
+                for (var _len11 = arguments.length, observers = Array(_len11 > 1 ? _len11 - 1 : 0), _key11 = 1; _key11 < _len11; _key11++) {
+                    observers[_key11 - 1] = arguments[_key11];
+                }
+
+                (_client = this.client).exchange.apply(_client, [_request].concat(observers));
+            }
+        }, {
+            key: "get",
+            value: function get(request) {
+                request.method = 'GET';
+
+                for (var _len12 = arguments.length, observers = Array(_len12 > 1 ? _len12 - 1 : 0), _key12 = 1; _key12 < _len12; _key12++) {
+                    observers[_key12 - 1] = arguments[_key12];
+                }
+
+                this.request.apply(this, [request].concat(observers));
+            }
+        }, {
+            key: "post",
+            value: function post(request) {
+                request.method = 'POST';
+
+                for (var _len13 = arguments.length, observers = Array(_len13 > 1 ? _len13 - 1 : 0), _key13 = 1; _key13 < _len13; _key13++) {
+                    observers[_key13 - 1] = arguments[_key13];
+                }
+
+                this.request.apply(this, [request].concat(observers));
+            }
+        }]);
+
+        return _class107;
+    }(_Object73);
+}
+{
+    var Model = engine.web.component.Model;
+
+    engine.fileManager.model.File = function (_Model) {
+        _inherits(_class108, _Model);
+
+        function _class108() {
+            _classCallCheck(this, _class108);
+
+            return _possibleConstructorReturn(this, (_class108.__proto__ || Object.getPrototypeOf(_class108)).apply(this, arguments));
+        }
+
+        _createClass(_class108, [{
+            key: "open",
+            value: function open(params) {
+                this.client.open('open', { id: params.id }, '_blank');
+            }
+        }, {
+            key: "openHyperlink",
+            value: function openHyperlink(params) {
+                window.open(params.url, '_blank');
+            }
+        }, {
+            key: "download",
+            value: function download(params) {
+                this.client.open('download', { id: params.id });
+            }
+        }, {
+            key: "read",
+            value: function read(bodyParams) {
+                for (var _len14 = arguments.length, observers = Array(_len14 > 1 ? _len14 - 1 : 0), _key14 = 1; _key14 < _len14; _key14++) {
+                    observers[_key14 - 1] = arguments[_key14];
+                }
+
+                this.post.apply(this, [{
+                    target: bodyParams.pattern ? 'search' : 'read',
+                    bodyParams: bodyParams
+                }].concat(observers));
+            }
+        }, {
+            key: "upload",
+            value: function upload(form) {
+                for (var _len15 = arguments.length, observers = Array(_len15 > 1 ? _len15 - 1 : 0), _key15 = 1; _key15 < _len15; _key15++) {
+                    observers[_key15 - 1] = arguments[_key15];
+                }
+
+                this.post.apply(this, [{
+                    target: 'upload',
+                    body: form
+                }].concat(observers));
+            }
+        }, {
+            key: "copy",
+            value: function copy(params) {
+                for (var _len16 = arguments.length, observers = Array(_len16 > 1 ? _len16 - 1 : 0), _key16 = 1; _key16 < _len16; _key16++) {
+                    observers[_key16 - 1] = arguments[_key16];
+                }
+
+                this.post.apply(this, [{
+                    target: 'copy',
+                    bodyParams: {
+                        id: params.id,
+                        parentId: params.parentId
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "move",
+            value: function move(params) {
+                for (var _len17 = arguments.length, observers = Array(_len17 > 1 ? _len17 - 1 : 0), _key17 = 1; _key17 < _len17; _key17++) {
+                    observers[_key17 - 1] = arguments[_key17];
+                }
+
+                this.post.apply(this, [{
+                    target: 'move',
+                    bodyParams: {
+                        id: params.id,
+                        parentId: params.parentId
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "createDirectory",
+            value: function createDirectory(params) {
+                for (var _len18 = arguments.length, observers = Array(_len18 > 1 ? _len18 - 1 : 0), _key18 = 1; _key18 < _len18; _key18++) {
+                    observers[_key18 - 1] = arguments[_key18];
+                }
+
+                this.post.apply(this, [{
+                    target: 'create/directory',
+                    bodyParams: {
+                        parentId: params.parentId,
+                        name: params.name
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "createHyperlink",
+            value: function createHyperlink(params) {
+                for (var _len19 = arguments.length, observers = Array(_len19 > 1 ? _len19 - 1 : 0), _key19 = 1; _key19 < _len19; _key19++) {
+                    observers[_key19 - 1] = arguments[_key19];
+                }
+
+                this.post.apply(this, [{
+                    target: 'create/hyperlink',
+                    bodyParams: {
+                        parentId: params.parentId,
+                        name: params.name,
+                        url: params.url
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "rename",
+            value: function rename(params) {
+                for (var _len20 = arguments.length, observers = Array(_len20 > 1 ? _len20 - 1 : 0), _key20 = 1; _key20 < _len20; _key20++) {
+                    observers[_key20 - 1] = arguments[_key20];
+                }
+
+                this.post.apply(this, [{
+                    target: 'rename',
+                    bodyParams: {
+                        id: params.id,
+                        name: params.name
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "setPermissions",
+            value: function setPermissions(params) {
+                for (var _len21 = arguments.length, observers = Array(_len21 > 1 ? _len21 - 1 : 0), _key21 = 1; _key21 < _len21; _key21++) {
+                    observers[_key21 - 1] = arguments[_key21];
+                }
+
+                this.post.apply(this, [{
+                    target: 'permissions',
+                    bodyParams: {
+                        id: params.id,
+                        permissions: params.permissions
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "remove",
+            value: function remove(params) {
+                for (var _len22 = arguments.length, observers = Array(_len22 > 1 ? _len22 - 1 : 0), _key22 = 1; _key22 < _len22; _key22++) {
+                    observers[_key22 - 1] = arguments[_key22];
+                }
+
+                this.post.apply(this, [{
+                    target: 'remove',
+                    bodyParams: {
+                        id: params.id
+                    }
+                }].concat(observers));
+            }
+        }, {
+            key: "trash",
+            value: function trash(params) {
+                for (var _len23 = arguments.length, observers = Array(_len23 > 1 ? _len23 - 1 : 0), _key23 = 1; _key23 < _len23; _key23++) {
+                    observers[_key23 - 1] = arguments[_key23];
+                }
+
+                this.post.apply(this, [{
+                    target: 'trash',
+                    bodyParams: {
+                        id: params.id
+                    }
+                }].concat(observers));
+            }
+        }]);
+
+        return _class108;
+    }(Model);
+}
+{
+    var _Component4 = engine.react.Component,
+        _Obj6 = engine.lang.utility.Object,
+        _Type5 = engine.lang.utility.Type;
+
+    engine.web.component.Controller = function (_Component5) {
+        _inherits(_class109, _Component5);
+
+        function _class109() {
+            _classCallCheck(this, _class109);
+
+            return _possibleConstructorReturn(this, (_class109.__proto__ || Object.getPrototypeOf(_class109)).apply(this, arguments));
+        }
+
+        _createClass(_class109, [{
+            key: "_constructor",
+            value: function _constructor() {
+                var _get4;
+
+                for (var _len24 = arguments.length, args = Array(_len24), _key24 = 0; _key24 < _len24; _key24++) {
+                    args[_key24] = arguments[_key24];
+                }
+
+                (_get4 = _get(_class109.prototype.__proto__ || Object.getPrototypeOf(_class109.prototype), "_constructor", this)).call.apply(_get4, [this].concat(args));
+                this.actionMap = this.actions || {};
+                this.subscribeActions(this.actionMap);
+            }
+        }, {
+            key: "subscribeActions",
+            value: function subscribeActions(actions) {
+                var _this120 = this;
+
+                _Obj6.forEach(actions, function (eventName, action) {
+                    _this120.subscribeAction(eventName, action);
+                });
+            }
+        }, {
+            key: "subscribeAction",
+            value: function subscribeAction(eventName, action) {
+                var _this121 = this;
+
+                this.actionMap[eventName] = action;
+                this.on(eventName, function () {
+                    for (var _len25 = arguments.length, args = Array(_len25), _key25 = 0; _key25 < _len25; _key25++) {
+                        args[_key25] = arguments[_key25];
+                    }
+
+                    _this121.executeAction.apply(_this121, [eventName].concat(args));
+                });
+            }
+        }, {
+            key: "getAction",
+            value: function getAction(eventName) {
+                var action = this.actionMap[eventName];
+                if (_Type5.isObject(action)) {
+                    return action;
+                }
+                action = new action(this.properties || {}, this);
+                this.actionMap[eventName] = action;
+
+                return action;
+            }
+        }, {
+            key: "executeAction",
+            value: function executeAction(eventName) {
+                if (!this.isActionAllowed(eventName)) {
+                    return;
+                }
+                try {
+                    var _getAction;
+
+                    for (var _len26 = arguments.length, args = Array(_len26 > 1 ? _len26 - 1 : 0), _key26 = 1; _key26 < _len26; _key26++) {
+                        args[_key26 - 1] = arguments[_key26];
+                    }
+
+                    (_getAction = this.getAction(eventName)).execute.apply(_getAction, args);
+                } catch (throwable) {
+                    this.handleActionError(throwable);
+                }
+            }
+        }, {
+            key: "isActionAllowed",
+            value: function isActionAllowed(eventName) {
+                return true;
+            }
+        }, {
+            key: "handleActionError",
+            value: function handleActionError(throwable) {
+                throw throwable;
+            }
+        }, {
+            key: "render",
+            value: function render(data) {
+                this.view.set(data);
+            }
+        }]);
+
+        return _class109;
+    }(_Component4);
+}
+{
+    var _Observer52 = engine.react.Observer;
+
+    engine.fileManager.controller.fileList.observer.SelfInteraction = function (_Observer53) {
+        _inherits(_class110, _Observer53);
+
+        function _class110() {
+            _classCallCheck(this, _class110);
+
+            return _possibleConstructorReturn(this, (_class110.__proto__ || Object.getPrototypeOf(_class110)).apply(this, arguments));
+        }
+
+        _createClass(_class110, [{
+            key: "onRender",
+            value: function onRender(event, controller) {
+                if (controller.isActive || controller.getDirectory().id === event.entity.id) {
+                    controller.setDirectory(event.entity);
+                }
+            }
+        }]);
+
+        return _class110;
+    }(_Observer52);
+}
+{
+    var _Observer54 = engine.react.Observer;
+
+    engine.fileManager.controller.fileList.observer.DoubleInteraction = function (_Observer55) {
+        _inherits(_class111, _Observer55);
+
+        function _class111() {
+            _classCallCheck(this, _class111);
+
+            return _possibleConstructorReturn(this, (_class111.__proto__ || Object.getPrototypeOf(_class111)).apply(this, arguments));
+        }
+
+        _createClass(_class111, [{
+            key: "onActivate",
+            value: function onActivate(event, controller) {
+                controller.getDouble() && controller.getDouble().deactivate();
+            }
+        }]);
+
+        return _class111;
+    }(_Observer54);
+}
+{
+    var _Observer56 = engine.react.Observer;
+
+    engine.fileManager.controller.fileList.observer.ToolbarInteraction = function (_Observer57) {
+        _inherits(_class112, _Observer57);
+
+        function _class112() {
+            _classCallCheck(this, _class112);
+
+            return _possibleConstructorReturn(this, (_class112.__proto__ || Object.getPrototypeOf(_class112)).apply(this, arguments));
+        }
+
+        _createClass(_class112, [{
+            key: "affectToolbar",
+            value: function affectToolbar() {
+                if (this.owner.getActiveEntity()) {
+                    var isParent = this.owner.getActiveEntity().isParent,
+                        emptyClipboard = !this.owner.view.getClipboard().length,
+                        toolbar = this.owner.toolbar;
+
+                    toolbar.trash.disabled(isParent && emptyClipboard || this.owner.getDirectory().isTrash);
+                    toolbar.remove.disabled(isParent && emptyClipboard);
+                    toolbar.copy.disabled(isParent && emptyClipboard);
+                    toolbar.move.disabled(isParent && emptyClipboard);
+                    toolbar.download.disabled(isParent && emptyClipboard);
+                    toolbar.rename.disabled(isParent);
+                    toolbar.permissions.disabled(isParent);
+                }
+            }
+        }, {
+            key: "onActivate",
+            value: function onActivate(event, controller) {
+                controller.affectToolbar();
+            }
+        }, {
+            key: "onRender",
+            value: function onRender(event, controller) {
+                if (controller.isActive) {
+                    var hasChildren = event.entity.children && event.entity.children.length,
+                        toolbar = controller.toolbar;
+
+                    toolbar.open.disabled(!hasChildren && !event.entity.parentId);
+                    toolbar.trash.disabled(!hasChildren || event.entity.isTrash);
+                    toolbar.remove.disabled(!hasChildren);
+                    toolbar.copy.disabled(!hasChildren);
+                    toolbar.move.disabled(!hasChildren);
+                    toolbar.rename.disabled(!hasChildren);
+                    toolbar.permissions.disabled(!hasChildren);
+                    toolbar.download.disabled(!hasChildren);
+                }
+            }
+        }, {
+            key: "properties",
+            get: function get() {
+                return {
+                    affectToolbar: this.affectToolbar
+                };
+            }
+        }]);
+
+        return _class112;
+    }(_Observer56);
+}
+{
+    var _ClassName4 = engine.gui.utility.ClassName,
+        _Observer58 = engine.react.Observer;
+
+    engine.fileManager.controller.fileList.observer.ViewInteraction = function (_Observer59) {
+        _inherits(_class113, _Observer59);
+
+        function _class113() {
+            _classCallCheck(this, _class113);
+
+            return _possibleConstructorReturn(this, (_class113.__proto__ || Object.getPrototypeOf(_class113)).apply(this, arguments));
+        }
+
+        _createClass(_class113, [{
+            key: "onActivate",
+            value: function onActivate(event, controller) {
+                _ClassName4.add(controller.view.element, 'active');
+            }
+        }, {
+            key: "onDeactivate",
+            value: function onDeactivate(event, controller) {
+                _ClassName4.remove(controller.view.element, 'active');
+            }
+        }, {
+            key: "onRender",
+            value: function onRender(event, controller) {
+                if (controller.isActive || controller.getDirectory().id === event.entity.id) {
+                    controller.view.render(event.entity);
+                    controller.view.activateEntity(controller.getActiveEntity());
+                }
+            }
+        }]);
+
+        return _class113;
+    }(_Observer58);
+}
+{
+    var _Object75 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Initialize = function (_Object76) {
+        _inherits(_class114, _Object76);
+
+        function _class114() {
+            _classCallCheck(this, _class114);
+
+            return _possibleConstructorReturn(this, (_class114.__proto__ || Object.getPrototypeOf(_class114)).apply(this, arguments));
+        }
+
+        _createClass(_class114, [{
+            key: "execute",
+            value: function execute() {
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, this);
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                this.keepLastDirectory(event.entity);
+                this.render(event);
+
+                this.controller.trigger('initialize');
+            }
+        }, {
+            key: "onStatusCode404",
+            value: function onStatusCode404() {
+                this.setDirectory({ id: '/' });
+                this.execute();
+            }
+        }]);
+
+        return _class114;
+    }(_Object75);
+}
+{
+    var _Object77 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Open = function (_Object78) {
+        _inherits(_class115, _Object78);
+
+        function _class115() {
+            _classCallCheck(this, _class115);
+
+            return _possibleConstructorReturn(this, (_class115.__proto__ || Object.getPrototypeOf(_class115)).apply(this, arguments));
+        }
+
+        _createClass(_class115, [{
+            key: "execute",
+            value: function execute(event) {
+                if (event && event.id) {
+                    this.fileModel.read({
+                        id: event.id
+                    }, this);
+
+                    return;
+                }
+
+                switch (this.getActiveEntity().class) {
+                    case 'file':
+                        this.fileModel.open({
+                            id: this.getActiveEntity().id
+                        });
+                        return;
+                    case 'hyperlink':
+                        this.fileModel.openHyperlink({
+                            url: this.getActiveEntity().url
+                        });
+                        return;
+                    default:
+                        this.fileModel.read({
+                            id: this.getActiveEntity().id
+                        }, this);
+                }
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                this.selectIfParent(event.entity);
+                this.keepLastDirectory(event.entity);
+                this.render(event);
+                this.view.activate();
+            }
+        }, {
+            key: "selectIfParent",
+            value: function selectIfParent(entity) {
+                if (entity.id === this.getDirectory().parentId) {
+                    this.setActiveEntity(this.getDirectory());
+                }
+            }
+        }]);
+
+        return _class115;
+    }(_Object77);
+}
+{
+    var _Object79 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.OpenTrash = function (_Object80) {
+        _inherits(_class116, _Object80);
+
+        function _class116() {
+            _classCallCheck(this, _class116);
+
+            return _possibleConstructorReturn(this, (_class116.__proto__ || Object.getPrototypeOf(_class116)).apply(this, arguments));
+        }
+
+        _createClass(_class116, [{
+            key: "execute",
+            value: function execute() {
+                this.fileModel.read({
+                    id: '/$trash'
+                }, this);
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                this.render(event);
+                this.view.activate();
+            }
+        }]);
+
+        return _class116;
+    }(_Object79);
+}
+{
+    var _Object81 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Search = function (_Object82) {
+        _inherits(_class117, _Object82);
+
+        function _class117() {
+            _classCallCheck(this, _class117);
+
+            return _possibleConstructorReturn(this, (_class117.__proto__ || Object.getPrototypeOf(_class117)).apply(this, arguments));
+        }
+
+        _createClass(_class117, [{
+            key: "execute",
+            value: function execute() {
+                var _this130 = this;
+
+                this.layout.inputDialog.show({
+                    icon: 'search',
+                    caption: 'Search',
+                    label: 'Keyword',
+                    value: '',
+                    onCancel: function onCancel() {
+                        _this130.view.activate();
+                    },
+                    onConfirm: function onConfirm(event) {
+                        _this130.fileModel.read({
+                            id: _this130.getDirectory().id,
+                            pattern: event.value
+                        }, _this130);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                this.render(event);
+                this.view.activate();
+            }
+        }]);
+
+        return _class117;
+    }(_Object81);
+}
+{
+    var _Object83 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Download = function (_Object84) {
+        _inherits(_class118, _Object84);
+
+        function _class118() {
+            _classCallCheck(this, _class118);
+
+            return _possibleConstructorReturn(this, (_class118.__proto__ || Object.getPrototypeOf(_class118)).apply(this, arguments));
+        }
+
+        _createClass(_class118, [{
+            key: "execute",
+            value: function execute() {
+                var clipboard = this.view.getClipboard();
+                if ((!this.getActiveEntity() || this.getActiveEntity().isParent) && !clipboard.length) {
+                    return;
+                }
+
+                this.fileModel.download({
+                    id: clipboard.length ? clipboard : this.getActiveEntity().id
+                });
+            }
+        }]);
+
+        return _class118;
+    }(_Object83);
+}
+{
+    var _Object85 = engine.lang.type.Object,
+        _Str3 = engine.lang.utility.String;
+
+    var _self12 = engine.fileManager.controller.fileList.action.Upload = function (_Object86) {
+        _inherits(_class119, _Object86);
+
+        function _class119() {
+            _classCallCheck(this, _class119);
+
+            return _possibleConstructorReturn(this, (_class119.__proto__ || Object.getPrototypeOf(_class119)).apply(this, arguments));
+        }
+
+        _createClass(_class119, [{
+            key: "execute",
+            value: function execute(event) {
+                var _this133 = this;
+
+                this.view.activate();
+                var files = event.files;
+
+                if (!this.getDirectory().hasChildren()) {
+                    this.upload(files);
+                    return;
+                }
+
+                var matches = [];
+                files.forEach(function (file, index) {
+                    if (_this133.getDirectory().containsName(files[index].name)) {
+                        matches[index] = files[index].name;
+                    }
+                });
+
+                if (!matches.length) {
+                    this.upload(files);
+                    return;
+                }
+
+                this.layout.chooserDialog.show({
+                    caption: 'Confirm Dialog',
+                    message: 'The following files are already exist. Please select files to reloading.',
+                    fileList: matches,
+                    onCancel: function onCancel() {
+                        _this133.view.activate();
+                    },
+                    onConfirm: function onConfirm(event) {
+                        _this133.view.activate();
+                        var counter = 0;
+                        event.indexes.forEach(function (isSelected, index) {
+                            if (!isSelected) {
+                                files.splice(index - counter, 1);
+                                counter++;
+                            }
+                        });
+                        _this133.upload(files);
+                    }
+                });
+            }
+        }, {
+            key: "upload",
+            value: function upload(files) {
+                var _this134 = this;
+
+                this.validateFiles(files);
+                var directoryId = this.getDirectory().id,
+                    shortProgressView = this.view.uploadProgress,
+                    progressDialog = this.layout.uploadProgressDialog,
+                    total = 0,
+                    loaded = 0;
+
+                progressDialog.show({
+                    caption: 'Upload Files'
+                });
+
+                files.forEach(function (file) {
+                    var form = new FormData(),
+                        itemView = null,
+                        removeRequest = function removeRequest(event) {
+                        var request = event.request;
+
+                        total -= request.progress.total;
+                        loaded -= request.progress.loaded;
+
+                        if (total > 0) {
+                            progressDialog.total.update(_self12.align(100 * loaded / total));
+                            shortProgressView.update(_self12.align(100 * loaded / total));
+                        } else {
+                            progressDialog.total.update(0);
+                            shortProgressView.update(0);
+                            progressDialog.hide();
+                            _this134.view.activate();
+                        }
+                        progressDialog.removeItem(itemView);
+
+                        if (directoryId === _this134.getDirectory().id) {
+                            _this134.fileModel.read({
+                                id: directoryId
+                            }, {
+                                onSuccess: function onSuccess(event) {
+                                    _this134.render(event);
+                                    if (_this134.getDouble() && directoryId === _this134.getDouble().getDirectory().id) {
+                                        _this134.getDouble().render(event);
+                                    }
+                                }
+                            });
+                        }
+                    };
+
+                    form.append('file', file);
+                    form.append('parentId', directoryId);
+
+                    _this134.fileModel.upload(form, {
+                        onOpen: function onOpen(event) {
+                            var request = event.request;
+
+                            itemView = progressDialog.appendItem({
+                                title: file.name,
+                                onAbort: function onAbort() {
+                                    request.abort();
+                                }
+                            });
+                        },
+                        onProgress: function onProgress(event) {
+                            var request = event.request;
+
+                            if (!request.prevProgress) {
+                                total += request.progress.total;
+                                loaded += request.progress.loaded;
+                            } else {
+                                loaded += request.progress.loaded - request.prevProgress.loaded;
+                            }
+                            progressDialog.total.update(_self12.align(100 * loaded / total));
+                            shortProgressView.update(_self12.align(100 * loaded / total));
+                            itemView.update(_self12.align(100 * request.progress.loaded / request.progress.total));
+                        },
+                        onSuccess: removeRequest,
+                        onAbort: removeRequest
+                    });
+                });
+            }
+        }, {
+            key: "validateFiles",
+            value: function validateFiles(files) {
+                var _this135 = this;
+
+                if (!this.config.isNumberOfUploadFilesAllowed(files.length)) {
+                    throw _Str3.format('The files number exceeds the allowed number {0}.', this.config.maxNumberOfUploadFiles);
+                }
+
+                files.forEach(function (file) {
+                    if (!_this135.config.isMimeTypeAllowed(file.type)) {
+                        throw _Str3.format('The file \'{0}\' has unsupported type \'{1}\'.', file.name, file.type);
+                    }
+                    if (!_this135.config.isFileSizeAllowed(file.size)) {
+                        throw _Str3.format('The file \'{0}\' exceeds the allowed size {1}.', file.name, _this135.config.uploadMaxFileSize.toHumanString());
+                    }
+                });
+            }
+        }], [{
+            key: "align",
+            value: function align(value) {
+                return Math.ceil(value * 100) / 100;
+            }
+        }]);
+
+        return _class119;
+    }(_Object85);
+}
+{
+    var _Object87 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.CreateDirectory = function (_Object88) {
+        _inherits(_class120, _Object88);
+
+        function _class120() {
+            _classCallCheck(this, _class120);
+
+            return _possibleConstructorReturn(this, (_class120.__proto__ || Object.getPrototypeOf(_class120)).apply(this, arguments));
+        }
+
+        _createClass(_class120, [{
+            key: "execute",
+            value: function execute() {
+                var _this137 = this;
+
+                this.layout.inputDialog.show({
+                    icon: 'dir',
+                    caption: 'Create Folder',
+                    label: 'Folder Name',
+                    placeholder: 'NewFolder',
+                    value: '',
+                    onCancel: function onCancel() {
+                        _this137.view.activate();
+                    },
+                    onConfirm: function onConfirm(event) {
+                        _this137.fileModel.createDirectory({
+                            name: event.value,
+                            parentId: _this137.getDirectory().id
+                        }, _this137);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this138 = this;
+
+                this.setActiveEntity(event.entity);
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this138.render(event);
+                        _this138.view.activate();
+                        _this138.getDouble() && _this138.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class120;
+    }(_Object87);
+}
+{
+    var _Object89 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.CreateHyperlink = function (_Object90) {
+        _inherits(_class121, _Object90);
+
+        function _class121() {
+            _classCallCheck(this, _class121);
+
+            return _possibleConstructorReturn(this, (_class121.__proto__ || Object.getPrototypeOf(_class121)).apply(this, arguments));
+        }
+
+        _createClass(_class121, [{
+            key: "execute",
+            value: function execute() {
+                var _this140 = this;
+
+                this.layout.hyperlinkDialog.show({
+                    caption: 'Create Hyperlink',
+                    name: '',
+                    url: '',
+                    placeholderName: 'MyFavoriteSite',
+                    placeholderUrl: 'http://example.com',
+                    onCancel: function onCancel() {
+                        _this140.view.activate();
+                    },
+                    onConfirm: function onConfirm(event) {
+                        _this140.fileModel.createHyperlink({
+                            parentId: _this140.getDirectory().id,
+                            name: event.name,
+                            url: event.url
+                        }, _this140);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this141 = this;
+
+                this.setActiveEntity(event.entity);
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this141.render(event);
+                        _this141.view.activate();
+                        _this141.getDouble() && _this141.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class121;
+    }(_Object89);
+}
+{
+    var _Object91 = engine.lang.type.Object,
+        _Hyperlink = engine.fileManager.entity.Hyperlink;
+
+    engine.fileManager.controller.fileList.action.Rename = function (_Object92) {
+        _inherits(_class122, _Object92);
+
+        function _class122() {
+            _classCallCheck(this, _class122);
+
+            return _possibleConstructorReturn(this, (_class122.__proto__ || Object.getPrototypeOf(_class122)).apply(this, arguments));
+        }
+
+        _createClass(_class122, [{
+            key: "execute",
+            value: function execute() {
+                var _this143 = this;
+
+                var entity = this.getActiveEntity(),
+                    value = entity instanceof _Hyperlink ? entity.baseName : entity.name;
+
+                this.layout.inputDialog.show({
+                    icon: 'edit',
+                    caption: 'Rename',
+                    label: 'New Name',
+                    placeholder: value,
+                    value: value,
+                    onCancel: function onCancel() {
+                        _this143.view.activate();
+                    },
+                    onConfirm: function onConfirm(event) {
+                        _this143.fileModel.rename({
+                            id: _this143.getActiveEntity().id,
+                            name: entity instanceof _Hyperlink ? event.value + '.' + entity.extension : event.value
+                        }, _this143);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this144 = this;
+
+                if (this.getDouble() && this.getDouble().activeEntity && this.getDouble().activeEntity.id === this.getActiveEntity().id) {
+                    this.getDouble().setActiveEntity(event.entity);
+                }
+                this.setActiveEntity(event.entity);
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this144.render(event);
+                        _this144.view.activate();
+                        _this144.getDouble() && _this144.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class122;
+    }(_Object91);
+}
+{
+    var _Object93 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.SetPermissions = function (_Object94) {
+        _inherits(_class123, _Object94);
+
+        function _class123() {
+            _classCallCheck(this, _class123);
+
+            return _possibleConstructorReturn(this, (_class123.__proto__ || Object.getPrototypeOf(_class123)).apply(this, arguments));
+        }
+
+        _createClass(_class123, [{
+            key: "execute",
+            value: function execute() {
+                var _this146 = this;
+
+                var value = this.getActiveEntity().permissions;
+
+                this.layout.inputDialog.show({
+                    icon: 'permissions',
+                    caption: 'Permissions',
+                    label: 'New Permissions',
+                    placeholder: value,
+                    value: value,
+                    onCancel: function onCancel() {
+                        _this146.view.activate();
+                    },
+                    onConfirm: function onConfirm(event) {
+                        _this146.fileModel.setPermissions({
+                            id: _this146.getActiveEntity().id,
+                            permissions: event.value
+                        }, _this146);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this147 = this;
+
+                if (this.getDouble() && this.getDouble().activeEntity && this.getDouble().activeEntity.id === this.getActiveEntity().id) {
+                    this.getDouble().activeEntity = event.entity;
+                }
+                this.setActiveEntity(event.entity);
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this147.render(event);
+                        _this147.view.activate();
+                        _this147.getDouble() && _this147.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class123;
+    }(_Object93);
+}
+{
+    var _Object95 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Copy = function (_Object96) {
+        _inherits(_class124, _Object96);
+
+        function _class124() {
+            _classCallCheck(this, _class124);
+
+            return _possibleConstructorReturn(this, (_class124.__proto__ || Object.getPrototypeOf(_class124)).apply(this, arguments));
+        }
+
+        _createClass(_class124, [{
+            key: "execute",
+            value: function execute() {
+                var clipboard = this.view.getClipboard();
+                if ((!this.getActiveEntity() || this.getActiveEntity().isParent) && !clipboard.length) {
+                    return;
+                }
+
+                if (this.getDouble()) {
+                    this.fileModel.copy({
+                        id: clipboard.length ? clipboard : this.getActiveEntity().id,
+                        parentId: this.getDouble().getDirectory().id
+                    }, this);
+                }
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess() {
+                var _this149 = this;
+
+                this.getDouble().fileModel.read({
+                    id: this.getDouble().getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this149.view.deselectAll();
+                        _this149.view.activate();
+                        _this149.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class124;
+    }(_Object95);
+}
+{
+    var _Object97 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Move = function (_Object98) {
+        _inherits(_class125, _Object98);
+
+        function _class125() {
+            _classCallCheck(this, _class125);
+
+            return _possibleConstructorReturn(this, (_class125.__proto__ || Object.getPrototypeOf(_class125)).apply(this, arguments));
+        }
+
+        _createClass(_class125, [{
+            key: "execute",
+            value: function execute() {
+                var clipboard = this.view.getClipboard();
+                if ((!this.getActiveEntity() || this.getActiveEntity().isParent) && !clipboard.length) {
+                    return;
+                }
+
+                if (this.getDouble() && this.getDirectory().id !== this.getDouble().getDirectory().id) {
+                    this.fileModel.move({
+                        id: clipboard.length ? clipboard : this.getActiveEntity().id,
+                        parentId: this.getDouble().getDirectory().id
+                    }, this);
+                }
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this151 = this;
+
+                for (var i = 0; event.collection[i]; i++) {
+                    if (this.getActiveEntity().id === event.collection[i].id) {
+                        this.setActiveEntity(null);
+                        break;
+                    }
+                }
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this151.render(event);
+                        _this151.view.activate();
+                    }
+                });
+
+                this.getDouble().fileModel.read({
+                    id: this.getDouble().getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this151.view.deselectAll();
+                        _this151.view.activate();
+                        _this151.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class125;
+    }(_Object97);
+}
+{
+    var _Object99 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Trash = function (_Object100) {
+        _inherits(_class126, _Object100);
+
+        function _class126() {
+            _classCallCheck(this, _class126);
+
+            return _possibleConstructorReturn(this, (_class126.__proto__ || Object.getPrototypeOf(_class126)).apply(this, arguments));
+        }
+
+        _createClass(_class126, [{
+            key: "execute",
+            value: function execute() {
+                var _this153 = this;
+
+                var clipboard = this.view.getClipboard();
+                if ((!this.getActiveEntity() || this.getActiveEntity().isParent) && !clipboard.length) {
+                    return;
+                }
+
+                this.layout.confirmDialog.show({
+                    caption: 'Confirm Dialog',
+                    message: 'Are you sure to trash selected items?',
+                    onCancel: function onCancel() {
+                        _this153.view.activate();
+                    },
+                    onConfirm: function onConfirm() {
+                        _this153.fileModel.trash({
+                            id: clipboard.length ? clipboard : _this153.getActiveEntity().id
+                        }, _this153);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this154 = this;
+
+                var entity = event.collection[0];
+                if (this.getDouble() && this.getDouble().getDirectory().inBreadcrumbs(entity.id)) {
+                    this.getDouble().setDirectory({
+                        id: entity.parentId
+                    });
+                    this.getDouble().keepLastDirectory(this.getDouble().getDirectory());
+                }
+
+                for (var i = 0; event.collection[i]; i++) {
+                    if (this.getActiveEntity().id === event.collection[i].id) {
+                        this.setActiveEntity(null);
+                        break;
+                    }
+                }
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this154.render(event);
+                        _this154.view.activate();
+                        _this154.getDouble() && _this154.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class126;
+    }(_Object99);
+}
+{
+    var _Object101 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.Remove = function (_Object102) {
+        _inherits(_class127, _Object102);
+
+        function _class127() {
+            _classCallCheck(this, _class127);
+
+            return _possibleConstructorReturn(this, (_class127.__proto__ || Object.getPrototypeOf(_class127)).apply(this, arguments));
+        }
+
+        _createClass(_class127, [{
+            key: "execute",
+            value: function execute() {
+                var _this156 = this;
+
+                var clipboard = this.view.getClipboard();
+                if ((!this.getActiveEntity() || this.getActiveEntity().isParent) && !clipboard.length) {
+                    return;
+                }
+
+                this.layout.confirmDialog.show({
+                    caption: 'Confirm Dialog',
+                    message: 'Are you sure to delete selected items permanently?',
+                    onCancel: function onCancel() {
+                        _this156.view.activate();
+                    },
+                    onConfirm: function onConfirm() {
+                        _this156.fileModel.remove({
+                            id: clipboard.length ? clipboard : _this156.getActiveEntity().id
+                        }, _this156);
+                    }
+                });
+            }
+        }, {
+            key: "onSuccess",
+            value: function onSuccess(event) {
+                var _this157 = this;
+
+                var entity = event.collection[0];
+                if (this.getDouble() && this.getDouble().getDirectory().inBreadcrumbs(entity.id)) {
+                    this.getDouble().setDirectory({
+                        id: entity.parentId
+                    });
+                    this.getDouble().keepLastDirectory(this.getDouble().getDirectory());
+                }
+
+                for (var i = 0; event.collection[i]; i++) {
+                    if (this.getActiveEntity().id === event.collection[i].id) {
+                        this.setActiveEntity(null);
+                        break;
+                    }
+                }
+
+                this.fileModel.read({
+                    id: this.getDirectory().id
+                }, {
+                    onSuccess: function onSuccess(event) {
+                        _this157.render(event);
+                        _this157.view.activate();
+                        _this157.getDouble() && _this157.getDouble().render(event);
+                    }
+                });
+            }
+        }]);
+
+        return _class127;
+    }(_Object101);
+}
+{
+    var _Object103 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.ActivateItem = function (_Object104) {
+        _inherits(_class128, _Object104);
+
+        function _class128() {
+            _classCallCheck(this, _class128);
+
+            return _possibleConstructorReturn(this, (_class128.__proto__ || Object.getPrototypeOf(_class128)).apply(this, arguments));
+        }
+
+        _createClass(_class128, [{
+            key: "execute",
+            value: function execute(event) {
+                this.setActiveEntity(event.entity);
+                this.affectToolbar();
+            }
+        }]);
+
+        return _class128;
+    }(_Object103);
+}
+{
+    var _Object105 = engine.lang.type.Object;
+
+    engine.fileManager.controller.fileList.action.SwitchList = function (_Object106) {
+        _inherits(_class129, _Object106);
+
+        function _class129() {
+            _classCallCheck(this, _class129);
+
+            return _possibleConstructorReturn(this, (_class129.__proto__ || Object.getPrototypeOf(_class129)).apply(this, arguments));
+        }
+
+        _createClass(_class129, [{
+            key: "execute",
+            value: function execute() {
+                if (this.getDouble()) {
+                    this.getDouble().view.activate();
+                    this.getDouble().view.activateEntity(this.getDouble().activeEntity);
+                }
+            }
+        }]);
+
+        return _class129;
+    }(_Object105);
+}
+{
+    var WebController = engine.web.component.Controller,
+        SelfInteraction = engine.fileManager.controller.fileList.observer.SelfInteraction,
+        DoubleInteraction = engine.fileManager.controller.fileList.observer.DoubleInteraction,
+        ToolbarInteraction = engine.fileManager.controller.fileList.observer.ToolbarInteraction,
+        ViewInteraction = engine.fileManager.controller.fileList.observer.ViewInteraction,
+        Initialize = engine.fileManager.controller.fileList.action.Initialize,
+        _Open = engine.fileManager.controller.fileList.action.Open,
+        OpenTrash = engine.fileManager.controller.fileList.action.OpenTrash,
+        _Search2 = engine.fileManager.controller.fileList.action.Search,
+        _Download = engine.fileManager.controller.fileList.action.Download,
+        _Upload = engine.fileManager.controller.fileList.action.Upload,
+        _CreateDirectory = engine.fileManager.controller.fileList.action.CreateDirectory,
+        _CreateHyperlink = engine.fileManager.controller.fileList.action.CreateHyperlink,
+        _Rename = engine.fileManager.controller.fileList.action.Rename,
+        SetPermissions = engine.fileManager.controller.fileList.action.SetPermissions,
+        _Copy = engine.fileManager.controller.fileList.action.Copy,
+        _Move = engine.fileManager.controller.fileList.action.Move,
+        _Trash = engine.fileManager.controller.fileList.action.Trash,
+        _Remove = engine.fileManager.controller.fileList.action.Remove,
+        ActivateItem = engine.fileManager.controller.fileList.action.ActivateItem,
+        SwitchList = engine.fileManager.controller.fileList.action.SwitchList;
+
+    engine.fileManager.controller.FileList = function (_WebController) {
+        _inherits(_class130, _WebController);
+
+        function _class130() {
+            var _ref;
+
+            _classCallCheck(this, _class130);
+
+            for (var _len27 = arguments.length, args = Array(_len27), _key27 = 0; _key27 < _len27; _key27++) {
+                args[_key27] = arguments[_key27];
+            }
+
+            var _this160 = _possibleConstructorReturn(this, (_ref = _class130.__proto__ || Object.getPrototypeOf(_class130)).call.apply(_ref, [this].concat(args)));
+
+            _this160.trigger('ready');
+            return _this160;
+        }
+
+        _createClass(_class130, [{
+            key: "isActionAllowed",
+            value: function isActionAllowed(eventName) {
+                return this.isActive || 'ready' === eventName;
+            }
+        }, {
+            key: "getActiveEntity",
+            value: function getActiveEntity() {
+                return this.activeEntity;
+            }
+        }, {
+            key: "setActiveEntity",
+            value: function setActiveEntity(value) {
+                this.activeEntity = value;
+            }
+        }, {
+            key: "getDirectory",
+            value: function getDirectory() {
+                return this.directory;
+            }
+        }, {
+            key: "setDirectory",
+            value: function setDirectory(value) {
+                this.directory = value;
+            }
+        }, {
+            key: "getDouble",
+            value: function getDouble() {
+                return this._double;
+            }
+        }, {
+            key: "setDouble",
+            value: function setDouble(instance) {
+                this._double = instance;
+                instance._double = this;
+            }
+        }, {
+            key: "keepLastDirectory",
+            value: function keepLastDirectory(entity) {
+                if (this.layout.leftList === this.view) {
+                    this.user.write('leftDirectory', { id: entity.id });
+                } else {
+                    this.user.write('rightDirectory', { id: entity.id });
+                }
+            }
+        }, {
+            key: "handleActionError",
+            value: function handleActionError(throwable) {
+                this.errorManager.handleError(throwable);
+            }
+        }, {
+            key: "render",
+            value: function render(event) {
+                this.trigger('render', event);
+            }
+        }, {
+            key: "activate",
+            value: function activate() {
+                this.trigger('activate');
+            }
+        }, {
+            key: "deactivate",
+            value: function deactivate() {
+                this.trigger('deactivate');
+            }
+        }, {
+            key: "onActivate",
+            value: function onActivate() {
+                if (this.isActive) {
+                    return;
+                }
+                this.isActive = true;
+            }
+        }, {
+            key: "onDeactivate",
+            value: function onDeactivate() {
+                if (!this.isActive) {
+                    return;
+                }
+                this.isActive = false;
+            }
+        }, {
+            key: "properties",
+            get: function get() {
+                return {
+                    controller: this,
+                    user: this.user,
+                    config: this.config,
+                    fileModel: this.fileModel,
+                    view: this.view,
+                    layout: this.layout,
+                    getActiveEntity: this.getActiveEntity,
+                    setActiveEntity: this.setActiveEntity,
+                    getDirectory: this.getDirectory,
+                    setDirectory: this.setDirectory,
+                    getDouble: this.getDouble,
+                    affectToolbar: this.affectToolbar,
+                    render: this.render,
+                    keepLastDirectory: this.keepLastDirectory
+                };
+            }
+        }, {
+            key: "traits",
+            get: function get() {
+                return [SelfInteraction, DoubleInteraction, ToolbarInteraction, ViewInteraction];
+            }
+        }, {
+            key: "events",
+            get: function get() {
+                return {
+                    activate: { view: 'activate' },
+                    open: { view: 'open', toolbar: 'open' },
+                    openTrash: { view: 'openTrash', toolbar: 'openTrash' },
+                    search: { view: 'search', toolbar: 'search' },
+                    download: { view: 'download', toolbar: 'download' },
+                    upload: { view: 'upload', toolbar: 'upload' },
+                    createDirectory: { view: 'createDirectory', toolbar: 'createDirectory' },
+                    createHyperlink: { view: 'createHyperlink', toolbar: 'createHyperlink' },
+                    rename: { view: 'rename', toolbar: 'rename' },
+                    setPermissions: { view: 'permissions', toolbar: 'permissions' },
+                    copy: { view: 'copy', toolbar: 'copy' },
+                    move: { view: 'move', toolbar: 'move' },
+                    trash: { view: 'trash', toolbar: 'trash' },
+                    remove: { view: 'remove', toolbar: 'remove' },
+                    activateItem: { view: 'activateItem' },
+                    switchList: { view: 'switch' }
+                };
+            }
+        }, {
+            key: "actions",
+            get: function get() {
+                return {
+                    ready: Initialize,
+                    open: _Open,
+                    openTrash: OpenTrash,
+                    search: _Search2,
+                    download: _Download,
+                    upload: _Upload,
+                    createDirectory: _CreateDirectory,
+                    createHyperlink: _CreateHyperlink,
+                    rename: _Rename,
+                    setPermissions: SetPermissions,
+                    copy: _Copy,
+                    move: _Move,
+                    trash: _Trash,
+                    remove: _Remove,
+                    activateItem: ActivateItem,
+                    switchList: SwitchList
+                };
+            }
+        }, {
+            key: "toolbar",
+            get: function get() {
+                return this.layout.toolbar;
+            }
+        }]);
+
+        return _class130;
+    }(WebController);
+}
+{
+    var _Object107 = engine.lang.type.Object,
+        _Type6 = engine.lang.utility.Type;
+
+    engine.fileManager.component.ErrorManager = function (_Object108) {
+        _inherits(_class131, _Object108);
+
+        function _class131() {
+            _classCallCheck(this, _class131);
+
+            return _possibleConstructorReturn(this, (_class131.__proto__ || Object.getPrototypeOf(_class131)).apply(this, arguments));
+        }
+
+        _createClass(_class131, [{
+            key: "handleError",
+            value: function handleError(error) {
+                if (_Type6.isString(error)) {
+                    this.showErrorMessage(error);
+                }
+            }
+        }, {
+            key: "showErrorMessage",
+            value: function showErrorMessage(message) {
+                var container = this.container,
+                    flash = document.createElement('div');
+
+                flash.appendChild(document.createTextNode(message));
+                flash.className = 'flash errors';
+
+                container.appendChild(flash);
+                setTimeout(function () {
+                    container.removeChild(flash);
+                }, 3000);
+            }
+        }]);
+
+        return _class131;
+    }(_Object107);
+}
+{
+    var _Obj7 = engine.lang.utility.Object,
+        _Size = engine.fileManager.value.Size,
+        _Arr = engine.lang.utility.Array,
+        _Type7 = engine.lang.utility.Type;
+
+    engine.fileManager.setting.Config = function () {
+        function _class132(raw) {
+            _classCallCheck(this, _class132);
+
+            _Obj7.merge(this, raw);
+        }
+
+        _createClass(_class132, [{
+            key: "isMimeTypeAllowed",
+            value: function isMimeTypeAllowed(type) {
+                if (_Type7.isArray(this.allowMimeTypes)) {
+                    return _Arr.contains(this.allowMimeTypes, type);
+                }
+
+                if (_Type7.isArray(this.denyMimeTypes)) {
+                    return !_Arr.contains(this.denyMimeTypes, type);
+                }
+
+                return true;
+            }
+        }, {
+            key: "isFileSizeAllowed",
+            value: function isFileSizeAllowed(size) {
+                return this.uploadMaxFileSize.value >= size;
+            }
+        }, {
+            key: "isNumberOfUploadFilesAllowed",
+            value: function isNumberOfUploadFilesAllowed(number) {
+                return !this.maxNumberOfUploadFiles || this.maxNumberOfUploadFiles >= number;
+            }
+        }, {
+            key: "uploadMaxFileSize",
+            set: function set(value) {
+                this._uploadMaxFileSize = new _Size(value);
+            },
+            get: function get() {
+                return this._uploadMaxFileSize;
+            }
+        }]);
+
+        return _class132;
+    }();
+}
+{
+    var _Component6 = engine.react.Component,
+        User = engine.web.component.User,
+        Client = engine.fileManager.component.Client,
+        _WebClient2 = engine.web.component.Client,
+        Layout = engine.fileManager.view.Layout,
+        FileModel = engine.fileManager.model.File,
+        FileListController = engine.fileManager.controller.FileList,
+        ErrorManager = engine.fileManager.component.ErrorManager,
+        Config = engine.fileManager.setting.Config;
+
+    var _self13 = engine.fileManager.Application = function (_Component7) {
+        _inherits(_class133, _Component7);
+
+        function _class133() {
+            _classCallCheck(this, _class133);
+
+            return _possibleConstructorReturn(this, (_class133.__proto__ || Object.getPrototypeOf(_class133)).apply(this, arguments));
+        }
+
+        _createClass(_class133, [{
+            key: "initialize",
+            value: function initialize() {
+                var _this163 = this;
+
+                this.wrapper = this.wrapper || document.body;
+                this.csrfTokenName = this.csrfTokenName || 'CSRF-Token';
+                this.configUrl = this.configUrl + this.csrfTokenName + '=' + this.csrfToken;
+
+                this.loadConfig({
+                    onSuccess: function onSuccess(event) {
+                        _this163.rawConfig = JSON.parse(event.response.body);
+                        _this163.run();
+                    }
+                });
+            }
+        }, {
+            key: "run",
+            value: function run() {
+                this.leftController.setDouble(this.rightController);
+                this.leftController.view.activate();
+                this.layout.render();
+
+                this.trigger('ready');
+            }
+        }, {
+            key: "loadConfig",
+            value: function loadConfig() {
+                var _ref2;
+
+                for (var _len28 = arguments.length, observers = Array(_len28), _key28 = 0; _key28 < _len28; _key28++) {
+                    observers[_key28] = arguments[_key28];
+                }
+
+                (_ref2 = new _WebClient2()).exchange.apply(_ref2, [{
+                    method: 'GET',
+                    url: this.configUrl
+                }].concat(observers));
+            }
+        }, {
+            key: "instanceId",
+            get: function get() {
+                if (!this._instanceId) {
+                    if (!_self13.instanceCounter) {
+                        _self13.instanceCounter = 0;
+                    }
+                    this._instanceId = 'engine.fileManager.Application-' + _self13.instanceCounter++;
+                }
+
+                return this._instanceId;
+            }
+        }, {
+            key: "config",
+            get: function get() {
+                if (!this._config) {
+                    this._config = new Config(this.rawConfig);
+                }
+
+                return this._config;
+            }
+        }, {
+            key: "layout",
+            get: function get() {
+                if (!this._layout) {
+                    this._layout = new Layout({
+                        config: this.config,
+                        wrapper: this.wrapper
+                    });
+                }
+
+                return this._layout;
+            }
+        }, {
+            key: "errorManager",
+            get: function get() {
+                if (!this._errorManager) {
+                    this._errorManager = new ErrorManager({
+                        container: this.layout.element
+                    });
+                }
+
+                return this._errorManager;
+            }
+        }, {
+            key: "client",
+            get: function get() {
+                if (!this._client) {
+                    this._client = new Client({
+                        serverUrl: this.config.serverUrl,
+                        requestProgress: this.layout.requestProgress,
+                        errorManager: this.errorManager,
+                        csrfTokenName: this.csrfTokenName,
+                        csrfToken: this.csrfToken
+                    });
+                }
+
+                return this._client;
+            }
+        }, {
+            key: "user",
+            get: function get() {
+                if (!this._user) {
+                    this._user = new User({
+                        applicationId: this.instanceId,
+                        expires: 24 * 3600000
+                    });
+                }
+
+                return this._user;
+            }
+        }, {
+            key: "fileModel",
+            get: function get() {
+                if (!this._fileModel) {
+                    this._fileModel = new FileModel({
+                        client: this.client
+                    });
+                }
+
+                return this._fileModel;
+            }
+        }, {
+            key: "rightController",
+            get: function get() {
+                if (!this._rightController) {
+                    this._rightController = new FileListController({
+                        view: this.layout.rightList,
+                        layout: this.layout,
+                        directory: this.user.read('rightDirectory', { id: '/' }),
+                        fileModel: this.fileModel,
+                        errorManager: this.errorManager,
+                        config: this.config,
+                        user: this.user
+                    });
+                }
+
+                return this._rightController;
+            }
+        }, {
+            key: "leftController",
+            get: function get() {
+                if (!this._leftController) {
+                    this._leftController = new FileListController({
+                        view: this.layout.leftList,
+                        layout: this.layout,
+                        directory: this.user.read('leftDirectory', { id: '/' }),
+                        fileModel: this.fileModel,
+                        errorManager: this.errorManager,
+                        config: this.config,
+                        user: this.user
+                    });
+                }
+
+                return this._leftController;
+            }
+        }]);
+
+        return _class133;
+    }(_Component6);
+}

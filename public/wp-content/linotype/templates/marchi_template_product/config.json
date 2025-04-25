@@ -1,0 +1,24 @@
+{
+    "type": "template",
+    "author": "marchi",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "sync": "",
+    "title": "Product",
+    "desc": "",
+    "icon": "dashicons dashicons-admin-page",
+    "color": "",
+    "category": "",
+    "supports": [
+        "editor",
+        "author",
+        "excerpt",
+        "custom-fields",
+        "comments",
+        "page-attributes",
+        "post-formats"
+    ],
+    "tags": [],
+    "target": []
+}

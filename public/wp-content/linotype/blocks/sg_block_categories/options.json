@@ -1,0 +1,83 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "title",
+            "title": "Title"
+        }
+    },
+    {
+        "type": "linotype_field_link",
+        "options": {
+            "id": "link",
+            "title": "Link ID"
+        }
+    },
+    {
+        "type": "linotype_field_terms",
+        "options": {
+            "id": "cat_term_1",
+            "title": "Product category 1",
+            "options": {
+                "taxonomy": "product_cat"
+            }
+        }
+    },
+    {
+        "type": "linotype_field_terms",
+        "options": {
+            "id": "cat_term_2",
+            "title": "Product category 2",
+            "options": {
+                "taxonomy": "product_cat"
+            }
+        }
+    },
+    {
+        "type": "linotype_field_terms",
+        "options": {
+            "id": "cat_term_3",
+            "title": "Product category 3",
+            "options": {
+                "taxonomy": "product_cat"
+            }
+        }
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "compress",
+            "title": "Image compression",
+            "default": "85",
+            "options": {
+                "data": [
+                    {
+                        "value": "100",
+                        "title": "100% (no compression)"
+                    },
+                    {
+                        "value": "95",
+                        "title": "95%"
+                    },
+                    {
+                        "value": "90",
+                        "title": "90%"
+                    },
+                    {
+                        "value": "85",
+                        "title": "85% (Common Compression)"
+                    },
+                    {
+                        "value": "80",
+                        "title": "80%"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        }
+    }
+]

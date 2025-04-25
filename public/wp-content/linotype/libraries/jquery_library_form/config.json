@@ -1,0 +1,25 @@
+{
+  "type": "library",
+  "author": "jQuery",
+  "version": "3.51.0",
+  "update": "",
+  "sync": "",
+  "title": "jQuery Form Plugin",
+  "desc": "",
+  "icon": "dashicons dashicons-category",
+  "color": "",
+  "category": "",
+  "tags": [],
+  "scripts": [
+      {
+          "id": "jquery_library_form",
+          "version": "3.51.0",
+          "dependencies": [
+          ],
+          "footer": "true",
+          "full": "/script.js",
+          "min": "/script.js",
+          "cdn": ""
+      }
+  ]
+}

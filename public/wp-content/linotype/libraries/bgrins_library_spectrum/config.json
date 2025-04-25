@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "bgrins",
+    "version": "1.8.0",
+    "update": "",
+    "sync": "",
+    "title": "Spectrum",
+    "desc": "The No Hassle JavaScript Colorpicker",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "bgrins_library_spectrum",
+            "version": "1.8.0",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "/script.js",
+            "min": "/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

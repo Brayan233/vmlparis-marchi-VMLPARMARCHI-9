@@ -1,0 +1,240 @@
+.sg_block_gallery {
+  position: relative;
+  background-color: var(--creme);
+  padding: 6.4rem 0 6.4rem 1.6rem; }
+  .sg_block_gallery .sg_block_gallery-item {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in; }
+  @media (min-width: 768px) {
+    .sg_block_gallery {
+      padding: 11.2rem 0 11.2rem 4.8rem; } }
+  .sg_block_gallery a.block-link {
+    display: block;
+    color: var(--darkgrey);
+    text-decoration: none; }
+  .sg_block_gallery .block-heading {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    white-space: nowrap; }
+    @media (max-width: 767px) {
+      .sg_block_gallery .block-heading {
+        display: block;
+        left: 1.6rem;
+        padding-top: 6.4rem; } }
+    @media (min-width: 768px) {
+      .sg_block_gallery .block-heading {
+        left: 12.5%;
+        width: 41.6667%; } }
+    @media (min-width: 992px) {
+      .sg_block_gallery .block-heading {
+        width: 33%; } }
+    @media (min-width: 1200px) {
+      .sg_block_gallery .block-heading {
+        width: 25%; } }
+    @media (min-width: 1600px) {
+      .sg_block_gallery .block-heading {
+        left: 8.3333%; } }
+    @media (max-width: 991px) {
+      .sg_block_gallery .block-heading .link {
+        margin-top: 3.2rem; } }
+    @media (min-width: 768px) {
+      .sg_block_gallery .block-heading .link {
+        position: absolute;
+        bottom: 2.5rem;
+        left: 100%; } }
+  @media (max-width: 991px) {
+    .sg_block_gallery .gallery {
+      margin-top: 9.6rem; } }
+  @media (max-width: 767px) {
+    .sg_block_gallery .gallery {
+      margin-top: 8.4rem; } }
+  @media (max-width: 767px) {
+    .sg_block_gallery .slick-list {
+      padding-right: 10rem; } }
+  .sg_block_gallery .slick-track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .sg_block_gallery .slick-track .slick-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end; }
+  .sg_block_gallery a.post {
+    color: var(--grey);
+    text-decoration: none; }
+  .sg_block_gallery .post .inner {
+    margin-right: 4.8rem; }
+    @media (min-width: 768px) {
+      .sg_block_gallery .post .inner {
+        margin-right: 13.4rem; } }
+  .sg_block_gallery .post .linotype_field_image-img {
+    max-width: 100%; }
+  .sg_block_gallery .post .portrait {
+    width: 17.1rem; }
+    @media (min-width: 768px) {
+      .sg_block_gallery .post .portrait {
+        width: 29.9rem; } }
+  .sg_block_gallery .post .landscape {
+    width: 22.4rem; }
+    @media (min-width: 768px) {
+      .sg_block_gallery .post .landscape {
+        width: 38.6rem; } }
+  .sg_block_gallery .legend {
+    margin-top: 2.4rem;
+    font-size: 1.4rem;
+    line-height: 1.7rem; }
+  .sg_block_gallery .slick-arrow {
+    z-index: 1;
+    top: 50%;
+    width: 3.6rem;
+    height: 3.6rem;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    text-indent: -999rem; }
+    .sg_block_gallery .slick-arrow.slick-prev {
+      left: 4.8rem;
+      background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' stroke-width='2'%3E%3Cpath d='M27 34.97L10.03 18 27 1.03' stroke='%23262829'/%3E%3Cpath stroke='%23211F1F' d='M-413-2657h5819v3964H-413z'/%3E%3C/g%3E%3C/svg%3E"); }
+    .sg_block_gallery .slick-arrow.slick-next {
+      right: 4.8rem;
+      background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' stroke-width='2'%3E%3Cpath d='M9 34.97L25.97 18 9 1.03' stroke='%23262829'/%3E%3Cpath stroke='%23211F1F' d='M-1389-2658h5819v3964h-5819z'/%3E%3C/g%3E%3C/svg%3E"); }
+  .sg_block_gallery .slick-dots {
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    max-width: 90%;
+    padding: 0;
+    margin: 4.8rem auto 0;
+    list-style: none; }
+    @media (max-width: 767px) {
+      .sg_block_gallery .slick-dots {
+        padding-right: 1.6rem; } }
+    @media (min-width: 768px) {
+      .sg_block_gallery .slick-dots {
+        max-width: 33.3333%;
+        margin-top: 8rem; } }
+    .sg_block_gallery .slick-dots li {
+      width: auto;
+      height: auto;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 10.9rem;
+              flex: 1 1 10.9rem;
+      margin: 0;
+      font-size: 0;
+      line-height: 0; }
+    .sg_block_gallery .slick-dots button {
+      position: relative;
+      -webkit-appearance: none;
+      width: 100%;
+      height: .1rem;
+      background-color: var(--grey);
+      padding: 0;
+      border: 0 none;
+      text-indent: -9999px; }
+      .sg_block_gallery .slick-dots button::before {
+        content: none; }
+      .sg_block_gallery .slick-dots button::after {
+        position: absolute;
+        top: -1.6rem;
+        right: 0;
+        bottom: -1.6rem;
+        left: 0;
+        content: ""; }
+    .sg_block_gallery .slick-dots .slick-active button {
+      background-color: black; }
+
+.sg_block_gallery-popin {
+  position: fixed;
+  z-index: 2001;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .4s ease-in-out;
+  transition: opacity .4s ease-in-out;
+  overflow: hidden; }
+  .sg_block_gallery-popin.open {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1; }
+    .sg_block_gallery-popin.open .sg_block_gallery-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: start;
+          -ms-flex-align: start;
+              align-items: flex-start;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      height: 100%;
+      width: 100%;
+      overflow: auto; }
+      .sg_block_gallery-popin.open .sg_block_gallery-container .sg_block_gallery-content {
+        width: 100%; }
+        .sg_block_gallery-popin.open .sg_block_gallery-container .sg_block_gallery-content img {
+          width: 100%;
+          padding: 10rem; }
+          @media (max-width: 992px) {
+            .sg_block_gallery-popin.open .sg_block_gallery-container .sg_block_gallery-content img {
+              padding: 5rem; } }
+  .sg_block_gallery-popin .sg_block_gallery-close-wrapper {
+    z-index: 1;
+    position: absolute;
+    top: 2.2rem;
+    right: 0;
+    left: 0;
+    text-align: right; }
+    @media (min-width: 992px) {
+      .sg_block_gallery-popin .sg_block_gallery-close-wrapper {
+        top: 2.9rem; } }
+  .sg_block_gallery-popin .sg_block_gallery-close {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M5.293 5.293a1 1 0 011.414 0L12 10.585l5.293-5.292a1 1 0 011.32-.083l.094.083a1 1 0 010 1.414L13.415 12l5.292 5.293a1 1 0 01.083 1.32l-.083.094a1 1 0 01-1.414 0L12 13.415l-5.293 5.292a1 1 0 01-1.32.083l-.094-.083a1 1 0 010-1.414L10.585 12 5.293 6.707a1 1 0 01-.083-1.32z' id='a'/%3E%3C/defs%3E%3Cuse fill='%23000' fill-rule='nonzero' xlink:href='%23a'/%3E%3C/svg%3E");
+    cursor: pointer; }
+  .sg_block_gallery-popin .sg_block_gallery-container {
+    height: 100%; }
+
+.sg_block_gallery-backdrop {
+  z-index: 2000;
+  position: fixed;
+  opacity: 0;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(221, 218, 211, 0.75);
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out; }
+  .sg_block_gallery-backdrop.show {
+    opacity: 1;
+    display: block; }
+    @media (min-width: 768px) {
+      .sg_block_gallery-backdrop.show {
+        background-color: rgba(221, 218, 211, 0.8); } }
+  @supports ((-webkit-backdrop-filter: blur()) or (backdrop-filter: blur())) {
+    .sg_block_gallery-backdrop {
+      -webkit-backdrop-filter: blur(0.51rem);
+              backdrop-filter: blur(0.51rem); }
+      @media (min-width: 768px) {
+        .sg_block_gallery-backdrop {
+          -webkit-backdrop-filter: blur(1.02rem);
+                  backdrop-filter: blur(1.02rem); } } }

@@ -1,0 +1,16 @@
+{
+    "type": "template",
+    "author": "wc",
+    "version": "1.0.0",
+    "update": "",
+    "commit": "",
+    "sync": "",
+    "title": "Cart",
+    "desc": "",
+    "icon": "dashicons dashicons-admin-page",
+    "color": "",
+    "category": "WooCommerce",
+    "supports": [],
+    "tags": [],
+    "target": []
+}

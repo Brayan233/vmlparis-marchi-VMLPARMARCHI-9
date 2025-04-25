@@ -1,0 +1,502 @@
+[
+    {
+        "id": "09bf810e646944ee51a8d276d8b0a9f9",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "align_v",
+            "title": "Vertical alignment",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Default"
+                    },
+                    {
+                        "value": "align-self-stretch",
+                        "title": "Self full height"
+                    },
+                    {
+                        "value": "align-self-start",
+                        "title": "Self align top"
+                    },
+                    {
+                        "value": "align-self-center",
+                        "title": "Self align middle"
+                    },
+                    {
+                        "value": "align-self-end",
+                        "title": "Self align bottom"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "02e5aeead9364dec7e6f167a3d1d6e9c",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "bleed",
+            "title": "Bleed",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Yes"
+                    },
+                    {
+                        "value": "col-bleed",
+                        "title": "Remove all padding"
+                    },
+                    {
+                        "value": "col-bleed-x",
+                        "title": "Remove horizontal padding"
+                    },
+                    {
+                        "value": "col-bleed-y",
+                        "title": "Remove vertical padding"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "1a7291c059026d4b8371911509c828bf",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "col_xs",
+            "title": "Col XS",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Auto"
+                    },
+                    {
+                        "value": "col-12",
+                        "title": "Col 12"
+                    },
+                    {
+                        "value": "col-11",
+                        "title": "Col 11"
+                    },
+                    {
+                        "value": "col-10",
+                        "title": "Col 10"
+                    },
+                    {
+                        "value": "col-9",
+                        "title": "Col 9"
+                    },
+                    {
+                        "value": "col-8",
+                        "title": "Col 8"
+                    },
+                    {
+                        "value": "col-7",
+                        "title": "Col 7"
+                    },
+                    {
+                        "value": "col-6",
+                        "title": "Col 6"
+                    },
+                    {
+                        "value": "col-5",
+                        "title": "Col 5"
+                    },
+                    {
+                        "value": "col-4",
+                        "title": "Col 4"
+                    },
+                    {
+                        "value": "col-3",
+                        "title": "Col 3"
+                    },
+                    {
+                        "value": "col-2",
+                        "title": "Col 2"
+                    },
+                    {
+                        "value": "col-1",
+                        "title": "Col 1"
+                    }
+                ],
+                "default": "col-auto",
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "3dce337136a515a5d0cf9b8359c959d6",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "col_sm",
+            "title": "Col SM",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Auto"
+                    },
+                    {
+                        "value": "col-12",
+                        "title": "Col 12"
+                    },
+                    {
+                        "value": "col-11",
+                        "title": "Col 11"
+                    },
+                    {
+                        "value": "col-10",
+                        "title": "Col 10"
+                    },
+                    {
+                        "value": "col-9",
+                        "title": "Col 9"
+                    },
+                    {
+                        "value": "col-8",
+                        "title": "Col 8"
+                    },
+                    {
+                        "value": "col-7",
+                        "title": "Col 7"
+                    },
+                    {
+                        "value": "col-6",
+                        "title": "Col 6"
+                    },
+                    {
+                        "value": "col-5",
+                        "title": "Col 5"
+                    },
+                    {
+                        "value": "col-4",
+                        "title": "Col 4"
+                    },
+                    {
+                        "value": "col-3",
+                        "title": "Col 3"
+                    },
+                    {
+                        "value": "col-2",
+                        "title": "Col 2"
+                    },
+                    {
+                        "value": "col-1",
+                        "title": "Col 1"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "e95eaff9cebad6e196eab2aaea54a2ef",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "col_md",
+            "title": "Col MD",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Auto"
+                    },
+                    {
+                        "value": "col-12",
+                        "title": "Col 12"
+                    },
+                    {
+                        "value": "col-11",
+                        "title": "Col 11"
+                    },
+                    {
+                        "value": "col-10",
+                        "title": "Col 10"
+                    },
+                    {
+                        "value": "col-9",
+                        "title": "Col 9"
+                    },
+                    {
+                        "value": "col-8",
+                        "title": "Col 8"
+                    },
+                    {
+                        "value": "col-7",
+                        "title": "Col 7"
+                    },
+                    {
+                        "value": "col-6",
+                        "title": "Col 6"
+                    },
+                    {
+                        "value": "col-5",
+                        "title": "Col 5"
+                    },
+                    {
+                        "value": "col-4",
+                        "title": "Col 4"
+                    },
+                    {
+                        "value": "col-3",
+                        "title": "Col 3"
+                    },
+                    {
+                        "value": "col-2",
+                        "title": "Col 2"
+                    },
+                    {
+                        "value": "col-1",
+                        "title": "Col 1"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "fc19d7a57f184f5f2fdc48a8a8ca4937",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "col_lg",
+            "title": "Col LG",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Auto"
+                    },
+                    {
+                        "value": "col-12",
+                        "title": "Col 12"
+                    },
+                    {
+                        "value": "col-11",
+                        "title": "Col 11"
+                    },
+                    {
+                        "value": "col-10",
+                        "title": "Col 10"
+                    },
+                    {
+                        "value": "col-9",
+                        "title": "Col 9"
+                    },
+                    {
+                        "value": "col-8",
+                        "title": "Col 8"
+                    },
+                    {
+                        "value": "col-7",
+                        "title": "Col 7"
+                    },
+                    {
+                        "value": "col-6",
+                        "title": "Col 6"
+                    },
+                    {
+                        "value": "col-5",
+                        "title": "Col 5"
+                    },
+                    {
+                        "value": "col-4",
+                        "title": "Col 4"
+                    },
+                    {
+                        "value": "col-3",
+                        "title": "Col 3"
+                    },
+                    {
+                        "value": "col-2",
+                        "title": "Col 2"
+                    },
+                    {
+                        "value": "col-1",
+                        "title": "Col 1"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "1b8584a08abd7a333b52f760b8e57770",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "col_xlg",
+            "title": "Col XLG",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Auto"
+                    },
+                    {
+                        "value": "col-12",
+                        "title": "Col 12"
+                    },
+                    {
+                        "value": "col-11",
+                        "title": "Col 11"
+                    },
+                    {
+                        "value": "col-10",
+                        "title": "Col 10"
+                    },
+                    {
+                        "value": "col-9",
+                        "title": "Col 9"
+                    },
+                    {
+                        "value": "col-8",
+                        "title": "Col 8"
+                    },
+                    {
+                        "value": "col-7",
+                        "title": "Col 7"
+                    },
+                    {
+                        "value": "col-6",
+                        "title": "Col 6"
+                    },
+                    {
+                        "value": "col-5",
+                        "title": "Col 5"
+                    },
+                    {
+                        "value": "col-4",
+                        "title": "Col 4"
+                    },
+                    {
+                        "value": "col-3",
+                        "title": "Col 3"
+                    },
+                    {
+                        "value": "col-2",
+                        "title": "Col 2"
+                    },
+                    {
+                        "value": "col-1",
+                        "title": "Col 1"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "1825aaefcd6e1fd00d7cd97171f0417b",
+        "type": "linotype_field_text",
+        "options": {
+            "id": "order_xs",
+            "title": "Order XS",
+            "options": {
+                "placeholder": "",
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "2bb7af0dd8c37969eb4a6fd2a345f2ed",
+        "type": "linotype_field_text",
+        "options": {
+            "id": "order_sm",
+            "title": "Order SM",
+            "options": {
+                "placeholder": "",
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "a48e997448e5f20697825813a321cbf1",
+        "type": "linotype_field_text",
+        "options": {
+            "id": "order_md",
+            "title": "Order MD",
+            "options": {
+                "placeholder": "",
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "8e7ec9b88334ec302a877601a6ad02dd",
+        "type": "linotype_field_text",
+        "options": {
+            "id": "order_lg",
+            "title": "Order LG",
+            "options": {
+                "placeholder": "",
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "e5a04f561356a3a117edc312dc449ff3",
+        "type": "linotype_field_text",
+        "options": {
+            "id": "order_xlg",
+            "title": "Order XLG",
+            "options": {
+                "placeholder": "",
+                "style": ""
+            }
+        },
+        "contents": [],
+        "params": []
+    }
+]

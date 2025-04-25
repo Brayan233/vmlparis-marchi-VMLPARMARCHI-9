@@ -1,0 +1,11 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "post_type",
+            "title": "Post type",
+            "default": "lookbook"
+        }
+    }
+
+]

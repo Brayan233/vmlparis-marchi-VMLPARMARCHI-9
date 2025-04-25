@@ -1,0 +1,31 @@
+{
+    "type": "field",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "sync": "init",
+    "title": "Gallery",
+    "desc": "Select multiple Image",
+    "icon": "dashicons dashicons-format-gallery",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [],
+    "field_id": "",
+    "field_default": "",
+    "field_dummy": "",
+    "field_title": "",
+    "field_info": "",
+    "field_desc": "",
+    "field_options": {
+        "output": "id",
+        "height": "",
+        "wrapstyle": "",
+        "imgstyle": "",
+        "input": true,
+        "placeholder": ""
+    }
+}

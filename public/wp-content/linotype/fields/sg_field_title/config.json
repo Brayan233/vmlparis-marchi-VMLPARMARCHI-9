@@ -1,0 +1,32 @@
+{
+    "type": "field",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "sync": "push",
+    "title": "Title",
+    "desc": "Bold and Italic in bubble toolbar",
+    "icon": "dashicons dashicons-edit",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [],
+    "field_id": "",
+    "field_default": "",
+    "field_dummy": "",
+    "field_title": "",
+    "field_info": "",
+    "field_desc": "",
+    "field_options": {
+        "theme": "bubble",
+        "p": false,
+        "syntax": true,
+        "toolbar": [
+            [ "bold", "italic", "clean"]
+        ],
+        "placeholder": ""
+    }
+}

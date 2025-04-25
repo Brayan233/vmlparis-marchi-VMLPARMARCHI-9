@@ -1,0 +1,54 @@
+.linotype_field_form {
+
+    .linotype_field_form-editor {
+
+        .row {
+            position: relative;
+            padding-bottom:10px;
+        }
+        [data-schematype] [data-schematype] {
+            border-color: #cfcfcf;
+            [data-schematype] {
+                border-color: #999;
+            }
+        }
+        h3{
+            margin:0;
+            padding: 0px;
+
+            > div {
+                display:inline-block;
+            }
+
+        }
+        
+        button {
+            border: 0;
+            background: none;
+            box-shadow: none;
+            border-radius: 0px;
+            color: #999;
+            cursor: pointer;
+            outline: none;
+
+            span {
+                display: none;
+            }
+        }
+
+        button:hover {
+            color: #333;
+        }
+
+        // .json-editor-btn-collapse {
+        //     position:absolute;
+        //     right:10px;
+        //     top:10px;
+        // }
+        
+
+
+        
+    }
+
+}

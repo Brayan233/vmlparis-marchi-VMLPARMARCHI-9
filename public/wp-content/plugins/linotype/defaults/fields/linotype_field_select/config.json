@@ -1,0 +1,40 @@
+{
+    "type": "field",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "2019-04-30T12:48:45Z",
+    "sync": "push",
+    "title": "Select",
+    "desc": "",
+    "icon": "dashicons dashicons-edit",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [],
+    "field_id": "",
+    "field_default": "",
+    "field_dummy": "",
+    "field_title": "",
+    "field_info": "",
+    "field_desc": "",
+    "field_options": {
+        "data": [
+            {
+                "value": "option1",
+                "title": "Option 1"
+            },
+            {
+                "value": "option2",
+                "title": "Option 2"
+            }
+        ],
+        "multiple": false,
+        "empty": false,
+        "min-width": "100%",
+        "height": "",
+        "style": ""
+    }
+}

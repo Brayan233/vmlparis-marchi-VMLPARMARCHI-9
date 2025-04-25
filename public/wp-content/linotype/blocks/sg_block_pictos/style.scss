@@ -1,0 +1,56 @@
+.sg_block_pictos {
+  background-color: var(--taupe);
+
+  @media (max-width: 575px) {
+    padding: .8rem 0;
+  }
+  @media (min-width: 576px) {
+    padding: 3.2rem 0;
+  }
+  .grid {
+    @media (min-width: 576px) {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 -2.4rem;
+    }
+    & > * {
+      @media (max-width: 575px) {
+        margin: 5.6rem auto;
+      }
+      @media (min-width: 576px) {
+        flex-basis: 50%;
+        padding: 2.4rem;
+      }
+      @media (min-width: 992px) {
+        flex-basis: 25%;
+      }
+    }
+  }
+  .bloc-picto {
+    text-align: center;
+
+    .picto {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.6rem;
+    }
+    .linotype_field_image {
+      flex: 0 0 auto;
+    }
+  }
+  .title {
+    margin-top: 2rem;
+    margin-bottom: .4rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.4rem;
+  }
+  .regular-text {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+  }
+}

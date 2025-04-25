@@ -1,0 +1,62 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: mariadb_marchi
+    volumes:
+      - db_data:/var/lib/mysql
+      # Mount the SQL dump to be imported on initialization
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    restart: unless-stopped
+    networks:
+      - wordpress_net
+
+  wordpress:
+    # Build the image from the Dockerfile in the current directory
+    build: .
+    container_name: wordpress_marchi
+    depends_on:
+      - db
+    volumes:
+      # Mount your existing WordPress project directory
+      - ./public:/var/www/html
+    ports:
+      # Map host port 80 to container port 80
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306 # Use the service name 'db'
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DEBUG: 1 # Optional: Enable WP debugging if needed
+    restart: unless-stopped
+    networks:
+      - wordpress_net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_marchi
+    depends_on:
+      - db
+    ports:
+      # Map host port 8081 to container port 80
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD} # Needed for phpMyAdmin login
+    restart: unless-stopped
+    networks:
+      - wordpress_net
+
+volumes:
+  # Define a named volume for database persistence
+  db_data:
+
+networks:
+  # Define a bridge network for the services
+  wordpress_net:
+    driver: bridge 

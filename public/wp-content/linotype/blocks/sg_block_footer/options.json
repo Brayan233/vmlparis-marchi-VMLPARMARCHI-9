@@ -1,0 +1,30 @@
+[
+    {
+        "type": "linotype_field_composer",
+        "options": {
+            "id": "content_1",
+            "title": "Content",
+            "options": {
+                "tab": "Content"
+            }
+        }
+    },
+    {
+        "type": "linotype_field_composer",
+        "options": {
+            "id": "content_2",
+            "title": "Content",
+            "options": {
+                "tab": "Content"
+            }
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "address",
+            "title": "Address"
+        }
+    }
+
+]

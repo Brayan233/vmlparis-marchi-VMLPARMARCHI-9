@@ -1,0 +1,46 @@
+[
+    {
+        "type": "text",
+        "options": {
+            "id": "class",
+            "title": "Class",
+            "default": "shop-breadcrumb",
+            "desc": "eg. woocommerce-breadcrumb"
+        },
+        "contents": []
+    },
+    {
+        "type": "color",
+        "options": {
+            "id": "link_color",
+            "title": "Link Color"
+        },
+        "contents": []
+    },
+    {
+        "type": "text",
+        "options": {
+            "id": "delimiter",
+            "default": " \/ ",
+            "title": "Delimiter"
+        },
+        "contents": []
+    },
+    {
+        "type": "text",
+        "options": {
+            "id": "home_title",
+            "title": "Home Title",
+            "default": "Home"
+        },
+        "contents": []
+    },
+    {
+        "type": "text",
+        "options": {
+            "id": "home_link",
+            "title": "Home Link"
+        },
+        "contents": []
+    }
+]

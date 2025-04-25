@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "Jangosteve",
+    "version": "1.0",
+    "update": "",
+    "sync": "init",
+    "title": "EasyTabs",
+    "desc": "",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "benalman_library_hashchange",
+            "version": "3.2.0",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "\/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

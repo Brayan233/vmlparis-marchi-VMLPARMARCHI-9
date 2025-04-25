@@ -1,0 +1,26 @@
+{
+    "type": "library",
+    "author": "Jeremias Menichelli",
+    "version": "3.0.2",
+    "update": "",
+    "sync": "",
+    "title": "scrollProgress",
+    "desc": "Light weight library to observe the viewport scroll position",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "jeremenichelli_library_scrollprogress",
+            "version": "3.0.2",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "",
+            "cdn": ""
+        }
+    ]
+}

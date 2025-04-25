@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "jdorn",
+    "version": "1.3.6",
+    "update": "",
+    "sync": "",
+    "title": "JSON Editor",
+    "desc": "Editor takes a JSON Schema and uses it to generate an HTML form",
+    "icon": "dashicons dashicons-edit",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "jdorn_library_jsoneditor",
+            "version": "1.3.6",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "/script.js",
+            "min": "/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

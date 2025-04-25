@@ -1,0 +1,34 @@
+[
+    {
+        "type": "linotype_field_composer",
+        "options": {
+            "id": "content",
+            "options": {
+                "actions": [
+                    "add",
+                    "edit",
+                    "sort",
+                    "clone",
+                    "copy",
+                    "delete",
+                    "source",
+                    "link"
+                ],
+                "border": false,
+                "collapsed": true,
+                "default_source": false,
+                "desc": "",
+                "empty": false,
+                "group": 1,
+                "items": [],
+                "layout": "default",
+                "maxDepth": 5,
+                "min_height": 80,
+                "name": "Edit",
+                "title": "",
+                "toolbar": true,
+                "type": "block"
+            }
+        }
+    }
+]

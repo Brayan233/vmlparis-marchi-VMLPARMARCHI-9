@@ -1,0 +1,26 @@
+[
+    {
+        "type": "sg_field_title",
+        "options": {
+            "id": "title",
+            "title": "Title"
+        },
+        "params": []
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "desc",
+            "title": "Description"
+        },
+        "params": []
+    },
+    {
+        "type": "linotype_field_link",
+        "options": {
+            "id": "link",
+            "title": "Link ID"
+        },
+        "params": []
+    }
+]

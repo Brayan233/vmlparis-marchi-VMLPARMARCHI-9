@@ -1,0 +1,457 @@
+.wp-field-css {
+
+}
+
+
+.wp-field-css-header{
+display: block;
+margin-left: 5px;
+margin-right: 5px;
+position: relative;
+}
+
+
+.wp-field-css-header-title{
+display: block;
+line-height: 18px;
+height: 18px;
+font-size: 12px;
+color: #999;
+margin-right: 5px;
+margin-left:5px ;
+margin-bottom: 10px;
+}
+.wp-field-css-value-bt{
+	background: url(img/code.png) no-repeat 0px 0px;
+	width: 16px;
+	height:16px;
+	display: inline-block;
+	opacity: .5;
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: 0px;
+}
+.wp-field-css-value-bt:hover{
+	opacity: 1;
+}
+
+.wp-field-css-value{
+	display:none;
+}
+.wp-field-css-value.open{
+	display:block;
+}
+
+
+
+
+.css-panel {
+border: solid 1px #DDD;
+border-radius: 0px;
+padding-top: 0px;
+position: relative; 
+}
+.css-tab{
+display: block;
+padding: 0px;
+margin: 0px;
+}
+
+.css-tab ul {
+display: block;
+padding: 0px;
+margin: 0px;
+position: relative;
+width: 100%;
+border-top: solid 0px #DDD;
+}
+
+.css-tab ul li {
+display: inline-block!important;
+vertical-align: top;
+padding: 0px;
+margin: 0px;
+width: 33.334%;
+/*background-color: #FFF;*/
+cursor: pointer;
+}
+.css-tab ul li:hover {
+/*background-color: #FFF;*/
+}
+.css-tab ul li.active {
+/*background-color: #FFF;*/
+}
+
+.css-tab ul li span{
+display: block;
+color: #999;
+padding-left: 35px;
+padding-right: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+border-right: solid 1px #DDD;
+border-bottom: solid 1px #DDD;
+}
+.css-tab ul li:last-child span{
+border-right: solid 0px #DDD;
+}
+.css-tab ul li.active span{
+	color: #333;
+border-bottom: solid 1px transparent;
+}
+.css-tab ul li:hover span{
+	color: #333;
+}
+
+.css-tab ul li.css-layout-bt span {
+background: url(img/css-layout.png) 15px center no-repeat;
+}
+.css-tab ul li.css-decoration-bt span {
+background: url(img/css-decoration.png) 15px center no-repeat;
+}
+.css-tab ul li.css-text-bt span {
+background: url(img/css-text.png) 15px center no-repeat;
+}
+
+
+.css-tab-content{
+	/*background-color: #FFF;*/
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+
+.css-tab-content ul {
+overflow: hidden;
+padding: 0px;
+margin: 0px;
+display: block;
+}
+
+.css-tab-content ul.hidden {
+height: 0px
+}
+
+
+
+
+
+
+
+.css-tab-content > ul > li {
+display: block;
+padding: 0;
+}
+.css-tab-content > ul > li {
+display: inline-block;
+vertical-align: top;
+width: 100%;
+padding: 0;
+}
+
+
+
+
+.css-tab-content > ul > li > .label {
+display: block;
+padding: 0px;
+margin-bottom: 0px;
+color: #999;
+font-size: 10px;
+line-height: 15px;
+}
+
+.css-tab-content > ul > li > div {
+display: inline-block;
+vertical-align: top;
+position: relative;
+padding: 0px;
+margin: 0px;
+}
+.css-tab-content > ul > li > div {
+width: 100%!important;
+}
+.css-tab-content > ul > li > div.col-100 {
+width: 100%!important;
+}
+.css-tab-content > ul > li > div.col-50 {
+width: 50%!important;
+}
+.css-tab-content > ul > li > div.col-33 {
+width: 33.334%!important;
+}
+.css-tab-content > ul > li > div.col-25 {
+width: 25%!important;
+}
+
+.css-tab-content > ul > li.col-100 {
+width: 100%!important;
+}
+.css-tab-content > ul > li.col-50 {
+width: 50%!important;
+}
+.css-tab-content > ul > li.col-33 {
+width: 33.334%!important;
+}
+.css-tab-content > ul > li.col-25 {
+width: 25%!important;
+}
+
+.css-tab-content > ul > li > div > .css-input{
+display: block;
+margin: 0px;
+padding: 0px;
+position: relative;
+height: 28px;
+margin-right: 5px;
+margin-bottom: 5px;
+background-color:#FFF;
+}
+
+.css-tab-content > ul > li > div > .css-input > input,
+.css-tab-content > ul > li > div > .css-input > input:focus {
+display: block;
+margin: 0px;
+padding-left: 25px;
+border: solid 1px #DDD;
+border-radius: 3px;
+/*line-height: 12px;*/
+box-shadow: none;
+/*font-size: 12px;*/
+position: absolute;
+top: 0px;
+bottom: 0px;
+left:0px;
+right:0px;
+width: 100%;
+background-color:#FFF;
+}
+.css-tab-content > ul > li > div > .css-input > input:focus {
+border: solid 1px #999;
+}
+
+.css-tab-content > ul .width .css-input input {
+background: url(img/css/width.png) 5px center no-repeat;
+}
+.css-tab-content > ul .height .css-input input {
+background: url(img/css/height.png) 5px center no-repeat;
+}
+.css-tab-content > ul .margin-all .css-input input {
+background: url(img/css/margin-all.png) 4px center no-repeat;
+}
+.css-tab-content > ul .margin-left .css-input input {
+background: url(img/css/margin-left.png) 4px center no-repeat;
+}
+.css-tab-content > ul .margin-right .css-input input {
+background: url(img/css/margin-right.png) 4px center no-repeat;
+}
+.css-tab-content > ul .margin-top .css-input input {
+background: url(img/css/margin-top.png) 4px center no-repeat;
+}
+.css-tab-content > ul .margin-bottom .css-input input {
+background: url(img/css/margin-bottom.png) 4px center no-repeat;
+}
+.css-tab-content > ul .padding-all .css-input input {
+background: url(img/css/padding-all.png) 4px center no-repeat;
+}
+.css-tab-content > ul .padding-left .css-input input {
+background: url(img/css/padding-left.png) 4px center no-repeat;
+}
+.css-tab-content > ul .padding-right .css-input input {
+background: url(img/css/padding-right.png) 4px center no-repeat;
+}
+.css-tab-content > ul .padding-top .css-input input {
+background: url(img/css/padding-top.png) 4px center no-repeat;
+}
+.css-tab-content > ul .padding-bottom .css-input input {
+background: url(img/css/padding-bottom.png) 4px center no-repeat;
+}
+.css-tab-content > ul .position .css-input input {
+background: url(img/css/position.png) 4px center no-repeat;
+}
+.css-tab-content > ul .left .css-input input {
+background: url(img/css/left.png) 4px center no-repeat;
+}
+.css-tab-content > ul .right .css-input input {
+background: url(img/css/right.png) 4px center no-repeat;
+}
+.css-tab-content > ul .top .css-input input {
+background: url(img/css/top.png) 4px center no-repeat;
+}
+.css-tab-content > ul .bottom .css-input input {
+background: url(img/css/bottom.png) 4px center no-repeat;
+}
+.css-tab-content > ul .display .css-input input {
+background: url(img/css/display.png) 4px center no-repeat;
+}
+.css-tab-content > ul .float .css-input input {
+background: url(img/css/float.png) 4px center no-repeat;
+}
+.css-tab-content > ul .clear .css-input input {
+background: url(img/css/clear.png) 4px center no-repeat;
+}
+.css-tab-content > ul .visibility .css-input input {
+background: url(img/css/visibility.png) 4px center no-repeat;
+}
+.css-tab-content > ul .overflow .css-input input {
+background: url(img/css/overflow.png) 4px center no-repeat;
+}
+.css-tab-content > ul .z-index .css-input input {
+background: url(img/css/z-index.png) 4px center no-repeat;
+}
+.css-tab-content > ul .background-image .css-input input {
+background: url(img/css/background-image.png) 4px center no-repeat;
+}
+.css-tab-content > ul .background-color .css-input input {
+background: url(img/css/background-color.png) 4px center no-repeat;
+}
+.css-tab-content > ul .background-position-x .css-input input {
+background: url(img/css/background-position-x.png) 4px center no-repeat;
+}
+.css-tab-content > ul .background-position-y .css-input input {
+background: url(img/css/background-position-y.png) 4px center no-repeat;
+}
+.css-tab-content > ul .background-repeat .css-input input {
+background: url(img/css/background-repeat.png) 4px center no-repeat;
+}
+.css-tab-content > ul .background-attachment .css-input input {
+background: url(img/css/background-attachment.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .shadow-color .css-input input {
+background: url(img/css/shadow-color.png) 4px center no-repeat;
+}
+.css-tab-content > ul .shadow-blur .css-input input {
+background: url(img/css/shadow-blur.png) 4px center no-repeat;
+}
+.css-tab-content > ul .shadow-offset-x .css-input input {
+background: url(img/css/shadow-offset-x.png) 4px center no-repeat;
+}
+.css-tab-content > ul .shadow-offset-y .css-input input {
+background: url(img/css/shadow-offset-y.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .opacity .css-input input {
+background: url(img/css/opacity.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .border-left-style .css-input input {
+background: url(img/css/border-left-style.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-right-style .css-input input {
+background: url(img/css/border-right-style.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-top-style .css-input input {
+background: url(img/css/border-top-style.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-bottom-style .css-input input {
+background: url(img/css/border-bottom-style.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .border-left-color .css-input input,
+.css-tab-content > ul .border-right-color .css-input input,
+.css-tab-content > ul .border-top-color .css-input input,
+.css-tab-content > ul .border-bottom-color .css-input input {
+background: url(img/css/color.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-left-width .css-input input,
+.css-tab-content > ul .border-right-width .css-input input,
+.css-tab-content > ul .border-top-width .css-input input,
+.css-tab-content > ul .border-bottom-width .css-input input {
+background: url(img/css/border-width.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .border-top-left-radius .css-input input {
+background: url(img/css/border-top-left-radius.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-top-right-radius .css-input input {
+background: url(img/css/border-top-right-radius.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-bottom-left-radius .css-input input {
+background: url(img/css/border-bottom-left-radius.png) 4px center no-repeat;
+}
+.css-tab-content > ul .border-bottom-right-radius .css-input input {
+background: url(img/css/border-bottom-right-radius.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .color .css-input input {
+background: url(img/css/color.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .font-size .css-input input {
+background: url(img/css/font-size.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .line-height .css-input input {
+background: url(img/css/line-height.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .vertical-align .css-input input {
+background: url(img/css/vertical-align.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .font-family .css-input input {
+background: url(img/css/font-family.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .font-style .css-input input {
+background: url(img/css/font-style.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .font-weight .css-input input {
+background: url(img/css/font-weight.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-decoration .css-input input {
+background: url(img/css/text-decoration.png) 4px center no-repeat;
+}
+.css-tab-content > ul .font-variant .css-input input {
+background: url(img/css/font-variant.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-transform .css-input input {
+background: url(img/css/text-transform.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-align .css-input input {
+background: url(img/css/text-align.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-indent .css-input input {
+background: url(img/css/text-indent.png) 4px center no-repeat;
+}
+.css-tab-content > ul .letter-spacing .css-input input {
+background: url(img/css/letter-spacing.png) 4px center no-repeat;
+}
+.css-tab-content > ul .word-spacing .css-input input {
+background: url(img/css/word-spacing.png) 4px center no-repeat;
+}
+.css-tab-content > ul .white-space .css-input input {
+background: url(img/css/white-space.png) 4px center no-repeat;
+}
+
+.css-tab-content > ul .text-shadow-color .css-input input {
+background: url(img/css/shadow-color.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-shadow-blur .css-input input {
+background: url(img/css/shadow-blur.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-shadow-offset-x .css-input input {
+background: url(img/css/shadow-offset-x.png) 4px center no-repeat;
+}
+.css-tab-content > ul .text-shadow-offset-y .css-input input {
+background: url(img/css/shadow-offset-y.png) 4px center no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

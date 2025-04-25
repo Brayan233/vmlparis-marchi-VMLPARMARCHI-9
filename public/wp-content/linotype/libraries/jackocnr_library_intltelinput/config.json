@@ -1,0 +1,37 @@
+{
+    "type": "library",
+    "author": "Jack O'Connor",
+    "version": "16.0.4",
+    "update": "",
+    "sync": "",
+    "title": "International Telephone Input",
+    "desc": "A JavaScript plugin for entering and validating international telephone numbers. It adds a flag dropdown to any input, detects the user's country, displays a relevant placeholder and provides formatting/validation methods.",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "jackocnr_library_intltelinput",
+            "version": "16.0.4",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "\/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": [
+        {
+            "id": "jackocnr_library_intltelinput",
+            "version": "16.0.4",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "\/style.css",
+            "cdn": ""
+        }
+    ]
+}

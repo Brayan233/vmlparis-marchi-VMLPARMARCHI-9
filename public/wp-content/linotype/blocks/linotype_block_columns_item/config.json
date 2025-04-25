@@ -1,0 +1,21 @@
+{
+    "type": "block",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Colonne",
+    "desc": "",
+    "icon": "dashicons dashicons-controls-pause",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [
+        "linotype_block_columns"
+    ],
+    "accept": [],
+    "libraries": [
+    ]
+}

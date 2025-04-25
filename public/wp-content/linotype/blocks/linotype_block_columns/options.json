@@ -1,0 +1,220 @@
+[
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "position",
+            "title": "Position",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Default"
+                    },
+                    {
+                        "value": "relative",
+                        "title": "Relative"
+                    },
+                    {
+                        "value": "absolute-top",
+                        "title": "Absolute Top"
+                    },
+                    {
+                        "value": "absolute-bottom",
+                        "title": "Absolute Bottom"
+                    },
+                    {
+                        "value": "absolute-left",
+                        "title": "Absolute Left"
+                    },
+                    {
+                        "value": "absolute-right",
+                        "title": "Absolute Right"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": []
+    },
+    {
+        "id": "e7e429825be64831b852fb3a89cd1ed7",
+        "type": "linotype_field_select",
+        "options": {
+            "id": "container",
+            "title": "Container",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Container"
+                    },
+                    {
+                        "value": "container-full",
+                        "title": "Container Full"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": []
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "pos",
+            "title": "Positioning",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Full height"
+                    },
+                    {
+                        "value": "align-content-start",
+                        "title": "Align all top"
+                    },
+                    {
+                        "value": "align-content-center",
+                        "title": "Align all middle"
+                    },
+                    {
+                        "value": "align-content-end",
+                        "title": "Align all bottom"
+                    },
+                    {
+                        "value": "align-content-space-between",
+                        "title": "Align top and bottom"
+                    },
+                    {
+                        "value": "align-content-space-around",
+                        "title": "Align around top and bottom"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "id": "1457efabf3d1090ea49f6a3ada4428b3",
+        "params": []
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "align_v",
+            "title": "Vertical alignment",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Full height"
+                    },
+                    {
+                        "value": "align-start",
+                        "title": "Align top"
+                    },
+                    {
+                        "value": "align-center",
+                        "title": "Align middle"
+                    },
+                    {
+                        "value": "align-end",
+                        "title": "Align bottom"
+                    },
+                    {
+                        "value": "align-baseline",
+                        "title": "Align baseline"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "id": "block_0",
+        "params": []
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "align_h",
+            "title": "Horizontal alignment",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Align center"
+                    },
+                    {
+                        "value": "justify-start",
+                        "title": "Align left"
+                    },
+                    {
+                        "value": "justify-end",
+                        "title": "Align right"
+                    },
+                    {
+                        "value": "justify-space-between",
+                        "title": "Align left and right"
+                    },
+                    {
+                        "value": "justify-space-around",
+                        "title": "Align around left and right"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "contents": [],
+        "id": "2d5c1ba1fe23d3a4f02d3539c8b68e99",
+        "params": []
+    },
+    {
+        "id": "bb7dfbe548dd2532de374facdda00914",
+        "type": "linotype_field_checkbox",
+        "options": {
+            "id": "bleed",
+            "title": "Bleed",
+            "options": {
+                "label": "Remove all colums padding",
+                "style": "",
+                "value": "grid-bleed"
+            }
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "id": "45af6da2e07770449b63803f2a62ca29",
+        "type": "linotype_field_checkbox",
+        "options": {
+            "id": "wrap",
+            "title": "Wrapping",
+            "options": {
+                "label": "Force inline",
+                "style": "",
+                "value": "no-wrap"
+            }
+        },
+        "contents": [],
+        "params": []
+    }
+]

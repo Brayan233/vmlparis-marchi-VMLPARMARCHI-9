@@ -1,0 +1,33 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "title",
+            "title": "Title",
+            "default": "404"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "desc",
+            "title": "Description"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "link_title",
+            "title": "Link title",
+            "col": "col-6"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "link_url",
+            "title": "Link url",
+            "col": "col-6"
+        }
+    }
+]

@@ -1,0 +1,78 @@
+.panel-setting{
+position: relative;
+}
+.panel-setting-setter.button {
+    box-shadow: 0 0px 0 #ccc;
+}
+.panel-setting-setter.button{
+	color: #999;
+}
+.panel-setting-setter.button:active {
+	transform: none;
+}
+.panel-setting-setter.button.button-current{
+	background-color: #FFF;
+	color: #333;
+}
+.wp-field-panel-setting .panel-setting-preview-bg{
+padding: 0px;
+margin: 0px;
+position: absolute;
+top: 0px;
+left: 310px;
+right: 0px;
+bottom: 0px;
+background-image: url(bg-psd.png);
+}
+.wp-field-panel-setting .panel-setting-preview{
+padding:10px;
+margin:10px;
+position: absolute;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+}
+
+.wp-field-panel-setting .panel-setting-wrap{
+position: relative;
+width: 100%;
+}
+.wp-field-panel-setting .panel-setting-action{
+text-align: left;
+}
+.wp-field-panel-setting .panel-setting-action .button,
+.wp-picker-container {
+margin-bottom: 8px;
+}
+.wp-field-panel-setting .panel-setting-params-field {
+width: 100%;
+position: relative;
+}
+.wp-field-panel-setting .wp-color-result{
+margin-bottom: 0px;
+}
+.wp-field-panel-setting .panel-setting-params-field span {
+display: block;
+margin-bottom: 5px;
+}
+
+.wp-field-panel-setting .panel-setting-params-field .panel-setting-params {
+    width: 100%;
+    margin-bottom: 5px;
+    position: absolute;
+    top: 22px;
+    left: -1px;
+    /* padding-right: 7px; */
+    width: 100%;
+    line-height: 20px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    border-radius: 3px;
+}
+
+.wp-field-panel-setting .panel-setting-params-field .visible {
+display: block!important;
+}
+
+

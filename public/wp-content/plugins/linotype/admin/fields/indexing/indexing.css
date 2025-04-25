@@ -1,0 +1,100 @@
+.wp-field-indexing .indexing-content {
+display: block;
+position: relative;
+width: 100%;
+}
+.wp-field-indexing .indexing-message{
+display: block;
+position: relative;
+padding-bottom: 10px;	
+width: 100%;
+}
+
+.wp-field-indexing .indexing-index-link{
+    display: block;
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    z-index: 1;
+}
+.wp-field-indexing .indexing-content p {
+margin-top: 0px;
+}
+
+.wp-field-indexing .start-indexing,
+.wp-field-indexing .stop-indexing,
+.wp-field-indexing .view-indexing {
+
+}
+
+.wp-field-indexing .progress{
+display: block;
+position: relative;
+width: 100%;
+height: 15px;
+background-color: #DDDDDD;
+overflow: hidden;
+margin-bottom: 10px;
+border-radius: 3px;
+}
+.wp-field-indexing .progress .progress-bar {
+display: block;
+position: absolute;
+top: 0px;
+left: 0px;
+width: auto;
+height: 15px;
+background-color: #263238;
+transition: width 0.5s ease, background-color 0.5s ease;
+}
+.wp-field-indexing .progress .progress-percent {
+position: absolute;
+right: 4px;
+top: 0px;
+font-size: 10px;
+line-height: 15px;
+color: #ccc;
+}
+.wp-field-indexing .progress.progress-success .progress-bar {
+background-color: #16A058;
+width:100%;
+}
+.wp-field-indexing .progress.progress-success .progress-percent {
+color: #16A058;
+}
+.wp-field-indexing .progress.progress-error .progress-bar {
+background-color: #DE455A;
+width:100%;
+}
+.wp-field-indexing .progress.progress-error .progress-percent {
+color: #DE455A;
+}
+.wp-field-indexing .dashicons {
+position: absolute;
+right: 0px;
+top: 7px;
+font-size: 17px;
+line-height: 16px;
+color: #263238;
+background-color: #ccc;
+height: 15px;
+}
+.wp-field-indexing .messages {
+height: 27px;
+vertical-align: top;
+display: inline-block;
+width: 80%;
+overflow-y: scroll;
+/* background-color: #263238; */
+/* color: #DDD; */
+line-height: 27px;
+padding-left: 5px;
+margin: 0px;
+
+}
+.wp-field-indexing .messages li {
+margin: 0px;
+}
+.wp-field-indexing .messages .message-success{color:#2CC164;}
+.wp-field-indexing .messages .message-error{color:#DE455A;}
+

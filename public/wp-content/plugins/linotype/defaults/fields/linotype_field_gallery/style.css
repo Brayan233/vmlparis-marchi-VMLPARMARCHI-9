@@ -1,0 +1,89 @@
+.field-gallery-master{
+position: relative;
+padding:10px;
+}
+
+.field-gallery-master .field-gallery-action {
+/*display:none;*/
+}
+
+.field-gallery-master .field-gallery-action.show {
+display:block;
+}
+.field-gallery-master:hover .field-gallery-action {
+display:block;
+}
+
+.field-gallery-action {
+margin: 0px;
+padding: 10px;
+position: relative;
+z-index:1;
+bottom:0px;
+left:0px;
+right:0px;
+/*background-color: rgba(255,255,255,0.85);*/
+}
+
+.force-align-middle{
+vertical-align: middle!important;
+}
+
+
+.field-gallery-preview {
+position: relative;
+display: block;
+margin: 0px;
+padding: 0px;
+height: 100%;
+/*min-height: 48px;*/
+overflow: hidden;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+
+.field-gallery-preview ul {
+position: absolute;
+display: block;
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+}
+
+.field-gallery-preview ul li {
+
+
+}
+
+
+/* .auto-height */
+
+.field-gallery-preview.auto-height {
+position: relative;
+display: block;
+margin: 0px;
+padding: 0px;
+height: auto;
+width: 100%;
+overflow: hidden;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+
+.field-gallery-preview.auto-height ul {
+position: relative;
+width: 100%;
+      display: block;
+
+}
+
+.field-gallery-preview.auto-height ul li {
+position: relative;
+max-width: 100%;
+  text-align: left;
+    vertical-align: top;
+    display: inline-block;
+}

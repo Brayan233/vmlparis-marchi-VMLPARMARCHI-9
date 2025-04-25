@@ -1,0 +1,40 @@
+{
+    "type": "field",
+    "author": "slab",
+    "version": "1.0",
+    "update": "",
+    "sync": "push",
+    "title": "Editor (Quill)",
+    "desc": "HTML5 editor",
+    "icon": "dashicons dashicons-edit",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [],
+    "field_id": "",
+    "field_default": "",
+    "field_dummy": "",
+    "field_title": "",
+    "field_info": "",
+    "field_desc": "",
+    "field_options": {
+        "theme": "snow",
+        "p": true,
+        "syntax": true,
+        "toolbar": [
+            [ { "font": [] }, { "size": [] }],
+            [ "bold", "italic", "underline", "strike" ],
+            [ { "color": [] }, { "background": [] }],
+            [ { "script": "super" }, { "script": "sub" }],
+            [ { "header": "1" }, { "header": "2" }, "blockquote", "code-block" ],
+            [ { "list": "ordered" }, { "list": "bullet"}, { "indent": "-1" }, { "indent": "+1" }],
+            [ {"direction": "rtl"}, { "align": [] }],
+            [ "link", "image", "video", "formula" ],
+            [ "clean" ]
+        ],
+        "placeholder": ""
+    }
+}

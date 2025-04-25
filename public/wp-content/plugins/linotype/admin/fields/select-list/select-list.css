@@ -1,0 +1,90 @@
+.wp-field-select-list .select-item {
+position: relative;
+background: #FFF;
+-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1)!important;
+box-shadow: 0 1px 1px 0 rgba(0,0,0,.1)!important;
+margin: 5px 0px 0px;
+padding: 0px;
+border-left: 5px solid #DDD;
+}
+
+.wp-field-select-list .select-item:hover {
+border-left: 5px solid #999;
+}
+
+.wp-field-select-list .select-item.active,
+.wp-field-select-list .select-item.active:hover {
+border-left: 5px solid #0085BA;
+}
+
+.wp-field-select-list .select-item .select-item-title {
+line-height: 20px;
+padding: 14px;
+padding-right: 200px;
+color: #AAA!important;
+padding-left: 10px;
+cursor: pointer;
+word-break: break-all;
+}
+
+.wp-field-select-list .select-item:hover .select-item-title{
+color: #666!important;
+}
+.wp-field-select-list .select-item.active .select-item-title{
+color: #0085BA!important;
+}
+
+.wp-field-select-list .select-item .action-activate  {
+display: inline-block;
+}
+.wp-field-select-list .select-item .action-desactivate  {
+display: none;
+}
+
+.wp-field-select-list .select-item.active .action-activate  {
+display: none;
+}
+.wp-field-select-list .select-item.active .action-desactivate  {
+display: inline-block;
+}
+
+.wp-field-select-list .select-item .select-item-actions  {
+position: absolute;
+top: 0px;
+right: 0px;
+margin: 0px;
+padding: 10px;
+}
+
+.wp-field-select-list .select-item .select-item-data  {
+display: none;
+width:100%;
+}
+.wp-field-select-list .select-item.open .select-item-data  {
+display: block;
+}
+.wp-field-select-list .select-item .select-item-data ul {
+display: table;
+margin: 0px!important;
+padding: 0px!important;
+width:100%;
+}
+.wp-field-select-list .select-item .select-item-data ul li  {
+display: table-row;
+margin: 0px!important;
+padding: 0px!important;
+width:100%;
+}
+.wp-field-select-list .select-item .select-item-data ul li span  {
+display: table-cell; 
+border-right: 1px solid #DDD;
+border-top: 1px solid #DDD;
+padding: 5px 10px 5px 20px;
+word-break: break-all;
+}
+.wp-field-select-list .select-item .select-item-data ul li span.select-item-data-title  {
+width:100px;
+}
+.wp-field-select-list .select-item .select-item-data ul li span.select-item-data-desc  {
+width:30%;
+}

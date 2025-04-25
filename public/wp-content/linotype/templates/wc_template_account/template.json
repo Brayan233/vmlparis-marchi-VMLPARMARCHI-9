@@ -1,0 +1,56 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light"
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "tab": "Nav"
+                }
+            ]
+        }
+    },
+    {
+        "type": "wc_block_account_nav",
+        "contents": {
+            "content_0": {
+                "type": "wc_block_account",
+                "id": "dba214c21df9b9521626f11061504474"
+            }
+        },
+        "options": {
+            "menu": "[extra_01]",
+            "_overwrite": ""
+        }
+    },
+    {
+        "type": "sg_module_footer",
+        "id": "d90c62c300302fd3146c81056e9dafb0"
+    }
+]

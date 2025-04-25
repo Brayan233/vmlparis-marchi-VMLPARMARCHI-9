@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "morr",
+    "version": "1.8.0",
+    "update": "",
+    "sync": "",
+    "title": "jQuery appear",
+    "desc": "jQuery plugin for tracking element's appearance in browser viewport",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "morr_library_appear",
+            "version": "1.8.0",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "/script.js",
+            "min": "/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

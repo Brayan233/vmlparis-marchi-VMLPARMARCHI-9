@@ -1,0 +1,22 @@
+{
+    "type": "block",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Tabs",
+    "desc": "",
+    "icon": "dashicons dashicons-index-card",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [
+        "sg_block_product_grid"
+    ],
+    "libraries": [
+        "Jangosteve_library_Easytabs"
+    ]
+}

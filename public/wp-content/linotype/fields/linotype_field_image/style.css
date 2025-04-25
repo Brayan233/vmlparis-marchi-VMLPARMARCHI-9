@@ -1,0 +1,14 @@
+.linotype_field_image img {
+  margin: 0px;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+}
+.field-image-preview {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAAIklEQVQYV2O8d+9eGgMUKCkpzYKxGUmXgGkF0ci6GUmWAADemRUHF2KdUAAAAABJRU5ErkJggg==);
+  width: auto;
+  padding: 10px;
+}
+.linotype_field_image .field-image-action {
+padding-bottom:10px;
+}

@@ -1,0 +1,37 @@
+{
+    "type": "library",
+    "author": "vadikom",
+    "version": "1.0",
+    "update": "",
+    "sync": "",
+    "title": "SmartMenus",
+    "desc": "Advanced jQuery website menu plugin. Mobile first, responsive and accessible",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "vadikom_library_smartmenus",
+            "version": "1.1.0",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "\/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": [
+        {
+            "id": "vadikom_library_smartmenus",
+            "version": "1.1.0",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "\/style.css",
+            "cdn": ""
+        }
+    ]
+}

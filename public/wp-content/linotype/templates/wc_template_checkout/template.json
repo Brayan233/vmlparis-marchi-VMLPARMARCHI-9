@@ -1,0 +1,45 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light"
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "tab": "Nav"
+                }
+            ]
+        }
+    },
+    {
+        "type": "wc_block_checkout"
+    },
+    {
+        "type": "sg_module_footer"
+    }
+]

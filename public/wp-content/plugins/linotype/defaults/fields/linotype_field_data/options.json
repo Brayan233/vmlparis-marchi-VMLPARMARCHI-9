@@ -1,0 +1,13 @@
+{
+    "collapsed": false,
+    "height": "500px",
+    "data": [
+        {
+            "id": "value",
+            "title": "",
+            "desc": "",
+            "type": "text",
+            "width": "100%"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "block",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "404",
+    "desc": "",
+    "icon": "dashicons dashicons-text",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": []
+}

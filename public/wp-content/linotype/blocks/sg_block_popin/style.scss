@@ -1,0 +1,83 @@
+/* popin */
+.sg_block_popin {
+  position: fixed;
+  z-index: 2001;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 100%;
+  opacity:0;
+  transition: opacity .4s ease-in-out;
+  overflow: hidden;
+
+  &.open {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity:1;
+  }
+
+  .sg_block_popin-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .sg_block_popin-content {
+      width:100%;
+      margin: 0 8rem;
+      background: #fff;
+    }
+
+  }
+
+  .sg_block_popin-close-wrapper {
+    z-index: 1;
+    position: absolute;
+    top: 2.2rem;
+    right: 0;
+    left: 0;
+    text-align: right;
+
+    @media (min-width: 992px) {
+      top: 2.9rem;
+    }
+  }
+  .sg_block_popin-close {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M5.293 5.293a1 1 0 011.414 0L12 10.585l5.293-5.292a1 1 0 011.32-.083l.094.083a1 1 0 010 1.414L13.415 12l5.292 5.293a1 1 0 01.083 1.32l-.083.094a1 1 0 01-1.414 0L12 13.415l-5.293 5.292a1 1 0 01-1.32.083l-.094-.083a1 1 0 010-1.414L10.585 12 5.293 6.707a1 1 0 01-.083-1.32z' id='a'/%3E%3C/defs%3E%3Cuse fill='%23000' fill-rule='nonzero' xlink:href='%23a'/%3E%3C/svg%3E");
+    cursor: pointer;
+  }
+  .sg_block_popin-container {
+    height: 100%;
+  }
+}
+.popin-backdrop {
+  z-index: 2000;
+  position: fixed;
+  opacity: 0;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(221, 218, 211, 0.75);
+  transition: all .4s ease-in-out;
+
+  &.show {
+    opacity: 1;
+    display: block;
+
+    @media (min-width: 768px) {
+      background-color: rgba(221, 218, 211, 0.8);
+    }
+  }
+  @supports (backdrop-filter: blur()) {
+    backdrop-filter: blur(.51rem);
+
+    @media (min-width: 768px) {
+      backdrop-filter: blur(1.02rem);
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.sg_block_hero {
+  
+  .hero {
+    position: relative;
+    z-index: 1;
+    margin: 30px 0px 30px 65px;
+    padding: 30px 200px 30px 30px;
+
+    &.small{
+      padding: 30px 200px 30px 30px;
+    }
+
+  }
+
+  .bg {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    overflow: hidden;
+    margin: 30px 65px;
+    background: #888888;
+    background: rgb(255, 255, 255);
+  }
+  .bg:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgb(241, 241, 241) 20%, rgba(241, 241, 241, 0.67) 50%, rgba(241, 241, 241, 0) 100%);
+  }
+
+  img {
+    opacity: 1;
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  h1 line,
+  h2 line,
+  h3 line,
+  h4 line,
+  h5 line,
+  h6 line,
+  p line {
+    display: block;
+  }
+
+  h1 line:last-child,
+  h2 line:last-child,
+  h3 line:last-child,
+  h4 line:last-child,
+  h5 line:last-child,
+  h6 line:last-child,
+  p line:last-child {
+    display: inline-block;
+  }
+
+  h1 line:not(:last-child):after,
+  h2 line:not(:last-child):after,
+  h3 line:not(:last-child):after,
+  h4 line:not(:last-child):after,
+  h5 line:not(:last-child):after,
+  h6 line:not(:last-child):after,
+  p line:not(:last-child):after {
+    content: " ";
+    display: inline-block;
+  }
+
+}

@@ -1,0 +1,253 @@
+.linotype_field_data-content {
+    position: relative;
+}
+
+.linotype_field_data .link {
+    padding: 0 6px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.linotype_field_data-items {
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+    min-height: 80px;
+}
+.empty{
+    padding: 31px;
+    position: absolute;
+    color: #b3b3b3;
+    font-style: italic;
+}
+.linotype_field_data-item {
+    padding: 0px 35px 0px 35px;
+    margin: -1px;
+    position: relative;
+    border: 1px solid #ddd;
+    background: #f5f5f5;
+}
+.linotype_field_data-item.gu-transit {
+    overflow: hidden!important;
+}
+
+.gu-mirror {
+    opacity: 1!important;
+    -ms-filter: none!important;
+    filter: none!important;
+}
+
+.linotype_field_data-footer {
+    background: #f5f5f5;
+    margin-top: -1px;
+    padding: 10px;
+    position: relative;
+    border: 1px solid #ddd;
+}
+
+.linotype_field_data-item-title {
+    display: none;
+}
+
+.linotype_field_data-item-datas {
+    padding: 0px;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    min-height: 70px;
+}
+
+.linotype_field_data-item-data {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    padding-right: 1%;
+    padding: 0px;
+    vertical-align: top;
+}
+
+.linotype_field_data-item-data-padding {
+    padding:10px;
+}
+
+.linotype_field_data-item-data-value {
+    width: 100%;
+}
+
+.linotype_field_data-item-delete {
+    position: absolute;
+    top: 10px;
+    margin: auto;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #D22C42;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    line-height: 12px;
+    color: #fff !important;
+    text-align: center;
+}
+
+.linotype_field_data-item-move {
+    position: absolute;
+    top: 10px;
+    margin: auto;
+    bottom: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+}
+
+.linotype_field_data-item-move span,
+.linotype_field_data-item-move::before,
+.linotype_field_data-item-move::after {
+    position: relative;
+    top: 0px;
+    display: block;
+    background: #ddd;
+    width: 15px;
+    height: 2px;
+    border-radius: 1px;
+    line-height: 12px;
+    color: #fff !important;
+    text-align: center;
+}
+
+.linotype_field_data-item-move::before {
+    top: 7px;
+    content: " ";
+}
+
+.linotype_field_data-item-move::after {
+    top: 8px;
+    content: " ";
+}
+
+.linotype_field_data input:focus{
+    outline:none;
+}
+
+.linotype_field_data-items.collapsed .linotype_field_data-item-datas {
+    min-height:80px;
+    height:80px;
+    overflow: hidden;
+}
+.linotype_field_data-items.collapsed .linotype_field_data-item.expand .linotype_field_data-item-datas {
+    height:inherit;
+    padding-bottom: 20px;
+}
+
+.linotype_field_data-item-expand {
+    position: absolute;
+    z-index: 9999;
+    display: block;
+    bottom: 0px;
+    left: 36px;
+    right: 36px;
+    cursor: pointer;
+    color: #0085ba;
+    background: #f5f5f5;
+    display: none;
+}
+.linotype_field_data-items.collapsed .linotype_field_data-item-expand {
+    display: block;
+}
+.linotype_field_data-item-expand span {
+    content: " ";
+    position: relative;
+    display: block;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 15px;
+    padding: 0px 17px 10px 17px;
+}
+.linotype_field_data-items.collapsed .linotype_field_data-item.expand .linotype_field_data-item-expand span {
+    background: transparent;
+    display: block;
+    color: #d22b42;
+}
+.linotype_field_data-item:hover .linotype_field_data-item-expand span {
+    display: block;
+}
+
+
+.linotype_field_data-item:hover .linotype_field_data-item-expand {
+    opacity:1;
+}
+.linotype_field_data-item.expand .linotype_field_data-item-expand {
+    height: 25px;
+    line-height: 25px;
+}
+
+
+.linotype_field_data-select_custom {
+    position:relative;
+}
+.linotype_field_data-select_custom ul {
+    position:absolute;
+    z-index:1;
+    left:1px;
+    top:calc( 100% - 2px );;
+    margin:0px;
+    width:calc( 100% - 2px );
+    display:none;
+    max-height:150px;
+    overflow:auto;
+    border:1px solid #ddd;
+    background:#fff;
+    box-shadow:0px 3px 3px rgba(0,0,0,0.1);
+}
+.linotype_field_data-select_custom input:focus ~ ul,
+.linotype_field_data-select_custom ul:hover {
+     display:block;
+}
+.linotype_field_data-select_custom ul li {
+    position: relative;
+    margin: 0px;
+    padding: 2px;
+    line-height: 21px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #fff;
+    opacity: 0.8;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px -1px 0 rgba(0, 0, 0, 0.2), -1px 1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+.linotype_field_data-select_custom ul li:hover {
+    opacity:1;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.6), 1px -1px 0 rgba(0, 0, 0, 0.6), -1px 1px 0 rgba(0, 0, 0, 0.6), 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.linotype_field_data-select_custom input {
+    border: none;
+    line-height: 21px;
+    background: #ddd;
+    color: #fff;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px -1px 0 rgba(0, 0, 0, 0.2), -1px 1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.linotype_field_data-json {
+    background:#333!important;
+    color:#ddd!important;
+    min-height:150px;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+
+
+
+.linotype_field_data_image input {
+    display:none;   
+}
+.linotype_field_data_image > .actions {
+    padding:5px 0px;
+}

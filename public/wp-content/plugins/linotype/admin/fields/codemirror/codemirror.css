@@ -1,0 +1,95 @@
+.cm-s-material span.cm-error,
+.cm-s-material span.cm-tag {
+/*color:inherit;*/
+background-color: inherit;
+}
+
+.field-shadow{
+	border: 1px solid #E5E5E5;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.wp-field-codemirror .CodeMirror-wrap {
+/*border: 1px solid #E5E5E5;*/
+box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.CodeMirror pre {
+    /*padding: 0 35px;*/
+}
+
+/* remove codemiror border if in postbox and full width  */
+.postbox:not(.hide-box-style) .wp-field-codemirror.zero-border .CodeMirror-wrap {
+box-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow:none;
+border:none;
+}
+
+.wp-field-codemirror .CodeMirror-toolbar {
+border-bottom: 1px solid #DEDEDE;
+background: #F5F5F5 none repeat scroll 0% 0%;
+height: 36px;
+line-height: 37px;
+padding-left: 10px;
+position: relative;
+color: #AAA;
+text-transform: uppercase;
+}
+
+.wp-field-codemirror[wp-field-option-autoheight="1"] .CodeMirror {
+height:auto!important;
+}
+
+.wp-field-codemirror .CodeMirror pre.CodeMirror-placeholder {
+color: #999;
+}
+
+.wp-field-codemirror .cm-overlay {
+color: #FFF;
+/*background-color:#0073AA;*/
+background-color:rgba(61, 192, 255, 0.51);
+padding: 1px 0px 1px 0px;
+border-radius: 3px;
+}
+
+.wp-field-codemirror .cm-overlay2 {
+color: #FFF;
+/*background-color:#0073AA;*/
+background-color:rgba(52, 255, 60, 0.5);
+padding: 1px 0px 1px 0px;
+border-radius: 3px;
+}
+.wp-field-codemirror .cm-overlay-php {
+background-color:rgba(52, 255, 60, 0.5);
+padding: 1px 0px 1px 0px;
+border-radius: 3px;
+}
+
+/*
+.wp-field-codemirror .CodeMirror {
+border: 1px solid silver;
+}
+*/
+
+/*
+.wp-field-codemirror .CodeMirror-empty {
+outline: 1px solid #c22;
+}
+*/
+
+/*
+.wp-field-codemirror .CodeMirror-empty.CodeMirror-focused {
+outline: none;
+}
+*/
+
+
+
+.wp-field-codemirror .codemirror-scroll-x {
+   overflow-x:scroll!important;
+}
+.CodeMirror {
+    overflow:hidden;
+   width:5000px!important;
+}

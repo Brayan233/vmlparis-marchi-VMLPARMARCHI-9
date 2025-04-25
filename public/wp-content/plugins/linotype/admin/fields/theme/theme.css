@@ -1,0 +1,134 @@
+.theme-tabs{
+  display:block;
+  width:100%;
+  padding:0px;
+  margin:0px;
+  padding-top:20px;
+}
+.theme-tabs .theme-tab {
+  color:#888;
+    display:inline-block;
+    padding:10px;
+    cursor: pointer;
+}
+.theme-tabs .theme-tab.select,
+.theme-tabs .theme-tab.select:hover {
+  color:#333;
+}
+.theme-tabs .theme-tab:hover{
+    color:#666;
+}
+.theme-contents {
+  display:block;
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+.theme-contents .theme-content {
+  display:none;
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+.theme-contents .theme-content.show {
+  display:block!important;
+}
+
+
+.type-tabs{
+  display:block;
+  width:100%;
+  padding:0px;
+  margin:0px;
+}
+.type-tabs .type-tab {
+  color:#888;
+    display:inline-block;
+    padding:10px;
+    cursor: pointer;
+}
+.type-tabs .type-tab.select,
+.type-tabs .type-tab.select:hover {
+  color:#333;
+}
+.type-tabs .type-tab:hover{
+    color:#666;
+}
+.type-contents {
+  display:block;
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+.type-contents .type-content {
+  display:none;
+    width:100%;
+    padding:0px;
+    margin:0px;
+}
+.type-contents .type-content.show {
+  display:block!important;
+}
+
+
+
+
+
+.theme-tabs {
+    border-bottom:1px solid #ccc;
+      line-height:20px;
+    height:2Opx;
+    padding: 0px;
+    margin:5px 0px 0px 0px;
+       background-color:#f1f1f1;
+position:relative;
+
+}
+.theme-tabs .theme-tab {
+    border-left:1px solid #ccc;
+     border-top:1px solid #ccc;
+     border-right:1px solid #ccc;
+    line-height:10px;
+    height:1Opx;
+    margin:0px 2px;
+    position:relative;
+    top:1px;
+    font-weight: 600;
+}
+.theme-tabs .theme-tab.select {
+    background-color:#f1f1f1;
+
+}
+
+.type-tabs {
+padding-top:10px;
+}
+.type-tabs .type-tab {
+  font-weight: 600;
+}
+
+
+.type-contents .order-rule {
+    line-height:26px;
+    color:#888;
+    padding-right:4px;
+    cursor:move;
+}
+
+
+
+.rule-if{
+    width:100px;
+}
+.rule-is{
+  line-height: 20px;
+    vertical-align: middle;
+}
+.rule-is,
+.rule-is-select{
+    width:250px;
+}
+
+.rule-template{
+    width:250px;
+}

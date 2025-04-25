@@ -1,0 +1,9 @@
+{
+    "taxonomy" : "category",
+    "data" : [],
+	"custom" : false,
+	"placeholder" : "-",
+	"maxOptions" : 1000,
+	"labelField" : "title",
+    "valueField" : "value"
+}

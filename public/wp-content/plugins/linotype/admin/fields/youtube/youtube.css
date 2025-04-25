@@ -1,0 +1,86 @@
+#youtube-searchbar{
+    position:relative;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+#youtube-search-button{
+    position:absolute;
+    top:1px;
+    bottom:1px;
+    right:1px;
+    color: #555;
+    border-left: solid 1px #ccc;
+    background: #f7f7f7;
+    line-height:25px;
+    padding-left:5px;
+    padding-right:5px;
+    cursor:pointer;
+}
+#youtube-video-list{
+
+}
+.youtube-video-list-item {
+width:20%;
+display:inline-block;
+vertical-align:top;
+
+}
+.youtube-video-list-item img {
+padding-right:5px!important;
+padding-bottom:5px!important;
+margin:0px;
+width:100%;
+display:block;
+cursor:pointer;
+overflow:hidden;
+}
+.youtube-video-list-item span {
+
+}
+/*.wp-field-youtube .selectize-input,
+.wp-field-youtube .selectize-input.input-active  {
+border: 1px solid #d0d0d0;
+padding: 5px;
+margin: 0px;
+width: 100%;
+overflow: hidden;
+position: relative;
+z-index: 1;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+resize: none;
+display: block;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+border: 1px solid #ddd;
+-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+background-color: #fff;
+color: #32373c;
+outline: 0;
+-webkit-transition: 50ms border-color ease-in-out;
+transition: 50ms border-color ease-in-out;
+
+}
+
+
+
+.selectize-control.plugin-clear_button .clearAll {
+  font-size: 20px;
+  line-height: 25px;
+  position: absolute;
+  right: 40px;
+  z-index: 10;
+  top: 1px;
+  cursor: pointer;
+  color: #404040;
+}
+.selectize-control.plugin-clear_button .clearAll.disabled {
+  opacity: .5;
+  cursor: default;
+}
+.selectize-control.plugin-clear_button .clearAll:active, .selectize-control.plugin-clear_button .clearAll:focus {
+  outline: 0;
+}*/

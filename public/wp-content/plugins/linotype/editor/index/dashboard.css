@@ -1,0 +1,36 @@
+
+select#linotype_theme {
+    color: #2d73aa;
+font-size: 50px;
+font-weight: 600;
+margin: 0px;
+background-color: transparent;
+line-height: 50px;
+background: url(data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px…='#999'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>);
+display:inline-block;
+width:inherit;
+background-repeat: no-repeat;
+background-position: right center;
+background-size: 10px 15px;
+margin-right: 0px;
+
+padding: 0px 20px 0px 0px;
+
+font-family: arial,tahoma;
+
+text-align: center;
+text-shadow: none;
+border-radius: 0px;
+-webkit-border-radius: 0px;
+-webkit-appearance: none;
+vertical-align: middle;
+border: 0;
+outline: 0;
+border: none;
+box-shadow: none;
+-webkit-transition: 0.3s ease all;
+-moz-transition: 0.3s ease all;
+-ms-transition: 0.3s ease all;
+-o-transition: 0.3s ease all;
+transition: 0.3s ease all;
+}

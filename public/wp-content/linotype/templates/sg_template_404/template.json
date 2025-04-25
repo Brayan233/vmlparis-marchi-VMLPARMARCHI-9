@@ -1,0 +1,77 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light"
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "tab": "Nav"
+                }
+            ]
+        }
+    },
+    {
+        "type": "sg_block_404",
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "title",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "yes",
+                    "meta_id": "404_title",
+                    "tab": "404"
+                },
+                {
+                    "id": "desc",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "yes",
+                    "meta_id": "404_desc",
+                    "tab": "404"
+                },
+                {
+                    "id": "link_title",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "yes",
+                    "meta_id": "404_link_title",
+                    "tab": "404"
+                },
+                {
+                    "id": "link_url",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "yes",
+                    "meta_id": "404_link_url",
+                    "tab": "404"
+                }
+            ]
+        }
+    },
+    {
+        "type": "sg_module_footer"
+    }
+]

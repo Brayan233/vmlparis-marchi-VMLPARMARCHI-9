@@ -1,0 +1,532 @@
+.wp-field-list-bottom .wp-field-list-perpage {
+  display: inline-block;
+  margin: 0px!important;
+  border: 1px solid #111!important;
+  
+  padding: 0px 0px 0px 0px!important;
+  font-size: 13px!important;
+  height: 24px!important;
+   line-height: 24px!important;
+  border: 0px solid #ccc!important;
+  color:#777;
+
+position: absolute;
+  vertical-align: top;
+  top: -2px;
+  right: 0px;
+ 
+}
+.wp-field-list-bottom .wp-field-list-perpage select {
+  display: inline-block;
+  margin: 0px!important;
+  border: 1px solid #111!important;
+  background: transparent!important;
+  padding: 0px 0px 0px 0px!important;
+  font-size: 13px!important;
+  height: 24px!important;
+   line-height: 24px!important;
+  border: 0px solid #ccc!important;
+  color:#777;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  vertical-align: top;
+}
+.wp-field-list-bottom .wp-field-list-perpage select::-ms-expand { 
+    display: none; /* remove default arrow on ie10 and ie11 */
+}
+
+.wp-field-list-bottom{
+  display: block;
+  padding:0px 5px;
+  position: relative;
+}
+.wp-field-list-pagination {
+  display: inline-block;
+  vertical-align: top;
+  
+}
+.wp-field-list-pagination ul{
+  display: inline-block;
+  padding: 0px 3px;
+  margin: 0px;
+}
+.wp-field-list-pagination ul li{
+  display: inline-block;
+  padding: 0px 3px;
+  
+}
+.wp-field-list-pagination ul li a{
+    color:#999;
+  text-decoration: none;
+}
+.wp-field-list-pagination ul li.active a{
+    color:#333;
+  
+}
+.wp-field-list-filters-toggle{
+  line-height: 32px;
+  font-size: 18px;
+  color:#777;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.wp-field-list-filters-toggle:hover{
+  color:#333;
+}
+
+.wp-field-list div {
+     -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.wp-field-list-content{
+  position: relative;
+  overflow: hidden;
+  
+}
+.wp-field-list-filters{
+  width: 175px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  overflow: auto;
+  margin: 65px 0px 0px 25px;
+  display: block;
+  vertical-align: top;
+  z-index: 0;
+  visibility: hidden;
+}
+.wp-field-list-content.open .wp-field-list-filters{
+  visibility: visible;
+}
+.checkbox_input_title{
+  margin: 15px 10px 5px 0px;
+}
+.wp-field-list-content .wp-field-list-filters-search {
+  width:162px;
+   display: none;
+}
+.wp-field-list-content.open .wp-field-list-filters-search {
+  display: inline-block;
+  padding: 0px 4px 0px 4px;
+  margin: 0px 10px 0px 0px;
+  width: 146px;
+  border: none;
+  font-size: 13px;
+  line-height: 25px;
+  background: #ededed;
+  box-shadow: none;
+}
+
+.wp-field-list-items{
+  margin: 75px 10px 20px 10px;
+  display: block;
+  vertical-align: top;
+  background: #f1f1f1;
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  min-height: 500px;
+}
+.wp-field-list-items .wp-field-list-items-content{
+
+  
+}
+.wp-field-list-content.open .wp-field-list-items{
+  margin-left: 200px;
+
+   display: block;
+  vertical-align: top;
+}
+
+
+.wp-field-list-filter-checkbox .checkbox {
+  display: block;
+  position: relative;
+  color: #666;
+  margin-right:10px;
+  cursor: pointer;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.wp-field-list-filter-checkbox .checkbox input {
+display: none;
+}
+.wp-field-list-filter-checkbox .checkbox:hover span:not(.checkbox_input_counter) {
+color: #111;
+}
+.wp-field-list-filter-checkbox .checkbox input:checked + span {
+color: #111;
+}
+.wp-field-list-filter-checkbox .checkbox input.checkbox_all.all + span {
+  color: #111 !important;
+}
+.checkbox_input_counter{
+  background-color: #333;
+  font-size: 10px;
+  color:#fff;
+  padding: 0px 2px;
+  border-radius: 2px;
+  margin-left: 2px;
+   visibility: hidden;
+}
+.wp-field-list-filter-checkbox .checkbox:hover .checkbox_input_counter {
+  visibility: visible;
+}
+
+.wp-field-list-filter-checkbox.inline {
+  display: inline-block;
+}
+.wp-field-list-filter-checkbox.inline .checkbox {
+  display: inline-block;
+}
+.wp-field-list-filter-checkbox.inline .checkbox_input_counter {
+ position: absolute;
+  right:-5px;
+  top:-1px;
+  line-height: 12px
+}
+
+.listcard-items {
+  margin-right: -5px;
+  margin-left: -5px;
+}
+.listcard-item-content {
+  position: relative;
+  overflow: auto;
+  margin: 0px 5px 10px 5px;
+  padding: 0px 0px 25px 0px;
+  border: 1px solid #e5e5e5;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  background: #fff;
+  font-size: 11px;
+  line-height: 2.1em;
+overflow: hidden;
+}
+.listcard-icon {
+  font-size: 15px!important;
+  color: #999!important;
+  vertical-align:middle!important;
+  line-height:20px!important;
+  width:20px!important;
+  margin:0px!important;
+  padding:0px!important;
+  text-align:center!important;
+ }
+ .listcard-id {
+  font-size: 10px;
+  line-height: 25px;
+  color: #888;
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-touch-callout: all!important;
+  -webkit-user-select: all!important;
+  -khtml-user-select: all!important;
+  -moz-user-select: all!important;
+  -ms-user-select: all!important;
+  user-select: all!important;
+ }
+.listcard-title {
+  font-size: 15px;
+  color: #0085ba;
+  cursor: default;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.listcard-author {
+  font-size: 12px;
+
+}
+.listcard-desc {
+  font-size: 12px;
+  line-height: 25px;
+  color:#999;
+  cursor:default;
+  opacity: .4;
+  /* white-space: nowrap; */
+}
+.listcard-item:hover .listcard-desc {
+  opacity: 1;
+}
+.listcard-author  {
+  font-size: 12px;
+}
+.listcard-author a {
+  text-decoration: none;
+}
+
+.listcard-header {
+  clear: both;
+  padding: 15px;
+  background-color: #FFF;
+  overflow: hidden;
+  position: relative;
+}
+.listcard-header-right {
+ position: absolute;
+ top:5px;
+ right:5px;
+}
+
+.listcard-footer {
+  clear: both;
+  padding: 0px;
+  background-color: #fafafa;
+  border-top: 1px solid #ddd;
+  overflow: hidden;
+  position: absolute;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  height: 25px;
+}
+.listcard-footer.open {
+  overflow: hidden;
+  top:-1px;
+  height: 100%;
+}
+.listcard-toggle{
+  font-size: 12px;
+  line-height: 20px;
+  color: #AAA;
+  cursor:pointer;
+  vertical-align: middle;
+}
+
+.listcard-footer .listcard-footer-left {
+
+ padding: 2px 5px 0px 5px;
+
+  
+}
+.listcard-footer.open .listcard-footer-left {
+position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  
+}
+.listcard-infos{
+  line-height: 20px
+}
+.listcard-footer .listcard-footer-right {
+position: absolute;
+bottom:0px;
+right:5px;
+}
+
+.listcard-libraries {
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+.listcard-libraries ul {
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+.listcard-libraries ul li {
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+.listcard-libraries ul li:not(:first-child) {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 3px;
+  background: #eee;
+  color: #333;
+  border-radius: 2px;
+  font-size: 9px;
+  line-height: 15px;
+}
+
+.listcard-tags {
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+.listcard-tags ul {
+  display:inline-block;
+  margin:0px;
+  padding:0px;
+}
+.listcard-tags ul li {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 3px;
+
+  color: #999;
+  border-radius: 2px;
+  font-size: 9px;
+  line-height: 15px;
+  cursor:default;
+}
+
+
+.list-toolbar{
+	display: block;
+  position: relative;
+  padding: 10px 20px 15px 20px;
+  z-index: 1;
+  line-height: 32px;
+  border-bottom:1px solid #ddd;
+  position: fixed;
+  top: 50px;
+  left: 0px;
+  z-index: 10;
+  right: 0px;
+  background: #f0f1f1d9;
+}
+
+.list-toolbar-list-item {
+  display: inline;
+  padding:0px 0px 0px 5px;
+     color:#999;
+     line-height: 25px;
+  cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.list-toolbar-list-item:hover {
+   color:#666;
+}
+.list-toolbar-list-item.mixitup-control-active{
+ color:#333;
+}
+
+.list-toolbar-right{
+	position: absolute;
+  top: 15px;
+  right: 25px;
+  display: block;
+	
+}
+.list-toolbar-sort {	
+
+}
+
+.listcard-item-preview{
+    display: block;
+    top: 60px;
+    background-size: 100% auto;
+    position: absolute;
+    bottom: 25px;
+    background-color: #fff;
+    left: 10px;
+    right: 10px;
+    box-shadow: 0px 4px 11px 0px #00000017;
+    border: 1px solid #e1e1e1;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    opacity: 0.7;
+}
+.listcard-item:hover .listcard-item-preview {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+
+
+
+.listcard-items.as-list .listcard-item {
+/* width:100%!important;
+max-width:100%!important;
+display:block!important;
+flex: auto; */
+}
+.listcard-items.as-list .listcard-item-content{
+  height:135px;
+}
+
+.listcard-items.as-list .listcard-item-preview {
+right:inherit;
+width: 170px;
+height: 113px;
+background-repeat:no-repeat;
+top:10px;
+left:10px;
+
+box-shadow:none;
+}
+
+.listcard-items.as-list .listcard-header {
+  margin-left: 185px;
+}
+
+
+
+
+.listcard-items.as-list .listcard-item-preview {
+  display: none!important;
+}
+.listcard-items.as-list .listcard-header {
+  margin-left: 0px!important;
+}
+
+
+
+.listcard-sync {
+  display: inline-block;
+  line-height: 16px;
+  padding: 0px 4px;
+  border-radius: 2px;
+}
+
+.listcard-sync-core{
+  color: #ffffff!important;
+  background-color:#e0e0e0!important;
+  /* color: #8a6d3b!important;
+  background-color: #fcf8e3!important; */
+}
+
+.listcard-sync-init{
+  color: #949494!important;
+  background-color: #f0f0f0!important;
+  /* color: #8a6d3b!important;
+  background-color: #fcf8e3!important; */
+}
+
+.listcard-sync-update {
+  color: #31708f!important;
+  background-color: #f0f0f0!important;
+/* color: #31708f!important; */
+  background-color: #d9edf7!important;
+}
+.listcard-sync-push{
+color: #a94442!important;
+background-color: #f2dede!important;
+border-color:#f2dede!important;
+}
+.listcard-sync-pull {
+color: #3c763d!important;
+background-color: #dff0d8!important;
+border-color:#c0e8af!important
+}

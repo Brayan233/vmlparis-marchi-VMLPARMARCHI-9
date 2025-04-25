@@ -1,0 +1,164 @@
+[
+    {
+        "type": "sg_block_pictos",
+        "contents": {
+            "content_0": {
+                "type": "sg_block_pictos_item",
+                "options": {
+                    "picto": 176,
+                    "title": "Lorem ipsum",
+                    "desc": "Lorem ipsum dolor sit amet del circonstum del dol",
+                    "_overwrite": ""
+                },
+                "id": "5c19bb37f8e2ce7dd82d182e70506a6e",
+                "params": []
+            },
+            "content_1": {
+                "type": "sg_block_pictos_item",
+                "options": {
+                    "picto": 176,
+                    "title": "Lorem ipsum",
+                    "desc": "Lorem ipsum dolor sit amet del circonstum del dol",
+                    "_overwrite": ""
+                },
+                "id": "653fcc4cc22dfe0bc5b2b25696d9b360",
+                "params": []
+            },
+            "content_2": {
+                "type": "sg_block_pictos_item",
+                "options": {
+                    "picto": 176,
+                    "title": "Lorem ipsum",
+                    "desc": "Lorem ipsum dolor sit amet del circonstum del dol",
+                    "_overwrite": ""
+                },
+                "id": "19a4f868c7428cb06cc2c965244be236",
+                "params": []
+            },
+            "content_3": {
+                "type": "sg_block_pictos_item",
+                "options": {
+                    "picto": 176,
+                    "title": "Lorem ipsum",
+                    "desc": "Lorem ipsum dolor sit amet del circonstum del dol",
+                    "_overwrite": ""
+                },
+                "id": "c677baaac84f44a0d7d51edbc12632a7",
+                "params": []
+            }
+        },
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "_composer_contents",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "footer_pictos",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "Footer",
+                    "group": ""
+                }
+            ]
+        },
+        "id": "aae8a988cf03f348ee28c53db101207f",
+        "params": []
+    },
+    {
+        "type": "sg_block_panel",
+        "contents": {
+            "content_0": {
+                "type": "wc_block_cart_mini"
+            }
+        },
+        "options": {
+            "trigger": ".panel-toggle-cart",
+            "_overwrite": ""
+        },
+        "id": "8d56c1af3786883de21b241749635af4",
+        "params": []
+    },
+    {
+        "type": "sg_block_panel",
+        "contents": {
+            "content_0": {
+                "type": "wc_block_login",
+                "id": "ccae26d5e20f8dbe0c39821766fff005"
+            },
+            "content_1": {
+                "type": "linotype_block_if",
+                "contents": {
+                    "content_0": {
+                        "type": "wc_block_account_nav",
+                        "options": {
+                            "menu": "[extra_01]",
+                            "_overwrite": ""
+                        },
+                        "id": "de9a7e71e9240f89f077b8ab803d03fd",
+                        "params": []
+                    }
+                },
+                "options": {
+                    "target": "user_logged",
+                    "operator": "==",
+                    "value": true,
+                    "_overwrite": ""
+                }
+            }
+        },
+        "options": {
+            "trigger": ".panel-toggle-login",
+            "_overwrite": ""
+        },
+        "id": "83d2743a5861806ce27a7740b1fb932f",
+        "params": []
+    },
+    {
+        "type": "sg_block_footer",
+        "options": {
+            "content_1": [
+                {
+                    "type": "sg_block_subscribe",
+                    "options": {
+                        "provider": "mailchimp",
+                        "action": "https:\/\/carolinedemarchi.us9.list-manage.com\/subscribe\/post?u=3b3fbf75977de2648f30f1319&id=5d40667aa5",
+                        "_overwrite": ""
+                    },
+                    "id": "34f3310ead62f8072e4a35a77d3359a3",
+                    "params": []
+                }
+            ],
+            "content_2": [
+                {
+                    "type": "sg_block_menu",
+                    "options": {
+                        "menu": "[footer]",
+                        "_overwrite": ""
+                    }
+                }
+            ],
+            "address": "99st Lorem ipsum, Paris - Mon\/Sun - 10AM-8PM",
+            "_overwrite": [
+                {
+                    "id": "address",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "footer_adress",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "Footer",
+                    "group": ""
+                }
+            ]
+        },
+        "id": "841dd55b8c6e3df6b80b74624310398e"
+    }
+]

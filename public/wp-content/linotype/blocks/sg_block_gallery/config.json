@@ -1,0 +1,20 @@
+{
+    "type": "block",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Gallery",
+    "desc": "",
+    "icon": "dashicons dashicons-slides",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [
+        "kenwheeler_library_slick"
+    ]
+}

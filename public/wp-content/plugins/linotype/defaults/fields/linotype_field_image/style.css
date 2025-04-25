@@ -1,0 +1,10 @@
+.linotype_field_image img {
+  margin: 0px;
+  display: block;
+  max-width: 300px;
+  width: 100%;
+}
+
+.linotype_field_image .field-image-action {
+padding-bottom:10px;
+}

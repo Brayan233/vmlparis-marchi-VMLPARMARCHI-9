@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "",
+    "version": "1.0",
+    "update": "",
+    "sync": "init",
+    "title": "Isotope",
+    "desc": "",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "metafizzy_library_isotope",
+            "version": "3.0.6",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "\/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

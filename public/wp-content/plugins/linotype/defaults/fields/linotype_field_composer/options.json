@@ -1,0 +1,19 @@
+{
+    "name": "Edit",
+	"title": "",
+	"desc": "",
+	"collapsed": true,
+	"default_source": false,
+	"maxDepth": 5,
+	"group": 1,
+	"min_height": 80,
+	"type": "block",
+	"items": [],
+	"border": true,
+	"toolbar": true,
+	"actions": [ "add", "edit" ,"sort", "clone", "copy", "delete", "source", "link" ],
+	"devices": true,
+	"overwrite": true,
+	"empty": false,
+	"layout": "default"
+}

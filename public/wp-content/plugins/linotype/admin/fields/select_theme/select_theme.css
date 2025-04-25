@@ -1,0 +1,44 @@
+.wp-field-select-theme .theme  .action-desactivate {
+display:none;
+}
+/*.wp-field-select-theme .theme.active  .action-edit,*/
+.wp-field-select-theme .theme.active  .action-activate {
+display:none;
+}
+.wp-field-select-theme .theme.active  .action-desactivate {
+display:inline-block;
+}
+
+.wp-field-select-theme .theme-browser .theme {
+cursor: default!important;
+}
+
+
+.wp-field-select-theme .theme-browser .theme:focus {
+border: 1px solid #dedede!important;
+}
+
+.wp-field-select-theme .theme-browser .theme .theme-screenshot img {
+-webkit-transition: none;
+transition: none;
+}
+
+
+#dashboard-widgets .wp-field-select-theme .theme h3.theme-name {
+    margin: 0px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #23282d;
+}
+#dashboard-widgets .wp-field-select-theme .theme.active h3.theme-name {
+    color: #FFF;
+}
+
+#dashboard-widgets .theme.add-new-theme h3.theme-name {
+  /*background-color: transparent;*/
+}
+#dashboard-widgets .theme.add-new-theme .theme-screenshot {
+  /*overflow: visible;*/
+}
+

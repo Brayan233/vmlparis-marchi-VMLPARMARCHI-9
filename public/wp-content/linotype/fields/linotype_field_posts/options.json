@@ -1,0 +1,18 @@
+{
+    "post_type" : "post",
+    "data" : [],
+	"plugins" : ["restore_on_backspace","drag_drop","remove_button","optgroup_columns"],
+	"clear_button" : true,
+	"custom" : false,
+	"placeholder" : "-",
+	"delimiter" : ",",
+	"persist" : true,
+	"maxOptions" : 1000,
+	"maxItems" : 6,
+	"hideSelected" : true,
+	"allowEmptyOption" : true,
+	"closeAfterSelect" : false,
+	"labelField" : "title",
+    "valueField" : "value",
+    "fullwidthitem": true
+}

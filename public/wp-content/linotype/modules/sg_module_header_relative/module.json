@@ -1,0 +1,11 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "logo": 309,
+            "logo_sticky": 314,
+            "menu": "[general]",
+            "lang": "polylang"
+        }
+    }
+]

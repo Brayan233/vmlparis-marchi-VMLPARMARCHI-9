@@ -1,0 +1,15 @@
+.sg_block_image {
+  
+  .image-banner {
+    height: 71.43vh; // fallback for browsers that don't support custom CSS properties or if JS fails
+    height: calc(var(--vh, 1vh) * 71.43); // real vh value (calculated in sg_block_nav JS)
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+}

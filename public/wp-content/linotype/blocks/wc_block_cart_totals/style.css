@@ -1,0 +1,66 @@
+.wc_block_cart_totals {
+  padding-top: 4rem; }
+  @media (min-width: 992px) {
+    .wc_block_cart_totals {
+      width: 33.3333%;
+      padding-right: 2.4rem;
+      padding-left: 2.4rem; } }
+  .wc_block_cart_totals .cart_totals {
+    background-color: rgba(146, 148, 178, 0.05);
+    padding: 2.4rem 3.2rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem; }
+    .wc_block_cart_totals .cart_totals h2 {
+      display: none; }
+  .wc_block_cart_totals .shop_table {
+    width: 100%; }
+    .wc_block_cart_totals .shop_table th {
+      text-align: left; }
+    .wc_block_cart_totals .shop_table td {
+      text-align: right; }
+    .wc_block_cart_totals .shop_table .cart-subtotal * {
+      font-weight: 400; }
+    .wc_block_cart_totals .shop_table .cart-subtotal th,
+    .wc_block_cart_totals .shop_table .cart-subtotal td {
+      padding-bottom: 4rem; }
+    .wc_block_cart_totals .shop_table .tax-rate *,
+    .wc_block_cart_totals .shop_table .order-total *,
+    .wc_block_cart_totals .shop_table .cart-discount * {
+      font-weight: 500; }
+    .wc_block_cart_totals .shop_table .tax-rate th,
+    .wc_block_cart_totals .shop_table .tax-rate td,
+    .wc_block_cart_totals .shop_table .order-total th,
+    .wc_block_cart_totals .shop_table .order-total td,
+    .wc_block_cart_totals .shop_table .cart-discount th,
+    .wc_block_cart_totals .shop_table .cart-discount td {
+      padding-bottom: 2.4rem; }
+    .wc_block_cart_totals .shop_table .order-total * {
+      color: var(--violet); }
+    .wc_block_cart_totals .shop_table .order-total th,
+    .wc_block_cart_totals .shop_table .order-total td {
+      padding-top: 2.4rem;
+      border-top: 0.1rem solid var(--darkgrey); }
+    .wc_block_cart_totals .shop_table .woocommerce-remove-coupon {
+      color: var(--violet);
+      font-size: 1rem;
+      line-height: 1rem; }
+  .wc_block_cart_totals #wc-stripe-payment-request-wrapper {
+    padding-top: 0 !important; }
+  .wc_block_cart_totals #wc-stripe-payment-request-button-separator,
+  .wc_block_cart_totals #wc-stripe-payment-request-button-separator {
+    margin-bottom: 2.4rem !important; }
+  .wc_block_cart_totals .checkout-button {
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    background-color: var(--violet);
+    padding: 1.6rem;
+    border: 0 none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: .05rem;
+    line-height: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase; }

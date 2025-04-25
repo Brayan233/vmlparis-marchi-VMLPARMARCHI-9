@@ -1,0 +1,44 @@
+.sg_block_content {
+  position: relative;
+  background: var(--creme);
+  padding: 6.4rem 3.2rem;
+
+  @media (min-width: 768px) {
+    padding: 11.2rem 0;
+  }
+  @media (min-width: 992px) {
+    .container {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .quote-text {
+    font-family: 'Zesta', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: .02px;
+    line-height: 3.6rem;
+
+    @media (min-width: 768px) {
+      font-size: 3.4rem;
+      line-height: 4rem;
+    }
+    @media (max-width: 991px) {
+      margin-bottom: 2rem;
+    }
+    @media (min-width: 992px) {
+      width: 41.6667%;
+    }
+  }
+  .content-text {
+    font-size: 1.3rem;
+    line-height: 2rem;
+
+    @media (min-width: 992px) {
+      column-count: 2;
+      column-gap: 4.8rem;
+      width: 50%;
+      margin-left: 16.6667%;
+    }
+  }
+}

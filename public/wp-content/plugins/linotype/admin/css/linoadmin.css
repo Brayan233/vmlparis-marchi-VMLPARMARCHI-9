@@ -1,0 +1,2435 @@
+
+/**
+ * LINOADMIN
+ *
+ * handy fields builder
+ *
+ * @package WordPress
+ * @subpackage LINOADMIN
+ * @version 1.0.0
+ * @author Yannick Armspach
+ * @link http://www.handypress.io
+ *
+ */
+
+/*
+ *
+ * ********************************************************************************************************************
+ * STYLE > CUSTOM
+ * ********************************************************************************************************************
+ *
+ */
+
+/* REARANGE PAGE OPTION WRAP LAYOUT */
+/*#screen-meta {
+  margin: 0px 20px -1px 20px;
+}*/
+
+/* REMOVE SHADOW EFFECT */
+a:focus{
+-webkit-box-shadow: none!important;
+box-shadow: none!important;
+/*border-color: inherit!important;*/
+}
+a:active{
+-webkit-box-shadow: none!important;
+box-shadow: none!important;
+/*border-color: inherit!important;*/
+}
+*:focus {
+-webkit-box-shadow: none!important;
+box-shadow: none!important;
+/*border-color: inherit!important;*/
+}
+
+/*
+ *
+ * ********************************************************************************************************************
+ * Screen Option : debug zindex if wrap no margin
+ * ********************************************************************************************************************
+ *
+ */
+#screen-meta-links .screen-meta-toggle {
+    z-index: 1;
+}
+@media screen and (max-width: 782px){
+#wpbody {
+    padding-top: 0px;
+}
+p.search-box {
+    float: none;
+    position: relative;
+    bottom: 0;
+    width: 98%;
+    height: 90px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+}
+
+/*
+ *
+ * ********************************************************************************************************************
+ * TAB > DEBUG : debug and set tab style for linoadmin;
+ * ********************************************************************************************************************
+ *
+ */
+
+/* apply h2 style to div nav-tab-wrapper */
+.nav-tab-wrapper {
+    border-bottom: 1px solid #ccc;
+    margin: 0px 0px 0px 0px;
+    padding-top: 20px;
+    padding-bottom: 0;
+    line-height: inherit;
+}
+.nav-tab-wrapper a.nav-tab,
+.nav-tab-wrapper a.nav-tab-active,
+.nav-tab-wrapper a.nav-tab:hover,
+.nav-tab-wrapper a.nav-tab-active:hover {
+background-color: transparent!important;
+text-decoration: none!important;
+}
+.LINOADMIN-tab {
+    margin: 0px 0px 0em !important;
+    padding: 0px 0px 0em !important;
+}
+.LINOADMIN-tab-nav.filter-links {
+ display: block;
+}
+ul.LINOADMIN-tab-nav.filter-links li {
+    border-bottom: none;
+}
+
+
+
+.nav-tab-wrapper,
+.contextual-help-tabs {
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+
+/* TAB (H2) */
+.LINOADMIN-tab h2.nav-tab-wrapper{
+/*height: 35px!important;*/
+font-size: 23px!important;
+margin: 1em 0px!important;
+line-height: 28px!important;
+padding-top: 10px!important;
+margin-top: 0px!important;
+padding-bottom: 0px!important;
+/*padding-left: 10px!important;*/
+margin-bottom: 10px!important;
+height:35px;
+}
+.LINOADMIN-tab h2 a.nav-tab,
+.LINOADMIN-tab h2 a.nav-tab-active,
+.LINOADMIN-tab h2 a.nav-tab:hover,
+.LINOADMIN-tab h2 a.nav-tab-active:hover {
+border-bottom: 1px solid #CCC;
+background-color: transparent!important;
+text-decoration: none!important;
+}
+.LINOADMIN-tab h2 a.nav-tab-active,
+.LINOADMIN-tab h2 a.nav-tab-active:hover {
+border-bottom: 1px solid #F1F1F1;
+background: #F1F1F1 none repeat scroll 0% 0%;
+/*color: #000;*/
+}
+
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2.nav-tab-wrapper{
+height: 35px!important;
+margin: 1em 0px!important;
+line-height: 28px!important;
+padding-top: 10px!important;
+margin-top: 0px!important;
+padding-bottom: 0px!important;
+}
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2 a.nav-tab,
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2 a.nav-tab-active,
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2 a.nav-tab:hover,
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2 a.nav-tab-active:hover {
+border-bottom: 1px solid #CCC;
+}
+.postbox .LINOADMIN-tab h2 a.nav-tab-active,
+.postbox .LINOADMIN-tab h2 a.nav-tab-active:hover {
+border-bottom: 1px solid #FFFFFF;
+background: #FFFFFF none repeat scroll 0% 0%;
+/*color: #000;*/
+}
+.postbox.hide-box-style .LINOADMIN-tab h2 a.nav-tab-active,
+.postbox.hide-box-style .LINOADMIN-tab h2 a.nav-tab-active:hover {
+border-bottom: 1px solid #F1F1F1!important;
+background: #F1F1F1 none repeat scroll 0% 0%;
+/*color: #000;*/
+}
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2 a {
+background: #FFFFFF none repeat scroll 0% 0%;
+}
+.postbox::not(.hide-box-style) .LINOADMIN-tab h2 a:hover {
+background: #F1F1F1 none repeat scroll 0% 0%;
+}
+@media screen and (max-width: 785px){
+.postbox.hide-box-style .LINOADMIN-tab h2.nav-tab-wrapper,
+  .LINOADMIN-tab h2.nav-tab-wrapper{
+  /*height: 35px!important;*/
+  font-size: 23px!important;
+  margin: 0px!important;
+  line-height: 28px!important;
+  padding-top: 0px!important;
+  margin-top: 0px!important;
+  padding-bottom: 0px!important;
+  padding-left: 0px!important;
+  padding-right: 0px!important;
+  margin-right: 0px!important;
+  margin-bottom: -1px!important;
+  height:inherit;
+  border-bottom:none;
+  display: block;
+  }
+  .LINOADMIN-tab h2 a {
+  border-bottom: 1px solid #CCC!important;
+  background: #F1F1F1 none repeat scroll 0% 0%;
+ padding-right: 0px!important;
+  margin-right: 0px!important;
+      margin-top: 0px;
+   display: block;
+  margin-left: 0px;
+  margin-bottom: -1px;
+  float: none;
+  }
+  .postbox.hide-box-style .LINOADMIN-tab h2 a.nav-tab-active,
+  .postbox.hide-box-style .LINOADMIN-tab h2 a.nav-tab-active:hover,
+  .LINOADMIN-tab h2 a.nav-tab-active,
+  .LINOADMIN-tab h2 a.nav-tab-active:hover {
+  border-bottom: 1px solid #CCC!important;
+  background: #F1F1F1 none repeat scroll 0% 0%;
+ padding-right: 0px!important;
+  margin-right: 0px!important;
+      margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: -1px;
+  }
+}
+.nav-tab{
+  color:#666;
+}
+.nav-tab-active{
+  color:#000;
+}
+
+/* TAB (H3) */
+.LINOADMIN-tab h3.nav-tab-wrapper{
+height: 19px!important;
+/*margin: 1em 0px!important;*/
+line-height: inherit!important;
+padding: 8px!important;
+margin-top: 2px!important;
+}
+.LINOADMIN-tab h3 a.nav-tab,
+.LINOADMIN-tab h3 a.nav-tab-active,
+.LINOADMIN-tab h3 a.nav-tab:hover,
+.LINOADMIN-tab h3 a.nav-tab-active:hover {
+border-bottom: 1px solid #CCC;
+background-color: transparent!important;
+text-decoration: none!important;
+}
+.LINOADMIN-tab h3 a.nav-tab-active,
+.LINOADMIN-tab h3 a.nav-tab-active:hover {
+border-bottom: 1px solid #F1F1F1;
+background: #F1F1F1 none repeat scroll 0% 0%;
+color: #000;
+}
+
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3.nav-tab-wrapper{
+height: 17px!important;
+/*margin: 1em 0px!important;*/
+line-height: inherit!important;
+padding: 8px!important;
+margin-top: 2px!important;
+}
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3 a.nav-tab,
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3 a.nav-tab-active,
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3 a.nav-tab:hover,
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3 a.nav-tab-active:hover {
+border-bottom: 1px solid #CCC;
+}
+.postbox .LINOADMIN-tab h3 a.nav-tab-active,
+.postbox .LINOADMIN-tab h3 a.nav-tab-active:hover {
+border-bottom: 1px solid #FFFFFF;
+background: #FFFFFF none repeat scroll 0% 0%;
+color: #000;
+}
+.postbox.hide-box-style .LINOADMIN-tab h3 a.nav-tab-active,
+.postbox.hide-box-style .LINOADMIN-tab h3 a.nav-tab-active:hover {
+border-bottom: 1px solid #F1F1F1!important;
+background: #F1F1F1 none repeat scroll 0% 0%;
+color: #000;
+}
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3 a {
+background: #FFFFFF none repeat scroll 0% 0%;
+}
+.postbox::not(.hide-box-style) .LINOADMIN-tab h3 a:hover {
+background: #F1F1F1 none repeat scroll 0% 0%;
+}
+
+/* TAB (SUB) */
+.LINOADMIN-tab .subsubsub {
+  width: 100%;
+   margin: 0px 0px 0px 0px;
+   float: inherit;
+}
+.LINOADMIN-tab .subsubsub a,
+.LINOADMIN-tab .subsubsub a.current {
+    font-weight: 600;
+    border: none;
+}
+
+/* TAB (NAV) */
+.postbox .wp-filter {
+margin: 0px 0px 0px;
+border-top:none;
+border-left:none;
+border-right:none;
+}
+
+/* TAB CONTENT */
+.LINOADMIN-tab-content-item {
+display:block;
+height:0px;
+overflow:hidden;
+}
+.postbox.remove-padding .LINOADMIN-tab-content .wp-field {
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.LINOADMIN-tab-content-item.content-tab-active {
+height:inherit!important;
+overflow:visible!important;
+}
+.wp-filter .LINOADMIN-tab-nav-item {
+    margin-bottom:-1px!important;
+}
+.wp-filter .LINOADMIN-tab-nav-item:not(.current) {
+    border-color:transparent!important;
+}
+
+.LINOADMIN-tab-content-item .linoadmin-row > *:last-child {
+  padding-bottom: 100px;
+}
+.postbox .LINOADMIN-tab-content-item .linoadmin-row > *:last-child {
+  padding-bottom: inherit;
+}
+
+.LINOADMIN-tab {
+    
+}
+.LINOADMIN-tab > ul.LINOADMIN-tab-nav {
+    position:relative;
+    z-index:1;
+    margin:0;
+    padding:0px 15px;
+    margin:0px;
+    border-bottom:1px solid #eee;
+}
+
+.LINOADMIN-tab > ul.LINOADMIN-tab-nav:after {
+   content:"";
+   position: absolute;
+   z-index:11;
+   bottom:1px;
+   left:0;
+   right:0;
+   width:100%;
+   height:1px;
+   z-index: 1;
+   box-shadow: 0px 3px 2px rgba(0,0,0,0.1);
+   padding: 0px;
+   margin: 0px;
+}
+
+.LINOADMIN-tab > ul.LINOADMIN-tab-nav > li.LINOADMIN-tab-nav-item {
+    padding:17px 10px 13px 10px;
+    display:inline-block;
+    vertical-align:top;
+    margin:0px 5px;
+    cursor:pointer;
+    color:#777;
+    border-bottom:4px solid transparent;
+}
+.LINOADMIN-tab > ul.LINOADMIN-tab-nav > li.LINOADMIN-tab-nav-item:hover{
+    color:#333;
+    border-bottom:4px solid #ddd;
+}
+.LINOADMIN-tab > ul.LINOADMIN-tab-nav > li.LINOADMIN-tab-nav-item.active{
+    color:#3177aa;
+    border-bottom:4px solid #3177aa;
+}
+
+
+
+/*
+ *
+ * ********************************************************************************************************************
+ * METABOX > STYLE
+ * ********************************************************************************************************************
+ *
+ */
+
+/* POSTBOX remove padding */
+.postbox.remove-padding .inside {
+margin: 0px!important;
+padding:0px!important;
+}
+
+/* POSTBOX hide box style */
+.postbox.hide-box-style {
+border: none;
+box-shadow: none;
+background: transparent;
+}
+
+.postbox.hide-box-style #major-publishing-actions {
+border-top: none;
+background: transparent;
+}
+
+/* POSTBOX hide handle */
+.postbox.hide-handle .hndle,
+.postbox.hide-handle .handlediv{
+  display:none;
+}
+
+/* POSTBOX disable switch */
+.postbox.disable-switch .handlediv{
+  display:none;
+}
+
+/* POSTBOX disable sortable */
+.postbox.disable-sortable .hndle{
+  cursor: default;
+}
+
+
+#normal-sortables .submitbox .submitdelete:hover {
+    color: #F00;
+    background-color: transparent!important;
+    border-bottom-color: none!important;
+}
+
+/*
+ *
+ * ********************************************************************************************************************
+ * INPUT > STYLE : default style for linoadmin elements;
+ * ********************************************************************************************************************
+ *
+ */
+/* FIELD SECTION */
+
+/*.form-table th {
+    vertical-align: top;
+    text-align: left;
+    padding: 20px 10px 20px 0px;
+    width: 200px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+.form-table td {
+    margin-bottom: 9px;
+    padding: 15px 10px;
+    line-height: 1.3;
+    vertical-align: middle;
+}*/
+
+
+
+/* field */
+.wp-field{
+display: block;
+position:relative;
+vertical-align: top;
+margin: 0px;
+padding: 20px 0px 20px 0px;
+}
+.wp-field.zero-border,
+.postbox .LINOADMIN-tab-content .wp-field.zero-border {
+padding:0px 0px 0px 0px;
+}
+
+/* title */
+.field-title{
+display: inline-block;
+vertical-align: top;
+position:relative;
+top:0px;
+left:0px;
+bottom:0px;
+vertical-align: top;
+text-align: left;
+padding: 0px 0px 10px 0px;
+margin: 0px;
+width: 20%;
+max-width:200px;
+line-height: 1.3;
+font-weight: 600;
+color: #23282D;
+font-size: 14px;
+text-shadow: none;
+}
+.wp-field.zero-border .field-title,
+.postbox .LINOADMIN-tab-content .wp-field.zero-border .field-title {
+/*padding:0px 10px 0px 10px;*/
+}
+
+/* content */
+.field-content{
+display: inline-block;
+vertical-align: top;
+position:relative;
+top:0px;
+bottom:0px;
+right:0px;
+width: 75%;
+/*max-width:782px;*/
+margin: 0px;
+padding: 0px 0px 0px 0px;
+}
+
+/* full width if small screen */
+@media screen and (max-width:782px){
+.field-title{ width: 100%; }
+.field-content{ width: 100%; }
+}
+
+/* full width if in postbox */
+.postbox .field-title {
+padding: 0px 0px 10px 0px;
+}
+.postbox::not(.hide-box-style) .field-content {
+width: 100%;
+}
+
+
+/* full width if fullwidth class */
+.wp-field.fullwidth .field-title,
+.postbox .wp-field.fullwidth .field-title {
+width: 100%;
+padding: 0px 0px 10px 0px;
+max-width:100%;
+}
+.wp-field.fullwidth .field-content,
+.postbox .wp-field.fullwidth .field-content {
+width: 100%;
+max-width:100%;
+}
+
+.wp-field.fullheight,
+.wp-field.fullheight > .field-content,
+.wp-field.fullheight > .field-content > * {
+    position:absolute;
+     top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+/* description */
+.field-info {
+  padding-bottom:5px;
+}
+.field-description {
+  padding-top:5px;
+}
+.wp-field.zero-border .field-description,
+.postbox .LINOADMIN-tab-content .wp-field.zero-border .field-description {
+/*padding:10px 0px 0px 10px;*/
+}
+
+/* input */
+.field-input{
+display: block;
+position: relative;
+min-height: 25px;
+width: 100%;
+margin: 0px;
+padding: 0;
+}
+.field-input *{
+vertical-align: top;
+}
+.wp-field input[type="search"],
+.wp-field input[type="text"],
+.wp-field input[type="radio"],
+.wp-field input[type="tel"],
+.wp-field input[type="time"],
+.wp-field input[type="url"],
+.wp-field input[type="week"],
+.wp-field input[type="password"],
+.wp-field input[type="checkbox"],
+.wp-field input[type="color"],
+.wp-field input[type="date"],
+.wp-field input[type="datetime"],
+.wp-field input[type="datetime-local"],
+.wp-field input[type="email"],
+.wp-field input[type="month"],
+.wp-field input[type="number"],
+.wp-field select,
+.wp-field textarea {
+background-color: #FFF;
+}
+
+.field-input > input{
+resize: none;
+display: block;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+position: relative;
+width: 100%;
+margin: 0;
+}
+.field-input > textarea{
+min-height: 80px;
+resize: vertical;
+display: block;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+position: relative;
+width: 100%;
+padding: 5px;
+margin: 0;
+border:none;
+}
+.field-input label{
+display: inline-block;
+position: relative;
+min-height: 25px;
+line-height: auto;
+margin: 0;
+padding: 0px 0px 0px 5px;
+line-height: 23px;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+.field-input input[type="checkbox"]{
+display:inline-block;
+padding: 0px;
+margin: 0px;
+width:16px;
+height:16px;
+}
+
+.field-input.show {
+  display:block!important;
+}
+
+/* spinner */
+.wp-field .spinner {
+background-position: center center;
+display: inline-block;
+visibility: hidden;
+float: none;
+vertical-align: middle;
+opacity: 1;
+width: 30px;
+height: 30px;
+margin: 0px;
+visibility:visible;
+}
+.wp-field .spinner.spinner-center {
+position: absolute;
+margin: auto;
+top: 0px;
+bottom: 0px;
+left: 0px;
+right: 0px;
+z-index: 0;
+}
+/*
+ *
+ * ********************************************************************************************************************
+ * LAYOUT > DASHBOARD : debug column;
+ * ********************************************************************************************************************
+ *
+ */
+.columns-prefs .columns-prefs-3,
+.columns-prefs .columns-prefs-4 {
+    display: inline-block;
+}
+
+/* set default width in column width */
+.postbox-container{
+  width:100%;
+}
+
+.js .meta-box-static .postbox .handlediv::before, .js .sidebar-name .sidebar-name-arrow::before {
+right: 12px;
+font: 400 20px/1 dashicons;
+display: inline-block;
+padding: 8px 10px;
+top: 0px;
+position: relative;
+-moz-osx-font-smoothing: grayscale;
+text-decoration: none !important;
+content: "";
+}
+.postbox-container .meta-box-sortables{
+  min-height: 32px!important;
+}
+#dashboard-widgets .meta-box-static {
+margin: 0px 8px;
+min-height: 32px;
+}
+
+.empty-container {
+/*border: 2px dashed #B4B9BE!important;*/
+/*height: 250px!important;*/
+min-height: 10px;
+}
+
+/* DASHBOARD COL1 DEBUG */
+#wpbody-content #dashboard-widgets.metabox-holder.columns-1 .postbox-container-column-1,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-1 .postbox-container-column-2,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-1 .postbox-container-column-3,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-1 .postbox-container-column-4 {
+    width: 100%!important;
+}
+
+
+/* DASHBOARD COL2 DEBUG */
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-1{
+  float: left!important;
+}
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-2{
+  float: left!important;
+  width: 49.5%!important;
+}
+@media only screen and (min-width:800px) and (max-width:1800px){
+/*#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-1,*/
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-2,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-3,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-4 {
+    width: 49.5%!important;
+}
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-3,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-4 {
+    clear: right!important;
+}
+}
+@media only screen and (max-width:799px){
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-1,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-2,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-2 .postbox-container-column-4 {
+      width: 100%!important;
+  }
+}
+
+/* DASHBOARD COL3 DEBUG */
+
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-2{
+    float: left!important;
+  }
+
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-3{
+    float: right;
+    width: 33%;
+  }
+
+@media only screen and (min-width:1000px) and (max-width:1800px){
+
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-1 {
+      width: 33%!important;
+      float: left!important;
+  }
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-2,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-4 {
+      width: 33.5%!important;
+  }
+
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-2 {
+    float: left!important;
+  }
+
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-4 {
+    clear: right!important;
+  }
+
+}
+@media only screen and (min-width:800px) and (max-width:999px){
+#wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-1,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-2,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-3,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-4 {
+    width: 49.5%!important;
+}
+#wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-3,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-4 {
+    clear: right;
+    width: 49.5%!important;
+}
+}
+@media only screen and (max-width:799px){
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-1,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-2,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-3 .postbox-container-column-4 {
+      width: 100%!important;
+  }
+}
+
+/* DASHBOARD COL4 DEBUG */
+#wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-2,
+#wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-3 {
+  float: left!important;
+}
+@media only screen and (min-width:1500px) and (max-width:1800px){
+
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-1,
+  /*#wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-2,*/
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-4 {
+      width: 25%!important;
+  }
+
+}
+@media only screen and (min-width:1300px) and (max-width:1499px){
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-1{
+      float: left!important;
+  }
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-1,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-2,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-4 {
+      width: 25%!important;
+  }
+
+}
+@media only screen and (min-width:900px) and (max-width:1299px){
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-1 {
+      width: 33%!important;
+      float: left!important;
+  }
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-2,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-4 {
+      width: 33.5%!important;
+  }
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-4 {
+      float: right!important;
+  }
+
+}
+@media only screen and (max-width:899px){
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-1,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-2,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-3,
+  #wpbody-content #dashboard-widgets.metabox-holder.columns-4 .postbox-container-column-4 {
+      width: 100%!important;
+  }
+}
+
+/*
+ *
+ * ********************************************************************************************************************
+ * UI > BUTTON
+ * ********************************************************************************************************************
+ *
+ */
+
+.bg-red{
+background: #DE455A!important;
+}
+.color-red{
+color: #DE455A!important;
+}
+
+.wp-core-ui .button {
+text-shadow: none!important;
+}
+
+.wp-core-ui .button.button-delete,
+.wp-core-ui .button.button-error,
+.wp-core-ui .button.button-red {
+color: #FFF!important;
+border-color: #D22C42!important;
+background: #DE455A!important;
+-webkit-box-shadow: 0 1px 0 #ccc!important;
+box-shadow: 0 1px 0 #C1142B!important;
+vertical-align: top!important;
+}
+.wp-core-ui .button.button-delete:focus, .wp-core-ui .button.button-delete:hover,
+.wp-core-ui .button.button-error:focus, .wp-core-ui .button.button-error:hover,
+.wp-core-ui .button.button-red:focus, .wp-core-ui .button.button-red:hover {
+background: #E6566A!important;
+border-color: #D22C42!important;
+color: #FFF!important;
+}
+.wp-core-ui .button.button-delete:active,
+.wp-core-ui .button.button-error:active,
+.wp-core-ui .button.button-red:active {
+background: #DE455A!important;
+border-color: #D22C42!important;
+}
+.wp-core-ui .button.button-success,
+.wp-core-ui .button.button-green {
+color: #FFF!important;
+border-color: #25A964!important;
+background: #2CC164!important;
+-webkit-box-shadow: 0 1px 0 #ccc!important;
+box-shadow: 0 1px 0 #16A058!important;
+vertical-align: top!important;
+}
+.wp-core-ui .button.button-success:focus, .wp-core-ui .button.button-success:hover,
+.wp-core-ui .button.button-green:focus, .wp-core-ui .button.button-green:hover {
+background: #31D66F!important;
+border-color: #25A964!important;
+color: #FFF!important;
+}
+.wp-core-ui .button.button-success:active,
+.wp-core-ui .button.button-green:active {
+background: #2CC164!important;
+border-color: #25A964!important;
+}
+.wp-core-ui .button.button-light,
+.wp-core-ui .button.button-light:active {
+border: none!important;
+-webkit-box-shadow: 0 0px 0 #ccc!important;
+box-shadow: 0 0px 0 #ccc!important;
+-webkit-transform: translateY(0px)!important;
+-ms-transform: translateY(0px)!important;
+transform: translateY(0px)!important;
+}
+
+
+/* full width */
+.wp-core-ui .button.fullwidth {
+width: 100%;
+text-align: center;
+}
+
+/* grouped */
+.wp-core-ui .button-grouped.grouped-2 .button {
+width: 50%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-3 .button {
+width: 33.333333333%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-4 .button {
+width: 25%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-5 .button {
+width: 20%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-6 .button {
+width: 16.666666667%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-7 .button {
+width: 14.285714286%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-8 .button {
+width: 12.5%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-9 .button {
+width: 11.111111111%;
+text-align: center;
+}
+.wp-core-ui .button-grouped.grouped-10 .button {
+width: 10%;
+text-align: center;
+}
+.wp-core-ui .button-grouped .button:not(:last-child):not(:hover):not(.button-primary) {
+border-right: solid 1px transparent;
+}
+.wp-core-ui .button-grouped .button:not(:last-child) {
+border-top-right-radius : 0px;
+border-bottom-right-radius : 0px;
+}
+.wp-core-ui .button-grouped .button:not(:first-child) {
+border-top-left-radius : 0px;
+border-bottom-left-radius : 0px;
+}
+
+#wpbody-form p.submit {
+clear: left;
+}
+
+
+
+#wpbody-content > .wrap.nowrap, #wpbody-content .wrap.nowrap:first-of-type {
+margin-top: 0px!important;
+margin-left: 0px!important;
+margin-right: 0px!important;
+margin-bottom: 0px!important;
+padding-top: 0px!important;
+padding-left: 0px!important;
+padding-right: 0px!important;
+padding-bottom: 0px!important;
+}
+
+#wpbody-content > .wrap.nowrap .metabox-holder,
+#wpbody-content .wrap.nowrap:first-of-type  .metabox-holder {
+margin-top: 0px!important;
+margin-left: 0px!important;
+margin-right: 0px!important;
+margin-bottom: 0px!important;
+padding-top: 0px!important;
+padding-left: 0px!important;
+padding-right: 0px!important;
+padding-bottom: 0px!important;
+}
+
+
+
+
+body .clipboard-block{
+   display:block;
+    position: relative!important;
+
+    line-height: 25px!important;
+	height: 27px!important;
+	margin-bottom: 1px!important;
+	font-size: 12px!important;
+}
+body .clipboard-block *{
+
+}
+body .clipboard-txt{
+
+ color:#999!important;
+	padding:0px 5px!important;
+	box-shadow:none!important;
+	background-color:transparent!important;
+		font-size: 12px!important;
+	  width: 100%!important;
+	border: none!important;
+}
+
+body .clipboard-bt{
+
+    position: absolute!important;
+	top:0px!important;
+		right:0px!important;
+	bottom:0px!important;
+	padding:0px 5px 0px 5px!important;
+ color:#999!important;
+	cursor: pointer!important;
+background-color:#FFF!important;
+}
+body .clipboard-bt:hover{
+
+ color:#000!important;
+
+}
+
+
+
+/* BOOTSTRAP GRID */
+
+.linoadmin-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .linoadmin-container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .linoadmin-container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .linoadmin-container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linoadmin-container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 576px) {
+  .linoadmin-container {
+    width: 540px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .linoadmin-container {
+    width: 720px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .linoadmin-container {
+    width: 960px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linoadmin-container {
+    width: 1140px;
+    max-width: 100%;
+  }
+}
+
+.linoadmin-container-fluid {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .linoadmin-container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .linoadmin-container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .linoadmin-container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linoadmin-container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+
+.linoadmin-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width: 576px) {
+  .linoadmin-row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .linoadmin-row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .linoadmin-row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linoadmin-row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+
+.linoadmin-row.linoadmin-no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.linoadmin-row.linoadmin-no-gutters > .col,
+.linoadmin-row.linoadmin-no-gutters > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+
+.linoadmin-col-1, .linoadmin-col-2, .linoadmin-col-3, .linoadmin-col-4, .linoadmin-col-5, .linoadmin-col-6, .linoadmin-col-7, .linoadmin-col-8, .linoadmin-col-9, .linoadmin-col-10, .linoadmin-col-11, .linoadmin-col-12, .linoadmin-col, .linoadmin-col-sm-1, .linoadmin-col-sm-2, .linoadmin-col-sm-3, .linoadmin-col-sm-4, .linoadmin-col-sm-5, .linoadmin-col-sm-6, .linoadmin-col-sm-7, .linoadmin-col-sm-8, .linoadmin-col-sm-9, .linoadmin-col-sm-10, .linoadmin-col-sm-11, .linoadmin-col-sm-12, .linoadmin-col-sm, .linoadmin-col-md-1, .linoadmin-col-md-2, .linoadmin-col-md-3, .linoadmin-col-md-4, .linoadmin-col-md-5, .linoadmin-col-md-6, .linoadmin-col-md-7, .linoadmin-col-md-8, .linoadmin-col-md-9, .linoadmin-col-md-10, .linoadmin-col-md-11, .linoadmin-col-md-12, .linoadmin-col-md, .linoadmin-col-lg-1, .linoadmin-col-lg-2, .linoadmin-col-lg-3, .linoadmin-col-lg-4, .linoadmin-col-lg-5, .linoadmin-col-lg-6, .linoadmin-col-lg-7, .linoadmin-col-lg-8, .linoadmin-col-lg-9, .linoadmin-col-lg-10, .linoadmin-col-lg-11, .linoadmin-col-lg-12, .linoadmin-col-lg, .linoadmin-col-xl-1, .linoadmin-col-xl-2, .linoadmin-col-xl-3, .linoadmin-col-xl-4, .linoadmin-col-xl-5, .linoadmin-col-xl-6, .linoadmin-col-xl-7, .linoadmin-col-xl-8, .linoadmin-col-xl-9, .linoadmin-col-xl-10, .linoadmin-col-xl-11, .linoadmin-col-xl-12, .linoadmin-col-xl {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 576px) {
+  .linoadmin-col-1, .linoadmin-col-2, .linoadmin-col-3, .linoadmin-col-4, .linoadmin-col-5, .linoadmin-col-6, .linoadmin-col-7, .linoadmin-col-8, .linoadmin-col-9, .linoadmin-col-10, .linoadmin-col-11, .linoadmin-col-12, .linoadmin-col, .linoadmin-col-sm-1, .linoadmin-col-sm-2, .linoadmin-col-sm-3, .linoadmin-col-sm-4, .linoadmin-col-sm-5, .linoadmin-col-sm-6, .linoadmin-col-sm-7, .linoadmin-col-sm-8, .linoadmin-col-sm-9, .linoadmin-col-sm-10, .linoadmin-col-sm-11, .linoadmin-col-sm-12, .linoadmin-col-sm, .linoadmin-col-md-1, .linoadmin-col-md-2, .linoadmin-col-md-3, .linoadmin-col-md-4, .linoadmin-col-md-5, .linoadmin-col-md-6, .linoadmin-col-md-7, .linoadmin-col-md-8, .linoadmin-col-md-9, .linoadmin-col-md-10, .linoadmin-col-md-11, .linoadmin-col-md-12, .linoadmin-col-md, .linoadmin-col-lg-1, .linoadmin-col-lg-2, .linoadmin-col-lg-3, .linoadmin-col-lg-4, .linoadmin-col-lg-5, .linoadmin-col-lg-6, .linoadmin-col-lg-7, .linoadmin-col-lg-8, .linoadmin-col-lg-9, .linoadmin-col-lg-10, .linoadmin-col-lg-11, .linoadmin-col-lg-12, .linoadmin-col-lg, .linoadmin-col-xl-1, .linoadmin-col-xl-2, .linoadmin-col-xl-3, .linoadmin-col-xl-4, .linoadmin-col-xl-5, .linoadmin-col-xl-6, .linoadmin-col-xl-7, .linoadmin-col-xl-8, .linoadmin-col-xl-9, .linoadmin-col-xl-10, .linoadmin-col-xl-11, .linoadmin-col-xl-12, .linoadmin-col-xl {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .linoadmin-col-1, .linoadmin-col-2, .linoadmin-col-3, .linoadmin-col-4, .linoadmin-col-5, .linoadmin-col-6, .linoadmin-col-7, .linoadmin-col-8, .linoadmin-col-9, .linoadmin-col-10, .linoadmin-col-11, .linoadmin-col-12, .linoadmin-col, .linoadmin-col-sm-1, .linoadmin-col-sm-2, .linoadmin-col-sm-3, .linoadmin-col-sm-4, .linoadmin-col-sm-5, .linoadmin-col-sm-6, .linoadmin-col-sm-7, .linoadmin-col-sm-8, .linoadmin-col-sm-9, .linoadmin-col-sm-10, .linoadmin-col-sm-11, .linoadmin-col-sm-12, .linoadmin-col-sm, .linoadmin-col-md-1, .linoadmin-col-md-2, .linoadmin-col-md-3, .linoadmin-col-md-4, .linoadmin-col-md-5, .linoadmin-col-md-6, .linoadmin-col-md-7, .linoadmin-col-md-8, .linoadmin-col-md-9, .linoadmin-col-md-10, .linoadmin-col-md-11, .linoadmin-col-md-12, .linoadmin-col-md, .linoadmin-col-lg-1, .linoadmin-col-lg-2, .linoadmin-col-lg-3, .linoadmin-col-lg-4, .linoadmin-col-lg-5, .linoadmin-col-lg-6, .linoadmin-col-lg-7, .linoadmin-col-lg-8, .linoadmin-col-lg-9, .linoadmin-col-lg-10, .linoadmin-col-lg-11, .linoadmin-col-lg-12, .linoadmin-col-lg, .linoadmin-col-xl-1, .linoadmin-col-xl-2, .linoadmin-col-xl-3, .linoadmin-col-xl-4, .linoadmin-col-xl-5, .linoadmin-col-xl-6, .linoadmin-col-xl-7, .linoadmin-col-xl-8, .linoadmin-col-xl-9, .linoadmin-col-xl-10, .linoadmin-col-xl-11, .linoadmin-col-xl-12, .linoadmin-col-xl {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .linoadmin-col-1, .linoadmin-col-2, .linoadmin-col-3, .linoadmin-col-4, .linoadmin-col-5, .linoadmin-col-6, .linoadmin-col-7, .linoadmin-col-8, .linoadmin-col-9, .linoadmin-col-10, .linoadmin-col-11, .linoadmin-col-12, .linoadmin-col, .linoadmin-col-sm-1, .linoadmin-col-sm-2, .linoadmin-col-sm-3, .linoadmin-col-sm-4, .linoadmin-col-sm-5, .linoadmin-col-sm-6, .linoadmin-col-sm-7, .linoadmin-col-sm-8, .linoadmin-col-sm-9, .linoadmin-col-sm-10, .linoadmin-col-sm-11, .linoadmin-col-sm-12, .linoadmin-col-sm, .linoadmin-col-md-1, .linoadmin-col-md-2, .linoadmin-col-md-3, .linoadmin-col-md-4, .linoadmin-col-md-5, .linoadmin-col-md-6, .linoadmin-col-md-7, .linoadmin-col-md-8, .linoadmin-col-md-9, .linoadmin-col-md-10, .linoadmin-col-md-11, .linoadmin-col-md-12, .linoadmin-col-md, .linoadmin-col-lg-1, .linoadmin-col-lg-2, .linoadmin-col-lg-3, .linoadmin-col-lg-4, .linoadmin-col-lg-5, .linoadmin-col-lg-6, .linoadmin-col-lg-7, .linoadmin-col-lg-8, .linoadmin-col-lg-9, .linoadmin-col-lg-10, .linoadmin-col-lg-11, .linoadmin-col-lg-12, .linoadmin-col-lg, .linoadmin-col-xl-1, .linoadmin-col-xl-2, .linoadmin-col-xl-3, .linoadmin-col-xl-4, .linoadmin-col-xl-5, .linoadmin-col-xl-6, .linoadmin-col-xl-7, .linoadmin-col-xl-8, .linoadmin-col-xl-9, .linoadmin-col-xl-10, .linoadmin-col-xl-11, .linoadmin-col-xl-12, .linoadmin-col-xl {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linoadmin-col-1, .linoadmin-col-2, .linoadmin-col-3, .linoadmin-col-4, .linoadmin-col-5, .linoadmin-col-6, .linoadmin-col-7, .linoadmin-col-8, .linoadmin-col-9, .linoadmin-col-10, .linoadmin-col-11, .linoadmin-col-12, .linoadmin-col, .linoadmin-col-sm-1, .linoadmin-col-sm-2, .linoadmin-col-sm-3, .linoadmin-col-sm-4, .linoadmin-col-sm-5, .linoadmin-col-sm-6, .linoadmin-col-sm-7, .linoadmin-col-sm-8, .linoadmin-col-sm-9, .linoadmin-col-sm-10, .linoadmin-col-sm-11, .linoadmin-col-sm-12, .linoadmin-col-sm, .linoadmin-col-md-1, .linoadmin-col-md-2, .linoadmin-col-md-3, .linoadmin-col-md-4, .linoadmin-col-md-5, .linoadmin-col-md-6, .linoadmin-col-md-7, .linoadmin-col-md-8, .linoadmin-col-md-9, .linoadmin-col-md-10, .linoadmin-col-md-11, .linoadmin-col-md-12, .linoadmin-col-md, .linoadmin-col-lg-1, .linoadmin-col-lg-2, .linoadmin-col-lg-3, .linoadmin-col-lg-4, .linoadmin-col-lg-5, .linoadmin-col-lg-6, .linoadmin-col-lg-7, .linoadmin-col-lg-8, .linoadmin-col-lg-9, .linoadmin-col-lg-10, .linoadmin-col-lg-11, .linoadmin-col-lg-12, .linoadmin-col-lg, .linoadmin-col-xl-1, .linoadmin-col-xl-2, .linoadmin-col-xl-3, .linoadmin-col-xl-4, .linoadmin-col-xl-5, .linoadmin-col-xl-6, .linoadmin-col-xl-7, .linoadmin-col-xl-8, .linoadmin-col-xl-9, .linoadmin-col-xl-10, .linoadmin-col-xl-11, .linoadmin-col-xl-12, .linoadmin-col-xl {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.linoadmin-col {
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: 100%;
+}
+
+.linoadmin-col-auto {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: auto;
+}
+
+.linoadmin-col-1 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 8.333333%;
+      -ms-flex: 0 0 8.333333%;
+          flex: 0 0 8.333333%;
+  max-width: 8.333333%;
+}
+
+.linoadmin-col-2 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 16.666667%;
+      -ms-flex: 0 0 16.666667%;
+          flex: 0 0 16.666667%;
+  max-width: 16.666667%;
+}
+
+.linoadmin-col-3 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.linoadmin-col-4 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.333333%;
+      -ms-flex: 0 0 33.333333%;
+          flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.linoadmin-col-5 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 41.666667%;
+      -ms-flex: 0 0 41.666667%;
+          flex: 0 0 41.666667%;
+  max-width: 41.666667%;
+}
+
+.linoadmin-col-6 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.linoadmin-col-7 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 58.333333%;
+      -ms-flex: 0 0 58.333333%;
+          flex: 0 0 58.333333%;
+  max-width: 58.333333%;
+}
+
+.linoadmin-col-8 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 66.666667%;
+      -ms-flex: 0 0 66.666667%;
+          flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+.linoadmin-col-9 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 75%;
+      -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.linoadmin-col-10 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 83.333333%;
+      -ms-flex: 0 0 83.333333%;
+          flex: 0 0 83.333333%;
+  max-width: 83.333333%;
+}
+
+.linoadmin-col-11 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 91.666667%;
+      -ms-flex: 0 0 91.666667%;
+          flex: 0 0 91.666667%;
+  max-width: 91.666667%;
+}
+
+.linoadmin-col-12 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.linoadmin-pull-0 {
+  right: auto;
+}
+
+.linoadmin-pull-1 {
+  right: 8.333333%;
+}
+
+.linoadmin-pull-2 {
+  right: 16.666667%;
+}
+
+.linoadmin-pull-3 {
+  right: 25%;
+}
+
+.linoadmin-pull-4 {
+  right: 33.333333%;
+}
+
+.linoadmin-pull-5 {
+  right: 41.666667%;
+}
+
+.linoadmin-pull-6 {
+  right: 50%;
+}
+
+.linoadmin-pull-7 {
+  right: 58.333333%;
+}
+
+.linoadmin-pull-8 {
+  right: 66.666667%;
+}
+
+.linoadmin-pull-9 {
+  right: 75%;
+}
+
+.linoadmin-pull-10 {
+  right: 83.333333%;
+}
+
+.linoadmin-pull-11 {
+  right: 91.666667%;
+}
+
+.linoadmin-pull-12 {
+  right: 100%;
+}
+
+.linoadmin-push-0 {
+  left: auto;
+}
+
+.linoadmin-push-1 {
+  left: 8.333333%;
+}
+
+.linoadmin-push-2 {
+  left: 16.666667%;
+}
+
+.linoadmin-push-3 {
+  left: 25%;
+}
+
+.linoadmin-push-4 {
+  left: 33.333333%;
+}
+
+.linoadmin-push-5 {
+  left: 41.666667%;
+}
+
+.linoadmin-push-6 {
+  left: 50%;
+}
+
+.linoadmin-push-7 {
+  left: 58.333333%;
+}
+
+.linoadmin-push-8 {
+  left: 66.666667%;
+}
+
+.linoadmin-push-9 {
+  left: 75%;
+}
+
+.linoadmin-push-10 {
+  left: 83.333333%;
+}
+
+.linoadmin-push-11 {
+  left: 91.666667%;
+}
+
+.linoadmin-push-12 {
+  left: 100%;
+}
+
+.linoadmin-offset-1 {
+  margin-left: 8.333333%;
+}
+
+.linoadmin-offset-2 {
+  margin-left: 16.666667%;
+}
+
+.linoadmin-offset-3 {
+  margin-left: 25%;
+}
+
+.linoadmin-offset-4 {
+  margin-left: 33.333333%;
+}
+
+.linoadmin-offset-5 {
+  margin-left: 41.666667%;
+}
+
+.linoadmin-offset-6 {
+  margin-left: 50%;
+}
+
+.linoadmin-offset-7 {
+  margin-left: 58.333333%;
+}
+
+.linoadmin-offset-8 {
+  margin-left: 66.666667%;
+}
+
+.linoadmin-offset-9 {
+  margin-left: 75%;
+}
+
+.linoadmin-offset-10 {
+  margin-left: 83.333333%;
+}
+
+.linoadmin-offset-11 {
+  margin-left: 91.666667%;
+}
+
+@media (min-width: 576px) {
+  .linoadmin-col-sm {
+    -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    max-width: 100%;
+  }
+  .linoadmin-col-sm-auto {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: auto;
+  }
+  .linoadmin-col-sm-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.333333%;
+        -ms-flex: 0 0 8.333333%;
+            flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+  }
+  .linoadmin-col-sm-2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.666667%;
+        -ms-flex: 0 0 16.666667%;
+            flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+  .linoadmin-col-sm-3 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .linoadmin-col-sm-4 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .linoadmin-col-sm-5 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 41.666667%;
+        -ms-flex: 0 0 41.666667%;
+            flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+  .linoadmin-col-sm-6 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .linoadmin-col-sm-7 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58.333333%;
+        -ms-flex: 0 0 58.333333%;
+            flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  .linoadmin-col-sm-8 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.666667%;
+        -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  .linoadmin-col-sm-9 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .linoadmin-col-sm-10 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 83.333333%;
+        -ms-flex: 0 0 83.333333%;
+            flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+  .linoadmin-col-sm-11 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 91.666667%;
+        -ms-flex: 0 0 91.666667%;
+            flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+  .linoadmin-col-sm-12 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .linoadmin-pull-sm-0 {
+    right: auto;
+  }
+  .linoadmin-pull-sm-1 {
+    right: 8.333333%;
+  }
+  .linoadmin-pull-sm-2 {
+    right: 16.666667%;
+  }
+  .linoadmin-pull-sm-3 {
+    right: 25%;
+  }
+  .linoadmin-pull-sm-4 {
+    right: 33.333333%;
+  }
+  .linoadmin-pull-sm-5 {
+    right: 41.666667%;
+  }
+  .linoadmin-pull-sm-6 {
+    right: 50%;
+  }
+  .linoadmin-pull-sm-7 {
+    right: 58.333333%;
+  }
+  .linoadmin-pull-sm-8 {
+    right: 66.666667%;
+  }
+  .linoadmin-pull-sm-9 {
+    right: 75%;
+  }
+  .linoadmin-pull-sm-10 {
+    right: 83.333333%;
+  }
+  .linoadmin-pull-sm-11 {
+    right: 91.666667%;
+  }
+  .linoadmin-pull-sm-12 {
+    right: 100%;
+  }
+  .linoadmin-push-sm-0 {
+    left: auto;
+  }
+  .linoadmin-push-sm-1 {
+    left: 8.333333%;
+  }
+  .linoadmin-push-sm-2 {
+    left: 16.666667%;
+  }
+  .linoadmin-push-sm-3 {
+    left: 25%;
+  }
+  .linoadmin-push-sm-4 {
+    left: 33.333333%;
+  }
+  .linoadmin-push-sm-5 {
+    left: 41.666667%;
+  }
+  .linoadmin-push-sm-6 {
+    left: 50%;
+  }
+  .linoadmin-push-sm-7 {
+    left: 58.333333%;
+  }
+  .linoadmin-push-sm-8 {
+    left: 66.666667%;
+  }
+  .linoadmin-push-sm-9 {
+    left: 75%;
+  }
+  .linoadmin-push-sm-10 {
+    left: 83.333333%;
+  }
+  .linoadmin-push-sm-11 {
+    left: 91.666667%;
+  }
+  .linoadmin-push-sm-12 {
+    left: 100%;
+  }
+  .linoadmin-offset-sm-0 {
+    margin-left: 0%;
+  }
+  .linoadmin-offset-sm-1 {
+    margin-left: 8.333333%;
+  }
+  .linoadmin-offset-sm-2 {
+    margin-left: 16.666667%;
+  }
+  .linoadmin-offset-sm-3 {
+    margin-left: 25%;
+  }
+  .linoadmin-offset-sm-4 {
+    margin-left: 33.333333%;
+  }
+  .linoadmin-offset-sm-5 {
+    margin-left: 41.666667%;
+  }
+  .linoadmin-offset-sm-6 {
+    margin-left: 50%;
+  }
+  .linoadmin-offset-sm-7 {
+    margin-left: 58.333333%;
+  }
+  .linoadmin-offset-sm-8 {
+    margin-left: 66.666667%;
+  }
+  .linoadmin-offset-sm-9 {
+    margin-left: 75%;
+  }
+  .linoadmin-offset-sm-10 {
+    margin-left: 83.333333%;
+  }
+  .linoadmin-offset-sm-11 {
+    margin-left: 91.666667%;
+  }
+}
+
+@media (min-width: 768px) {
+  .linoadmin-col-md {
+    -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    max-width: 100%;
+  }
+  .linoadmin-col-md-auto {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: auto;
+  }
+  .linoadmin-col-md-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.333333%;
+        -ms-flex: 0 0 8.333333%;
+            flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+  }
+  .linoadmin-col-md-2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.666667%;
+        -ms-flex: 0 0 16.666667%;
+            flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+  .linoadmin-col-md-3 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .linoadmin-col-md-4 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .linoadmin-col-md-5 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 41.666667%;
+        -ms-flex: 0 0 41.666667%;
+            flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+  .linoadmin-col-md-6 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .linoadmin-col-md-7 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58.333333%;
+        -ms-flex: 0 0 58.333333%;
+            flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  .linoadmin-col-md-8 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.666667%;
+        -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  .linoadmin-col-md-9 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .linoadmin-col-md-10 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 83.333333%;
+        -ms-flex: 0 0 83.333333%;
+            flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+  .linoadmin-col-md-11 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 91.666667%;
+        -ms-flex: 0 0 91.666667%;
+            flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+  .linoadmin-col-md-12 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .linoadmin-pull-md-0 {
+    right: auto;
+  }
+  .linoadmin-pull-md-1 {
+    right: 8.333333%;
+  }
+  .linoadmin-pull-md-2 {
+    right: 16.666667%;
+  }
+  .linoadmin-pull-md-3 {
+    right: 25%;
+  }
+  .linoadmin-pull-md-4 {
+    right: 33.333333%;
+  }
+  .linoadmin-pull-md-5 {
+    right: 41.666667%;
+  }
+  .linoadmin-pull-md-6 {
+    right: 50%;
+  }
+  .linoadmin-pull-md-7 {
+    right: 58.333333%;
+  }
+  .linoadmin-pull-md-8 {
+    right: 66.666667%;
+  }
+  .linoadmin-pull-md-9 {
+    right: 75%;
+  }
+  .linoadmin-pull-md-10 {
+    right: 83.333333%;
+  }
+  .linoadmin-pull-md-11 {
+    right: 91.666667%;
+  }
+  .linoadmin-pull-md-12 {
+    right: 100%;
+  }
+  .linoadmin-push-md-0 {
+    left: auto;
+  }
+  .linoadmin-push-md-1 {
+    left: 8.333333%;
+  }
+  .linoadmin-push-md-2 {
+    left: 16.666667%;
+  }
+  .linoadmin-push-md-3 {
+    left: 25%;
+  }
+  .linoadmin-push-md-4 {
+    left: 33.333333%;
+  }
+  .linoadmin-push-md-5 {
+    left: 41.666667%;
+  }
+  .linoadmin-push-md-6 {
+    left: 50%;
+  }
+  .linoadmin-push-md-7 {
+    left: 58.333333%;
+  }
+  .linoadmin-push-md-8 {
+    left: 66.666667%;
+  }
+  .linoadmin-push-md-9 {
+    left: 75%;
+  }
+  .linoadmin-push-md-10 {
+    left: 83.333333%;
+  }
+  .linoadmin-push-md-11 {
+    left: 91.666667%;
+  }
+  .linoadmin-push-md-12 {
+    left: 100%;
+  }
+  .linoadmin-offset-md-0 {
+    margin-left: 0%;
+  }
+  .linoadmin-offset-md-1 {
+    margin-left: 8.333333%;
+  }
+  .linoadmin-offset-md-2 {
+    margin-left: 16.666667%;
+  }
+  .linoadmin-offset-md-3 {
+    margin-left: 25%;
+  }
+  .linoadmin-offset-md-4 {
+    margin-left: 33.333333%;
+  }
+  .linoadmin-offset-md-5 {
+    margin-left: 41.666667%;
+  }
+  .linoadmin-offset-md-6 {
+    margin-left: 50%;
+  }
+  .linoadmin-offset-md-7 {
+    margin-left: 58.333333%;
+  }
+  .linoadmin-offset-md-8 {
+    margin-left: 66.666667%;
+  }
+  .linoadmin-offset-md-9 {
+    margin-left: 75%;
+  }
+  .linoadmin-offset-md-10 {
+    margin-left: 83.333333%;
+  }
+  .linoadmin-offset-md-11 {
+    margin-left: 91.666667%;
+  }
+}
+
+@media (min-width: 992px) {
+  .linoadmin-col-lg {
+    -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    max-width: 100%;
+  }
+  .linoadmin-col-lg-auto {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: auto;
+  }
+  .linoadmin-col-lg-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.333333%;
+        -ms-flex: 0 0 8.333333%;
+            flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+  }
+  .linoadmin-col-lg-2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.666667%;
+        -ms-flex: 0 0 16.666667%;
+            flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+  .linoadmin-col-lg-3 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .linoadmin-col-lg-4 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .linoadmin-col-lg-5 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 41.666667%;
+        -ms-flex: 0 0 41.666667%;
+            flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+  .linoadmin-col-lg-6 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .linoadmin-col-lg-7 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58.333333%;
+        -ms-flex: 0 0 58.333333%;
+            flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  .linoadmin-col-lg-8 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.666667%;
+        -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  .linoadmin-col-lg-9 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .linoadmin-col-lg-10 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 83.333333%;
+        -ms-flex: 0 0 83.333333%;
+            flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+  .linoadmin-col-lg-11 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 91.666667%;
+        -ms-flex: 0 0 91.666667%;
+            flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+  .linoadmin-col-lg-12 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .linoadmin-pull-lg-0 {
+    right: auto;
+  }
+  .linoadmin-pull-lg-1 {
+    right: 8.333333%;
+  }
+  .linoadmin-pull-lg-2 {
+    right: 16.666667%;
+  }
+  .linoadmin-pull-lg-3 {
+    right: 25%;
+  }
+  .linoadmin-pull-lg-4 {
+    right: 33.333333%;
+  }
+  .linoadmin-pull-lg-5 {
+    right: 41.666667%;
+  }
+  .linoadmin-pull-lg-6 {
+    right: 50%;
+  }
+  .linoadmin-pull-lg-7 {
+    right: 58.333333%;
+  }
+  .linoadmin-pull-lg-8 {
+    right: 66.666667%;
+  }
+  .linoadmin-pull-lg-9 {
+    right: 75%;
+  }
+  .linoadmin-pull-lg-10 {
+    right: 83.333333%;
+  }
+  .linoadmin-pull-lg-11 {
+    right: 91.666667%;
+  }
+  .linoadmin-pull-lg-12 {
+    right: 100%;
+  }
+  .linoadmin-push-lg-0 {
+    left: auto;
+  }
+  .linoadmin-push-lg-1 {
+    left: 8.333333%;
+  }
+  .linoadmin-push-lg-2 {
+    left: 16.666667%;
+  }
+  .linoadmin-push-lg-3 {
+    left: 25%;
+  }
+  .linoadmin-push-lg-4 {
+    left: 33.333333%;
+  }
+  .linoadmin-push-lg-5 {
+    left: 41.666667%;
+  }
+  .linoadmin-push-lg-6 {
+    left: 50%;
+  }
+  .linoadmin-push-lg-7 {
+    left: 58.333333%;
+  }
+  .linoadmin-push-lg-8 {
+    left: 66.666667%;
+  }
+  .linoadmin-push-lg-9 {
+    left: 75%;
+  }
+  .linoadmin-push-lg-10 {
+    left: 83.333333%;
+  }
+  .linoadmin-push-lg-11 {
+    left: 91.666667%;
+  }
+  .linoadmin-push-lg-12 {
+    left: 100%;
+  }
+  .linoadmin-offset-lg-0 {
+    margin-left: 0%;
+  }
+  .linoadmin-offset-lg-1 {
+    margin-left: 8.333333%;
+  }
+  .linoadmin-offset-lg-2 {
+    margin-left: 16.666667%;
+  }
+  .linoadmin-offset-lg-3 {
+    margin-left: 25%;
+  }
+  .linoadmin-offset-lg-4 {
+    margin-left: 33.333333%;
+  }
+  .linoadmin-offset-lg-5 {
+    margin-left: 41.666667%;
+  }
+  .linoadmin-offset-lg-6 {
+    margin-left: 50%;
+  }
+  .linoadmin-offset-lg-7 {
+    margin-left: 58.333333%;
+  }
+  .linoadmin-offset-lg-8 {
+    margin-left: 66.666667%;
+  }
+  .linoadmin-offset-lg-9 {
+    margin-left: 75%;
+  }
+  .linoadmin-offset-lg-10 {
+    margin-left: 83.333333%;
+  }
+  .linoadmin-offset-lg-11 {
+    margin-left: 91.666667%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .linoadmin-col-xl {
+    -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+            flex-basis: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    max-width: 100%;
+  }
+  .linoadmin-col-xl-auto {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    width: auto;
+  }
+  .linoadmin-col-xl-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.333333%;
+        -ms-flex: 0 0 8.333333%;
+            flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+  }
+  .linoadmin-col-xl-2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.666667%;
+        -ms-flex: 0 0 16.666667%;
+            flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+  }
+  .linoadmin-col-xl-3 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 25%;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .linoadmin-col-xl-4 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 33.333333%;
+        -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+  .linoadmin-col-xl-5 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 41.666667%;
+        -ms-flex: 0 0 41.666667%;
+            flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+  }
+  .linoadmin-col-xl-6 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .linoadmin-col-xl-7 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 58.333333%;
+        -ms-flex: 0 0 58.333333%;
+            flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  .linoadmin-col-xl-8 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 66.666667%;
+        -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  .linoadmin-col-xl-9 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    max-width: 75%;
+  }
+  .linoadmin-col-xl-10 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 83.333333%;
+        -ms-flex: 0 0 83.333333%;
+            flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+  }
+  .linoadmin-col-xl-11 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 91.666667%;
+        -ms-flex: 0 0 91.666667%;
+            flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+  .linoadmin-col-xl-12 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .linoadmin-pull-xl-0 {
+    right: auto;
+  }
+  .linoadmin-pull-xl-1 {
+    right: 8.333333%;
+  }
+  .linoadmin-pull-xl-2 {
+    right: 16.666667%;
+  }
+  .linoadmin-pull-xl-3 {
+    right: 25%;
+  }
+  .linoadmin-pull-xl-4 {
+    right: 33.333333%;
+  }
+  .linoadmin-pull-xl-5 {
+    right: 41.666667%;
+  }
+  .linoadmin-pull-xl-6 {
+    right: 50%;
+  }
+  .linoadmin-pull-xl-7 {
+    right: 58.333333%;
+  }
+  .linoadmin-pull-xl-8 {
+    right: 66.666667%;
+  }
+  .linoadmin-pull-xl-9 {
+    right: 75%;
+  }
+  .linoadmin-pull-xl-10 {
+    right: 83.333333%;
+  }
+  .linoadmin-pull-xl-11 {
+    right: 91.666667%;
+  }
+  .linoadmin-pull-xl-12 {
+    right: 100%;
+  }
+  .linoadmin-push-xl-0 {
+    left: auto;
+  }
+  .linoadmin-push-xl-1 {
+    left: 8.333333%;
+  }
+  .linoadmin-push-xl-2 {
+    left: 16.666667%;
+  }
+  .linoadmin-push-xl-3 {
+    left: 25%;
+  }
+  .linoadmin-push-xl-4 {
+    left: 33.333333%;
+  }
+  .linoadmin-push-xl-5 {
+    left: 41.666667%;
+  }
+  .linoadmin-push-xl-6 {
+    left: 50%;
+  }
+  .linoadmin-push-xl-7 {
+    left: 58.333333%;
+  }
+  .linoadmin-push-xl-8 {
+    left: 66.666667%;
+  }
+  .linoadmin-push-xl-9 {
+    left: 75%;
+  }
+  .linoadmin-push-xl-10 {
+    left: 83.333333%;
+  }
+  .linoadmin-push-xl-11 {
+    left: 91.666667%;
+  }
+  .linoadmin-push-xl-12 {
+    left: 100%;
+  }
+  .linoadmin-offset-xl-0 {
+    margin-left: 0%;
+  }
+  .linoadmin-offset-xl-1 {
+    margin-left: 8.333333%;
+  }
+  .linoadmin-offset-xl-2 {
+    margin-left: 16.666667%;
+  }
+  .linoadmin-offset-xl-3 {
+    margin-left: 25%;
+  }
+  .linoadmin-offset-xl-4 {
+    margin-left: 33.333333%;
+  }
+  .linoadmin-offset-xl-5 {
+    margin-left: 41.666667%;
+  }
+  .linoadmin-offset-xl-6 {
+    margin-left: 50%;
+  }
+  .linoadmin-offset-xl-7 {
+    margin-left: 58.333333%;
+  }
+  .linoadmin-offset-xl-8 {
+    margin-left: 66.666667%;
+  }
+  .linoadmin-offset-xl-9 {
+    margin-left: 75%;
+  }
+  .linoadmin-offset-xl-10 {
+    margin-left: 83.333333%;
+  }
+  .linoadmin-offset-xl-11 {
+    margin-left: 91.666667%;
+  }
+}
+
+
+/* Relooking of term admin page 
+.form-table {
+  position: relative;
+  min-width: 255px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  background: #fff;
+  padding:0px 0px 20px 0px!important;
+  }
+  
+  .form-table > tbody > tr {
+  width: 100%!important;
+  border-bottom: 1px solid #f1f1f1;
+  display: block!important;
+  padding: 20px 20px 20px 20px!important;
+  }
+  .form-table > tbody > tr > th {
+  width:100%!important;
+  display:block!important;
+  margin:0px 0px 5px 0px!important;
+  padding:0px!important;
+  }
+  .form-table > tbody > tr > td {
+  width:100%!important;
+  display:block!important;
+  margin:0px!important;
+  padding:0px!important;
+  }
+  .form-table > tbody > tr > td > li {
+  margin:0px!important;
+  padding:0px!important;
+  }
+  
+  .form-table > tbody > tr.term-name-wrap > td > input,
+  .form-table > tbody > tr.term-slug-wrap > td > input,
+  .form-table > tbody > tr.term-parent-wrap > td > select {
+  width:100%!important;
+  }
+  
+  .form-table > tbody > tr > td .description {
+  display:none;
+  }
+  
+  .form-table > tbody > tr.term-description-wrap {
+  position:absolute;
+  left:100%;
+  top:210px;
+  width:260px!important;
+  }
+  .form-table > tbody > tr.term-name-wrap {
+  position:absolute;
+  left:100%;
+  top:0px;
+  width:260px!important;
+  }
+  .form-table > tbody > tr.term-slug-wrap {
+  position:absolute;
+  left:100%;
+  top:70px;
+  width:260px!important;
+  }
+  .form-table > tbody > tr.term-parent-wrap {
+  position:absolute;
+  left:100%;
+  top:140px;
+  width:260px!important;
+  }
+  
+  */

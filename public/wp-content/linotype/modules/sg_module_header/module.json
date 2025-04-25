@@ -1,0 +1,71 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "logo": 309,
+            "logo_light": 9296,
+            "logo_sticky": 314,
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": ""
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "Nav",
+                    "group": ""
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "Nav",
+                    "group": ""
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "Nav",
+                    "group": ""
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,26 @@
+{
+  "type": "library",
+  "author": "Eloquent Studio",
+  "version": "2.1.0",
+  "update": "",
+  "sync": "",
+  "title": "filter.js",
+  "desc": "A javascript library for filtering json object and rendering html",
+  "icon": "dashicons dashicons-category",
+  "color": "",
+  "category": "",
+  "tags": [],
+  "scripts": [
+      {
+          "id": "eloquentstudio_library_filterjs",
+          "version": "2.1.0",
+          "dependencies": [
+            "jquery"
+          ],
+          "footer": "true",
+          "full": "/script.js",
+          "min": "/script.js",
+          "cdn": ""
+      }
+  ]
+}

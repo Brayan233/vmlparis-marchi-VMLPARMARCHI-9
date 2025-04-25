@@ -1,0 +1,104 @@
+.wc_block_account_nav {
+  padding-top: 4.8rem;
+  padding-bottom: 6.4rem;
+
+  @media (min-width: 768px) {
+    padding-top: 5.6rem;
+    padding-bottom: 11.2rem;
+  }
+  .account-layout {
+    @media (max-width: 767px) {
+      & > .col-2 {
+        margin-top: 4.8rem;
+      }
+    }
+    @media (min-width: 992px) {
+      & > .col-1 {
+        width: 33.3333%;
+      }
+      & > .col-2 {
+        width: 66.6667%;
+      }
+    }
+  }
+  .checkout-lvl1-title {
+    margin-bottom: 3.2rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 4.8rem;
+    }
+  }
+  .account-nav {
+    padding: 0;
+    margin: 0 0 4.8rem;
+    list-style: none;
+
+    @media (min-width: 768px) {
+      margin-bottom: 6.4rem;
+    }
+    .nav-item {
+      & + .nav-item {
+        margin-top: 1.6rem;
+      }
+    }
+    .nav-link {
+      color: var(--darkgrey);
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      @media (max-width: 767px) {
+        display: flex;
+        align-items: center;
+        background-color: rgba(#9294B2, .05);
+        padding: 1.7rem 1.6rem 1.7rem 2.4rem;
+
+        &::after {
+          display: block;
+          width: 1.2rem;
+          height: 1.2rem;
+          background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M3.707 0l5.657 5.657-.026.024.026.026-5.657 5.657L3 10.657 7.974 5.68 3 .707 3.707 0z' id='a'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse fill='%23000' xlink:href='%23a'/%3E%3Cg mask='url(%23b)' fill='%23000'%3E%3Cpath d='M0 0h24v24H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          margin-left: auto;
+          content: "";
+        }
+      }
+      @media (min-width: 768px) {
+        display: block;
+        padding-top: .8rem;
+        padding-bottom: .8rem;
+      }
+      &.active {
+        color: var(--violet);
+        font-weight: 500;
+      }
+    }
+  }
+  .account-actions {
+    @media (min-width: 768px) {
+      width: 75%;
+    }
+    @media (min-width: 1200px) {
+      width: 50%;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .woocommerce-orders,
+  .woocommerce-edit-address,
+  .woocommerce-edit-account,
+  .woocommerce-view-order {
+    .account-title,
+    .account-nav,
+    .account-actions {
+      display: none;
+    }
+    .wc_block_account_nav {
+      .account-layout {
+        & > .col-2 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

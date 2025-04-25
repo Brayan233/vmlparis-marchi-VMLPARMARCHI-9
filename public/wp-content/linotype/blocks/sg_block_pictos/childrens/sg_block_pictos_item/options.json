@@ -1,0 +1,35 @@
+[
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "picto",
+            "title": "Picto"
+        },
+        "params": []
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "title",
+            "title": "Title",
+            "options": {
+                "max": "100",
+                "min": "1",
+                "placeholder": ""
+            }
+        }
+    },
+    {
+        "type": "linotype_field_textarea",
+        "options": {
+            "id": "desc",
+            "title": "Description",
+            "options": {
+                "height": "",
+                "max": "100",
+                "min": "1",
+                "placeholder": ""
+            }
+        }
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "target",
+            "title": "Target"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "operator",
+            "title": "Operator"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "value",
+            "title": "Value"
+        }
+    }
+]

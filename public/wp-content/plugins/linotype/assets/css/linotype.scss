@@ -1,0 +1,362 @@
+html{
+
+    /* Space if pannel fixed */
+    &.linotype-panel-fixed {
+        margin-right: 400px;
+    }
+    &.linotype-panel-fixed > .wp-admin .linotype-panel,
+    &.linotype-panel-fixed > .admin-bar .linotype-panel {
+        // top: 32px!important;
+    }
+
+    /* pannel wrap */
+    .linotype-panel {
+        display: block !important;
+        position: fixed !important;
+        top: 0px !important;
+        right: 0px !important;
+        width: 100% !important;
+        height: 0px !important;
+        z-index: 9999999999 !important;
+        padding: 0px !important;
+        margin: 0px !important;
+
+        >.linotype-panel-inner {
+            position: absolute !important;
+            top: 0px !important;
+            left: calc(100% - 1px) !important;
+            display: block !important;
+            width: 400px !important;
+            background-color: #f1f1f1 !important;
+            padding: 0px !important;
+            margin: 0px !important;
+            color: #333 !important;
+            opacity: 0 !important;
+            height: 100vh !important;
+            // box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.35) !important;
+            border-left: 1px solid #dddddd;
+            >.linotype-panel-scroll {
+                position: absolute !important;
+                top:38px;
+                left:0;
+                right:0;
+                bottom:38px;
+                overflow-y:auto;
+                overflow-x:hidden;
+
+                >.linotype-panel-scroll-content{
+                    padding:20px;
+                }
+            }
+            .dump-item {
+                border-left: 1px solid #7ba4c5;
+                padding-left: 5px;
+                overflow-x:auto;
+                margin-bottom: 15px;
+                pre{
+                   float: left
+                }
+            }
+
+            .linotype-panel-actions {
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 37px;
+
+                &.top {
+                    top: 0;
+                    border-bottom: 1px solid #ddd;
+                }
+                &.bottom {
+                    bottom: 0;
+                    border-top: 1px solid #ddd;
+                }
+                ul {
+                    margin: 0px;
+                    padding: 0px;
+                    list-style: none;
+                    overflow-x: auto;
+                    height:37px;
+
+                    li {
+                        display: inline-block;
+                        margin: 0px;
+                        padding: 0px 10px;
+                        line-height:37px;
+                        font-size:13px;
+                        height:37px;
+                        list-style: none;
+                        border-right: 1px solid #ddd;
+                        color: #888;
+                        cursor: pointer;
+                        vertical-align: top;
+                        overflow: hidden;
+                        font-weight: bold;
+
+                        &:hover {
+                            color: #2c74aa;
+                        }
+
+                        &.active {
+                            color: #2c74aa;
+                        }
+
+                        .dashicons {
+                            line-height: 37px;
+                        }
+                        
+                    }
+
+                }
+
+            }
+
+
+        }
+         
+
+    }
+
+    /* pannel animation */
+    &:not(.linotype-panel-fixed) .linotype-panel > .linotype-panel-inner {
+        transition: all .2s ease-out .2s !important;
+    }
+    &.linotype-panel-fixed .linotype-panel > .linotype-panel-inner,
+    .linotype-panel > .linotype-panel-inner:hover {
+        right: 0px !important;
+        left: calc(100% - 400px) !important;
+        opacity: 1 !important;
+    }
+
+    /* pannel extra */
+
+    
+    .linotype-panel {
+        h1, h2, h3, h4, h5, h6 {
+            margin:0px 0px 10px 0px !important;
+            color: #2c74aa!important;
+        }
+        p {
+            margin:0px 0px 5px 0px !important;
+        }
+        span {
+            margin:0px !important;
+        }
+    }
+
+    a.panel-button {
+        border: 1px solid #2c74aa !important;
+        color: #2c74aa !important;
+        border-radius: 3px !important;
+        padding: 3px 8px !important;
+        position: inline-block !important;
+        font-size: 12px !important;
+        text-decoration: none !important;
+    }
+    
+    a.panel-button.linotype-panel-dashboard {
+        background: #2c74aa !important;
+        color: #f1f1f1 !important;
+    }
+    
+    a.panel-button:hover {
+        background: #2c74aa !important;
+        color: #fff !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+.linotype-edit-value {
+    transition: outline .1s !important;
+    outline: 0px solid rgba(0, 0, 0, 0.24) !important;
+}
+
+.linotype-edit-value:hover {
+    outline: 3px solid rgba(0, 0, 0, 0.24) !important;
+    outline-offset: 0px !important;
+}
+
+
+html.linotype-helper-enable {
+    margin: 5px;
+    position: relative;
+    background-color: #f1f1f1;
+}
+
+html.linotype-helper-enable body {
+    background-color: #fff;
+}
+
+.linotype-helper-block{
+    display:none;
+}
+html.linotype-helper-enable .linotype-helper-block{
+    display:block;
+}
+
+/* HELPER */
+
+.linotype-helper-block {
+    border: none;
+}
+
+.linotype-helper-block-title,
+.linotype-helper-block-infos {
+    background: #f1f1f1;
+    display: none;
+}
+
+a.linotype-helper-block-link {
+    padding: 0px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    display: none;
+    color: #999;
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+    right: 0;
+}
+
+a.linotype-helper-block-link:hover {
+    color: #2c74aa;
+    text-decoration: underline;
+}
+
+html.linotype-helper-enable body .linotype-helper-block:hover>.linotype-helper-block-title>a.linotype-helper-block-link {
+    display: block;
+}
+
+.linotype-helper-block-title span {
+    color: #999;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+
+
+html.linotype-helper-enable body .linotype-helper-block {
+    position: relative;
+    z-index: 0;
+    display: block;
+    border-color: #f1f1f1;
+    border-style: solid;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+}
+
+html.linotype-helper-enable body .linotype-helper-block-title {
+    display: block;
+    padding: 0px;
+    color: #a3a3a3;
+    font-size: 12px;
+    line-height: 20px;
+    background-color: #f1f1f1;
+}
+
+html.linotype-helper-enable body .linotype-helper-block:hover {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .2);
+    z-index: 2;
+}
+
+html.linotype-helper-enable body .linotype-helper-block.active {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+    z-index: 1;
+}
+
+html.linotype-helper-enable body .linotype-helper-block:hover>.linotype-helper-block-title {
+    color: #333;
+}
+
+html.linotype-helper-enable body .linotype-helper-block-title:hover {
+    cursor: pointer;
+}
+
+html.linotype-helper-enable body .linotype-helper-block-title:hover span {
+    visibility: visible;
+}
+
+html.linotype-helper-enable .linotype-helper-block.active>.linotype-helper-block-infos {
+    display: block;
+}
+
+
+
+
+// .linotype-helper-block:before {
+//     content: "";
+//     width: 1px;
+//     background: #ddd;
+//     display: block;
+//     position: absolute;
+//     left: -5px;
+//     top: 0px;
+//     bottom: 0px;
+// }
+
+.linotype-helper-block:hover:before,
+.linotype-helper-block.active:before {
+    display: none !important;
+}
+
+
+/* XDEBUG */
+
+.xdebug-error.xe-notice,
+.xdebug-error.xe-notice * {
+    word-spacing: initial !important;
+    letter-spacing: initial !important;
+    text-align: initial !important;
+    -moz-text-align-last: initial !important;
+    text-align-last: initial !important;
+}
+
+
+/* DUMP */
+pre.sf-dump,
+pre.sf-dump .sf-dump-default {
+    display: block;
+    outline: none;
+    margin: 0;
+}
+
+
+
+
+html.linotype-helper-enable .linotype-block:hover{
+
+   outline:1px solid #2c74aa !important;
+}
+
+
+.linotype-preview {
+    background:#333;
+    padding:10px;
+}
+.linotype-preview-info {
+    color:#fff;
+    font-weight:bold;
+}
+.linotype-preview-info a {
+    color:#fff;
+    font-weight:normal;
+}

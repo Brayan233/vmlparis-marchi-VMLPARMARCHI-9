@@ -1,0 +1,19 @@
+{
+    "type": "block",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Categories",
+    "desc": "",
+    "icon": "dashicons dashicons-align-center",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [
+    ]
+}

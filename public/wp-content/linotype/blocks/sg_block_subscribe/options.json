@@ -1,0 +1,34 @@
+[
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "provider",
+            "title": "Provider",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Custom"
+                    },
+                    {
+                        "value": "mailchimp",
+                        "title": "Mailchimp"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "100%",
+                "multiple": false,
+                "style": ""
+            }
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "action",
+            "title": "Form action link",
+            "desc": "Link locate in your provider embed code in the form div" 
+        }
+    }
+]

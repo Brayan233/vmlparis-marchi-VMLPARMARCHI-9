@@ -1,0 +1,37 @@
+[
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "quote",
+            "title": "Quote",
+            "options": {
+                "p": true,
+                "placeholder": "",
+                "syntax": false,
+                "theme": "snow",
+                "toolbar": [
+                    [
+                        {
+                            "size": []
+                        }
+                    ],
+                    [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strike"
+                    ]
+                ]
+            }
+        },
+        "id": "a56d182863568070724f5e215431730c",
+        "params": []
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "author",
+            "title": "Author"
+        }
+    }
+]

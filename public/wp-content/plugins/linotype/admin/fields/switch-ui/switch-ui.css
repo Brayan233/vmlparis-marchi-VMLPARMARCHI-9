@@ -1,0 +1,42 @@
+
+.switch-ui-hide{
+height:0px;
+visibility: hidden;
+overflow: hidden;
+margin-bottom: 0px;
+border:none;
+}
+.switch-buttons{
+border:1px solid #DDD;
+margin: 0px -1px;
+vertical-align: middle;
+}
+.switch-button{
+display:inline-block;
+background-color:#FFF;
+color:#999;
+cursor:pointer!important;
+vertical-align: middle;
+}
+.switch-button span{
+border-left:1px solid #CCC;
+width:100%;
+display:block;
+text-align:center;
+vertical-align: middle;
+}
+.switch-button:first-child span{
+border-left:0px solid #DDD;
+}
+.switch-button.nav-tab-active{
+color: #000;
+background-color: #FFF;
+}
+.switch-button:not(.nav-tab-active):hover{
+background-color: #efefef;
+color: #333;
+}
+
+.switch-ui-button{
+cursor:pointer!important;
+}

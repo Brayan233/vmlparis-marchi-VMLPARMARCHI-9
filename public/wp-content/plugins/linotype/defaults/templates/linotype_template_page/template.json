@@ -1,0 +1,28 @@
+[
+    {
+        "type": "linotype_module_header"
+    },
+    {
+        "type": "linotype_block_container",
+        "contents": {
+            "content_0": {
+                "type": "linotype_block_columns",
+                "contents": {
+                    "content_0": {
+                        "type": "linotype_block_columns_item",
+                        "contents": {
+                            "content_0": {
+                                "type": "wp_block_content"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "params": []
+    },
+    {
+        "id": "388dae91bf75affb3a4386f1e0113b1f",
+        "type": "linotype_module_footer"
+    }
+]

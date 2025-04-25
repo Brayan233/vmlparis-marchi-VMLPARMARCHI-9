@@ -1,0 +1,89 @@
+
+.field-image-master{
+position: relative;
+background-image: url(bg-psd.png)!important;
+}
+
+.field-image-master .field-image-action {
+display:none;
+}
+
+.field-image-master .field-image-action.show {
+display:block;
+}
+.field-image-master:hover .field-image-action {
+display:block;
+}
+
+.field-image-action {
+margin: 0px;
+padding: 10px;
+position: absolute;
+z-index:10;
+bottom:0px;
+left:0px;
+right:0px;
+background-color: rgba(255,255,255,0.85);
+}
+
+.field-image-preview {
+position: relative;
+display: block;
+margin: 0px;
+padding: 0px;
+height: 100%;
+min-height: 48px;
+overflow: hidden;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+
+.field-image-preview span {
+position: absolute;
+display: block;
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+}
+
+.field-image-preview span img {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+margin: auto;
+max-height: 100%;
+max-width: 100%;
+float: left;
+}
+
+
+/* .auto-height */
+
+.field-image-preview.auto-height {
+position: relative;
+display: block;
+margin: 0px;
+padding: 0px;
+height: auto;
+width: 100%;
+overflow: hidden;
+user-select: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+}
+
+.field-image-preview.auto-height span {
+position: relative;
+width: 100%;
+}
+
+.field-image-preview.auto-height span img {
+position: relative;
+width: 100%;
+}
+
+

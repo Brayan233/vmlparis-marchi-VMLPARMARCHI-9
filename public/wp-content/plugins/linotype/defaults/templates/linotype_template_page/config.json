@@ -1,0 +1,35 @@
+{
+    "type": "template",
+    "author": "linotype",
+    "version": "1.0.0",
+    "update": "2019-04-30T14:43:53+00:00",
+    "commit": "",
+    "sync": "",
+    "title": "Page",
+    "desc": "Display default page",
+    "icon": "dashicons dashicons-admin-page",
+    "color": "",
+    "category": "Page",
+    "supports": [
+        "author",
+        "thumbnail",
+        "excerpt",
+        "trackbacks",
+        "custom-fields",
+        "comments",
+        "page-attributes",
+        "post-formats"
+    ],
+    "tags": [],
+    "target": [
+        "page",
+        "post_archive",
+        "post",
+        "post_category",
+        "post_tag",
+        "post_taxonomy",
+        "author",
+        "error",
+        "search"
+    ]
+}

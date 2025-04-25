@@ -1,0 +1,34 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "trigger",
+            "title": "Trigger",
+            "desc": "Define a class (.mybuttonclass) or id (#mybuttonid) of clickable element to open\/close this panel"
+        }
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "position",
+            "title": "Position",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "right"
+                    },
+                    {
+                        "value": "left",
+                        "title": "Left"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "100%",
+                "multiple": false,
+                "style": ""
+            }
+        }
+    }
+]

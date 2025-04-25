@@ -1,0 +1,56 @@
+[
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "img",
+            "title": "Desktop Image",
+            "col": "col-6"
+        }
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "img_mobile",
+            "title": "Image Mobile",
+            "desc": "Desktop image if empty",
+            "col": "col-6"
+        }
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "compress",
+            "title": "Image compression",
+            "default": "85",
+            "options": {
+                "data": [
+                    {
+                        "value": "100",
+                        "title": "100% (no compression)"
+                    },
+                    {
+                        "value": "95",
+                        "title": "95%"
+                    },
+                    {
+                        "value": "90",
+                        "title": "90%"
+                    },
+                    {
+                        "value": "85",
+                        "title": "85% (Common Compression)"
+                    },
+                    {
+                        "value": "80",
+                        "title": "80%"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        }
+    }
+]

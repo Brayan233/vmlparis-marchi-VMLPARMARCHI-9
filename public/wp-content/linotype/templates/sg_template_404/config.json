@@ -1,0 +1,26 @@
+{
+    "type": "template",
+    "author": "sg",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "sync": "",
+    "title": "404",
+    "desc": "",
+    "icon": "dashicons dashicons-admin-page",
+    "color": "",
+    "category": "",
+    "supports": [
+        "editor",
+        "author",
+        "thumbnail",
+        "excerpt",
+        "trackbacks",
+        "custom-fields",
+        "comments",
+        "page-attributes",
+        "post-formats"
+    ],
+    "tags": [],
+    "target": []
+}

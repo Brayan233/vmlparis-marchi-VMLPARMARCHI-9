@@ -1,0 +1,19 @@
+{
+    "type": "block",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "Composer",
+    "desc": "",
+    "icon": "dashicons dashicons-text",
+    "color": "",
+    "collapse": false,
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [
+    ]
+}

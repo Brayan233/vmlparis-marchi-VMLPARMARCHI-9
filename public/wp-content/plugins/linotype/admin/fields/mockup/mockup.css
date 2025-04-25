@@ -1,0 +1,74 @@
+.wp-field-mockup {
+
+}
+.wp-field-mockup-editor{
+	position: relative;
+	width:100%;
+	overflow: auto;
+}
+.wp-field-mockup-container {
+position: relative;
+background-image: url(bg-psd.png);
+}
+
+.wp-field-mockup-container *{
+position: absolute;
+}
+
+.wp-field-mockup .mask{
+z-index: 4;
+}
+.wp-field-mockup .source {
+z-index: 3;
+}
+.wp-field-mockup .screenCanvas {
+z-index: 2;
+}
+.wp-field-mockup .background{
+z-index: 1;
+}
+
+.wp-field-mockup .perspective-controler{
+z-index: 5;
+top:0px;
+left:0px;
+right:0px;
+bottom:0px;
+}
+.wp-field-mockup .perspective-controler .perspective-point {
+position: absolute;
+width: 0px; 
+height: 0px;
+}
+.wp-field-mockup .perspective-controler .perspective-point span {
+position: absolute;
+top:-10px;
+left:-10px;
+width: 20px; 
+height: 20px;
+border-radius: 50%;
+background-color: #666;
+opacity: .8;
+}
+.wp-field-mockup .perspective-controler .perspective-point span:hover {
+opacity: .1;
+}
+.wp-field-mockup .perspective-controler .source-drag{
+position: absolute;
+width: 0px; 
+height: 0px;	
+}
+
+.wp-field-mockup .perspective-controler .source-drag span{
+position: absolute;
+top:-30px;
+left:-30px;
+width: 20px; 
+height: 20px;
+border-radius: 50%;
+background-color: #666;
+opacity: .8;	
+}
+.wp-field-mockup .perspective-controler .source-drag span:hover{
+opacity: .1;	
+}

@@ -1,0 +1,39 @@
+{
+    "type": "library",
+    "author": "reavis",
+    "version": "0.12.1",
+    "update": "",
+    "sync": "",
+    "title": "Selectize",
+    "desc": "Selectize is the hybrid of a textbox and select box",
+    "icon": "dashicons dashicons-edit",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "reavis_library_selectize",
+            "version": "0.12.1",
+            "dependencies": [
+                "jquery",
+                "jquery-ui-core",
+                "jquery-ui-sortable"
+            ],
+            "footer": "true",
+            "full": "/script.js",
+            "min": "/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": [
+        {
+            "id": "reavis_library_selectize",
+            "version": "0.12.1",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "\/style.css",
+            "cdn": ""
+        }
+    ]
+}

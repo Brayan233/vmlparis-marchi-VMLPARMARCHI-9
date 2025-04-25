@@ -1,0 +1,109 @@
+.slab_field_quill {
+
+    .ql-editor-wrapper {
+        min-height: 18px;
+        background: #fff;
+        border: 1px solid #ddd;
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 1.42;
+        padding: 5px;
+        position: relative;
+        z-index: 10;
+
+    }
+    .ql-editor-wrapper {
+
+        .ql-toolbar, .ql-container {
+            border:none!important;
+        }
+
+    } 
+
+    .editor-container {
+
+        .ql-editor {
+            padding: 0px;
+
+            line {
+                display: block;
+                font-size: 13px;
+                line-height: 1.42;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 0px 0px 5px 0px;
+            }
+
+            blockquote {
+                font-size: 30px;
+                border: none;
+                margin: 0px;
+                padding: 20px 10%;
+            }
+
+        }
+
+    }
+
+    .editor-html {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        z-index: 11;
+        color: #ddd;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+    .editor-html:hover {
+        color: #333;
+    }
+
+    .wp-field-value {
+        display: none;
+        margin: 0px;
+        padding: 5px;
+        color: rgb(255, 255, 255);
+        background: rgb(51, 51, 51);
+        font-size: 13px;
+        line-height: 1.42;
+        font-weight: 100;
+        border: 1px solid rgb(221, 221, 221);
+        position: absolute;
+        z-index: 12;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 100% !important;
+        width: 100%;
+    }
+
+    .editor-html:active+.wp-field-value,
+    .wp-field-value:hover,
+    .wp-field-value:focus {
+        display: block !important;
+    }
+
+    .ql-editor.ql-blank::before {
+        left: 5px;
+        right: 5px;
+    }
+
+    /* theme */
+    .snow {
+        padding: 0;
+        
+        .editor-container {
+    
+            border-top: 0px;
+            padding: 10px 4px 0px 4px;
+            margin: 0px 10px 15px 10px;
+            border-top: 1px solid #e8e8e8 !important;
+    
+        }
+        
+    }
+
+}

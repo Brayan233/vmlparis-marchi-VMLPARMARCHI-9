@@ -1,0 +1,235 @@
+.wp-field-nestable .body-nestable{
+padding: 0 10px 10px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+
+.wp-field-nestable .nav-menus-php .item-edit:focus:before {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/**
+* Nestable
+*/
+.nestable-tree {
+    position: relative;
+    min-height: 500px;
+    /*background-color: #DDD;*/
+    /*float: left;*/
+    }
+.nestable-content {
+  position: relative;
+  padding-top: 5px;
+}
+
+.wp-field-nestable .menu-settings {
+  border-top: none; 
+  margin-top: 9px;
+}
+
+.nestable-content #menu-settings-column {
+display: inline-block!important;
+margin-left: 0px!important;
+margin-right: 20px!important;
+}
+.nestable-content .accordion-section-content {
+padding: 27px 20px 15px;
+}
+
+
+.nestable-tree{
+position: relative;
+display: inline-block!important;
+margin: 0;
+padding: 0;
+list-style: none;
+vertical-align: top!important;
+width:450px;
+}
+
+.item-controls {
+  z-index: 5;
+}
+
+.menu-item-settings > div {
+  float: none!important;
+}
+.dd {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dd-list {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dd-list .dd-list {
+  margin-left: 10px;
+  margin-top:10px;
+  width: 100%;
+  /*display: none;*/
+}
+
+.dd-collapsed .dd-list {
+  display: none;
+}
+
+.dd-disable{
+opacity:0.5;
+}
+
+.dd-item,
+.dd-empty,
+.dd-placeholder {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 20px;
+  font-size: 13px;
+  line-height: 20px;
+  width: 414px;
+  margin-bottom:10px;
+}
+
+.dd-handle {
+  display: block;
+  position: absolute;
+  top:0px;
+  left:0px;
+  z-index:1;
+  right:0px;
+  height:40px;
+  cursor:move;
+}
+.dd-handle:hover {
+  border: 1px solid #999;
+}
+
+.dd-content {
+  display: block;
+  position: relative;
+  background-color: #FFF;
+}
+.dd-inside {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+  border: 1px solid #DFDFDF;
+  padding: 10px 15px;
+  background: none repeat scroll 0% 0% #FAFAFA;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.dd-inside .dd-title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+  display: block;
+  padding-left:5px;
+  margin-right: 13em;
+  word-wrap: break-word;
+  color:#222;
+}
+
+
+.dd-dashicons, .dd-dashicons-before:before {
+color:#333!important;
+padding-right: 5px!important;
+}
+
+.dd-dashicons.no-icon, .dd-dashicons-before:before {
+width:0px;
+padding-right: 0px!important;
+}
+
+.nav-menus-php .dd-edit {
+  z-index:1000;
+  color: #AAA;
+}
+
+.dd-item > .dd-action {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  top:1px;
+  left:0px;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-right:0px;
+  padding-left:0px;
+  z-index:2;
+}
+.dd-item > .dd-action span {
+  padding:0px!important;
+}
+
+.dd-item > .dd-action:before {
+  color:#999!important;
+}
+
+
+/*.dd-item > .dd-action[data-action="collapse"]:before {
+  content: '-';
+}*/
+
+.dd-placeholder,
+.dd-empty {
+  /*margin-top: 5px;*/
+  padding: 0;
+  min-height: 40px;
+  border: 1px dashed #AAA;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.dd-empty {
+  border: 1px dashed #AAA;
+  min-height: 40px;
+}
+
+.dd-dragel {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dd-dragel > .dd-item .dd-handle {
+  margin-top: 0;
+}
+
+/* debug */
+.dd-item[data-icon]:before {
+font-family: inherit;
+content: "";
+}
+
+/*.dd-placeholder,
+.dd-empty { z-index: 0; margin: 0px 0; padding: 0; min-height: 42px; background: #f2fbff; border: 1px dashed #b6bcbf; box-sizing: border-box; -moz-box-sizing: border-box; }
+.dd-empty { border: 1px dashed #bbb; min-height: 42px; background-color: #e5e5e5;
+    background-image: -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                      -webkit-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:    -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                         -moz-linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-image:         linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff),
+                              linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%, #fff);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+
+z-index: 10;
+}*/
+
+.dd-placeholder,
+.dd-empty { z-index: 0; border: 1px dashed #bbb; min-height: 42px; }
+.dd-empty { z-index: 10; border: 1px dashed #bbb; min-height: 42px; }

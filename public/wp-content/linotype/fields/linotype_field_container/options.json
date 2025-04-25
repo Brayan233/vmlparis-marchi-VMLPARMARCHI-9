@@ -1,0 +1,155 @@
+{
+    "_overide": {
+        "title": "Overide Settings",
+        "info": "define a id to display settings on post page",
+        "type": "text",
+        "options": [],
+        "default": "",
+        "col": "",
+        "desc": "",
+        "disabled": "",
+        "fullwidth": true,
+        "help": false,
+        "padding": "20px 20px 0px 20px",
+        "tab": "Settings"
+    },
+    "_block_default_display": {
+        "title": "Hide if",
+        "info": "",
+        "type": "selectize",
+        "options": {
+            "allowEmptyOption": true,
+            "clear_button": true,
+            "closeAfterSelect": true,
+            "custom": false,
+            "data": [
+                {
+                    "title": "Hidden on all",
+                    "value": "d-none"
+                },
+                {
+                    "title": "Visible on all",
+                    "value": "d-block"
+                },
+                {
+                    "title": "Hidden on xs",
+                    "value": "d-xs-none"
+                },
+                {
+                    "title": "Hidden on sm",
+                    "value": "d-sm-none"
+                },
+                {
+                    "title": "Hidden on md",
+                    "value": "d-md-none"
+                },
+                {
+                    "title": "Hidden on lg",
+                    "value": "d-lg-none"
+                },
+                {
+                    "title": "Hidden on xl",
+                    "value": "d-xl-none"
+                },
+                {
+                    "title": "Visible on xs",
+                    "value": "d-xs-block"
+                },
+                {
+                    "title": "Visible on sm",
+                    "value": "d-sm-block"
+                },
+                {
+                    "title": "Visible on md",
+                    "value": "d-md-block"
+                },
+                {
+                    "title": "Visible on lg",
+                    "value": "d-lg-block"
+                },
+                {
+                    "title": "Visible on xl",
+                    "value": "d-xl-block"
+                }
+            ],
+            "delimiter": ",",
+            "hideSelected": false,
+            "maxItems": 1000,
+            "maxOptions": 1000,
+            "persist": false,
+            "placeholder": "",
+            "plugins": [
+                "restore_on_backspace",
+                "drag_drop",
+                "remove_button",
+                "optgroup_columns"
+            ]
+        },
+        "default": "",
+        "col": "",
+        "desc": "",
+        "disabled": "",
+        "fullwidth": true,
+        "help": false,
+        "padding": "20px 20px 0px 20px",
+        "tab": "Block"
+    },
+    "_block_default_margin": {
+        "title": "Margin",
+        "info": "",
+        "type": "text",
+        "options": [],
+        "default": "",
+        "col": "",
+        "desc": "",
+        "disabled": "",
+        "fullwidth": true,
+        "help": false,
+        "padding": "20px 20px 0px 20px",
+        "tab": "Block"
+    },
+    "_block_default_padding": {
+        "title": "Padding",
+        "info": "",
+        "type": "text",
+        "options": [],
+        "default": "",
+        "col": "",
+        "desc": "",
+        "disabled": "",
+        "fullwidth": true,
+        "help": false,
+        "padding": "20px 20px 0px 20px",
+        "tab": "Block"
+    },
+    "_block_default_bg_color": {
+        "title": "Background Color",
+        "info": "",
+        "type": "color",
+        "options": [],
+        "default": "",
+        "col": "",
+        "desc": "",
+        "disabled": "",
+        "fullwidth": true,
+        "help": false,
+        "padding": "20px 20px 0px 20px",
+        "tab": "Block"
+    },
+    "_block_default_bg_img": {
+        "title": "Background Image",
+        "info": "",
+        "type": "image",
+        "options": {
+            "output": "id"
+        },
+        "default": "",
+        "col": "",
+        "desc": "",
+        "disabled": "",
+        "fullwidth": true,
+        "help": false,
+        "padding": "20px 20px 0px 20px",
+        "tab": "Block"
+    }
+}

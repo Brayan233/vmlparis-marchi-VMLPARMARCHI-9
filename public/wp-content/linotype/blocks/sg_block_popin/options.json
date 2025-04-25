@@ -1,0 +1,42 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "uid",
+            "title": "Define unique id",
+            "desc": "require to disable on page refresh"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "trigger_by_delay",
+            "title": "Auto open delay in second",
+            "desc": ""
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "force_date_start",
+            "title": "Force date start",
+            "desc": "year/month/day"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "force_date_end",
+            "title": "Force date end",
+            "desc": "year/month/day"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "trigger",
+            "title": "Trigger",
+            "desc": "Define a class (.mybuttonclass) or id (#mybuttonid) of clickable element to open\/close this popin"
+        }
+    }
+]

@@ -1,0 +1,212 @@
+[
+
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "image_pos",
+            "title": "Image position",
+            "col": "col-6",
+            "options": {
+                "data": [
+                    {
+                        "value": "image_full",
+                        "title": "Image pleine largeur"
+                    },
+                    {
+                        "value": "image_left",
+                        "title": "Image à gauche"
+                    },
+                    {
+                        "value": "image_right",
+                        "title": "Image à droite"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "100%",
+                "multiple": false,
+                "style": ""
+            }
+        },
+        "params": []
+    },
+    {
+      "type": "linotype_field_select",
+      "options": {
+          "id": "image_height",
+          "title": "Image hauteur",
+          "col": "col-6",
+          "options": {
+              "data": [
+                  {
+                      "value": "",
+                      "title": "Hauteur automatique"
+                  },
+                  {
+                      "value": "full_height",
+                      "title": "Pleine Hauteur"
+                  }
+              ],
+              "empty": false,
+              "height": "",
+              "min-width": "100%",
+              "multiple": false,
+              "style": ""
+          }
+      },
+      "params": []
+  },
+    {
+        "type": "linotype_field_color",
+        "options": {
+            "id": "color_bg",
+            "title": "Background color",
+            "default": "#fff",
+            "col": "col-4",
+            "options": {
+            }
+        },
+        "params": []
+    },
+    {
+        "type": "linotype_field_color",
+        "options": {
+            "id": "color_text",
+            "title": "Text color",
+            "default": "#262829",
+            "col": "col-4",
+            "options": {
+            }
+        }
+    },
+    {
+        "type": "linotype_field_color",
+        "options": {
+            "id": "color_link",
+            "title": "Link color",
+            "default": "#409",
+            "col": "col-4",
+            "options": {
+            }
+        }
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "img",
+            "title": "Image",
+            "col": "col-6"
+        }
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "img_mobile",
+            "title": "Image Mobile",
+            "col": "col-6"
+        }
+    },
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "video_id",
+            "title": "Youtube Video ID (ex. XRSt8uKiSkc)"
+        },
+        "contents": [],
+        "params": []
+    },
+    {
+        "type": "sg_field_title",
+        "options": {
+            "id": "title",
+            "title": "Title",
+            "default": ""
+        },
+        "id": "53115b58f7c5a8b4e2abfc837a7f2e53",
+        "params": []
+    },
+    {
+        "type": "sg_field_title",
+        "options": {
+            "id": "surtitle",
+            "title": "Surtitle",
+            "default": ""
+        },
+        "id": "53115b58f7c5a8b4e2abfc837a7f2e53",
+        "params": []
+    },
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "desc",
+            "title": "Description",
+            "options": {
+                "p": true,
+                "placeholder": "",
+                "syntax": false,
+                "theme": "snow",
+                "toolbar": [
+                    [
+                        {
+                            "size": []
+                        }
+                    ],
+                    [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strike"
+                    ]
+                ]
+            }
+        },
+        "id": "d1ec365649fe4ad6ad867d6a00cef8e0",
+        "params": []
+    },
+    {
+        "type": "linotype_field_link",
+        "options": {
+            "id": "link",
+            "title": "Link"
+        },
+        "id": "3a03a295b6fd1c88e9018370bf3e3734",
+        "params": []
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "compress",
+            "title": "Image compression",
+            "default": "85",
+            "options": {
+                "data": [
+                    {
+                        "value": "100",
+                        "title": "100% (no compression)"
+                    },
+                    {
+                        "value": "95",
+                        "title": "95%"
+                    },
+                    {
+                        "value": "90",
+                        "title": "90%"
+                    },
+                    {
+                        "value": "85",
+                        "title": "85% (Common Compression)"
+                    },
+                    {
+                        "value": "80",
+                        "title": "80%"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        }
+    }
+]

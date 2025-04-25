@@ -1,0 +1,10 @@
+.wp-field-iframe iframe,
+.wp-field-iframe iframe[seamless],
+.wp-field-iframe iframe:focus {
+border: none;
+display: block;
+padding: 0;
+margin: 0px;
+outline: none;
+display: block;
+}

@@ -1,0 +1,72 @@
+.icon-picker {
+position: relative;
+}
+
+.icon-picker .button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  line-height: 28px;
+  height: inherit !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  z-index: 5;
+  min-width: 40px;
+}
+
+.icon-picker .button i {
+line-height: 28px!important;
+}
+
+
+/* */
+.fa-hover.col-md-3.col-sm-4 {
+    width: 25%;
+    display: inline-block;
+}
+.fontawesome-icon-list .fa-hover a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    color: #222;
+    line-height: 32px;
+    height: 32px;
+    padding-left: 10px;
+    border-radius: 4px;
+    text-decoration: none
+}
+.fontawesome-icon-list .fa-hover a .fa {
+    width: 32px;
+    font-size: 18px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+}
+.sr-only {
+    display: none;
+}
+
+
+
+
+#iconlist .dashicons {
+position: relative;
+box-sizing: content-box;
+padding: 0px;
+width: 30px;
+height: 30px;
+overflow: hidden;
+white-space: nowrap;
+font-size: 30px;
+line-height: 1;
+cursor: pointer;
+}
+
+
+
+*.current-icon {
+    background-color: #333!important;
+    color: #FFF!important;
+}

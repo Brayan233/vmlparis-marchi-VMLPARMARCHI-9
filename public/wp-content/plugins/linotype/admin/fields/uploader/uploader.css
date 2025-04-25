@@ -1,0 +1,80 @@
+
+.wp-field-uploader {
+
+}
+.wp-field-uploader .field-uploader-form {
+padding: 0px;
+}
+.wp-field-uploader .field-uploader-panel {
+margin: 0px;
+display: block;
+position: relative;
+padding: 0px;
+}
+.wp-field-uploader .field-uploader-bt-close {
+position: absolute;
+top: 0px;
+right: 0px;
+padding: 10px;
+background-color: transparent;
+border: 0;
+cursor: pointer;
+text-align: center;
+z-index: 1;
+}
+.wp-field-uploader .field-uploader-bt-close:before{
+color: #777;
+}
+.wp-field-uploader .field-uploader-panel h1 {
+margin: 10px;
+padding: 0px;
+}
+.wp-field-uploader .field-uploader-panel .field-uploader-bt-add {
+margin: 10px;
+}
+.wp-field-uploader .field-uploader-title {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+.wp-field-uploader .field-uploader-title > * {
+display: inline-block;
+}
+.drag-drop .drag-drop-inside {
+width: inherit;
+}
+#plupload-upload-ui.drag-drop{
+padding: 10px;
+}
+#plupload-upload-ui.drag-drop.drag-over{
+background-color: #005684;
+}
+#plupload-upload-ui.drag-drop #drag-drop-area{
+height: inherit; 
+border: 4px dashed rgb(180, 185, 190); 
+position: relative;
+}
+#plupload-upload-ui.drag-drop.drag-over p{
+color: #FFFFFF;
+}
+#plupload-upload-ui.drag-drop.drag-over #drag-drop-area{
+border: 4px dashed #FFFFFF;
+}
+.wp-field-uploader .field-uploader-files .media-item {
+box-shadow: rgba(0, 0, 0, 0.0980392) 0px 1px 1px 0px;
+height: 37px;
+position: relative;
+background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+border-left: 5px solid rgb(0, 133, 186);
+margin: 0px 0px 1px 0px;
+}
+.wp-field-uploader .field-uploader-files .media-item:last-child {
+margin: 0px 0px 0px 0px;
+}
+.wp-field-uploader .field-uploader-files .media-item .filename {
+color: rgb(0, 133, 186);
+}
+.wp-field-uploader .field-uploader-files .media-item .field-uploader-bt-delete {
+position: absolute;
+top: 6px;
+right: 6px;
+}

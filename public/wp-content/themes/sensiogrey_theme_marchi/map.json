@@ -1,0 +1,1028 @@
+{
+    "post": {
+        "infos": {
+            "title": "Posts",
+            "slug": "post",
+            "posts": [],
+            "taxonomies": {
+                "category": [],
+                "post_tag": [],
+                "post_format": []
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "archive": {
+                "title": "Archive",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "category": {
+                "title": "Categories",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "post_tag": {
+                "title": "Tags",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "post_format": {
+                "title": "Formats",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "page": {
+        "infos": {
+            "title": "Pages",
+            "slug": "page",
+            "posts": {
+                "75": {
+                    "ID": 75,
+                    "title": "Accueil"
+                },
+                "145": {
+                    "ID": 145,
+                    "title": "L\u2019Adresse"
+                },
+                "640": {
+                    "ID": 640,
+                    "title": "Boutique"
+                },
+                "686": {
+                    "ID": 686,
+                    "title": "La Cr\u00e9atrice"
+                },
+                "692": {
+                    "ID": 692,
+                    "title": "Le savoir faire"
+                },
+                "937": {
+                    "ID": 937,
+                    "title": "Compte"
+                },
+                "943": {
+                    "ID": 943,
+                    "title": "Commande"
+                },
+                "945": {
+                    "ID": 945,
+                    "title": "Panier"
+                },
+                "1728": {
+                    "ID": 1728,
+                    "title": "Mentions l\u00e9gales et donn\u00e9es personnelles"
+                },
+                "1890": {
+                    "ID": 1890,
+                    "title": "La Maison"
+                }
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "sg_template_composer",
+                "templates": [],
+                "target": {
+                    "75": {
+                        "ID": 75,
+                        "title": "Accueil"
+                    },
+                    "145": {
+                        "ID": 145,
+                        "title": "L\u2019Adresse"
+                    },
+                    "640": {
+                        "ID": 640,
+                        "title": "Boutique"
+                    },
+                    "686": {
+                        "ID": 686,
+                        "title": "La Cr\u00e9atrice"
+                    },
+                    "692": {
+                        "ID": 692,
+                        "title": "Le savoir faire"
+                    },
+                    "937": {
+                        "ID": 937,
+                        "title": "Compte"
+                    },
+                    "943": {
+                        "ID": 943,
+                        "title": "Commande"
+                    },
+                    "945": {
+                        "ID": 945,
+                        "title": "Panier"
+                    },
+                    "1728": {
+                        "ID": 1728,
+                        "title": "Mentions l\u00e9gales et donn\u00e9es personnelles"
+                    },
+                    "1890": {
+                        "ID": 1890,
+                        "title": "La Maison"
+                    }
+                },
+                "rules": []
+            }
+        }
+    },
+    "attachment": {
+        "infos": {
+            "title": "Media",
+            "slug": "attachment",
+            "posts": []
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "product": {
+        "infos": {
+            "title": "Products",
+            "slug": "product",
+            "posts": {
+                "1442": {
+                    "ID": 1442,
+                    "title": "Qaha-te"
+                },
+                "1478": {
+                    "ID": 1478,
+                    "title": "Mini Qaha-te"
+                },
+                "1583": {
+                    "ID": 1583,
+                    "title": "Kavango Bicolore"
+                },
+                "1711": {
+                    "ID": 1711,
+                    "title": "Kavango"
+                },
+                "3812": {
+                    "ID": 3812,
+                    "title": "Herero Uutapi"
+                },
+                "3818": {
+                    "ID": 3818,
+                    "title": "Herero Otavi"
+                },
+                "4051": {
+                    "ID": 4051,
+                    "title": "Katima"
+                },
+                "4092": {
+                    "ID": 4092,
+                    "title": "Blanc Erongo & Orange Hidden"
+                },
+                "4432": {
+                    "ID": 4432,
+                    "title": "Eb\u00e8ne & Blanc Nara"
+                },
+                "4440": {
+                    "ID": 4440,
+                    "title": "Mini Herero Eb\u00e8ne"
+                },
+                "4446": {
+                    "ID": 4446,
+                    "title": "Herero Dune"
+                },
+                "4468": {
+                    "ID": 4468,
+                    "title": "Kita"
+                },
+                "4479": {
+                    "ID": 4479,
+                    "title": "Herero"
+                },
+                "4486": {
+                    "ID": 4486,
+                    "title": "Herero Blanc Erongo, Damara & Eb\u00e8ne"
+                },
+                "4495": {
+                    "ID": 4495,
+                    "title": "Etosha Victoria"
+                },
+                "4509": {
+                    "ID": 4509,
+                    "title": "Eb\u00e8ne & Brun Elim"
+                },
+                "4518": {
+                    "ID": 4518,
+                    "title": "Etosha Blanc Nara"
+                },
+                "4524": {
+                    "ID": 4524,
+                    "title": "Himba Blanc Nara"
+                },
+                "4533": {
+                    "ID": 4533,
+                    "title": "Himba Brun Elim"
+                },
+                "4539": {
+                    "ID": 4539,
+                    "title": "W Himba Brun Elim"
+                },
+                "4545": {
+                    "ID": 4545,
+                    "title": "W Himba Blanc Nara"
+                },
+                "4554": {
+                    "ID": 4554,
+                    "title": "Himba Sable & Blanc Nara"
+                },
+                "4562": {
+                    "ID": 4562,
+                    "title": "Himba Brun Elim & Sable"
+                },
+                "4586": {
+                    "ID": 4586,
+                    "title": "San"
+                },
+                "4601": {
+                    "ID": 4601,
+                    "title": "Moringa Brun Elim"
+                },
+                "4616": {
+                    "ID": 4616,
+                    "title": "Ikat"
+                },
+                "4632": {
+                    "ID": 4632,
+                    "title": "Moro Eb\u00e8ne - Or"
+                },
+                "4635": {
+                    "ID": 4635,
+                    "title": "Moro Brun Elim - Or"
+                },
+                "4643": {
+                    "ID": 4643,
+                    "title": "K-vango"
+                },
+                "4657": {
+                    "ID": 4657,
+                    "title": "Ka"
+                },
+                "4693": {
+                    "ID": 4693,
+                    "title": "Africa"
+                },
+                "4979": {
+                    "ID": 4979,
+                    "title": "B Africa"
+                },
+                "5093": {
+                    "ID": 5093,
+                    "title": "C Africa"
+                },
+                "5101": {
+                    "ID": 5101,
+                    "title": "Rio Ternura"
+                },
+                "5143": {
+                    "ID": 5143,
+                    "title": "Collier Brun Elim"
+                },
+                "5159": {
+                    "ID": 5159,
+                    "title": "Laisse Brun Elim"
+                },
+                "5174": {
+                    "ID": 5174,
+                    "title": "Onyx"
+                },
+                "5184": {
+                    "ID": 5184,
+                    "title": "Rio Gris \"Oscar\""
+                },
+                "5261": {
+                    "ID": 5261,
+                    "title": "Rio Blanc \"Conque\""
+                },
+                "5305": {
+                    "ID": 5305,
+                    "title": "Brun Elim & Blanc Nara"
+                },
+                "5314": {
+                    "ID": 5314,
+                    "title": "Eyuva"
+                },
+                "5354": {
+                    "ID": 5354,
+                    "title": "Moro Brun Elim - Palladium"
+                }
+            },
+            "taxonomies": {
+                "product_cat": {
+                    "117": {
+                        "ID": 117,
+                        "title": "Collections",
+                        "taxonomy": "product_cat"
+                    },
+                    "121": {
+                        "ID": 121,
+                        "title": "Alma",
+                        "taxonomy": "product_cat"
+                    },
+                    "123": {
+                        "ID": 123,
+                        "title": "Beka",
+                        "taxonomy": "product_cat"
+                    },
+                    "125": {
+                        "ID": 125,
+                        "title": "Cubo",
+                        "taxonomy": "product_cat"
+                    },
+                    "127": {
+                        "ID": 127,
+                        "title": "Accessoires",
+                        "taxonomy": "product_cat"
+                    },
+                    "129": {
+                        "ID": 129,
+                        "title": "Sacs ceinture",
+                        "taxonomy": "product_cat"
+                    },
+                    "131": {
+                        "ID": 131,
+                        "title": "Portes-documents",
+                        "taxonomy": "product_cat"
+                    },
+                    "133": {
+                        "ID": 133,
+                        "title": "Ligne canine",
+                        "taxonomy": "product_cat"
+                    },
+                    "455": {
+                        "ID": 455,
+                        "title": "Kali",
+                        "taxonomy": "product_cat"
+                    },
+                    "623": {
+                        "ID": 623,
+                        "title": "Voyage en Namibie",
+                        "taxonomy": "product_cat"
+                    },
+                    "641": {
+                        "ID": 641,
+                        "title": "Babi",
+                        "taxonomy": "product_cat"
+                    },
+                    "707": {
+                        "ID": 707,
+                        "title": "Joy",
+                        "taxonomy": "product_cat"
+                    },
+                    "711": {
+                        "ID": 711,
+                        "title": "Pochettes",
+                        "taxonomy": "product_cat"
+                    },
+                    "791": {
+                        "ID": 791,
+                        "title": "Sacs \u00e0 main",
+                        "taxonomy": "product_cat"
+                    },
+                    "801": {
+                        "ID": 801,
+                        "title": "Sacs port\u00e9 \u00e9paule",
+                        "taxonomy": "product_cat"
+                    },
+                    "805": {
+                        "ID": 805,
+                        "title": "Sacs de voyage",
+                        "taxonomy": "product_cat"
+                    },
+                    "817": {
+                        "ID": 817,
+                        "title": "Embruns",
+                        "taxonomy": "product_cat"
+                    },
+                    "823": {
+                        "ID": 823,
+                        "title": "Sacs \u00e0 dos",
+                        "taxonomy": "product_cat"
+                    },
+                    "829": {
+                        "ID": 829,
+                        "title": "Ludo",
+                        "taxonomy": "product_cat"
+                    },
+                    "833": {
+                        "ID": 833,
+                        "title": "Reka Mini",
+                        "taxonomy": "product_cat"
+                    },
+                    "839": {
+                        "ID": 839,
+                        "title": "Reka Medio",
+                        "taxonomy": "product_cat"
+                    },
+                    "847": {
+                        "ID": 847,
+                        "title": "Mame",
+                        "taxonomy": "product_cat"
+                    },
+                    "859": {
+                        "ID": 859,
+                        "title": "Jade",
+                        "taxonomy": "product_cat"
+                    },
+                    "865": {
+                        "ID": 865,
+                        "title": "Cubo Weekend",
+                        "taxonomy": "product_cat"
+                    },
+                    "872": {
+                        "ID": 872,
+                        "title": "Deva City",
+                        "taxonomy": "product_cat"
+                    },
+                    "880": {
+                        "ID": 880,
+                        "title": "Deva Beach",
+                        "taxonomy": "product_cat"
+                    },
+                    "893": {
+                        "ID": 893,
+                        "title": "Cubo",
+                        "taxonomy": "product_cat"
+                    },
+                    "899": {
+                        "ID": 899,
+                        "title": "Beka",
+                        "taxonomy": "product_cat"
+                    },
+                    "905": {
+                        "ID": 905,
+                        "title": "Reka Mini",
+                        "taxonomy": "product_cat"
+                    },
+                    "919": {
+                        "ID": 919,
+                        "title": "Karl",
+                        "taxonomy": "product_cat"
+                    },
+                    "1510": {
+                        "ID": 1510,
+                        "title": "Jade",
+                        "taxonomy": "product_cat"
+                    },
+                    "1528": {
+                        "ID": 1528,
+                        "title": "Bandouli\u00e8res",
+                        "taxonomy": "product_cat"
+                    },
+                    "1536": {
+                        "ID": 1536,
+                        "title": "Pulsations Br\u00e9siliennes",
+                        "taxonomy": "product_cat"
+                    },
+                    "1545": {
+                        "ID": 1545,
+                        "title": "Djae",
+                        "taxonomy": "product_cat"
+                    },
+                    "1549": {
+                        "ID": 1549,
+                        "title": "Kira",
+                        "taxonomy": "product_cat"
+                    },
+                    "1553": {
+                        "ID": 1553,
+                        "title": "Nora",
+                        "taxonomy": "product_cat"
+                    },
+                    "1571": {
+                        "ID": 1571,
+                        "title": "Jaipur",
+                        "taxonomy": "product_cat"
+                    },
+                    "1720": {
+                        "ID": 1720,
+                        "title": "Abstractions",
+                        "taxonomy": "product_cat"
+                    }
+                },
+                "product_tag": [],
+                "product_shipping_class": []
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "marchi_template_product",
+                "templates": [],
+                "target": {
+                    "1442": {
+                        "ID": 1442,
+                        "title": "Qaha-te"
+                    },
+                    "1478": {
+                        "ID": 1478,
+                        "title": "Mini Qaha-te"
+                    },
+                    "1583": {
+                        "ID": 1583,
+                        "title": "Kavango Bicolore"
+                    },
+                    "1711": {
+                        "ID": 1711,
+                        "title": "Kavango"
+                    },
+                    "3812": {
+                        "ID": 3812,
+                        "title": "Herero Uutapi"
+                    },
+                    "3818": {
+                        "ID": 3818,
+                        "title": "Herero Otavi"
+                    },
+                    "4051": {
+                        "ID": 4051,
+                        "title": "Katima"
+                    },
+                    "4092": {
+                        "ID": 4092,
+                        "title": "Blanc Erongo & Orange Hidden"
+                    },
+                    "4432": {
+                        "ID": 4432,
+                        "title": "Eb\u00e8ne & Blanc Nara"
+                    },
+                    "4440": {
+                        "ID": 4440,
+                        "title": "Mini Herero Eb\u00e8ne"
+                    },
+                    "4446": {
+                        "ID": 4446,
+                        "title": "Herero Dune"
+                    },
+                    "4468": {
+                        "ID": 4468,
+                        "title": "Kita"
+                    },
+                    "4479": {
+                        "ID": 4479,
+                        "title": "Herero"
+                    },
+                    "4486": {
+                        "ID": 4486,
+                        "title": "Herero Blanc Erongo, Damara & Eb\u00e8ne"
+                    },
+                    "4495": {
+                        "ID": 4495,
+                        "title": "Etosha Victoria"
+                    },
+                    "4509": {
+                        "ID": 4509,
+                        "title": "Eb\u00e8ne & Brun Elim"
+                    },
+                    "4518": {
+                        "ID": 4518,
+                        "title": "Etosha Blanc Nara"
+                    },
+                    "4524": {
+                        "ID": 4524,
+                        "title": "Himba Blanc Nara"
+                    },
+                    "4533": {
+                        "ID": 4533,
+                        "title": "Himba Brun Elim"
+                    },
+                    "4539": {
+                        "ID": 4539,
+                        "title": "W Himba Brun Elim"
+                    },
+                    "4545": {
+                        "ID": 4545,
+                        "title": "W Himba Blanc Nara"
+                    },
+                    "4554": {
+                        "ID": 4554,
+                        "title": "Himba Sable & Blanc Nara"
+                    },
+                    "4562": {
+                        "ID": 4562,
+                        "title": "Himba Brun Elim & Sable"
+                    },
+                    "4586": {
+                        "ID": 4586,
+                        "title": "San"
+                    },
+                    "4601": {
+                        "ID": 4601,
+                        "title": "Moringa Brun Elim"
+                    },
+                    "4616": {
+                        "ID": 4616,
+                        "title": "Ikat"
+                    },
+                    "4632": {
+                        "ID": 4632,
+                        "title": "Moro Eb\u00e8ne - Or"
+                    },
+                    "4635": {
+                        "ID": 4635,
+                        "title": "Moro Brun Elim - Or"
+                    },
+                    "4643": {
+                        "ID": 4643,
+                        "title": "K-vango"
+                    },
+                    "4657": {
+                        "ID": 4657,
+                        "title": "Ka"
+                    },
+                    "4693": {
+                        "ID": 4693,
+                        "title": "Africa"
+                    },
+                    "4979": {
+                        "ID": 4979,
+                        "title": "B Africa"
+                    },
+                    "5093": {
+                        "ID": 5093,
+                        "title": "C Africa"
+                    },
+                    "5101": {
+                        "ID": 5101,
+                        "title": "Rio Ternura"
+                    },
+                    "5143": {
+                        "ID": 5143,
+                        "title": "Collier Brun Elim"
+                    },
+                    "5159": {
+                        "ID": 5159,
+                        "title": "Laisse Brun Elim"
+                    },
+                    "5174": {
+                        "ID": 5174,
+                        "title": "Onyx"
+                    },
+                    "5184": {
+                        "ID": 5184,
+                        "title": "Rio Gris \"Oscar\""
+                    },
+                    "5261": {
+                        "ID": 5261,
+                        "title": "Rio Blanc \"Conque\""
+                    },
+                    "5305": {
+                        "ID": 5305,
+                        "title": "Brun Elim & Blanc Nara"
+                    },
+                    "5314": {
+                        "ID": 5314,
+                        "title": "Eyuva"
+                    },
+                    "5354": {
+                        "ID": 5354,
+                        "title": "Moro Brun Elim - Palladium"
+                    }
+                },
+                "rules": []
+            },
+            "archive": {
+                "title": "Archive",
+                "template": "marchi_template_products",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "product_cat": {
+                "title": "Product categories",
+                "template": "marchi_template_products",
+                "templates": [],
+                "target": {
+                    "117": {
+                        "ID": 117,
+                        "title": "Collections",
+                        "taxonomy": "product_cat"
+                    },
+                    "121": {
+                        "ID": 121,
+                        "title": "Alma",
+                        "taxonomy": "product_cat"
+                    },
+                    "123": {
+                        "ID": 123,
+                        "title": "Beka",
+                        "taxonomy": "product_cat"
+                    },
+                    "125": {
+                        "ID": 125,
+                        "title": "Cubo",
+                        "taxonomy": "product_cat"
+                    },
+                    "127": {
+                        "ID": 127,
+                        "title": "Accessoires",
+                        "taxonomy": "product_cat"
+                    },
+                    "129": {
+                        "ID": 129,
+                        "title": "Sacs ceinture",
+                        "taxonomy": "product_cat"
+                    },
+                    "131": {
+                        "ID": 131,
+                        "title": "Portes-documents",
+                        "taxonomy": "product_cat"
+                    },
+                    "133": {
+                        "ID": 133,
+                        "title": "Ligne canine",
+                        "taxonomy": "product_cat"
+                    },
+                    "455": {
+                        "ID": 455,
+                        "title": "Kali",
+                        "taxonomy": "product_cat"
+                    },
+                    "623": {
+                        "ID": 623,
+                        "title": "Voyage en Namibie",
+                        "taxonomy": "product_cat"
+                    },
+                    "641": {
+                        "ID": 641,
+                        "title": "Babi",
+                        "taxonomy": "product_cat"
+                    },
+                    "707": {
+                        "ID": 707,
+                        "title": "Joy",
+                        "taxonomy": "product_cat"
+                    },
+                    "711": {
+                        "ID": 711,
+                        "title": "Pochettes",
+                        "taxonomy": "product_cat"
+                    },
+                    "791": {
+                        "ID": 791,
+                        "title": "Sacs \u00e0 main",
+                        "taxonomy": "product_cat"
+                    },
+                    "801": {
+                        "ID": 801,
+                        "title": "Sacs port\u00e9 \u00e9paule",
+                        "taxonomy": "product_cat"
+                    },
+                    "805": {
+                        "ID": 805,
+                        "title": "Sacs de voyage",
+                        "taxonomy": "product_cat"
+                    },
+                    "817": {
+                        "ID": 817,
+                        "title": "Embruns",
+                        "taxonomy": "product_cat"
+                    },
+                    "823": {
+                        "ID": 823,
+                        "title": "Sacs \u00e0 dos",
+                        "taxonomy": "product_cat"
+                    },
+                    "829": {
+                        "ID": 829,
+                        "title": "Ludo",
+                        "taxonomy": "product_cat"
+                    },
+                    "833": {
+                        "ID": 833,
+                        "title": "Reka Mini",
+                        "taxonomy": "product_cat"
+                    },
+                    "839": {
+                        "ID": 839,
+                        "title": "Reka Medio",
+                        "taxonomy": "product_cat"
+                    },
+                    "847": {
+                        "ID": 847,
+                        "title": "Mame",
+                        "taxonomy": "product_cat"
+                    },
+                    "859": {
+                        "ID": 859,
+                        "title": "Jade",
+                        "taxonomy": "product_cat"
+                    },
+                    "865": {
+                        "ID": 865,
+                        "title": "Cubo Weekend",
+                        "taxonomy": "product_cat"
+                    },
+                    "872": {
+                        "ID": 872,
+                        "title": "Deva City",
+                        "taxonomy": "product_cat"
+                    },
+                    "880": {
+                        "ID": 880,
+                        "title": "Deva Beach",
+                        "taxonomy": "product_cat"
+                    },
+                    "893": {
+                        "ID": 893,
+                        "title": "Cubo",
+                        "taxonomy": "product_cat"
+                    },
+                    "899": {
+                        "ID": 899,
+                        "title": "Beka",
+                        "taxonomy": "product_cat"
+                    },
+                    "905": {
+                        "ID": 905,
+                        "title": "Reka Mini",
+                        "taxonomy": "product_cat"
+                    },
+                    "919": {
+                        "ID": 919,
+                        "title": "Karl",
+                        "taxonomy": "product_cat"
+                    },
+                    "1510": {
+                        "ID": 1510,
+                        "title": "Jade",
+                        "taxonomy": "product_cat"
+                    },
+                    "1528": {
+                        "ID": 1528,
+                        "title": "Bandouli\u00e8res",
+                        "taxonomy": "product_cat"
+                    },
+                    "1536": {
+                        "ID": 1536,
+                        "title": "Pulsations Br\u00e9siliennes",
+                        "taxonomy": "product_cat"
+                    },
+                    "1545": {
+                        "ID": 1545,
+                        "title": "Djae",
+                        "taxonomy": "product_cat"
+                    },
+                    "1549": {
+                        "ID": 1549,
+                        "title": "Kira",
+                        "taxonomy": "product_cat"
+                    },
+                    "1553": {
+                        "ID": 1553,
+                        "title": "Nora",
+                        "taxonomy": "product_cat"
+                    },
+                    "1571": {
+                        "ID": 1571,
+                        "title": "Jaipur",
+                        "taxonomy": "product_cat"
+                    },
+                    "1720": {
+                        "ID": 1720,
+                        "title": "Abstractions",
+                        "taxonomy": "product_cat"
+                    }
+                },
+                "rules": []
+            },
+            "product_tag": {
+                "title": "Product tags",
+                "template": "marchi_template_products",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "product_shipping_class": {
+                "title": "Product shipping classes",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "lookbook": {
+        "infos": {
+            "title": "Lookbook",
+            "slug": "lookbook",
+            "posts": {
+                "3855": {
+                    "ID": 3855,
+                    "title": "Abstractions"
+                },
+                "3862": {
+                    "ID": 3862,
+                    "title": "Embruns"
+                },
+                "4182": {
+                    "ID": 4182,
+                    "title": "Voyage en Namibie"
+                }
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "marchi_template_lookbook",
+                "templates": [],
+                "target": {
+                    "3855": {
+                        "ID": 3855,
+                        "title": "Abstractions"
+                    },
+                    "3862": {
+                        "ID": 3862,
+                        "title": "Embruns"
+                    },
+                    "4182": {
+                        "ID": 4182,
+                        "title": "Voyage en Namibie"
+                    }
+                },
+                "rules": []
+            },
+            "archive": {
+                "title": "Archive",
+                "template": "marchi_template_lookbook",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "author": {
+        "infos": {
+            "title": "Author",
+            "slug": "author"
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "error": {
+        "infos": {
+            "title": "Error",
+            "slug": "error"
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "search": {
+        "infos": {
+            "title": "Search",
+            "slug": "search"
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "sg_template_404",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    }
+}

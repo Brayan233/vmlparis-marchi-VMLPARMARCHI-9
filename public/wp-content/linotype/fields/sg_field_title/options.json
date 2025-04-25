@@ -1,0 +1,9 @@
+{
+    "theme": "bubble",
+    "p": false,
+    "syntax": true,
+    "toolbar": [
+        [ "bold", "italic", "clean"]
+    ],
+    "placeholder": ""
+}

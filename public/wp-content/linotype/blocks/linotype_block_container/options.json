@@ -1,0 +1,18 @@
+[
+    {
+        "type": "linotype_field_numeric",
+        "options": {
+            "id": "padding_top",
+            "title": "Marge du haut"
+        },
+        "contents": []
+    },
+    {
+        "type": "linotype_field_numeric",
+        "options": {
+            "id": "padding_bottom",
+            "title": "Marge du bas"
+        },
+        "contents": []
+    }
+]

@@ -1,0 +1,94 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light"
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "tab": "Nav"
+                }
+            ]
+        }
+    },
+    {
+        "type": "linotype_block_composer",
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "content",
+                    "overwrite_target": "post_content",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "linotype_field_composer",
+                    "options": {
+                        "items_only": [
+                            "sg_block_hero",
+                            "sg_block_content",
+                            "sg_block_quote",
+                            "sg_block_text",
+                            "sg_block_image",
+                            "sg_block_media",
+                            "sg_block_promo",
+                            "sg_block_categories",
+                            "sg_block_gallery",
+                            "sg_block_pictos",
+                            "sg_block_pictos_item",
+                            "sg_block_tabs",
+                            "sg_block_product_grid",
+                            "sg_block_product_slider",
+                            "sg_block_popin",
+                            "sg_block_link"
+                        ],
+                        "devices": false,
+                        "overwrite": false,
+                        "actions": [
+                            "add",
+                            "edit",
+                            "sort",
+                            "clone",
+                            "delete",
+                            "link"
+                        ]
+                    },
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "0px",
+                    "tab": "",
+                    "group": "Template"
+                }
+            ]
+        },
+        "id": "a9e4d023210bf4387bfc89f35a4a21de"
+    },
+    {
+        "type": "sg_module_footer",
+        "id": "763e3397fa2002c44e5599c4420b0781"
+    }
+]

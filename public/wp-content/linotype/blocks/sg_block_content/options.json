@@ -1,0 +1,43 @@
+[
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "quote",
+            "title": "Quote",
+            "options": {
+                "p": false,
+                "placeholder": "",
+                "syntax": true,
+                "theme": "bubble",
+                "toolbar": [
+                    [
+                        "bold",
+                        "italic"
+                    ]
+                ]
+            }
+        },
+        "id": "a56d182863568070724f5e215431730c",
+        "params": []
+    },
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "content",
+            "title": "Content",
+            "options": {
+                "p": false,
+                "placeholder": "",
+                "syntax": true,
+                "toolbar": [
+                    [
+                        "bold",
+                        "italic"
+                    ]
+                ]
+            }
+        },
+        "id": "a56d182863568070724f5e215431730c",
+        "params": []
+    }
+]

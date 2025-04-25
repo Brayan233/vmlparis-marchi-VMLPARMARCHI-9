@@ -1,0 +1,17 @@
+{
+    "type": "block",
+    "author": "wc",
+    "version": "1.0",
+    "update": "",
+    "commit": "",
+    "title": "WC Cart",
+    "desc": "",
+    "icon": "dashicons dashicons-cart",
+    "color": "",
+    "category": "WooCommerce",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": []
+}

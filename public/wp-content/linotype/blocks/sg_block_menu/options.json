@@ -1,0 +1,10 @@
+[
+    {
+        "type": "linotype_field_wp_menu",
+        "options": {
+            "id": "menu",
+            "title": "Menu"
+        }
+    }
+
+]

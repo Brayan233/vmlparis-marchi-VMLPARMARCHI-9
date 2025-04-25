@@ -1,0 +1,10 @@
+[
+    {
+        "type": "linotype_field_text",
+        "options": {
+            "id": "title",
+            "title": "Title"
+        },
+        "params": []
+    }
+]

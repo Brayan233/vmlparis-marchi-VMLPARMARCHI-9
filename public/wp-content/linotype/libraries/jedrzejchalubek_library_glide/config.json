@@ -1,0 +1,41 @@
+{
+    "type": "library",
+    "author": "Jędrzej Chałubek",
+    "version": "3.3.0",
+    "update": "",
+    "sync": "",
+    "title": "Glide",
+    "desc": "A dependency-free JavaScript ES6 slider and carousel. It’s lightweight, flexible and fast. Designed to slide. No less, no more",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "slider",
+    "tags": [
+        "slider",
+        "responsive",
+        "touch"
+    ],
+    "scripts": [
+        {
+            "id": "jedrzejchalubek_library_glide",
+            "version": "3.3.0",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "",
+            "cdn": ""
+        }
+    ],
+    "styles": [
+        {
+            "id": "jedrzejchalubek_library_glide",
+            "version": "3.3.0",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "",
+            "cdn": ""
+        }
+    ]
+}

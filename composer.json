@@ -1,0 +1,14 @@
+{
+    "name": "ynk/marchi",
+    "type": "project",
+    "require": {
+        "symfony/dotenv": "^5.2"
+    },
+    "authors": [
+        {
+            "name": "YannickArmspach",
+            "email": "yannick.armspach@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

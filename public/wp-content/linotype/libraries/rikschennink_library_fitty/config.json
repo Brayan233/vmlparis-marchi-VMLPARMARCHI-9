@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "rikschennink",
+    "version": "1.0",
+    "update": "",
+    "sync": "",
+    "title": "Fitty",
+    "desc": "Snugly resizes text to fit its parent container.",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "rikschennink_library_fitty",
+            "version": "1.1",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "\/script.js",
+            "min": "\/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

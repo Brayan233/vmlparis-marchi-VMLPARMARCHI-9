@@ -1,0 +1,16 @@
+.sg_block_promo {
+  position: relative;
+  
+  .title {
+    position: absolute;
+    bottom: 3.2rem;
+    left: 0;
+
+    p {
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 100%;
+    }
+  }
+  
+}

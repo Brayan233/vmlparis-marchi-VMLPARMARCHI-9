@@ -1,0 +1,26 @@
+{
+  "type": "library",
+  "author": "KNI Labs",
+  "version": "1.14.0",
+  "update": "",
+  "sync": "",
+  "title": "RRSSB",
+  "desc": "Ridiculously Responsive Social Sharing Buttons",
+  "icon": "dashicons dashicons-category",
+  "color": "",
+  "category": "social",
+  "tags": [],
+  "scripts": [
+      {
+          "id": "knilabs_library_rrssb",
+          "version": "1.14.0",
+          "dependencies": [
+              "jquery"
+          ],
+          "footer": "true",
+          "full": "\/script.js",
+          "min": "",
+          "cdn": ""
+      }
+  ]
+}

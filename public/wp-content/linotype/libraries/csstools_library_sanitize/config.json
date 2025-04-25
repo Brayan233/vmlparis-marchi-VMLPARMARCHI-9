@@ -1,0 +1,26 @@
+{
+    "type": "library",
+    "author": "csstools",
+    "version": "7.0.2",
+    "update": "",
+    "sync": "",
+    "title": "Sanitize",
+    "desc": "A best-practices CSS reset",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "reset",
+    "tags": [
+        
+    ],
+    "styles": [
+        {
+            "id": "csstools_library_sanitize",
+            "version": "7.0.2",
+            "dependencies": [],
+            "media": "screen",
+            "full": "\/style.css",
+            "min": "\/style.css",
+            "cdn": ""
+        }
+    ]
+}

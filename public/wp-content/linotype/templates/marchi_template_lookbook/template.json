@@ -1,0 +1,188 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light"
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "tab": "Nav"
+                }
+            ]
+        }
+    },
+    {
+        "type": "sg_block_image",
+        "options": {
+            "compress": 85,
+            "_overwrite": [
+                {
+                    "id": "img",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": "Header"
+                },
+                {
+                    "id": "img_mobile",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": "Header"
+                },
+                {
+                    "id": "compress",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": "Header"
+                }
+            ]
+        },
+        "id": "7eb782fb8a4603a12e6dfd1b549a0ed5",
+        "params": []
+    },
+    {
+        "type": "sg_block_switch",
+        "id": "7b779fa3e1ab93d4f02aca95f95f1c73"
+    },
+    {
+        "type": "sg_block_content",
+        "options": {
+            "quote": "In hac habitasse platea dictumst. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.",
+            "content": "Cras id dui. Vivamus elementum semper nisi. Praesent ut ligula non mi varius sagittis. Cras varius. Donec mollis hendrerit risus. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aliquam erat volutpat. Etiam rhoncus. Fusce neque. Fusce egestas elit eget lorem. Fusce fermentum. Curabitur suscipit suscipit tellus. Nunc nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed aliquam, nisi quis porttitor congue, elit erat euismod orci, ac placerat dolor lectus quis orci. Aenean massa. Donec venenatis vulputate lorem. Sed in libero ut nibh placerat accumsan.",
+            "_overwrite": [
+                {
+                    "id": "quote",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": "Header"
+                },
+                {
+                    "id": "content",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": "Header"
+                }
+            ]
+        },
+        "id": "f3461c6a779e7f936e29a2ba36e4384e",
+        "params": []
+    },
+    {
+        "type": "linotype_block_composer",
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "content",
+                    "overwrite_target": "post_content",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "linotype_field_composer",
+                    "options": {
+                        "items_only": [
+                            "sg_block_hero",
+                            "sg_block_content",
+                            "sg_block_quote",
+                            "sg_block_text",
+                            "sg_block_image",
+                            "sg_block_media",
+                            "sg_block_promo",
+                            "sg_block_categories",
+                            "sg_block_gallery",
+                            "sg_block_pictos",
+                            "sg_block_pictos_item",
+                            "sg_block_tabs",
+                            "sg_block_product_grid",
+                            "sg_block_product_slider",
+                            "sg_block_link"
+                        ],
+                        "devices": false,
+                        "overwrite": false,
+                        "actions": [
+                            "add",
+                            "edit",
+                            "sort",
+                            "clone",
+                            "delete",
+                            "link"
+                        ]
+                    },
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "0px",
+                    "tab": "",
+                    "group": "Template"
+                }
+            ]
+        },
+        "id": "935146d0de86947bd383fde1e9dc448b"
+    },
+    {
+        "type": "sg_module_footer",
+        "id": "65af3721e4b19b21197b06518ac10480"
+    }
+]

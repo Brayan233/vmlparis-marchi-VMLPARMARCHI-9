@@ -1,0 +1,9 @@
+.linotype_block_columns > .composer-item-content > .container-full > .composer-items > .linotype_block_columns_item,
+.linotype_block_columns > .composer-item-content > .container-full > .composer-items > .linotype_block_columns_item:hover {
+ background-color: inherit;
+ border: none!important;
+}
+
+.linotype_block_columns > .composer-item-content > .container-full > .composer-items > .composer-item-empty {
+    opacity:0;
+}

@@ -1,0 +1,87 @@
+.sg_block_tabs {
+  @media (max-width: 767px) {
+    .sg_block_tabs-links {
+      overflow-x: scroll;
+      overflow-y: hidden;
+      height: 3rem;
+      white-space: nowrap;
+    }
+  }
+  .block-heading {
+    padding-bottom: 3.2rem;
+
+    @media (min-width: 768px) {
+      padding-left: 25%;
+      padding-bottom: 3.2rem;
+    }
+    @media (min-width: 992px) {
+      padding-left: 16.6667%;
+    }
+  }
+  .col-tabs {
+    @media (max-width: 767px) {
+      position: relative;
+      overflow: hidden;
+      height: 1.6rem;
+      margin-right: -1.6rem;
+      margin-bottom: 4rem;
+    }
+    @media (min-width: 768px) {
+      float: left;
+      width: 25%;
+      padding-right: 4.8rem;
+    }
+    @media (min-width: 992px) {
+      width: 16.6667%;
+    }
+  }
+  .sg_block_tabs-link {
+    @media (max-width: 767px) {
+      display: inline-block;
+
+      &:last-child {
+        .tab-link {
+          margin-right: 1.6rem;
+        }
+      }
+    }
+    &.active {
+      .tab-link {
+        color: var(--violet);
+      }
+    }
+    & + .sg_block_tabs-link {
+      @media (max-width: 767px) {
+        margin-left: 1.6rem;
+      }
+      @media (min-width: 768px) {
+        margin-top: .8rem;
+      }
+    }
+  }
+  .tab-link {
+    display: block;
+    color: var(--darkgrey);
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--violet);
+    }
+  }
+  @media (min-width: 768px) {
+    .col-tab-contents {
+      padding-left: 25%;
+    }
+    .link-all {
+      margin-top: 3.2rem;
+      white-space: normal;
+    }
+  }
+  @media (min-width: 992px) {
+    .col-tab-contents {
+      padding-left: 16.6667%;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+
+.wp-field-dashicons {
+	margin: 0;
+	padding: 0;
+}
+
+.wp-field-dashicons.fullwidth .field-input input{
+    padding-left:45px!important;
+}
+.wp-field-dashicons.fullwidth .button.dashicons-toogle{
+	position: absolute;
+z-index: 1;
+border-radius: 0px;
+border-bottom: none;
+}
+
+.wp-field-dashicons .dashicons-preview{
+ vertical-align:middle;
+line-height:26px!important;
+font-size:18px!important;
+}
+
+.wp-field-dashicons .dashicons-list{
+display:none;
+padding-top: 5px;
+}
+
+.wp-field-dashicons .dashicons-list.open{
+display:block;
+}
+
+.wp-field-dashicons .dashicons-list li {
+	display:inline-block;
+	padding: 3px;
+}
+.wp-field-dashicons .dashicons-list li:hover,
+.wp-field-dashicons .dashicons-list li.current {
+	background-color:#333;
+	color:#FFF;
+}
+
+.wp-field-dashicons .dashicons-preview,
+.wp-field-dashicons .dashicons-list li span, .dashicons-list li span:before {
+    display: inline-block;
+    font-size: 20px;
+    font-family: dashicons;
+    text-decoration: inherit;
+    font-weight: 400;
+    font-style: normal;
+    vertical-align: top;
+    text-align: center;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wp-field-dashicons .dashicons-toogle{
+    min-width:40px;
+}

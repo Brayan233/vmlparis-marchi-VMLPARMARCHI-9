@@ -1,0 +1,10 @@
+{
+    "data" : [],
+	"custom" : true,
+	"placeholder" : "https://",
+	"maxOptions" : 1000,
+	"labelField" : "title",
+	"valueField" : "value",
+	"clear_button": true,
+	"plugins" : []
+}

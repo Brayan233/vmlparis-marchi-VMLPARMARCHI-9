@@ -1,0 +1,15 @@
+{
+    "type": "library",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "sync": "",
+    "title": "Download",
+    "desc": "PHP download endpoint",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [],
+    "styles": []
+}

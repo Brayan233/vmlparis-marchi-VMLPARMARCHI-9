@@ -1,0 +1,45 @@
+#lastFM-searchbar{
+    position:relative;
+    margin-bottom:20px;
+}
+#lastFM-search-button{
+    position:absolute;
+    top:1px;
+    bottom:1px;
+    right:1px;
+    color: #555;
+    border-left: solid 1px #ccc;
+    background: #f7f7f7;
+    line-height:25px;
+    padding-left:5px;
+    padding-right:5px;
+    cursor:pointer;
+}
+#lastFM-select{
+  display:block;
+
+}
+#lastFM-select img{
+  display:block;
+width:100%;
+}
+#lastFM-list{
+
+}
+.lastFM-list-item {
+display:block;
+vertical-align:top;
+
+}
+.lastFM-list-item img {
+padding-right:5px!important;
+padding-bottom:5px!important;
+margin:0px;
+width:100%;
+display:block;
+cursor:pointer;
+overflow:hidden;
+}
+.lastFM-list-item span {
+
+}

@@ -1,0 +1,73 @@
+[
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "presentation",
+            "title": "",
+            "tab": "Presentation",
+            "options": {
+                "toolbar": [
+                    [ "bold", "italic", "underline", "strike" ]
+                ]
+            }
+        }
+    },
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "description",
+            "title": "",
+            "tab": "Description",
+            "options": {
+                "toolbar": [
+                    [ { "size": [] }],
+                    [ "bold", "italic", "underline", "strike" ],
+                    [ { "color": [] }, { "background": [] }],
+                    [ { "script": "super" }, { "script": "sub" }],
+                    [ "blockquote" ],
+                    [ { "list": "ordered" }, { "list": "bullet"}, { "indent": "-1" }, { "indent": "+1" }],
+                    [ { "align": [] }]
+                ]
+            }
+
+        }
+    },
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "details",
+            "title": "",
+            "tab": "Details",
+            "options": {
+                "toolbar": [
+                    [ { "size": [] }],
+                    [ "bold", "italic", "underline", "strike" ],
+                    [ { "color": [] }, { "background": [] }],
+                    [ { "script": "super" }, { "script": "sub" }],
+                    [ "blockquote" ],
+                    [ { "list": "ordered" }, { "list": "bullet"}, { "indent": "-1" }, { "indent": "+1" }],
+                    [ { "align": [] }]
+                ]
+            }
+        }
+    },
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "more",
+            "title": "",
+            "tab": "More",
+            "options": {
+                "toolbar": [
+                    [ { "size": [] }],
+                    [ "bold", "italic", "underline", "strike" ],
+                    [ { "color": [] }, { "background": [] }],
+                    [ { "script": "super" }, { "script": "sub" }],
+                    [ "blockquote" ],
+                    [ { "list": "ordered" }, { "list": "bullet"}, { "indent": "-1" }, { "indent": "+1" }],
+                    [ { "align": [] }]
+                ]
+            }
+        }
+    }
+]

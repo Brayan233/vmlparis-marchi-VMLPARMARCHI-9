@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "nodeca",
+    "version": "1.0.3",
+    "update": "",
+    "sync": "",
+    "title": "pako",
+    "desc": "Base64 decode",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "nodeca_library_pako",
+            "version": "1.0.3",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "/script.js",
+            "min": "/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

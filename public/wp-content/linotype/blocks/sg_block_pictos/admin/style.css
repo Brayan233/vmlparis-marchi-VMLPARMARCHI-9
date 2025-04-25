@@ -1,0 +1,15 @@
+/* .sg_block_pictos > .composer-item-content > .container-full > .composer-items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.sg_block_pictos > .composer-item-content > .container-full > .composer-items > .composer-item {
+     flex: 0 calc( 100%/3 + 1px );
+     height: 120px;
+     overflow: hidden;
+} */
+
+.sg_block_pictos .mention {
+     word-break: break-word;
+}

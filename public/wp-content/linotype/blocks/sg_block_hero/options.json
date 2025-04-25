@@ -1,0 +1,94 @@
+[
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "img",
+            "title": "Image",
+            "col": "col-6"
+        },
+        "id": "3a1ef726dd676b64bdc18716b2d2d3c2",
+        "params": []
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "img_mobile",
+            "title": "Image Mobile",
+            "col": "col-6"
+        },
+        "id": "1676f492bce02643e159b1ec38e4472a",
+        "params": []
+    },
+    {
+        "type": "slab_field_quill",
+        "options": {
+            "id": "quote",
+            "title": "Quote",
+            "options": {
+                "p": true,
+                "placeholder": "",
+                "syntax": false,
+                "theme": "snow",
+                "toolbar": [
+                    [
+                        {
+                            "size": []
+                        }
+                    ],
+                    [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strike"
+                    ]
+                ]
+            }
+        },
+        "id": "a56d182863568070724f5e215431730c",
+        "params": []
+    },
+    {
+        "type": "linotype_field_link",
+        "options": {
+            "id": "link",
+            "title": "Link ID"
+        }
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "compress",
+            "title": "Image compression",
+            "default": "85",
+            "options": {
+                "data": [
+                    {
+                        "value": "100",
+                        "title": "100% (no compression)"
+                    },
+                    {
+                        "value": "95",
+                        "title": "95%"
+                    },
+                    {
+                        "value": "90",
+                        "title": "90%"
+                    },
+                    {
+                        "value": "85",
+                        "title": "85% (Common Compression)"
+                    },
+                    {
+                        "value": "80",
+                        "title": "80%"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "",
+                "multiple": false,
+                "style": ""
+            }
+        }
+    }
+]

@@ -1,0 +1,18 @@
+{
+    "type": "field",
+    "author": "",
+    "version": "1.0",
+    "update": "",
+    "title": "Container",
+    "desc": "",
+    "icon": "",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [
+        "twitter_library_bootstrap"
+    ]
+}

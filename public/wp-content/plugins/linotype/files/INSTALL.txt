@@ -1,0 +1,75 @@
+CONTENTS OF THIS FILE
+---------------------
+
+ * Requirements and notes
+ * Server requirements
+ * Installation
+ * Documentation
+
+REQUIREMENTS AND NOTES
+----------------------
+
+- A web server with PHP support, for example:
+  - Apache 2.0 (or greater) (http://httpd.apache.org/).
+  - Nginx 1.1 (or greater) (http://nginx.com/).
+
+- PHP 7.0.x (or greater) (http://php.net/).
+
+- PHP extensions are required:
+  - php-mbstring
+  - php-mcrypt
+  - php-zip
+
+SERVER REQUIREMENTS
+-------------------
+
+- On an Apache web server, you will need the mod_rewrite module and
+  the ability to use local .htaccess files.
+
+- For Nginx you will need to add to site configuration file something like:
+    location / {
+       try_files $uri $uri/ /server.php$is_args$args;
+    }
+
+
+INSTALLATION
+------------
+- We will give an example of installation on an Apache server on Ubuntu 14.04 and later.
+  The default document root for Apache is /var/www/html (Ubuntu 14.04 and later).
+  See the file /usr/share/doc/apache2/README.Debian.gz for some explanation on how the Apache
+  configuration on Ubuntu is done.
+
+- Unpack archive to any directory on your server:
+  - unzip engine-fm.zip
+
+- Copy the contents to /var/www:
+  - cp -a ./engine-fm/ ./html/ /var/www/
+  - if you are copying to a location not owned by the current user then you should use:
+    - sudo cp -a ./engine-fm/ ./html/ /var/www/
+
+- Ultimately you will got the next structure of folders:
+    var/www
+           /engine-fm
+                     /root
+                     /runtime
+                     /settings
+                     /vendors
+                     /app.php
+           /html
+                /engine-fm
+                          /doc
+                          /js
+                          /styles
+                          /.htaccess
+                          /favicon.ico
+                          /index.html
+                          /server.php
+
+- To run the application, point your browser to the URL of your server:
+  - http://www.your-domain-name/engine-fm/
+
+DOCUMENTATION
+-------------
+
+- You can find more details after installation:
+  - http://www.your-domain-name/engine-fm/doc

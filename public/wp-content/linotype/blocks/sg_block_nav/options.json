@@ -1,0 +1,93 @@
+[
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "logo",
+            "title": "Logo",
+            "col": "col-4",
+            "tab": "Style"
+        }
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "logo_light",
+            "title": "Logo Light",
+            "col": "col-4",
+            "tab": "Style"
+        }
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "logo_sticky",
+            "title": "Logo sticky",
+            "col": "col-4",
+            "tab": "Style"
+        }
+    },
+    {
+        "type": "linotype_field_wp_menu",
+        "options": {
+            "id": "menu",
+            "title": "Menu",
+            "tab": "Menu"
+        },
+        "id": "71d875cfb9e86ea638f46b1068c20c75",
+        "params": []
+    },
+    {
+        "type": "linotype_field_select",
+        "options": {
+            "id": "lang",
+            "title": "Selecteur de langues",
+            "default": "",
+            "options": {
+                "data": [
+                    {
+                        "value": "",
+                        "title": "Desactiv\u00e9"
+                    },
+                    {
+                        "value": "polylang",
+                        "title": "Activ\u00e9"
+                    }
+                ],
+                "empty": false,
+                "height": "",
+                "min-width": "100%",
+                "multiple": false,
+                "style": ""
+            },
+            "tab": "Menu"
+        },
+        "id": "344d02313688b2ace238773614ff8215",
+        "params": []
+    },
+    {
+        "type": "linotype_field_checkbox",
+        "options": {
+            "id": "absolute",
+            "title": "Position",
+            "options" :{
+                "value":"absolute",
+                "label":"absolute"
+            },
+            "col": "col-6",
+            "tab": "Style"
+        }
+    },
+    {
+        "type": "linotype_field_checkbox",
+        "options": {
+            "id": "light",
+            "title": "Theme light",
+            "options" :{
+                "value":"light",
+                "label":"Enable nav light theme"
+            },
+            "col": "col-12",
+            "tab": "Style"
+        }
+    }
+]

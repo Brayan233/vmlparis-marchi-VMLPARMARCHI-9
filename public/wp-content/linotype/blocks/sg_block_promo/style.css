@@ -1,0 +1,10 @@
+.sg_block_promo {
+  position: relative; }
+  .sg_block_promo .title {
+    position: absolute;
+    bottom: 3.2rem;
+    left: 0; }
+    .sg_block_promo .title p {
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 100%; }

@@ -1,0 +1,50 @@
+.selectize-control.plugin-clear_button .clearAll {
+  font-size: 20px;
+  line-height: 32px;
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+  top: 1px;
+  cursor: pointer;
+  color: #b3b3b3;
+}
+
+.selectize-control.plugin-clear_button .clearAll.disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.selectize-control.plugin-clear_button .clearAll:active,
+.selectize-control.plugin-clear_button .clearAll:focus {
+  outline: 0;
+}
+
+.selectize-control.plugin-remove_button [data-value] {
+  padding-right: 1px !important;
+}
+
+.linotype_field_terms.fullwidthitem .selectize-control.multi .selectize-input>div,
+.linotype_field_terms.fullwidthitem .selectize-control.multi .selectize-input>input {
+  width: calc(100% - 50px) !important;
+}
+
+.linotype_field_terms .selectize-input {
+  border: 1px solid #7e8993;
+  padding: 5px 8px;
+}
+
+.linotype_field_terms .selectize-input.focus {
+  border-color: #007cba;
+  box-shadow: 0 0 0 1px #007cba;
+  outline: 1px solid transparent;
+}
+
+.linotype_field_terms .selectize-dropdown {
+  border-color: #007cba;
+  box-shadow: 0 0 0 1px #007cba;
+  outline: 1px solid transparent;
+}
+
+.linotype_field_terms .field-input input {
+  width: 100%;
+}

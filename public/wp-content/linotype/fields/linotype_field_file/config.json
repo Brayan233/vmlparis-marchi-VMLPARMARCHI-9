@@ -1,0 +1,31 @@
+{
+    "type": "field",
+    "author": "linotype",
+    "version": "1.0",
+    "update": "",
+    "sync": "",
+    "title": "File",
+    "desc": "",
+    "icon": "dashicons dashicons-edit",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "target": [],
+    "parent": [],
+    "accept": [],
+    "libraries": [],
+    "field_id": "",
+    "field_default": "",
+    "field_dummy": "",
+    "field_title": "",
+    "field_info": "",
+    "field_desc": "",
+    "field_options": {
+        "output": "url",
+        "height": "",
+        "wrapstyle": "",
+        "imgstyle": "",
+        "input": false,
+        "placeholder": ""
+    }
+}

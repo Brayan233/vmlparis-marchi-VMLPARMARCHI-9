@@ -1,0 +1,20 @@
+[
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "logo_fav",
+            "title": "Logo Favicon",
+            "tab": "Globals",
+            "col": "col-3"
+        }
+    },
+    {
+        "type": "linotype_field_image",
+        "options": {
+            "id": "logo_app",
+            "title": "Logo App",
+            "tab": "Globals",
+            "col": "col-3"
+        }
+    }
+]

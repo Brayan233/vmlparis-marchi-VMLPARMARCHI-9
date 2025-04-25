@@ -1,0 +1,86 @@
+.wc_block_account_nav {
+  padding-top: 4.8rem;
+  padding-bottom: 6.4rem; }
+  @media (min-width: 768px) {
+    .wc_block_account_nav {
+      padding-top: 5.6rem;
+      padding-bottom: 11.2rem; } }
+  @media (max-width: 767px) {
+    .wc_block_account_nav .account-layout > .col-2 {
+      margin-top: 4.8rem; } }
+  @media (min-width: 992px) {
+    .wc_block_account_nav .account-layout > .col-1 {
+      width: 33.3333%; }
+    .wc_block_account_nav .account-layout > .col-2 {
+      width: 66.6667%; } }
+  .wc_block_account_nav .checkout-lvl1-title {
+    margin-bottom: 3.2rem; }
+    @media (min-width: 768px) {
+      .wc_block_account_nav .checkout-lvl1-title {
+        margin-bottom: 4.8rem; } }
+  .wc_block_account_nav .account-nav {
+    padding: 0;
+    margin: 0 0 4.8rem;
+    list-style: none; }
+    @media (min-width: 768px) {
+      .wc_block_account_nav .account-nav {
+        margin-bottom: 6.4rem; } }
+    .wc_block_account_nav .account-nav .nav-item + .nav-item {
+      margin-top: 1.6rem; }
+    .wc_block_account_nav .account-nav .nav-link {
+      color: var(--darkgrey);
+      font-size: 1.4rem;
+      line-height: 1.4rem;
+      text-decoration: none;
+      text-transform: uppercase; }
+      @media (max-width: 767px) {
+        .wc_block_account_nav .account-nav .nav-link {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          background-color: rgba(146, 148, 178, 0.05);
+          padding: 1.7rem 1.6rem 1.7rem 2.4rem; }
+          .wc_block_account_nav .account-nav .nav-link::after {
+            display: block;
+            width: 1.2rem;
+            height: 1.2rem;
+            background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M3.707 0l5.657 5.657-.026.024.026.026-5.657 5.657L3 10.657 7.974 5.68 3 .707 3.707 0z' id='a'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse fill='%23000' xlink:href='%23a'/%3E%3Cg mask='url(%23b)' fill='%23000'%3E%3Cpath d='M0 0h24v24H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            margin-left: auto;
+            content: ""; } }
+      @media (min-width: 768px) {
+        .wc_block_account_nav .account-nav .nav-link {
+          display: block;
+          padding-top: .8rem;
+          padding-bottom: .8rem; } }
+      .wc_block_account_nav .account-nav .nav-link.active {
+        color: var(--violet);
+        font-weight: 500; }
+  @media (min-width: 768px) {
+    .wc_block_account_nav .account-actions {
+      width: 75%; } }
+  @media (min-width: 1200px) {
+    .wc_block_account_nav .account-actions {
+      width: 50%; } }
+
+@media (max-width: 767px) {
+  .woocommerce-orders .account-title,
+  .woocommerce-orders .account-nav,
+  .woocommerce-orders .account-actions,
+  .woocommerce-edit-address .account-title,
+  .woocommerce-edit-address .account-nav,
+  .woocommerce-edit-address .account-actions,
+  .woocommerce-edit-account .account-title,
+  .woocommerce-edit-account .account-nav,
+  .woocommerce-edit-account .account-actions,
+  .woocommerce-view-order .account-title,
+  .woocommerce-view-order .account-nav,
+  .woocommerce-view-order .account-actions {
+    display: none; }
+  .woocommerce-orders .wc_block_account_nav .account-layout > .col-2,
+  .woocommerce-edit-address .wc_block_account_nav .account-layout > .col-2,
+  .woocommerce-edit-account .wc_block_account_nav .account-layout > .col-2,
+  .woocommerce-view-order .wc_block_account_nav .account-layout > .col-2 {
+    margin-top: 0; } }

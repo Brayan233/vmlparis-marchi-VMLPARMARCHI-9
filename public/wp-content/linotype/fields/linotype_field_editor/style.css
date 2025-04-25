@@ -1,0 +1,47 @@
+	
+.wp-field-editor .wp-editor-container {	
+min-width: 100%!important;
+overflow: hidden;
+}
+
+/* remove editor border if in postbox and full width  */
+.postbox:not(.hide-box-style) .wp-field-editor.zero-border .wp-editor-container {	
+box-shadow: none;
+-moz-box-shadow: none;
+-webkit-box-shadow:none;
+border:none;
+}
+
+.wp-field-editor .mceLayout iframe{
+min-height: inherit!important;
+background-color: #FFF!important;
+}
+
+/* Hide tools */
+.wp-field-editor.hide-tools .wp-editor-tools {
+	display:none!important;
+}
+
+/* Hide toolbar */
+.wp-field-editor.hide-toolbar div.mce-toolbar-grp {
+display: none!important; 
+}
+.wp-field-editor.hide-toolbar div.quicktags-toolbar {
+display: none!important; 
+}
+
+	
+.wp-field-editor.fullwidth #wp-content-editor-tools {
+    padding: 5px 10px 0px 5px!important;
+}
+
+.linotype_field_editor .wp-editor-tools {
+position:absolute!important;
+top:0px;
+right:5px;
+}
+.linotype_field_editor .switch-html,  
+.linotype_field_editor .switch-tmce {
+border: none!important;
+background:none!important;
+}

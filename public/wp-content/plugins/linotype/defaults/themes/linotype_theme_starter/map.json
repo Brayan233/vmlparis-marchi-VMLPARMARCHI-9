@@ -1,0 +1,524 @@
+{
+    "post": {
+        "infos": {
+            "title": "Articles",
+            "slug": "post",
+            "posts": {
+                "1": {
+                    "ID": 1,
+                    "title": "Hello world!"
+                },
+                "66": {
+                    "ID": 66,
+                    "title": "article 2"
+                }
+            },
+            "taxonomies": {
+                "category": {
+                    "1": {
+                        "ID": 1,
+                        "title": "Uncategorized",
+                        "taxonomy": "category"
+                    }
+                },
+                "post_tag": [],
+                "post_format": []
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": {
+                    "1": {
+                        "ID": 1,
+                        "title": "Hello world!"
+                    },
+                    "66": {
+                        "ID": 66,
+                        "title": "article 2"
+                    }
+                },
+                "rules": []
+            },
+            "archive": {
+                "title": "Archive",
+                "template": "",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": [],
+                "rules": []
+            },
+            "category": {
+                "title": "Cat\u00e9gories",
+                "template": "",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": {
+                    "1": {
+                        "ID": 1,
+                        "title": "Uncategorized",
+                        "taxonomy": "category"
+                    }
+                },
+                "rules": []
+            },
+            "post_tag": {
+                "title": "\u00c9tiquettes",
+                "template": "",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "post_format": {
+                "title": "Formats",
+                "template": "",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "product_cat": {
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                }
+            },
+            "product_tag": {
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                }
+            }
+        }
+    },
+    "page": {
+        "infos": {
+            "title": "Pages",
+            "slug": "page",
+            "posts": {
+                "2": {
+                    "ID": 2,
+                    "title": "Accueil"
+                },
+                "3": {
+                    "ID": 3,
+                    "title": "Mentions le\u0301gales"
+                },
+                "11": {
+                    "ID": 11,
+                    "title": "Contact"
+                },
+                "92": {
+                    "ID": 92,
+                    "title": "Gouvernance et organisation"
+                }
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": {
+                    "2": {
+                        "ID": 2,
+                        "title": "Accueil"
+                    },
+                    "3": {
+                        "ID": 3,
+                        "title": "Mentions le\u0301gales"
+                    },
+                    "11": {
+                        "ID": 11,
+                        "title": "Contact"
+                    },
+                    "92": {
+                        "ID": 92,
+                        "title": "Gouvernance et organisation"
+                    }
+                },
+                "rules": []
+            }
+        }
+    },
+    "attachment": {
+        "infos": {
+            "title": "Fichier m\u00e9dia",
+            "slug": "attachment",
+            "posts": []
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "",
+                "templates": [],
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "contenus": {
+        "infos": {
+            "title": "Contenus",
+            "slug": "contenus",
+            "posts": {
+                "94": {
+                    "ID": 94,
+                    "title": "ACP DEEE M\u00e9nagers"
+                },
+                "95": {
+                    "ID": 95,
+                    "title": "ACP DEEE Professionnels"
+                },
+                "96": {
+                    "ID": 96,
+                    "title": "ACP Lampes"
+                },
+                "97": {
+                    "ID": 97,
+                    "title": "ACP Petits appareils extincteurs"
+                },
+                "98": {
+                    "ID": 98,
+                    "title": "DDLC DEEE M\u00e9nagers"
+                },
+                "99": {
+                    "ID": 99,
+                    "title": "DDLC DEEE Professionnels"
+                },
+                "100": {
+                    "ID": 100,
+                    "title": "DDLC Lampes"
+                },
+                "101": {
+                    "ID": 101,
+                    "title": "DDLC Petits appareils extincteurs"
+                },
+                "102": {
+                    "ID": 102,
+                    "title": "ESS DEEE M\u00e9nagers"
+                },
+                "103": {
+                    "ID": 103,
+                    "title": "ESS DEEE Professionnels"
+                },
+                "104": {
+                    "ID": 104,
+                    "title": "ESS Lampe"
+                },
+                "105": {
+                    "ID": 105,
+                    "title": "LET DEEE M\u00e9nagers"
+                },
+                "106": {
+                    "ID": 106,
+                    "title": "LET DEEE Professionnels"
+                },
+                "107": {
+                    "ID": 107,
+                    "title": "LET Lampes"
+                },
+                "108": {
+                    "ID": 108,
+                    "title": "IEC DEEE M\u00e9nagers"
+                },
+                "109": {
+                    "ID": 109,
+                    "title": "IEC DEEE Professionnels"
+                },
+                "110": {
+                    "ID": 110,
+                    "title": "IEC Lampes"
+                },
+                "111": {
+                    "ID": 111,
+                    "title": "IEC Petits appareils extincteurs"
+                }
+            },
+            "taxonomies": {
+                "actions": {
+                    "24": {
+                        "ID": 24,
+                        "title": "Accompagnement des producteurs",
+                        "taxonomy": "actions"
+                    },
+                    "25": {
+                        "ID": 25,
+                        "title": "D\u00e9veloppement de la collecte",
+                        "taxonomy": "actions"
+                    },
+                    "26": {
+                        "ID": 26,
+                        "title": "\u00c9conomie sociale et solidaire",
+                        "taxonomy": "actions"
+                    },
+                    "27": {
+                        "ID": 27,
+                        "title": "Logistique et traitement",
+                        "taxonomy": "actions"
+                    },
+                    "28": {
+                        "ID": 28,
+                        "title": "Information et communication",
+                        "taxonomy": "actions"
+                    }
+                },
+                "secteurs": {
+                    "20": {
+                        "ID": 20,
+                        "title": "DEEE M\u00e9nagers",
+                        "taxonomy": "secteurs"
+                    },
+                    "21": {
+                        "ID": 21,
+                        "title": "DEEE Professionnels",
+                        "taxonomy": "secteurs"
+                    },
+                    "22": {
+                        "ID": 22,
+                        "title": "Lampes",
+                        "taxonomy": "secteurs"
+                    },
+                    "23": {
+                        "ID": 23,
+                        "title": "Petits appareils extincteurs",
+                        "taxonomy": "secteurs"
+                    }
+                }
+            }
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "esr_template_content",
+                "templates": [],
+                "target": {
+                    "94": {
+                        "ID": 94,
+                        "title": "ACP DEEE M\u00e9nagers"
+                    },
+                    "95": {
+                        "ID": 95,
+                        "title": "ACP DEEE Professionnels"
+                    },
+                    "96": {
+                        "ID": 96,
+                        "title": "ACP Lampes"
+                    },
+                    "97": {
+                        "ID": 97,
+                        "title": "ACP Petits appareils extincteurs"
+                    },
+                    "98": {
+                        "ID": 98,
+                        "title": "DDLC DEEE M\u00e9nagers"
+                    },
+                    "99": {
+                        "ID": 99,
+                        "title": "DDLC DEEE Professionnels"
+                    },
+                    "100": {
+                        "ID": 100,
+                        "title": "DDLC Lampes"
+                    },
+                    "101": {
+                        "ID": 101,
+                        "title": "DDLC Petits appareils extincteurs"
+                    },
+                    "102": {
+                        "ID": 102,
+                        "title": "ESS DEEE M\u00e9nagers"
+                    },
+                    "103": {
+                        "ID": 103,
+                        "title": "ESS DEEE Professionnels"
+                    },
+                    "104": {
+                        "ID": 104,
+                        "title": "ESS Lampe"
+                    },
+                    "105": {
+                        "ID": 105,
+                        "title": "LET DEEE M\u00e9nagers"
+                    },
+                    "106": {
+                        "ID": 106,
+                        "title": "LET DEEE Professionnels"
+                    },
+                    "107": {
+                        "ID": 107,
+                        "title": "LET Lampes"
+                    },
+                    "108": {
+                        "ID": 108,
+                        "title": "IEC DEEE M\u00e9nagers"
+                    },
+                    "109": {
+                        "ID": 109,
+                        "title": "IEC DEEE Professionnels"
+                    },
+                    "110": {
+                        "ID": 110,
+                        "title": "IEC Lampes"
+                    },
+                    "111": {
+                        "ID": 111,
+                        "title": "IEC Petits appareils extincteurs"
+                    }
+                },
+                "rules": []
+            },
+            "archive": {
+                "title": "Archive",
+                "template": "",
+                "templates": [],
+                "target": [],
+                "rules": []
+            },
+            "actions": {
+                "title": "Champs d'actions",
+                "template": "esr_template_actions",
+                "templates": [],
+                "target": {
+                    "24": {
+                        "ID": 24,
+                        "title": "Accompagnement des producteurs",
+                        "taxonomy": "actions"
+                    },
+                    "25": {
+                        "ID": 25,
+                        "title": "D\u00e9veloppement de la collecte",
+                        "taxonomy": "actions"
+                    },
+                    "26": {
+                        "ID": 26,
+                        "title": "\u00c9conomie sociale et solidaire",
+                        "taxonomy": "actions"
+                    },
+                    "27": {
+                        "ID": 27,
+                        "title": "Logistique et traitement",
+                        "taxonomy": "actions"
+                    },
+                    "28": {
+                        "ID": 28,
+                        "title": "Information et communication",
+                        "taxonomy": "actions"
+                    }
+                },
+                "rules": []
+            },
+            "secteurs": {
+                "title": "Secteurs",
+                "template": "esr_template_secteur",
+                "templates": [],
+                "target": {
+                    "20": {
+                        "ID": 20,
+                        "title": "DEEE M\u00e9nagers",
+                        "taxonomy": "secteurs"
+                    },
+                    "21": {
+                        "ID": 21,
+                        "title": "DEEE Professionnels",
+                        "taxonomy": "secteurs"
+                    },
+                    "22": {
+                        "ID": 22,
+                        "title": "Lampes",
+                        "taxonomy": "secteurs"
+                    },
+                    "23": {
+                        "ID": 23,
+                        "title": "Petits appareils extincteurs",
+                        "taxonomy": "secteurs"
+                    }
+                },
+                "rules": []
+            }
+        }
+    },
+    "author": {
+        "infos": {
+            "title": "Auteur",
+            "slug": "author"
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "error": {
+        "infos": {
+            "title": "Erreur",
+            "slug": "error"
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "esr_template_404",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": [],
+                "rules": []
+            }
+        }
+    },
+    "search": {
+        "infos": {
+            "title": "Recherche",
+            "slug": "search"
+        },
+        "types": {
+            "single": {
+                "title": "Single",
+                "template": "",
+                "templates": {
+                    "linotype_template_page": {
+                        "ID": "linotype_template_page",
+                        "title": "Page"
+                    }
+                },
+                "target": [],
+                "rules": []
+            }
+        }
+    }
+}

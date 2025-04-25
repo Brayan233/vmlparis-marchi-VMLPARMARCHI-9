@@ -1,0 +1,160 @@
+[
+    {
+        "type": "sg_block_nav",
+        "options": {
+            "absolute": "absolute",
+            "menu": "[general]",
+            "lang": "polylang",
+            "_overwrite": [
+                {
+                    "id": "light",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_light"
+                },
+                {
+                    "id": "logo",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_light",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_light",
+                    "tab": "Nav"
+                },
+                {
+                    "id": "logo_sticky",
+                    "overwrite_target": "option",
+                    "meta_id_strict": "",
+                    "meta_id": "nav_logo_sticky",
+                    "tab": "Nav"
+                }
+            ]
+        }
+    },
+    {
+        "type": "wc_block_notices",
+        "id": "a781a36b99e48de94efcd43052a2ad42"
+    },
+    {
+        "type": "sg_block_product_single",
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "presentation",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": ""
+                },
+                {
+                    "id": "description",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": ""
+                },
+                {
+                    "id": "details",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": ""
+                },
+                {
+                    "id": "more",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "",
+                    "options": "",
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "",
+                    "tab": "",
+                    "group": ""
+                }
+            ]
+        }
+    },
+    {
+        "type": "linotype_block_composer",
+        "options": {
+            "_overwrite": [
+                {
+                    "id": "content",
+                    "overwrite_target": "meta",
+                    "meta_id_strict": "",
+                    "meta_id": "",
+                    "type": "linotype_field_composer",
+                    "options": {
+                        "items_only": [
+                            "sg_block_hero",
+                            "sg_block_content",
+                            "sg_block_quote",
+                            "sg_block_text",
+                            "sg_block_image",
+                            "sg_block_media",
+                            "sg_block_promo",
+                            "sg_block_categories",
+                            "sg_block_gallery",
+                            "sg_block_pictos",
+                            "sg_block_pictos_item",
+                            "sg_block_tabs",
+                            "sg_block_product_grid",
+                            "sg_block_product_slider",
+                            "sg_block_link"
+                        ],
+                        "devices": false,
+                        "overwrite": false,
+                        "actions": [
+                            "add",
+                            "edit",
+                            "sort",
+                            "clone",
+                            "delete",
+                            "link"
+                        ]
+                    },
+                    "title": "",
+                    "desc": "",
+                    "col": "",
+                    "padding": "0px",
+                    "tab": "",
+                    "group": "Template"
+                }
+            ]
+        },
+        "id": "d8653915f4ff619a2bd29e4f25e99c36"
+    },
+    {
+        "type": "sg_module_footer",
+        "id": "880591dd40893718c4c5025fbac3ed6a"
+    }
+]

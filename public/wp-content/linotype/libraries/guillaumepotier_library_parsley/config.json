@@ -1,0 +1,27 @@
+{
+    "type": "library",
+    "author": "guillaumepotier",
+    "version": "2.9.1",
+    "update": "",
+    "sync": "",
+    "title": "Parsley",
+    "desc": "The ultimate JavaScript form validation library",
+    "icon": "dashicons dashicons-category",
+    "color": "",
+    "category": "",
+    "tags": [],
+    "scripts": [
+        {
+            "id": "guillaumepotier_library_parsley",
+            "version": "2.9.1",
+            "dependencies": [
+                "jquery"
+            ],
+            "footer": "true",
+            "full": "/script.js",
+            "min": "/script.js",
+            "cdn": ""
+        }
+    ],
+    "styles": []
+}

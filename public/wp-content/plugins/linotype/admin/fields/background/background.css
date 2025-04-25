@@ -1,0 +1,178 @@
+.field-background{
+position: relative;
+}
+
+.field-background-preview-bg{
+padding: 0px;
+margin: 0px;
+position: absolute;
+top: 0px;
+left: 310px;
+right: 0px;
+bottom: 0px;
+background-image: url(bg-psd.png);
+}
+.field-background-preview{
+padding:10px;
+margin:10px;
+position: absolute;
+top: 0px;
+left: 0px;
+right: 0px;
+bottom: 0px;
+}
+
+.field-background-panel{
+position: relative;
+width: 300px;
+position: relative;
+}
+.field-background-action{
+text-align: left;
+}
+.field-background-action .button,
+.wp-picker-container {
+margin-bottom: 8px;
+}
+.wp-field-background .background-params-field {
+width: 100%;
+position: relative;
+}
+.wp-field-background .wp-color-result{
+margin-bottom: 0px;
+}
+.wp-field-background .background-params-field span {
+display: block;
+margin-bottom: 5px;
+}
+
+.wp-field-background .background-params-field .background-params {
+width: 100%;
+margin-bottom: 5px;
+}
+
+.wp-field-background .background-params-field .hide {
+opacity:0.5;
+display: none;
+}
+
+
+/* */
+.wp-field-background .wp-picker-container {
+width: 100%!important;
+}
+.wp-field-background .wp-color-result {
+    border-radius: 2px;
+}
+.wp-field-background .wp-color-result:hover {
+    border: 1px solid #999999!important;
+}
+.wp-field-background .wp-color-result::after{
+  border-left: 1px solid #AAA;
+  border-radius: 0px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  box-shadow: none;
+}
+.wp-field-background .wp-picker-container a.wp-color-result{
+display: block!important;
+margin-right: 0px!important;
+}
+.wp-field-background .wp-picker-input-wrap{
+top: 50px!important;
+width: inherit!important;
+margin: 0px!important;
+position: absolute!important;
+z-index: 1!important;
+}
+.wp-field-background .wp-picker-container input[type=text].wp-color-picker {
+width: 100%!important;
+border-top: none!important;
+border-left: none!important;
+border-right: none!important;
+border-bottom: solid 1px #CCC!important;
+background-color: transparent!important;
+text-align: left!important;
+-webkit-box-shadow: none!important;
+box-shadow: none!important;
+line-height: 22px!important;
+}
+.wp-field-background .wp-picker-container input[type=text].wp-color-picker:focus {
+border-color: #CCC!important;
+}
+.wp-field-background .iris-border .iris-picker-inner {
+top: 42px!important;
+}
+.wp-field-background .wp-picker-container input.wp-picker-clear {
+margin-top: 0px!important;
+right: 5px!important;
+position: absolute!important;
+}
+.wp-field-background .wp-picker-container .iris-picker {
+border: none!important;
+margin-top: 0px!important;
+padding-bottom: 65px!important;
+width:inherit!important;
+}
+.wp-field-background .iris-picker .iris-square{
+right: 60px!important;
+left: 0px!important;
+width: inherit!important;
+position: absolute!important;
+}
+.wp-field-background .iris-picker .iris-slider-offset,
+.wp-field-background .iris-picker .iris-slider {
+width:12px!important;
+}
+.wp-field-background .iris-picker .iris-slider {
+margin-left: 15px!important;
+position: absolute!important;
+right: 30px!important;
+height: 183px!important;
+}
+.wp-field-background .iris-picker .iris-slider.iris-alpha-slider{
+position: absolute!important;
+right: 0px!important;
+}
+.wp-field-background .wp-picker-container .iris-picker {
+border-left: solid 1px #CCC!important;;
+border-bottom: solid 1px #CCC!important;;
+border-right: solid 1px #CCC!important;;
+border-bottom-left-radius: 3px!important;;
+border-bottom-right-radius: 3px!important;;
+}
+.wp-field-background .wp-color-result,
+.wp-field-background .wp-color-result:focus{
+border: 1px solid #ccc!important;
+-webkit-box-shadow: 0 1px 0 #ccc!important;
+box-shadow: 0 1px 0 #ccc!important;
+}
+.wp-field-background .wp-color-result.wp-picker-open:focus{
+-webkit-box-shadow: none!important;
+box-shadow: none!important;
+}
+.wp-field-background .wp-color-result:after{
+border-left: none!important;
+}
+.wp-field-background .wp-color-result.wp-picker-open,
+.wp-field-background .wp-color-result {
+background-image: none!important;
+}
+.wp-field-background .wp-color-result span{
+width: 32px!important;
+}
+.wp-field-background .wp-color-result.wp-picker-open span{
+width: 100%!important;
+}
+.wp-field-background .wp-color-result.wp-picker-open span,
+.wp-field-background .wp-color-result span {
+border-radius : 1px!important;
+}
+.wp-field-background .wp-picker-container.wp-picker-active a.wp-color-result,
+.wp-field-background .wp-picker-container.wp-picker-active a.wp-color-result span {
+border-bottom-left-radius: 0px!important;
+border-bottom-right-radius: 0px!important;
+}
+
+
+

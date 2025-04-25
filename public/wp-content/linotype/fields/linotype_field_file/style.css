@@ -1,0 +1,8 @@
+
+.wp-field-file .wp-field-value {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+  line-height: 21px;
+  width: calc( 100% - 65px );
+}
